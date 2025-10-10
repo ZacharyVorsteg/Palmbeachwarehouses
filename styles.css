@@ -430,6 +430,102 @@ body {
     50% { transform: translateY(-10px); }
 }
 
+/* Footer Styles */
+.footer {
+    background: var(--darker-bg);
+    color: var(--text-gray);
+    padding: 3rem 2rem 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    margin-bottom: 2rem;
+}
+
+.footer-section h4 {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.footer-section p {
+    margin: 0.5rem 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.footer-section a {
+    color: var(--accent-blue);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-section a:hover {
+    color: var(--primary-blue);
+    text-decoration: underline;
+}
+
+.footer-disclaimer {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 2rem 0;
+    border-left: 3px solid var(--accent-blue);
+}
+
+.footer-disclaimer p {
+    font-size: 0.85rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    color: #b8bdc3;
+}
+
+.footer-disclaimer p:last-child {
+    margin-bottom: 0;
+}
+
+.footer-disclaimer strong {
+    color: var(--text-light);
+    font-weight: 600;
+}
+
+.privacy-note {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    margin-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom p {
+    font-size: 0.85rem;
+    margin: 0.5rem 0;
+}
+
+.equal-housing {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+.eho-icon {
+    font-size: 1.2rem;
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
     .hero-content {
@@ -476,6 +572,18 @@ body {
 
     .hero-title {
         font-size: 2rem;
+    }
+
+    .footer {
+        padding: 2rem 1rem 1.5rem;
+    }
+
+    .footer-disclaimer {
+        padding: 1rem;
+    }
+
+    .footer-disclaimer p {
+        font-size: 0.8rem;
     }
 }
 
