@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INDUSTRIALSPACE - Premium Commercial Properties</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="assets/logo.png" alt="Palm Beach Warehouses" class="logo-img">
+                <div class="logo-text">
+                    <div class="brand-name">INDUSTRIALSPACE</div>
+                    <div class="tagline">Premium Commercial Properties</div>
+                </div>
+            </div>
+            <nav class="nav">
+                <a href="#properties">Properties</a>
+                <a href="#about">About</a>
+                <a href="#faq">FAQ</a>
+            </nav>
+            <div class="header-cta">
+                <a href="tel:561-718-6725" class="phone-btn">
+                    <span class="phone-icon">📞</span>
+                    561-718-6725
+                </a>
+                <button class="cta-button" onclick="scrollToForm()">Get Available Properties</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-left">
+                    <div class="special-badge">
+                        <span class="dot">🔴</span> SUMMER SPECIAL - FIRST MONTH FREE
+                    </div>
+                    <h1 class="hero-title">
+                        Get The <span class="highlight">Industrial Space</span> You Need This Week
+                    </h1>
+                    <p class="hero-subtitle">
+                        Skip the waiting lists. View available properties now in Palm Beach County.<br>
+                        <strong class="hero-emphasis">Move in as fast as 48 hours.</strong>
+                    </p>
+                    
+                    <div class="features">
+                        <div class="feature">
+                            <span class="feature-icon">✓</span>
+                            <div>
+                                <div class="feature-title">1,000 - 50,000+ sq ft</div>
+                                <div class="feature-desc">Perfect size for your business</div>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">✓</span>
+                            <div>
+                                <div class="feature-title">Move-in Ready NOW</div>
+                                <div class="feature-desc">No construction delays</div>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">✓</span>
+                            <div>
+                                <div class="feature-title">Flexible Terms</div>
+                                <div class="feature-desc">Month-to-month available</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-right">
+                    <div class="form-card" id="lead-form-section">
+                        <h2 class="form-title">Schedule Your Tour</h2>
+                        <p class="form-subtitle">Get exclusive access to pre-market deals</p>
+                        
+                        <form id="lead-form" class="lead-form">
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" required placeholder="Your name">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required placeholder="email@example.com">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" required placeholder="(555) 123-4567">
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="space_size">Space Size Needed</label>
+                                    <select id="space_size" name="space_size">
+                                        <option value="">Select size...</option>
+                                        <option value="1000-5000">1,000 - 5,000 sq ft</option>
+                                        <option value="5000-10000">5,000 - 10,000 sq ft</option>
+                                        <option value="10000-20000">10,000 - 20,000 sq ft</option>
+                                        <option value="20000-50000">20,000 - 50,000 sq ft</option>
+                                        <option value="50000+">50,000+ sq ft</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="budget">Monthly Budget *</label>
+                                    <select id="budget" name="budget" required>
+                                        <option value="">Select budget...</option>
+                                        <option value="Under $2,000">Under $2,000</option>
+                                        <option value="$2,000 - $5,000">$2,000 - $5,000</option>
+                                        <option value="$5,000 - $10,000">$5,000 - $10,000</option>
+                                        <option value="$10,000 - $20,000">$10,000 - $20,000</option>
+                                        <option value="$20,000+">$20,000+</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="property_use">Intended Property Use *</label>
+                                    <select id="property_use" name="property_use" required>
+                                        <option value="">Select use...</option>
+                                        <option value="Warehouse">Warehouse</option>
+                                        <option value="Industrial">Industrial/Manufacturing</option>
+                                        <option value="Distribution">Distribution Center</option>
+                                        <option value="Office/Warehouse">Office/Warehouse</option>
+                                        <option value="Storage">Storage</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="move_date">Desired Move-in Date *</label>
+                                    <select id="move_date" name="move_date" required>
+                                        <option value="">Select date...</option>
+                                        <option value="Immediate">Immediate</option>
+                                        <option value="1-3 months">1-3 months</option>
+                                        <option value="3-6 months">3-6 months</option>
+                                        <option value="6-12 months">6-12 months</option>
+                                        <option value="Flexible">Flexible</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="notes">Special requirements? (Loading docks, office space, parking, etc.)</label>
+                                <textarea id="notes" name="notes" rows="3" placeholder="Any specific needs or requirements..."></textarea>
+                            </div>
+
+                            <button type="submit" class="submit-button" id="submit-btn">
+                                <span id="btn-text">GET PROPERTY LIST & SCHEDULE TOUR</span>
+                                <span id="btn-loading" class="hidden">Sending...</span>
+                            </button>
+
+                            <div id="form-message" class="form-message hidden"></div>
+                        </form>
+
+                        <div id="success-message" class="success-screen hidden">
+                            <div class="success-icon">✓</div>
+                            <h3>Thank You!</h3>
+                            <p>We've received your information and will contact you within 24 hours with available properties.</p>
+                            <button onclick="resetForm()" class="reset-button">Submit Another Request</button>
+                        </div>
+                    </div>
+                    
+                    <div class="trust-badges">
+                        <div class="call-now-badge">
+                            <span class="phone-icon-large">📞</span>
+                            <span class="call-now-text">Call Now</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Trusenda CRM Integration -->
+    <script src="crm-integration.js"></script>
+</body>
+</html>
+
