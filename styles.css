@@ -419,76 +419,78 @@ body {
     50% { transform: translateY(-10px); }
 }
 
-/* Footer Styles - Compact */
+/* Footer Styles - Compact & Professional */
 .footer {
-    background: var(--darker-bg);
-    color: var(--text-gray);
-    padding: 2rem;
-    border-top: 2px solid rgba(74, 158, 255, 0.2);
+    background: linear-gradient(180deg, #1a1f33 0%, #141824 100%);
+    color: #9aa0a6;
+    padding: 2.5rem 2rem 1.5rem;
+    border-top: 2px solid rgba(74, 158, 255, 0.3);
 }
 
 .footer-content {
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
     text-align: center;
 }
 
 .footer-section {
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
 }
 
 .footer-section p {
     margin: 0.5rem 0;
     font-size: 0.9rem;
-    line-height: 1.6;
+    line-height: 1.7;
     color: #c5c9ce;
 }
 
 .footer-section strong {
-    color: var(--text-light);
+    color: #e8eaed;
     font-weight: 600;
 }
 
 .footer-section a {
-    color: var(--accent-blue);
+    color: #4a9eff;
     text-decoration: none;
     transition: all 0.2s;
     font-weight: 500;
 }
 
 .footer-section a:hover {
-    color: white;
+    color: #ffffff;
     text-decoration: underline;
 }
 
 .footer-disclaimer {
-    background: rgba(26, 115, 232, 0.08);
-    padding: 1rem 1.5rem;
-    border-radius: 8px;
-    margin: 1rem 0;
-    border-left: 3px solid var(--accent-blue);
+    background: rgba(26, 115, 232, 0.12);
+    padding: 1.25rem 1.75rem;
+    border-radius: 10px;
+    margin: 1.25rem auto;
+    border-left: 4px solid #4a9eff;
+    max-width: 1000px;
+    text-align: left;
 }
 
 .footer-disclaimer p {
-    font-size: 0.8rem;
-    line-height: 1.6;
+    font-size: 0.85rem;
+    line-height: 1.7;
     margin: 0;
     color: #b8bdc3;
 }
 
 .footer-disclaimer strong {
-    color: white;
-    font-weight: 600;
+    color: #e8eaed;
+    font-weight: 700;
 }
 
 .footer-bottom {
-    padding-top: 1rem;
-    margin-top: 1rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1.25rem;
+    margin-top: 1.25rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .footer-bottom p {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     margin: 0;
     color: #9aa0a6;
 }
