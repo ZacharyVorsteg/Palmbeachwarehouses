@@ -411,6 +411,14 @@ body {
     font-size: 1.1rem;
     box-shadow: 0 4px 16px rgba(40, 167, 69, 0.3);
     animation: float 3s ease-in-out infinite;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.call-now-badge:hover {
+    background: #20933a;
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
 }
 
 .phone-icon-large {

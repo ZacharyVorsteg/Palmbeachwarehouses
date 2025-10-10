@@ -3,30 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INDUSTRIALSPACE - Premium Commercial Properties</title>
+    <meta name="description" content="Find premium industrial and warehouse space in Palm Beach County. Expert commercial real estate services with fast turnaround and flexible terms.">
+    <title>Palm Beach Industrial Space | Warehouse & Commercial Properties</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header class="header">
         <div class="header-container">
             <div class="logo">
-                <img src="assets/logo.png" alt="Palm Beach Warehouses" class="logo-img">
+                <img src="assets/logo.png" alt="Palm Beach Warehouses" class="logo-img" onerror="this.style.display='none'">
                 <div class="logo-text">
-                    <div class="brand-name">INDUSTRIALSPACE</div>
-                    <div class="tagline">Premium Commercial Properties</div>
+                    <div class="brand-name">INDUSTRIAL SPACE</div>
+                    <div class="tagline">Palm Beach County</div>
                 </div>
             </div>
-            <nav class="nav">
-                <a href="#properties">Properties</a>
-                <a href="#about">About</a>
-                <a href="#faq">FAQ</a>
-            </nav>
             <div class="header-cta">
                 <a href="tel:561-718-6725" class="phone-btn">
                     <span class="phone-icon">📞</span>
                     561-718-6725
                 </a>
-                <button class="cta-button" onclick="scrollToForm()">Get Available Properties</button>
+                <button class="cta-button" onclick="scrollToForm()">Find Your Space</button>
             </div>
         </div>
     </header>
@@ -35,37 +31,41 @@
         <section class="hero">
             <div class="hero-content">
                 <div class="hero-left">
-                    <div class="special-badge">
-                        <span class="dot">🔴</span> SUMMER SPECIAL - FIRST MONTH FREE
-                    </div>
                     <h1 class="hero-title">
-                        Get The <span class="highlight">Industrial Space</span> You Need This Week
+                        Find The <span class="highlight">Perfect Industrial Space</span> in Palm Beach County
                     </h1>
                     <p class="hero-subtitle">
-                        Skip the waiting lists. View available properties now in Palm Beach County.<br>
-                        <strong class="hero-emphasis">Move in as fast as 48 hours.</strong>
+                        We specialize in connecting businesses with the right warehouse, industrial, and flex space. 
+                        <strong class="hero-emphasis">Fast, personalized service you can count on.</strong>
                     </p>
                     
                     <div class="features">
                         <div class="feature">
                             <span class="feature-icon">✓</span>
                             <div>
-                                <div class="feature-title">1,000 - 50,000+ sq ft</div>
-                                <div class="feature-desc">Perfect size for your business</div>
+                                <div class="feature-title">Wide Range of Sizes</div>
+                                <div class="feature-desc">1,000 to 50,000+ sq ft available</div>
                             </div>
                         </div>
                         <div class="feature">
                             <span class="feature-icon">✓</span>
                             <div>
-                                <div class="feature-title">Move-in Ready NOW</div>
-                                <div class="feature-desc">No construction delays</div>
+                                <div class="feature-title">Expert Local Knowledge</div>
+                                <div class="feature-desc">Palm Beach County specialists</div>
                             </div>
                         </div>
                         <div class="feature">
                             <span class="feature-icon">✓</span>
                             <div>
-                                <div class="feature-title">Flexible Terms</div>
-                                <div class="feature-desc">Month-to-month available</div>
+                                <div class="feature-title">Flexible Solutions</div>
+                                <div class="feature-desc">Lease or purchase options</div>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">✓</span>
+                            <div>
+                                <div class="feature-title">Fast Response</div>
+                                <div class="feature-desc">We respond within 24 hours</div>
                             </div>
                         </div>
                     </div>
@@ -73,8 +73,8 @@
 
                 <div class="hero-right">
                     <div class="form-card" id="lead-form-section">
-                        <h2 class="form-title">Schedule Your Tour</h2>
-                        <p class="form-subtitle">Get exclusive access to pre-market deals</p>
+                        <h2 class="form-title">Tell Us What You Need</h2>
+                        <p class="form-subtitle">We'll match you with the perfect space</p>
                         
                         <form id="lead-form" class="lead-form">
                             <div class="form-group">
@@ -151,7 +151,7 @@
                             </div>
 
                             <button type="submit" class="submit-button" id="submit-btn">
-                                <span id="btn-text">GET PROPERTY LIST & SCHEDULE TOUR</span>
+                                <span id="btn-text">SUBMIT YOUR REQUIREMENTS</span>
                                 <span id="btn-loading" class="hidden">Sending...</span>
                             </button>
 
@@ -161,16 +161,16 @@
                         <div id="success-message" class="success-screen hidden">
                             <div class="success-icon">✓</div>
                             <h3>Thank You!</h3>
-                            <p>We've received your information and will contact you within 24 hours with available properties.</p>
+                            <p>We've received your requirements and will contact you within 24 hours to discuss available options.</p>
                             <button onclick="resetForm()" class="reset-button">Submit Another Request</button>
                         </div>
                     </div>
                     
                     <div class="trust-badges">
-                        <div class="call-now-badge">
+                        <a href="tel:561-718-6725" class="call-now-badge">
                             <span class="phone-icon-large">📞</span>
-                            <span class="call-now-text">Call Now</span>
-                        </div>
+                            <span class="call-now-text">Call Now 561-718-6725</span>
+                        </a>
                     </div>
                 </div>
             </div>
