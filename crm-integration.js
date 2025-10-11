@@ -171,7 +171,7 @@
             sizeMax: sizeMax, // Now includes max!
             propertyType: formDataObj.get('property_use') || 'Warehouse',
             moveTiming: formDataObj.get('move_date') || null,
-            preferredArea: 'Palm Beach County, FL',
+            preferredArea: null, // Don't include - implied by website
             notes: buildNotesField(formDataObj),
             source: 'palmbeachwarehouses.com'
         };
