@@ -133,15 +133,30 @@
     function collectFormData(form) {
         const formDataObj = new FormData(form);
         
-        // Extract space size range
+        // Extract space size range - parse BOTH min and max
         const spaceSize = formDataObj.get('space_size');
         let sizeMin = null;
+        let sizeMax = null;
         
-        // Parse the size range to extract minimum square footage
+        // Parse the size range to extract min and max square footage
         if (spaceSize) {
-            const sizeMatch = spaceSize.match(/(\d+)/);
-            if (sizeMatch) {
-                sizeMin = parseInt(sizeMatch[1], 10);
+            // Handle ranges like "5000-10000" or "50000+"
+            if (spaceSize.includes('-')) {
+                const parts = spaceSize.split('-').map(p => p.replace(/,/g, '').trim());
+                sizeMin = parseInt(parts[0], 10);
+                sizeMax = parseInt(parts[1], 10);
+            } else if (spaceSize.includes('+')) {
+                // For "50000+", just set min
+                const numMatch = spaceSize.match(/(\d+)/);
+                if (numMatch) {
+                    sizeMin = parseInt(numMatch[1], 10);
+                }
+            } else {
+                // Single number
+                const numMatch = spaceSize.match(/(\d+)/);
+                if (numMatch) {
+                    sizeMin = parseInt(numMatch[1], 10);
+                }
             }
         }
 
@@ -153,7 +168,8 @@
             phone: formDataObj.get('phone') || null,
             budget: formDataObj.get('budget') || null,
             sizeMin: sizeMin,
-            propertyType: formDataObj.get('property_use') || 'Industrial',
+            sizeMax: sizeMax, // Now includes max!
+            propertyType: formDataObj.get('property_use') || 'Warehouse',
             moveTiming: formDataObj.get('move_date') || null,
             preferredArea: 'Palm Beach County, FL',
             notes: buildNotesField(formDataObj),
@@ -169,32 +185,13 @@
     function buildNotesField(formData) {
         const notes = [];
         
-        notes.push('=== Palm Beach Warehouses Lead ===');
-        
-        const spaceSize = formData.get('space_size');
-        if (spaceSize) {
-            notes.push(`Space Size Needed: ${spaceSize}`);
-        }
-        
-        const budget = formData.get('budget');
-        if (budget) {
-            notes.push(`Monthly Budget: ${budget}`);
-        }
-        
-        const propertyUse = formData.get('property_use');
-        if (propertyUse) {
-            notes.push(`Intended Use: ${propertyUse}`);
-        }
-        
-        const moveDate = formData.get('move_date');
-        if (moveDate) {
-            notes.push(`Move Timeline: ${moveDate}`);
-        }
+        notes.push('Source: palmbeachwarehouses.com');
+        notes.push('Location: Palm Beach County, FL');
+        notes.push('');
         
         const customNotes = formData.get('notes');
         if (customNotes && customNotes.trim()) {
-            notes.push('');
-            notes.push('Additional Requirements:');
+            notes.push('Special Requirements:');
             notes.push(customNotes.trim());
         }
         
