@@ -504,3 +504,50 @@ footer.footer .footer-content p {
     }
 }
 
+/* Audio Player Button */
+.audio-player-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 48px;
+    height: 48px;
+    background: var(--primary-blue);
+    color: white;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(26, 115, 232, 0.4);
+    cursor: pointer;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    z-index: 998;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    user-select: none;
+    transition: all 0.3s ease;
+    opacity: 0.9;
+}
+
+.audio-player-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(26, 115, 232, 0.5);
+    opacity: 1;
+}
+
+.audio-player-btn.playing {
+    background: var(--success-green);
+    box-shadow: 0 4px 12px rgba(40, 167, 69, 0.4);
+}
+
+.audio-player-btn.playing:hover {
+    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.5);
+}
+
+@media (max-width: 640px) {
+    .audio-player-btn {
+        bottom: 16px;
+        left: 16px;
+    }
+}
+
