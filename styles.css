@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+html {
+    overflow: hidden;
+    height: 100vh;
+}
+
 :root {
     --primary-blue: #1a73e8;
     --primary-blue-dark: #1557b0;
@@ -20,13 +25,15 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.6;
     color: #333;
-    overflow-x: hidden;
-    min-height: 100vh;
+    overflow: hidden;
+    height: 100vh;
     background: var(--dark-bg);
 }
 
 main {
     position: relative;
+    height: calc(100vh - 70px);
+    overflow: hidden;
 }
 
 /* Header */
@@ -254,8 +261,27 @@ main {
     border-radius: 12px;
     padding: 1.25rem 1.5rem;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    max-height: calc(100vh - 200px);
+    max-height: calc(100vh - 230px);
     overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.form-card::-webkit-scrollbar {
+    width: 6px;
+}
+
+.form-card::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.form-card::-webkit-scrollbar-thumb {
+    background: #c0c0c0;
+    border-radius: 10px;
+}
+
+.form-card::-webkit-scrollbar-thumb:hover {
+    background: #a0a0a0;
 }
 
 .form-title {
@@ -492,11 +518,15 @@ footer.footer .footer-content p {
 /* Responsive Design - Optimized for All Devices */
 @media (max-width: 1200px) {
     .hero-content {
-        gap: 2.5rem;
+        gap: 2rem;
     }
 
     .hero-title {
-        font-size: 3rem;
+        font-size: 2.75rem;
+    }
+
+    .form-card {
+        padding: 1.35rem;
     }
 }
 
