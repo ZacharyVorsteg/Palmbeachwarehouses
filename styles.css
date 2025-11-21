@@ -146,7 +146,7 @@ main {
 /* Hero Section */
 .hero {
     background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 100%);
-    padding: 1.5rem 2rem 1rem;
+    padding: 1.25rem 2rem 3.5rem;
     min-height: calc(100vh - 70px);
     max-height: calc(100vh - 70px);
     display: flex;
@@ -441,15 +441,17 @@ main {
 .call-sooner {
     text-align: center;
     margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
     padding: 0.5rem;
     background: rgba(74, 158, 255, 0.1);
     border-radius: 6px;
 }
 
 .call-sooner p {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: var(--text-light);
     margin: 0;
+    line-height: 1.4;
 }
 
 .call-sooner a {
@@ -472,13 +474,14 @@ main {
 /* Footer - Minimal & Clean - Integrated into hero */
 footer.footer {
     background: transparent !important;
-    padding: 0.5rem 2rem !important;
+    padding: 0.5rem 2rem 0.65rem !important;
     border-top: none !important;
     width: 100%;
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
+    z-index: 100;
 }
 
 footer.footer .footer-content {
