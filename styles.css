@@ -594,10 +594,11 @@ footer.footer .footer-content p {
     }
 
     .hero {
-        padding: 0.4rem 0.65rem 1.5rem;
+        padding: 0.4rem 0.65rem 1.8rem;
         min-height: calc(100vh - 90px);
         max-height: calc(100vh - 90px);
         margin-top: 90px;
+        overflow: hidden;
     }
 
     .hero-content {
@@ -611,8 +612,24 @@ footer.footer .footer-content p {
 
     .form-card {
         padding: 0.5rem 0.65rem;
-        max-height: none;
+        max-height: calc(100vh - 220px);
+        overflow-y: auto;
+        overflow-x: hidden;
         border-radius: 8px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .form-card::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    .form-card::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    .form-card::-webkit-scrollbar-thumb {
+        background: #c0c0c0;
+        border-radius: 4px;
     }
 
     .form-title {
