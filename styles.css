@@ -631,44 +631,116 @@ footer.footer .footer-content p {
 }
 
 @media (max-width: 480px) {
-    .hero {
-        padding: 1.25rem 0.75rem 3rem;
+    .header {
+        height: 55px;
+        padding: 0.4rem 0.75rem;
     }
 
-    .hero-title {
-        font-size: 1.65rem;
-        line-height: 1.2;
-    }
-
-    .hero-subtitle {
-        font-size: 0.95rem;
-    }
-
-    .feature-compact {
-        font-size: 0.875rem;
-    }
-
-    .form-card {
-        padding: 1.25rem;
-        border-radius: 12px;
-    }
-
-    .form-title {
-        font-size: 1.25rem;
-    }
-
-    .form-subtitle {
-        font-size: 0.875rem;
-    }
-
-    .phone-btn,
-    .cta-button {
-        padding: 0.75rem 1.25rem;
+    .brand-name {
         font-size: 0.9rem;
     }
 
+    .tagline {
+        font-size: 0.6rem;
+    }
+
+    .logo-img {
+        height: 40px;
+    }
+
+    .hero {
+        padding: 0.75rem 0.75rem 0.5rem;
+        min-height: calc(100vh - 55px);
+        max-height: calc(100vh - 55px);
+        margin-top: 55px;
+    }
+
+    .hero-content {
+        gap: 1.25rem;
+    }
+
+    .hero-title {
+        font-size: 1.6rem;
+        line-height: 1.15;
+        margin-bottom: 0.65rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .features-compact {
+        gap: 0.4rem;
+        margin-top: 0.65rem;
+    }
+
+    .feature-compact {
+        font-size: 0.85rem;
+    }
+
+    .form-card {
+        padding: 0.85rem 1rem;
+        border-radius: 10px;
+        max-height: calc(100vh - 140px);
+    }
+
+    .form-title {
+        font-size: 1.15rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .form-subtitle {
+        font-size: 0.8rem;
+        margin-bottom: 0.65rem;
+    }
+
+    .form-group label {
+        font-size: 0.8rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 0.55rem;
+        font-size: 0.85rem;
+    }
+
+    .submit-button {
+        padding: 0.7rem;
+        font-size: 0.85rem;
+    }
+
+    .form-consent {
+        font-size: 0.6rem;
+    }
+
+    .call-sooner {
+        margin-top: 0.4rem;
+        padding: 0.4rem;
+    }
+
     .call-sooner p {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
+    }
+
+    .phone-btn {
+        font-size: 0.8rem;
+        padding: 0.45rem 0.75rem;
+    }
+
+    .cta-button {
+        font-size: 0.75rem;
+        padding: 0.45rem 0.85rem;
+    }
+
+    footer.footer {
+        padding: 0.35rem 0.75rem !important;
+    }
+
+    footer.footer .footer-content p {
+        font-size: 0.55rem;
     }
 }
 
