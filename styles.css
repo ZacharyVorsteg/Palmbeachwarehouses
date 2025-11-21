@@ -575,7 +575,7 @@ footer.footer .footer-content p {
     }
 
     .hero {
-        padding: 1rem 1rem 0.5rem;
+        padding: 0.75rem 0.75rem 2.5rem;
         min-height: calc(100vh - 60px);
         max-height: calc(100vh - 60px);
         margin-top: 60px;
@@ -583,12 +583,16 @@ footer.footer .footer-content p {
 
     .hero-content {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: 1rem;
+    }
+
+    .hero-left {
+        display: none;
     }
 
     .form-card {
-        padding: 1rem;
-        max-height: calc(100vh - 180px);
+        padding: 0.85rem;
+        max-height: none;
     }
 
     .hero-title {
@@ -608,37 +612,54 @@ footer.footer .footer-content p {
     }
 
     .form-title {
-        font-size: 1.2rem;
+        font-size: 1.15rem;
+        margin-bottom: 0.25rem;
     }
 
     .form-subtitle {
-        font-size: 0.85rem;
-        margin-bottom: 0.75rem;
+        font-size: 0.8rem;
+        margin-bottom: 0.6rem;
     }
 
     .form-group input,
     .form-group select,
     .form-group textarea {
-        padding: 0.6rem;
-        font-size: 0.9rem;
+        padding: 0.5rem;
+        font-size: 0.85rem;
+    }
+
+    .form-group label {
+        font-size: 0.75rem;
+        margin-bottom: 0.25rem;
     }
 
     .submit-button {
-        padding: 0.75rem;
-        font-size: 0.9rem;
+        padding: 0.65rem;
+        font-size: 0.85rem;
+    }
+
+    .form-consent {
+        font-size: 0.55rem;
+        margin-top: 0.3rem;
     }
 
     .call-sooner {
-        margin-top: 0.5rem;
-        padding: 0.5rem;
+        margin-top: 0.4rem;
+        padding: 0.4rem;
+        margin-bottom: 0.35rem;
+    }
+
+    .call-sooner p {
+        font-size: 0.85rem;
     }
 
     footer.footer {
-        padding: 0.4rem 1rem !important;
+        padding: 0.35rem 0.75rem !important;
     }
 
     footer.footer .footer-content p {
-        font-size: 0.6rem;
+        font-size: 0.55rem;
+        line-height: 1.2;
     }
 }
 
