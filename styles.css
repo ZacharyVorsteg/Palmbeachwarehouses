@@ -631,8 +631,8 @@ footer.footer .footer-content p {
 /* Audio Player Button - High Contrast & Visible */
 .audio-player-btn {
     position: fixed;
-    bottom: 24px;
-    left: 24px;
+    bottom: 32px;
+    left: 32px;
     width: 60px;
     height: 60px;
     background: linear-gradient(135deg, #ff9500 0%, #ff6b00 100%);
@@ -692,8 +692,8 @@ footer.footer .footer-content p {
 
 @media (max-width: 768px) {
     .audio-player-btn {
-        bottom: 20px;
-        left: 20px;
+        bottom: 24px;
+        left: 24px;
         width: 54px;
         height: 54px;
         font-size: 1.4rem;
@@ -702,8 +702,8 @@ footer.footer .footer-content p {
 
 @media (max-width: 480px) {
     .audio-player-btn {
-        bottom: 18px;
-        left: 18px;
+        bottom: 20px;
+        left: 20px;
         width: 50px;
         height: 50px;
         font-size: 1.3rem;
