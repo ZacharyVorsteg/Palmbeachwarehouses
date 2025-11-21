@@ -507,47 +507,59 @@ footer.footer .footer-content p {
 /* Audio Player Button */
 .audio-player-btn {
     position: fixed;
-    bottom: 20px;
-    left: 20px;
-    width: 48px;
-    height: 48px;
-    background: var(--primary-blue);
+    bottom: 24px;
+    left: 24px;
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, #1a73e8 0%, #4a9eff 100%);
     color: white;
     border-radius: 50%;
-    box-shadow: 0 4px 12px rgba(26, 115, 232, 0.4);
+    box-shadow: 0 6px 20px rgba(26, 115, 232, 0.6), 0 0 0 4px rgba(26, 115, 232, 0.2);
     cursor: pointer;
     border: none;
+    outline: none;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.25rem;
-    z-index: 998;
+    font-size: 1.5rem;
+    z-index: 9999;
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
     user-select: none;
     transition: all 0.3s ease;
-    opacity: 0.9;
 }
 
 .audio-player-btn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 20px rgba(26, 115, 232, 0.5);
-    opacity: 1;
+    transform: scale(1.15);
+    box-shadow: 0 8px 25px rgba(26, 115, 232, 0.7), 0 0 0 4px rgba(26, 115, 232, 0.3);
 }
 
 .audio-player-btn.playing {
-    background: var(--success-green);
-    box-shadow: 0 4px 12px rgba(40, 167, 69, 0.4);
+    background: linear-gradient(135deg, #28a745 0%, #34d058 100%);
+    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.6), 0 0 0 4px rgba(40, 167, 69, 0.2);
+    animation: pulse-glow 2s ease-in-out infinite;
 }
 
 .audio-player-btn.playing:hover {
-    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.5);
+    box-shadow: 0 8px 25px rgba(40, 167, 69, 0.7), 0 0 0 4px rgba(40, 167, 69, 0.3);
+}
+
+@keyframes pulse-glow {
+    0%, 100% {
+        box-shadow: 0 6px 20px rgba(40, 167, 69, 0.6), 0 0 0 4px rgba(40, 167, 69, 0.2);
+    }
+    50% {
+        box-shadow: 0 8px 30px rgba(40, 167, 69, 0.8), 0 0 0 6px rgba(40, 167, 69, 0.3);
+    }
 }
 
 @media (max-width: 640px) {
     .audio-player-btn {
-        bottom: 16px;
-        left: 16px;
+        bottom: 20px;
+        left: 20px;
+        width: 52px;
+        height: 52px;
+        font-size: 1.35rem;
     }
 }
 
