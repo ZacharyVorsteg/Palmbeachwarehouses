@@ -181,6 +181,44 @@
     </button>
     
     <script>
+        // Smooth scroll to form and highlight
+        function scrollToForm() {
+            const formCard = document.querySelector('.form-card');
+            const firstInput = document.getElementById('name');
+            
+            if (formCard && firstInput) {
+                // Smooth scroll to form
+                formCard.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'center'
+                });
+                
+                // Add subtle pulse animation
+                setTimeout(() => {
+                    formCard.style.boxShadow = '0 0 0 4px rgba(26, 115, 232, 0.4), 0 20px 60px rgba(0, 0, 0, 0.3)';
+                    formCard.style.transition = 'box-shadow 0.3s ease';
+                    
+                    // Focus first input
+                    setTimeout(() => {
+                        firstInput.focus();
+                    }, 400);
+                    
+                    // Remove highlight after 1.5 seconds
+                    setTimeout(() => {
+                        formCard.style.boxShadow = '0 20px 60px rgba(0, 0, 0, 0.3)';
+                    }, 1500);
+                }, 600);
+            }
+        }
+
+        function resetForm() {
+            const leadForm = document.getElementById('lead-form');
+            const successMessage = document.getElementById('success-message');
+            
+            if (leadForm) leadForm.reset();
+            if (successMessage) successMessage.classList.add('hidden');
+        }
+
         // Audio Player Functionality
         const audioPlayerBtn = document.getElementById('audioPlayerBtn');
         const audioIcon = document.getElementById('audioIcon');
