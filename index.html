@@ -175,41 +175,77 @@
     <!-- Trusenda CRM Integration -->
     <script src="crm-integration.js"></script>
     
+    <!-- Form Splash Modal -->
+    <div class="form-splash-modal" id="formSplashModal">
+        <div class="form-splash-content">
+            <h3>Let's Find Your Perfect Space</h3>
+            <p>Fill out the form with your requirements, including any special needs. We'll match you with the best warehouse or flex space options in Palm Beach County.</p>
+            <button class="form-splash-btn" onclick="closeFormSplash()">Continue to Form</button>
+        </div>
+    </div>
+
     <!-- Audio Player Button -->
     <button id="audioPlayerBtn" class="audio-player-btn" aria-label="Play message" title="Play message">
         <span id="audioIcon">🎵</span>
     </button>
     
     <script>
-        // Smooth scroll to form and highlight
+        // Show form splash modal
         function scrollToForm() {
+            const modal = document.getElementById('formSplashModal');
+            if (modal) {
+                modal.classList.add('active');
+            }
+        }
+
+        // Close splash and scroll to form
+        function closeFormSplash() {
+            const modal = document.getElementById('formSplashModal');
             const formCard = document.querySelector('.form-card');
             const firstInput = document.getElementById('name');
             
-            if (formCard && firstInput) {
-                // Smooth scroll to form
-                formCard.scrollIntoView({ 
-                    behavior: 'smooth', 
-                    block: 'center'
-                });
-                
-                // Add subtle pulse animation
-                setTimeout(() => {
-                    formCard.style.boxShadow = '0 0 0 4px rgba(26, 115, 232, 0.4), 0 20px 60px rgba(0, 0, 0, 0.3)';
-                    formCard.style.transition = 'box-shadow 0.3s ease';
-                    
-                    // Focus first input
-                    setTimeout(() => {
-                        firstInput.focus();
-                    }, 400);
-                    
-                    // Remove highlight after 1.5 seconds
-                    setTimeout(() => {
-                        formCard.style.boxShadow = '0 20px 60px rgba(0, 0, 0, 0.3)';
-                    }, 1500);
-                }, 600);
+            // Close modal
+            if (modal) {
+                modal.classList.remove('active');
             }
+            
+            // Scroll to form after modal closes
+            setTimeout(() => {
+                if (formCard) {
+                    formCard.scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'center'
+                    });
+                    
+                    // Highlight and focus
+                    setTimeout(() => {
+                        if (formCard) {
+                            formCard.style.boxShadow = '0 0 0 4px rgba(26, 115, 232, 0.5), 0 20px 60px rgba(0, 0, 0, 0.3)';
+                            formCard.style.transition = 'box-shadow 0.4s ease';
+                        }
+                        
+                        if (firstInput) {
+                            firstInput.focus();
+                        }
+                        
+                        // Remove highlight
+                        setTimeout(() => {
+                            if (formCard) {
+                                formCard.style.boxShadow = '0 20px 60px rgba(0, 0, 0, 0.3)';
+                            }
+                        }, 2000);
+                    }, 400);
+                }
+            }, 300);
         }
+
+        // Close modal on background click
+        document.addEventListener('click', function(e) {
+            const modal = document.getElementById('formSplashModal');
+            if (e.target === modal) {
+                closeFormSplash();
+            }
+        });
 
         function resetForm() {
             const leadForm = document.getElementById('lead-form');

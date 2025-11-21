@@ -688,6 +688,74 @@ footer.footer .footer-content p {
     }
 }
 
+/* Form Splash Modal */
+.form-splash-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 100000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.form-splash-modal.active {
+    display: flex;
+    opacity: 1;
+}
+
+.form-splash-content {
+    background: linear-gradient(135deg, #1a73e8 0%, #0d47a1 100%);
+    color: white;
+    padding: 48px 40px;
+    border-radius: 12px;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(26, 115, 232, 0.5);
+    transform: scale(0.9);
+    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.form-splash-modal.active .form-splash-content {
+    transform: scale(1);
+}
+
+.form-splash-content h3 {
+    font-size: 26px;
+    margin-bottom: 16px;
+    font-weight: 700;
+}
+
+.form-splash-content p {
+    font-size: 16px;
+    line-height: 1.6;
+    opacity: 0.95;
+    margin-bottom: 28px;
+}
+
+.form-splash-btn {
+    background: white;
+    color: #1a73e8;
+    border: none;
+    padding: 14px 32px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.form-splash-btn:hover {
+    background: #f0f0f0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
 /* Audio Player Button - High Contrast & Visible */
 .audio-player-btn {
     position: fixed;
