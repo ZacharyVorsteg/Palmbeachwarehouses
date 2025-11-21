@@ -525,76 +525,56 @@ footer.footer .footer-content p {
     }
 }
 
-/* Audio Player Button - TOP RIGHT for visibility */
+/* Audio Player Button - Minimal & Seamless (Bottom-Left) */
 .audio-player-btn {
     position: fixed;
-    top: 20px;
-    right: 20px;
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(135deg, #ff9500 0%, #ff6b00 100%);
+    bottom: 20px;
+    left: 20px;
+    width: 48px;
+    height: 48px;
+    background: rgba(26, 31, 51, 0.9);
     color: white;
     border-radius: 50%;
-    box-shadow: 0 8px 24px rgba(255, 149, 0, 0.7), 0 0 0 5px rgba(255, 149, 0, 0.25);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     cursor: pointer;
     border: none;
     outline: none;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.75rem;
-    z-index: 99999;
+    font-size: 1.25rem;
+    z-index: 998;
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
     user-select: none;
     transition: all 0.3s ease;
-    animation: attention-pulse 3s ease-in-out infinite;
-    pointer-events: auto;
-}
-
-@keyframes attention-pulse {
-    0%, 100% {
-        transform: scale(1);
-        box-shadow: 0 8px 24px rgba(255, 149, 0, 0.7), 0 0 0 5px rgba(255, 149, 0, 0.25);
-    }
-    50% {
-        transform: scale(1.1);
-        box-shadow: 0 12px 32px rgba(255, 149, 0, 0.9), 0 0 0 8px rgba(255, 149, 0, 0.35);
-    }
+    opacity: 0.9;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 .audio-player-btn:hover {
-    transform: scale(1.2) !important;
-    box-shadow: 0 12px 32px rgba(255, 149, 0, 0.9), 0 0 0 8px rgba(255, 149, 0, 0.4);
-    animation: none;
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    opacity: 1;
 }
 
 .audio-player-btn.playing {
-    background: linear-gradient(135deg, #28a745 0%, #34d058 100%);
-    box-shadow: 0 8px 24px rgba(40, 167, 69, 0.7), 0 0 0 5px rgba(40, 167, 69, 0.25);
-    animation: playing-pulse 2s ease-in-out infinite;
-}
-
-@keyframes playing-pulse {
-    0%, 100% {
-        box-shadow: 0 8px 24px rgba(40, 167, 69, 0.7), 0 0 0 5px rgba(40, 167, 69, 0.25);
-    }
-    50% {
-        box-shadow: 0 12px 32px rgba(40, 167, 69, 0.9), 0 0 0 8px rgba(40, 167, 69, 0.4);
-    }
+    background: rgba(74, 158, 255, 0.9);
+    box-shadow: 0 4px 12px rgba(74, 158, 255, 0.4);
 }
 
 .audio-player-btn.playing:hover {
-    box-shadow: 0 12px 32px rgba(40, 167, 69, 0.9), 0 0 0 8px rgba(40, 167, 69, 0.4);
+    box-shadow: 0 6px 20px rgba(74, 158, 255, 0.5);
 }
 
 @media (max-width: 640px) {
     .audio-player-btn {
-        top: 16px;
-        right: 16px;
-        width: 54px;
-        height: 54px;
-        font-size: 1.5rem;
+        bottom: 16px;
+        left: 16px;
+        width: 44px;
+        height: 44px;
+        font-size: 1.1rem;
     }
 }
 
