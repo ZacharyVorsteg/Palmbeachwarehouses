@@ -32,8 +32,14 @@ main {
 /* Header */
 .header {
     background: var(--dark-bg);
-    padding: 1rem 2rem;
+    padding: 0.75rem 2rem;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    height: 70px;
 }
 
 .header-container {
@@ -133,11 +139,14 @@ main {
 /* Hero Section */
 .hero {
     background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 100%);
-    padding: 2rem 2rem 2rem;
-    min-height: auto;
+    padding: 1.5rem 2rem 1rem;
+    min-height: calc(100vh - 70px);
+    max-height: calc(100vh - 70px);
     display: flex;
     align-items: center;
     position: relative;
+    margin-top: 70px;
+    overflow: hidden;
 }
 
 .hero-content {
@@ -145,9 +154,10 @@ main {
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    gap: 2.5rem;
     align-items: center;
     width: 100%;
+    height: 100%;
 }
 
 .hero-left {
@@ -178,10 +188,10 @@ main {
 }
 
 .hero-title {
-    font-size: 3.5rem;
+    font-size: 3rem;
     font-weight: 800;
     line-height: 1.1;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     color: var(--text-light);
 }
 
@@ -190,10 +200,10 @@ main {
 }
 
 .hero-subtitle {
-    font-size: 1.15rem;
+    font-size: 1.05rem;
     color: var(--text-gray);
-    margin-bottom: 2rem;
-    line-height: 1.6;
+    margin-bottom: 1.25rem;
+    line-height: 1.5;
 }
 
 .hero-emphasis {
@@ -203,8 +213,8 @@ main {
 .features-compact {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    margin-top: 1.5rem;
+    gap: 0.75rem;
+    margin-top: 1rem;
 }
 
 .feature-compact {
@@ -233,34 +243,38 @@ main {
 /* Form Card */
 .hero-right {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
 }
 
 .form-card {
     background: white;
-    border-radius: 16px;
-    padding: 1.5rem;
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    max-height: 85vh;
+    max-height: calc(100vh - 200px);
     overflow-y: auto;
 }
 
 .form-title {
-    font-size: 1.5rem;
+    font-size: 1.35rem;
     font-weight: 700;
     color: #202124;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.35rem;
 }
 
 .form-subtitle {
     color: #5f6368;
-    margin-bottom: 1.5rem;
-    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
 }
 
 .lead-form {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 0.65rem;
 }
 
 .form-row {
@@ -275,19 +289,19 @@ main {
 }
 
 .form-group label {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 600;
     color: #202124;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.35rem;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
-    padding: 0.75rem;
+    padding: 0.65rem 0.75rem;
     border: 2px solid #d1d5db;
-    border-radius: 8px;
-    font-size: 0.95rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
     font-family: inherit;
     transition: all 0.2s;
     background: white;
@@ -317,20 +331,21 @@ main {
 
 .form-group textarea {
     resize: vertical;
-    min-height: 60px;
-    line-height: 1.5;
+    min-height: 50px;
+    max-height: 50px;
+    line-height: 1.4;
 }
 
 .submit-button {
     background: linear-gradient(135deg, var(--success-green) 0%, #20933a 100%);
     color: white;
     border: none;
-    padding: 1rem;
-    border-radius: 10px;
-    font-size: 1rem;
+    padding: 0.85rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
     font-weight: 700;
     cursor: pointer;
-    margin-top: 0.75rem;
+    margin-top: 0.5rem;
     transition: all 0.2s;
     box-shadow: 0 4px 16px rgba(40, 167, 69, 0.25);
     letter-spacing: 0.3px;
@@ -348,11 +363,11 @@ main {
 }
 
 .form-consent {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     color: #5f6368;
     text-align: center;
-    margin-top: 0.5rem;
-    line-height: 1.4;
+    margin-top: 0.4rem;
+    line-height: 1.3;
 }
 
 .hidden {
@@ -420,10 +435,10 @@ main {
 
 .call-sooner {
     text-align: center;
-    margin-top: 1.5rem;
-    padding: 1rem;
+    margin-top: 0.75rem;
+    padding: 0.65rem;
     background: rgba(74, 158, 255, 0.1);
-    border-radius: 12px;
+    border-radius: 8px;
 }
 
 .call-sooner p {
@@ -451,11 +466,14 @@ main {
 
 /* Footer - Minimal & Clean - Integrated into hero */
 footer.footer {
-    background: var(--dark-bg) !important;
-    padding: 1rem 2rem !important;
-    border-top: 1px solid rgba(74, 158, 255, 0.15) !important;
+    background: transparent !important;
+    padding: 0.5rem 2rem !important;
+    border-top: none !important;
     width: 100%;
-    position: relative;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 footer.footer .footer-content {
@@ -466,9 +484,9 @@ footer.footer .footer-content {
 
 footer.footer .footer-content p {
     margin: 0;
-    font-size: 0.7rem;
-    line-height: 1.4;
-    color: rgba(154, 160, 166, 0.6) !important;
+    font-size: 0.65rem;
+    line-height: 1.3;
+    color: rgba(154, 160, 166, 0.5) !important;
 }
 
 /* Responsive Design - Optimized for All Devices */
