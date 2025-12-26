@@ -166,12 +166,15 @@
             name: formDataObj.get('name'),
             email: formDataObj.get('email') || null,
             phone: formDataObj.get('phone') || null,
+            company: formDataObj.get('company') || null,
             budget: formDataObj.get('budget') || null,
             sizeMin: sizeMin,
-            sizeMax: sizeMax, // Now includes max!
+            sizeMax: sizeMax,
             propertyType: formDataObj.get('property_use') || 'Warehouse',
             moveTiming: formDataObj.get('move_date') || null,
-            preferredArea: null, // Don't include - implied by website
+            industry: formDataObj.get('industry') || null,
+            leaseTerm: formDataObj.get('lease_term') || null,
+            preferredArea: 'Palm Beach County, FL',
             notes: buildNotesField(formDataObj),
             source: 'palmbeachwarehouses.com'
         };

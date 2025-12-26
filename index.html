@@ -6,7 +6,7 @@
     <meta name="description" content="Find warehouse, industrial, and flex spaces from 1,000-50,000+ sq ft in Palm Beach County. Expert guidance, fast responses. Call 561-718-6725.">
     <meta name="keywords" content="warehouse for lease Palm Beach County, industrial space for rent FL, flex space Palm Beach, commercial warehouse Florida, warehouse Palm Beach">
     <title>Industrial Space for Lease or Sale in Palm Beach County | Zachary Vorsteg</title>
-    <link rel="stylesheet" href="styles.css?v=34">
+    <link rel="stylesheet" href="styles.css?v=35">
 </head>
 <body>
     <header class="header">
@@ -81,10 +81,15 @@
                                 <input type="tel" id="phone" name="phone" required placeholder="(555) 123-4567">
                             </div>
 
+                            <div class="form-group">
+                                <label for="company">Company *</label>
+                                <input type="text" id="company" name="company" required placeholder="Your company name">
+                            </div>
+
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="space_size">Space Size Needed</label>
-                                    <select id="space_size" name="space_size">
+                                    <label for="space_size">Square Feet Needed *</label>
+                                    <select id="space_size" name="space_size" required>
                                         <option value="">Select size...</option>
                                         <option value="0-1000">Less than 1,000 SF</option>
                                         <option value="1000-2500">1,000 - 2,500 SF</option>
@@ -112,7 +117,7 @@
 
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="property_use">Intended Property Use *</label>
+                                    <label for="property_use">Property Type *</label>
                                     <select id="property_use" name="property_use" required>
                                         <option value="">Select type...</option>
                                         <option value="Distribution">Distribution</option>
@@ -126,7 +131,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="move_date">Desired Move-in Date *</label>
+                                    <label for="move_date">Move Timeline *</label>
                                     <select id="move_date" name="move_date" required>
                                         <option value="">Select timeline...</option>
                                         <option value="Immediate (0-30 Days)">Immediate (0-30 Days)</option>
@@ -139,8 +144,51 @@
                                 </div>
                             </div>
 
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="industry">Industry/Business Type *</label>
+                                    <select id="industry" name="industry" required>
+                                        <option value="">Select industry...</option>
+                                        <option value="Automotive & Transportation">Automotive & Transportation</option>
+                                        <option value="Construction & Contracting">Construction & Contracting</option>
+                                        <option value="Creative & Media Production">Creative & Media Production</option>
+                                        <option value="Distribution & Logistics">Distribution & Logistics</option>
+                                        <option value="E-commerce & Fulfillment">E-commerce & Fulfillment</option>
+                                        <option value="Education & Training">Education & Training</option>
+                                        <option value="Financial Services">Financial Services</option>
+                                        <option value="Food & Beverage Production">Food & Beverage Production</option>
+                                        <option value="Healthcare & Medical">Healthcare & Medical</option>
+                                        <option value="Light Industrial">Light Industrial</option>
+                                        <option value="Manufacturing">Manufacturing</option>
+                                        <option value="Professional Services">Professional Services</option>
+                                        <option value="Research & Development">Research & Development</option>
+                                        <option value="Retail Operations">Retail Operations</option>
+                                        <option value="Technology & Software">Technology & Software</option>
+                                        <option value="Warehousing & Storage">Warehousing & Storage</option>
+                                        <option value="Wholesale Trade">Wholesale Trade</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="lease_term">Desired Lease Term *</label>
+                                    <select id="lease_term" name="lease_term" required>
+                                        <option value="">Select term...</option>
+                                        <option value="Month-to-Month">Month-to-Month</option>
+                                        <option value="3-6 Months">3-6 Months</option>
+                                        <option value="1 Year">1 Year</option>
+                                        <option value="2 Years">2 Years</option>
+                                        <option value="3 Years">3 Years</option>
+                                        <option value="5 Years">5 Years</option>
+                                        <option value="7-10 Years">7-10 Years</option>
+                                        <option value="10+ Years">10+ Years</option>
+                                        <option value="Flexible/TBD">Flexible/TBD</option>
+                                    </select>
+                                </div>
+                            </div>
+
                             <div class="form-group">
-                                <label for="notes">Special Requirements?</label>
+                                <label for="notes">Additional Notes</label>
                                 <textarea id="notes" name="notes" rows="2" placeholder="e.g., Loading docks, office space, parking"></textarea>
                             </div>
 
