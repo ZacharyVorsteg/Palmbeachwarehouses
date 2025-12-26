@@ -25,8 +25,9 @@ html, body {
     --accent-blue: #007AFF;
     --text-light: #e8eaed;
     --text-gray: #9aa0a6;
-    --success-green: #34C759;
-    --success-green-dark: #2AA44F;
+    --action-blue: #1a73e8;
+    --action-blue-dark: #1557b0;
+    --action-blue-light: #4285f4;
     --error-red: #dc3545;
 
     /* Trusenda form colors */
@@ -1645,6 +1646,11 @@ footer.footer .footer-content p {
     color: var(--text-light);
     margin-bottom: 1rem;
     font-size: 1.1rem;
+}
+
+.faq-cta .phone-btn {
+    display: inline-flex;
+    margin: 0 auto;
 }
 
 @media (max-width: 768px) {
