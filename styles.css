@@ -943,7 +943,7 @@ footer.footer .footer-content p {
 
 .listing-card.featured {
     border-color: var(--action-blue);
-    background: linear-gradient(135deg, var(--darker-bg) 0%, rgba(40, 167, 69, 0.1) 100%);
+    background: linear-gradient(135deg, var(--darker-bg) 0%, rgba(26, 115, 232, 0.15) 100%);
 }
 
 .listing-badge {
@@ -1222,12 +1222,12 @@ footer.footer .footer-content p {
         box-shadow: 0 8px 24px rgba(26, 115, 232, 0.7), 0 0 0 5px rgba(26, 115, 232, 0.25);
     }
     50% {
-        box-shadow: 0 12px 32px rgba(40, 167, 69, 0.9), 0 0 0 8px rgba(40, 167, 69, 0.4);
+        box-shadow: 0 12px 32px rgba(26, 115, 232, 0.9), 0 0 0 8px rgba(26, 115, 232, 0.4);
     }
 }
 
 .audio-player-btn.playing:hover {
-    box-shadow: 0 12px 32px rgba(40, 167, 69, 0.9), 0 0 0 8px rgba(40, 167, 69, 0.4);
+    box-shadow: 0 12px 32px rgba(26, 115, 232, 0.9), 0 0 0 8px rgba(26, 115, 232, 0.4);
 }
 
 /* Enhanced Mobile Responsiveness */
