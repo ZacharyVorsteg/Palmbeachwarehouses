@@ -6,6 +6,13 @@
 
 html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+/* Ensure smooth scrolling and prevent horizontal overflow on mobile */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
 }
 
 :root {
@@ -1021,36 +1028,7 @@ footer.footer .footer-content p {
     box-shadow: 0 12px 32px rgba(40, 167, 69, 0.9), 0 0 0 8px rgba(40, 167, 69, 0.4);
 }
 
-@media (max-width: 768px) {
-    .header { height: auto; padding: 0.5rem 0.75rem; }
-    .header-container { flex-wrap: wrap; gap: 0.5rem; }
-    .logo { flex: 1; min-width: 140px; }
-    .logo-img { height: 38px; }
-    .brand-name { font-size: 0.9rem; }
-    .tagline { font-size: 0.6rem; }
-    .header-cta { width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
-    .phone-btn { font-size: 0.75rem; padding: 0.55rem; justify-content: center; }
-    .cta-button { font-size: 0.75rem; padding: 0.55rem; }
-    .hero { padding: 1.75rem 0.85rem 1.5rem; min-height: auto; margin-top: 145px; overflow: visible; }
-    .hero-content { grid-template-columns: 1fr; gap: 1rem; height: 100%; }
-    .hero-left { color: white; }
-    .hero-right { display: block; }
-    .form-card { padding: 1rem 0.85rem 0.75rem; flex: 1; display: flex; flex-direction: column; overflow: visible; border-radius: 12px; margin-top: 0.65rem; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); }
-    .form-title { display: none; }
-    .form-subtitle { font-size: 0.75rem; margin-bottom: 0.5rem; text-align: center; }
-    .lead-form { gap: 0.45rem; overflow-y: visible; -webkit-overflow-scrolling: touch; padding-right: 0.3rem; }
-    .form-row { grid-template-columns: 1fr; gap: 0.45rem; }
-    .form-group label { font-size: 0.7rem; margin-bottom: 0.2rem; }
-    .form-group input, .form-group select, .form-group textarea { padding: 0.5rem; font-size: 0.8rem; }
-    .form-group textarea { height: 40px; resize: none; }
-    .submit-button { padding: 0.65rem; font-size: 0.85rem; margin-top: 0.4rem; }
-    .form-consent { font-size: 0.52rem; margin-top: 0.25rem; line-height: 1.2; }
-    .call-sooner { margin-top: 0.65rem; padding: 0.4rem; }
-    .call-sooner p { font-size: 0.8rem; }
-    footer.footer { padding: 0.4rem 0.75rem !important; position: relative; background: var(--dark-bg) !important; }
-    footer.footer .footer-content p { font-size: 0.52rem; line-height: 1.15; }
-    .audio-player-btn { bottom: 50px; left: 16px; width: 44px; height: 44px; font-size: 1.15rem; }
-}
+/* Enhanced Mobile Responsiveness */
 @media (max-width: 480px) {
     .audio-player-btn {
         bottom: 20px;
@@ -1058,6 +1036,103 @@ footer.footer .footer-content p {
         width: 50px;
         height: 50px;
         font-size: 1.3rem;
+    }
+
+    /* Listings mobile optimization */
+    .listings-section {
+        padding: 2rem 0.75rem;
+    }
+
+    .listings-title {
+        font-size: 1.5rem;
+        line-height: 1.2;
+    }
+
+    .listings-subtitle {
+        font-size: 0.85rem;
+        margin-bottom: 1.5rem;
+        padding: 0 0.5rem;
+    }
+
+    .listings-grid {
+        gap: 0.85rem;
+    }
+
+    .listing-card {
+        padding: 1rem;
+    }
+
+    .listing-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .listing-size {
+        font-size: 1.15rem;
+    }
+
+    .listing-type {
+        font-size: 0.65rem;
+        padding: 0.25rem 0.5rem;
+    }
+
+    .listing-address {
+        font-size: 0.95rem;
+    }
+
+    .listing-location {
+        font-size: 0.8rem;
+    }
+
+    .listing-details {
+        gap: 0.35rem;
+    }
+
+    .listing-details span {
+        font-size: 0.7rem;
+        padding: 0.25rem 0.5rem;
+    }
+
+    .price-amount {
+        font-size: 1.35rem;
+    }
+
+    .price-term {
+        font-size: 0.8rem;
+    }
+
+    .listing-cta {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+
+    .listings-cta {
+        padding: 1.25rem;
+    }
+
+    .listings-cta p {
+        font-size: 0.95rem;
+    }
+
+    .listings-cta .cta-button {
+        padding: 0.85rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    /* Special badge mobile */
+    .special-badge {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.75rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Featured listing badge */
+    .listing-badge {
+        font-size: 0.65rem;
+        padding: 0.25rem 0.75rem;
+        top: -8px;
+        right: 12px;
     }
 }
 
