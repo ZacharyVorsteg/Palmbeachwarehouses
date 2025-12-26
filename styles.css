@@ -548,58 +548,218 @@ footer.footer .footer-content p {
 }
 
 @media (max-width: 768px) {
-    .header { height: auto; padding: 0.5rem 0.75rem; }
-    .header-container { flex-wrap: wrap; gap: 0.5rem; }
-    .logo { flex: 1; min-width: 140px; }
-    .logo-img { height: 38px; }
-    .brand-name { font-size: 0.9rem; }
-    .tagline { font-size: 0.6rem; }
-    .header-cta { width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
-    .phone-btn { font-size: 0.75rem; padding: 0.55rem; justify-content: center; }
-    .cta-button { font-size: 0.75rem; padding: 0.55rem; }
-    .hero { padding: 1.75rem 0.85rem 1.5rem; min-height: auto; margin-top: 145px; overflow: visible; }
-    .hero-content { grid-template-columns: 1fr; gap: 1rem; height: 100%; }
-    .hero-left { color: white; }
-    .hero-right { display: block; }
-    .form-card { padding: 1rem 0.85rem 0.75rem; flex: 1; display: flex; flex-direction: column; overflow: visible; border-radius: 12px; margin-top: 0.65rem; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); }
-    .form-title { display: none; }
-    .form-subtitle { font-size: 0.75rem; margin-bottom: 0.5rem; text-align: center; }
-    .lead-form { gap: 0.45rem; overflow-y: visible; -webkit-overflow-scrolling: touch; padding-right: 0.3rem; }
-    .form-row { grid-template-columns: 1fr; gap: 0.45rem; }
-    .form-group label { font-size: 0.7rem; margin-bottom: 0.2rem; }
-    .form-group input, .form-group select, .form-group textarea { padding: 0.5rem; font-size: 0.8rem; }
-    .form-group textarea { height: 40px; resize: none; }
-    .submit-button { padding: 0.65rem; font-size: 0.85rem; margin-top: 0.4rem; }
-    .form-consent { font-size: 0.52rem; margin-top: 0.25rem; line-height: 1.2; }
-    .call-sooner { margin-top: 0.65rem; padding: 0.4rem; }
-    .call-sooner p { font-size: 0.8rem; }
-    footer.footer { padding: 0.4rem 0.75rem !important; position: relative; background: var(--dark-bg) !important; }
-    footer.footer .footer-content p { font-size: 0.52rem; line-height: 1.15; }
-    .audio-player-btn { bottom: 50px; left: 16px; width: 44px; height: 44px; font-size: 1.15rem; }
-}
-@media (max-width: 480px) {
+    /* Header - cleaner mobile layout */
     .header {
-        height: 55px;
-        padding: 0.4rem 0.75rem;
+        height: auto;
+        padding: 0.75rem 1rem;
     }
 
-    .brand-name {
-        font-size: 0.9rem;
+    .header-container {
+        flex-direction: column;
+        gap: 0.75rem;
+        align-items: stretch;
     }
 
-    .tagline {
-        font-size: 0.6rem;
+    .logo {
+        justify-content: center;
+        gap: 0.5rem;
     }
 
     .logo-img {
         height: 40px;
     }
 
+    .brand-name {
+        font-size: 1.1rem;
+    }
+
+    .tagline {
+        font-size: 0.7rem;
+    }
+
+    .header-cta {
+        display: flex;
+        flex-direction: row;
+        gap: 0.75rem;
+        width: 100%;
+    }
+
+    .phone-btn {
+        flex: 1;
+        font-size: 0.9rem;
+        padding: 0.75rem 1rem;
+        justify-content: center;
+    }
+
+    .cta-button {
+        flex: 1;
+        font-size: 0.9rem;
+        padding: 0.75rem 1rem;
+        text-align: center;
+    }
+
+    /* Hero section - more breathing room */
     .hero {
-        padding: 0.75rem 0.75rem 0.5rem;
-        min-height: calc(100vh - 55px);
-        max-height: calc(100vh - 55px);
-        margin-top: 55px;
+        padding: 1.5rem 1rem 2rem;
+        min-height: auto;
+        margin-top: 120px;
+        overflow: visible;
+    }
+
+    .hero-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .hero-title {
+        font-size: 1.75rem;
+        line-height: 1.2;
+        text-align: center;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    /* Features - single column on mobile */
+    .features-compact {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+
+    .feature-compact {
+        font-size: 0.95rem;
+        justify-content: center;
+    }
+
+    /* Form card - larger, more readable */
+    .form-card {
+        padding: 1.25rem;
+        border-radius: 12px;
+        margin-top: 0;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .form-title {
+        display: block;
+        font-size: 1.25rem;
+        text-align: center;
+    }
+
+    .form-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+
+    .lead-form {
+        gap: 0.75rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
+    .form-group label {
+        font-size: 0.9rem;
+        margin-bottom: 0.35rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 0.75rem;
+        font-size: 16px; /* Prevents iOS zoom on focus */
+        border-radius: 8px;
+    }
+
+    .form-group textarea {
+        height: 60px;
+    }
+
+    .submit-button {
+        padding: 1rem;
+        font-size: 1rem;
+        margin-top: 0.5rem;
+    }
+
+    .form-consent {
+        font-size: 0.7rem;
+        margin-top: 0.5rem;
+        line-height: 1.4;
+    }
+
+    .call-sooner {
+        margin-top: 1rem;
+        padding: 0.75rem;
+    }
+
+    .call-sooner p {
+        font-size: 0.95rem;
+    }
+
+    /* Footer */
+    footer.footer {
+        padding: 1rem !important;
+    }
+
+    footer.footer .footer-content p {
+        font-size: 0.7rem;
+        line-height: 1.4;
+    }
+
+    .audio-player-btn {
+        bottom: 20px;
+        left: 20px;
+        width: 50px;
+        height: 50px;
+        font-size: 1.25rem;
+    }
+}
+@media (max-width: 480px) {
+    /* Header - compact but readable */
+    .header {
+        padding: 0.5rem 0.75rem;
+    }
+
+    .header-container {
+        gap: 0.5rem;
+    }
+
+    .logo-img {
+        height: 36px;
+    }
+
+    .brand-name {
+        font-size: 1rem;
+    }
+
+    .tagline {
+        font-size: 0.65rem;
+    }
+
+    .header-cta {
+        gap: 0.5rem;
+    }
+
+    .phone-btn {
+        font-size: 0.85rem;
+        padding: 0.6rem 0.75rem;
+    }
+
+    .cta-button {
+        font-size: 0.85rem;
+        padding: 0.6rem 0.75rem;
+    }
+
+    /* Hero - scrollable, not cramped */
+    .hero {
+        padding: 1.25rem 0.75rem 1.5rem;
+        min-height: auto;
+        margin-top: 100px;
     }
 
     .hero-content {
@@ -607,87 +767,80 @@ footer.footer .footer-content p {
     }
 
     .hero-title {
-        font-size: 1.6rem;
-        line-height: 1.15;
-        margin-bottom: 0.65rem;
+        font-size: 1.5rem;
+        line-height: 1.25;
     }
 
     .hero-subtitle {
-        font-size: 0.9rem;
-        margin-bottom: 0.75rem;
+        font-size: 0.95rem;
     }
 
     .features-compact {
         gap: 0.4rem;
-        margin-top: 0.65rem;
     }
 
     .feature-compact {
-        font-size: 0.85rem;
+        font-size: 0.9rem;
     }
 
+    .feature-icon-small {
+        width: 20px;
+        height: 20px;
+        font-size: 0.65rem;
+    }
+
+    /* Form - still readable */
     .form-card {
-        padding: 0.85rem 1rem;
-        border-radius: 10px;
-        max-height: calc(100vh - 140px);
+        padding: 1rem;
     }
 
     .form-title {
-        font-size: 1.15rem;
-        margin-bottom: 0.3rem;
+        font-size: 1.1rem;
     }
 
     .form-subtitle {
-        font-size: 0.8rem;
-        margin-bottom: 0.65rem;
+        font-size: 0.85rem;
     }
 
     .form-group label {
-        font-size: 0.8rem;
-        margin-bottom: 0.3rem;
+        font-size: 0.85rem;
     }
 
     .form-group input,
     .form-group select,
     .form-group textarea {
-        padding: 0.55rem;
-        font-size: 0.85rem;
+        padding: 0.65rem;
+        font-size: 16px; /* Prevents iOS zoom */
+    }
+
+    .form-group textarea {
+        height: 50px;
     }
 
     .submit-button {
-        padding: 0.7rem;
-        font-size: 0.85rem;
+        padding: 0.85rem;
+        font-size: 0.95rem;
     }
 
     .form-consent {
-        font-size: 0.6rem;
+        font-size: 0.65rem;
     }
 
     .call-sooner {
-        margin-top: 0.4rem;
-        padding: 0.4rem;
+        margin-top: 0.75rem;
+        padding: 0.6rem;
     }
 
     .call-sooner p {
         font-size: 0.9rem;
     }
 
-    .phone-btn {
-        font-size: 0.8rem;
-        padding: 0.45rem 0.75rem;
-    }
-
-    .cta-button {
-        font-size: 0.75rem;
-        padding: 0.45rem 0.85rem;
-    }
-
     footer.footer {
-        padding: 0.35rem 0.75rem !important;
+        padding: 0.75rem !important;
     }
 
     footer.footer .footer-content p {
-        font-size: 0.55rem;
+        font-size: 0.65rem;
     }
 }
 
