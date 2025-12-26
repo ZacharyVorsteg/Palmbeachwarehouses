@@ -154,7 +154,7 @@ main {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    background: var(--success-green);
+    background: var(--action-blue);
     color: white;
     padding: 0.75rem 1.25rem;
     border-radius: 50px;
@@ -164,7 +164,7 @@ main {
 }
 
 .phone-btn:hover {
-    background: #20933a;
+    background: var(--action-blue-dark);
     transform: scale(1.05);
 }
 
@@ -276,7 +276,7 @@ main {
 }
 
 .feature-icon-small {
-    background: var(--success-green);
+    background: var(--action-blue);
     color: white;
     width: 24px;
     height: 24px;
@@ -451,9 +451,9 @@ main {
 }
 
 .form-message.success {
-    background: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
+    background: #dbeafe;
+    color: #1e40af;
+    border: 1px solid #93c5fd;
 }
 
 .form-message.error {
@@ -469,7 +469,7 @@ main {
 
 .success-icon {
     font-size: 4rem;
-    color: var(--success-green);
+    color: var(--action-blue);
     margin-bottom: 1rem;
 }
 
@@ -942,7 +942,7 @@ footer.footer .footer-content p {
 }
 
 .listing-card.featured {
-    border-color: var(--success-green);
+    border-color: var(--action-blue);
     background: linear-gradient(135deg, var(--darker-bg) 0%, rgba(40, 167, 69, 0.1) 100%);
 }
 
@@ -950,7 +950,7 @@ footer.footer .footer-content p {
     position: absolute;
     top: -10px;
     right: 20px;
-    background: var(--success-green);
+    background: var(--action-blue);
     color: white;
     padding: 0.35rem 1rem;
     border-radius: 4px;
@@ -1019,7 +1019,7 @@ footer.footer .footer-content p {
 .price-amount {
     font-size: 1.75rem;
     font-weight: 800;
-    color: var(--success-green);
+    color: var(--action-blue);
 }
 
 .price-term {
@@ -1212,14 +1212,14 @@ footer.footer .footer-content p {
 }
 
 .audio-player-btn.playing {
-    background: linear-gradient(135deg, #28a745 0%, #34d058 100%);
-    box-shadow: 0 8px 24px rgba(40, 167, 69, 0.7), 0 0 0 5px rgba(40, 167, 69, 0.25);
+    background: linear-gradient(135deg, #1a73e8 0%, #4285f4 100%);
+    box-shadow: 0 8px 24px rgba(26, 115, 232, 0.7), 0 0 0 5px rgba(26, 115, 232, 0.25);
     animation: playing-pulse 2s ease-in-out infinite;
 }
 
 @keyframes playing-pulse {
     0%, 100% {
-        box-shadow: 0 8px 24px rgba(40, 167, 69, 0.7), 0 0 0 5px rgba(40, 167, 69, 0.25);
+        box-shadow: 0 8px 24px rgba(26, 115, 232, 0.7), 0 0 0 5px rgba(26, 115, 232, 0.25);
     }
     50% {
         box-shadow: 0 12px 32px rgba(40, 167, 69, 0.9), 0 0 0 8px rgba(40, 167, 69, 0.4);
@@ -1359,7 +1359,7 @@ footer.footer .footer-content p {
     display: block;
     font-size: 1.75rem;
     font-weight: 800;
-    color: var(--success-green);
+    color: var(--action-blue);
     line-height: 1;
 }
 
@@ -1475,7 +1475,7 @@ footer.footer .footer-content p {
 
 .credential-badge {
     display: inline-block;
-    background: var(--success-green);
+    background: var(--action-blue);
     color: white;
     padding: 0.4rem 1rem;
     border-radius: 20px;
@@ -1499,7 +1499,7 @@ footer.footer .footer-content p {
 }
 
 .credential-icon {
-    color: var(--success-green);
+    color: var(--action-blue);
     font-weight: bold;
 }
 
@@ -1718,7 +1718,7 @@ footer.footer .footer-content p {
 
 .footer-phone {
     display: block;
-    color: var(--success-green);
+    color: var(--action-blue);
     font-size: 1.1rem;
     font-weight: 600;
     text-decoration: none;
@@ -1726,7 +1726,7 @@ footer.footer .footer-content p {
 }
 
 .footer-phone:hover {
-    color: #2aa44f;
+    color: var(--primary-blue-light);
 }
 
 .footer-email {
