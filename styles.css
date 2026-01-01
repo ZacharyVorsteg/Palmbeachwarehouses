@@ -1339,10 +1339,27 @@ footer.footer .footer-content p {
     align-items: start;
 }
 
+.about-intro-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.about-headshot {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-blue);
+    flex-shrink: 0;
+    box-shadow: 0 4px 20px rgba(0, 122, 255, 0.25);
+}
+
 .about-intro {
     font-size: 1.15rem;
     color: var(--text-light);
-    margin-bottom: 1rem;
+    margin-bottom: 0;
     line-height: 1.6;
 }
 
@@ -1442,6 +1459,17 @@ footer.footer .footer-content p {
     .about-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+
+    .about-intro-wrapper {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .about-headshot {
+        width: 110px;
+        height: 110px;
     }
 
     .section-title {
@@ -1565,7 +1593,7 @@ footer.footer .footer-content p {
     padding: 2rem;
     background: rgba(0, 122, 255, 0.1);
     border-radius: 12px;
-    border: 1px dashed rgba(0, 122, 255, 0.3);
+    border: 1px solid rgba(0, 122, 255, 0.25);
 }
 
 .faq-cta p {
