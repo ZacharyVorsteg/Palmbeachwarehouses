@@ -1341,26 +1341,29 @@ footer.footer .footer-content p {
 
 .about-intro-wrapper {
     display: flex;
-    align-items: flex-start;
-    gap: 1.25rem;
-    margin-bottom: 1rem;
+    align-items: center;
+    gap: 1.75rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .about-headshot {
-    width: 130px;
-    height: 130px;
+    width: 140px;
+    height: 140px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid var(--primary-blue);
+    object-position: center top;
+    border: 4px solid var(--primary-blue);
     flex-shrink: 0;
-    box-shadow: 0 4px 20px rgba(0, 122, 255, 0.25);
+    box-shadow: 0 8px 32px rgba(0, 122, 255, 0.3), 0 0 0 4px rgba(0, 122, 255, 0.1);
 }
 
 .about-intro {
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     color: var(--text-light);
     margin-bottom: 0;
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
 .about-text p {
@@ -1465,11 +1468,18 @@ footer.footer .footer-content p {
         flex-direction: column;
         align-items: center;
         text-align: center;
+        gap: 1.25rem;
+        padding-bottom: 1.25rem;
     }
 
     .about-headshot {
-        width: 110px;
-        height: 110px;
+        width: 120px;
+        height: 120px;
+        border-width: 3px;
+    }
+
+    .about-intro {
+        font-size: 1.1rem;
     }
 
     .section-title {
