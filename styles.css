@@ -163,6 +163,10 @@ main {
     transition: all 0.2s;
 }
 
+.phone-btn .phone-icon {
+    flex-shrink: 0;
+}
+
 .phone-btn:hover {
     background: var(--action-blue-dark);
     transform: scale(1.05);
@@ -759,14 +763,6 @@ footer.footer .footer-content p {
         font-size: 0.7rem;
         line-height: 1.4;
     }
-
-    .audio-player-btn {
-        bottom: 20px;
-        left: 20px;
-        width: 50px;
-        height: 50px;
-        font-size: 1.25rem;
-    }
 }
 @media (max-width: 480px) {
     /* Header - compact but readable */
@@ -1168,78 +1164,8 @@ footer.footer .footer-content p {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Audio Player Button - High Contrast & Visible */
-.audio-player-btn {
-    position: fixed;
-    bottom: 32px;
-    left: 32px;
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(135deg, #ff9500 0%, #ff6b00 100%);
-    color: white;
-    border-radius: 50%;
-    box-shadow: 0 8px 24px rgba(255, 149, 0, 0.7), 0 0 0 5px rgba(255, 149, 0, 0.25);
-    cursor: pointer;
-    border: none;
-    outline: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.6rem;
-    z-index: 10000;
-    -webkit-tap-highlight-color: transparent;
-    touch-action: manipulation;
-    user-select: none;
-    transition: all 0.3s ease;
-    animation: attention-pulse 3s ease-in-out infinite;
-}
-
-@keyframes attention-pulse {
-    0%, 100% {
-        transform: scale(1);
-        box-shadow: 0 8px 24px rgba(255, 149, 0, 0.7), 0 0 0 5px rgba(255, 149, 0, 0.25);
-    }
-    50% {
-        transform: scale(1.1);
-        box-shadow: 0 12px 32px rgba(255, 149, 0, 0.9), 0 0 0 8px rgba(255, 149, 0, 0.35);
-    }
-}
-
-.audio-player-btn:hover {
-    transform: scale(1.2) !important;
-    box-shadow: 0 12px 32px rgba(255, 149, 0, 0.9), 0 0 0 8px rgba(255, 149, 0, 0.4);
-    animation: none;
-}
-
-.audio-player-btn.playing {
-    background: linear-gradient(135deg, #1a73e8 0%, #4285f4 100%);
-    box-shadow: 0 8px 24px rgba(26, 115, 232, 0.7), 0 0 0 5px rgba(26, 115, 232, 0.25);
-    animation: playing-pulse 2s ease-in-out infinite;
-}
-
-@keyframes playing-pulse {
-    0%, 100% {
-        box-shadow: 0 8px 24px rgba(26, 115, 232, 0.7), 0 0 0 5px rgba(26, 115, 232, 0.25);
-    }
-    50% {
-        box-shadow: 0 12px 32px rgba(26, 115, 232, 0.9), 0 0 0 8px rgba(26, 115, 232, 0.4);
-    }
-}
-
-.audio-player-btn.playing:hover {
-    box-shadow: 0 12px 32px rgba(26, 115, 232, 0.9), 0 0 0 8px rgba(26, 115, 232, 0.4);
-}
-
 /* Enhanced Mobile Responsiveness */
 @media (max-width: 480px) {
-    .audio-player-btn {
-        bottom: 20px;
-        left: 20px;
-        width: 50px;
-        height: 50px;
-        font-size: 1.3rem;
-    }
-
     /* Listings mobile optimization */
     .listings-section {
         padding: 2rem 0.75rem;
