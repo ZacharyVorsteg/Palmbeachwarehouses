@@ -31,40 +31,4 @@
         <priority>0.8</priority>
     </url>
 
-    <url>
-        <loc>https://palmbeachwarehouses.com/locations/boynton-beach/</loc>
-        <lastmod>2026-01-18</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <url>
-        <loc>https://palmbeachwarehouses.com/locations/lake-worth/</loc>
-        <lastmod>2026-01-18</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <!-- Property Type Pages -->
-    <url>
-        <loc>https://palmbeachwarehouses.com/property-types/flex-space/</loc>
-        <lastmod>2026-01-18</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <url>
-        <loc>https://palmbeachwarehouses.com/property-types/warehouse-space/</loc>
-        <lastmod>2026-01-18</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <url>
-        <loc>https://palmbeachwarehouses.com/property-types/industrial-space/</loc>
-        <lastmod>2026-01-18</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-
 </urlset>

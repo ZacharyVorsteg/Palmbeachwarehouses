@@ -2021,6 +2021,234 @@ footer.footer .footer-content p {
     }
 }
 
+/* Location Hero Grid (Text + Form side by side) */
+.location-hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.location-hero-grid .location-hero-text {
+    text-align: left;
+}
+
+.location-hero-grid .location-subtitle {
+    margin: 0 0 2rem 0;
+    max-width: none;
+}
+
+/* Agent Introduction */
+.agent-intro {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.agent-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent-blue);
+}
+
+.agent-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.agent-info strong {
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+.agent-info span {
+    color: var(--text-gray);
+    font-size: 0.85rem;
+}
+
+/* Value Propositions */
+.value-props {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.value-prop {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--text-gray);
+    font-size: 0.95rem;
+}
+
+.value-icon {
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--action-blue);
+    background: rgba(26, 115, 232, 0.15);
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    min-width: 50px;
+    text-align: center;
+}
+
+/* Location Form Card */
+.location-form-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.location-form-card .form-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.location-form-card .form-subtitle {
+    color: var(--text-gray);
+    font-size: 0.9rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+/* Form Success State */
+.form-success {
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.form-success.hidden {
+    display: none;
+}
+
+.form-success .success-icon {
+    font-size: 3rem;
+    color: #34C759;
+    margin-bottom: 1rem;
+}
+
+.form-success h3 {
+    color: var(--text-light);
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.form-success p {
+    color: var(--text-gray);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Listings Note */
+.listings-note {
+    margin-top: 2rem;
+    padding: 1.25rem;
+    background: rgba(255, 193, 7, 0.1);
+    border: 1px solid rgba(255, 193, 7, 0.3);
+    border-radius: 10px;
+}
+
+.listings-note p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.listings-note strong {
+    color: #FFC107;
+}
+
+/* Nearby Callout */
+.nearby-callout {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(74, 158, 255, 0.1);
+    border-radius: 12px;
+    border: 1px solid rgba(74, 158, 255, 0.3);
+}
+
+.nearby-callout h3 {
+    color: var(--text-light);
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+}
+
+.nearby-callout p {
+    color: var(--text-gray);
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+/* Section Subtitle */
+.section-subtitle {
+    color: var(--text-gray);
+    font-size: 1rem;
+    text-align: center;
+    margin-top: -1rem;
+    margin-bottom: 2rem;
+}
+
+/* Location Hero Grid Responsive */
+@media (max-width: 900px) {
+    .location-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .location-hero-grid .location-hero-text {
+        text-align: center;
+    }
+
+    .location-hero-grid .location-subtitle {
+        margin: 0 auto 2rem;
+    }
+
+    .agent-intro {
+        justify-content: center;
+        flex-wrap: wrap;
+        text-align: center;
+    }
+
+    .agent-info {
+        align-items: center;
+    }
+
+    .value-props {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .location-form-card {
+        padding: 1.5rem;
+    }
+
+    .value-prop {
+        font-size: 0.85rem;
+    }
+
+    .agent-photo {
+        width: 60px;
+        height: 60px;
+    }
+}
+
 /* Market Overview Section */
 .market-overview {
     background: var(--dark-bg);
