@@ -2682,3 +2682,45 @@ footer.footer .footer-content p {
     font-weight: 500;
 }
 
+/* Market Stats Grid - for citation-worthy data */
+.market-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--card-bg);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.market-stat {
+    text-align: center;
+}
+
+.market-stat .stat-value {
+    display: block;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--accent-blue);
+    line-height: 1.2;
+}
+
+.market-stat .stat-label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-gray);
+    margin-top: 0.25rem;
+}
+
+@media (max-width: 600px) {
+    .market-stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .market-stat .stat-value {
+        font-size: 1.5rem;
+    }
+}
+

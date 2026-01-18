@@ -665,9 +665,155 @@
             "Flex Space",
             "Commercial Property",
             "Tenant Representation",
-            "Distribution Centers"
+            "Distribution Centers",
+            "NNN Leases",
+            "Palm Beach County Commercial Real Estate"
         ],
-        "sameAs": []
+        "foundingDate": "2021",
+        "numberOfEmployees": 1,
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+1-561-718-6725",
+            "contactType": "sales",
+            "email": "zach@cri-re.com",
+            "availableLanguage": "English",
+            "areaServed": "Palm Beach County, FL"
+        },
+        "sameAs": [
+            "https://www.google.com/maps/place/YOUR_GOOGLE_BUSINESS_PROFILE_URL_HERE"
+        ],
+        "slogan": "Free tenant representation for warehouse and industrial space in Palm Beach County",
+        "makesOffer": {
+            "@type": "Offer",
+            "itemOffered": {
+                "@type": "Service",
+                "name": "Tenant Representation",
+                "description": "Free warehouse and industrial space search service. Landlords pay the commission - tenants pay nothing."
+            },
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+
+    <!--
+    REVIEW SCHEMA PLACEHOLDER - Activate when you have Google reviews
+    Replace YOUR_GOOGLE_BUSINESS_PROFILE_URL_HERE in sameAs above with your actual GBP URL
+    Then uncomment and update this section with real review data:
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "@id": "https://palmbeachwarehouses.com/#reviews",
+        "name": "Palm Beach Warehouses - Zachary Vorsteg",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5.0",
+            "reviewCount": "10",
+            "bestRating": "5",
+            "worstRating": "1"
+        },
+        "review": [
+            {
+                "@type": "Review",
+                "author": {"@type": "Person", "name": "Client Name"},
+                "reviewRating": {"@type": "Rating", "ratingValue": "5"},
+                "reviewBody": "Review text here..."
+            }
+        ]
+    }
+    </script>
+    -->
+
+    <!-- Person Schema for Agent E-E-A-T -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "@id": "https://palmbeachwarehouses.com/#zachary-vorsteg",
+        "name": "Zachary Vorsteg",
+        "jobTitle": "Commercial Real Estate Specialist",
+        "description": "Licensed Florida real estate professional specializing in warehouse and industrial space leasing in Palm Beach County. Over 4 years of commercial real estate experience.",
+        "image": "https://palmbeachwarehouses.com/assets/headshot.jpg",
+        "telephone": "+1-561-718-6725",
+        "email": "zach@cri-re.com",
+        "worksFor": {
+            "@type": "RealEstateAgent",
+            "@id": "https://palmbeachwarehouses.com/#agent"
+        },
+        "hasCredential": {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "Florida Real Estate License",
+            "credentialId": "SL3603483",
+            "recognizedBy": {
+                "@type": "Organization",
+                "name": "Florida DBPR"
+            }
+        },
+        "knowsAbout": [
+            "Commercial Real Estate",
+            "Industrial Property Leasing",
+            "Warehouse Space",
+            "Tenant Representation",
+            "Palm Beach County Market"
+        ],
+        "areaServed": {
+            "@type": "AdministrativeArea",
+            "name": "Palm Beach County, Florida"
+        }
+    }
+    </script>
+
+    <!-- Service Schema for AI Understanding -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "@id": "https://palmbeachwarehouses.com/#tenant-rep-service",
+        "name": "Free Warehouse & Industrial Space Search",
+        "serviceType": "Tenant Representation",
+        "description": "Professional warehouse and industrial space search service in Palm Beach County. We find, tour, and negotiate the best spaces for your business. Landlords pay our commission - you pay nothing.",
+        "provider": {
+            "@type": "RealEstateAgent",
+            "@id": "https://palmbeachwarehouses.com/#agent"
+        },
+        "areaServed": [
+            {"@type": "City", "name": "West Palm Beach", "addressRegion": "FL"},
+            {"@type": "City", "name": "Boca Raton", "addressRegion": "FL"},
+            {"@type": "City", "name": "Delray Beach", "addressRegion": "FL"},
+            {"@type": "City", "name": "Lake Worth", "addressRegion": "FL"},
+            {"@type": "City", "name": "Boynton Beach", "addressRegion": "FL"}
+        ],
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "description": "100% free to tenants - landlords pay commission",
+            "eligibleRegion": {"@type": "State", "name": "Florida"}
+        },
+        "termsOfService": "https://palmbeachwarehouses.com/",
+        "availableChannel": {
+            "@type": "ServiceChannel",
+            "servicePhone": "+1-561-718-6725",
+            "serviceUrl": "https://palmbeachwarehouses.com/"
+        }
+    }
+    </script>
+
+    <!-- Speakable Schema for Voice/AI Assistants -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Warehouse & Industrial Space for Lease in Palm Beach County",
+        "speakable": {
+            "@type": "SpeakableSpecification",
+            "cssSelector": [".hero-subtitle", ".value-statement", ".faq-answer"]
+        },
+        "mainEntity": {
+            "@id": "https://palmbeachwarehouses.com/#agent"
+        }
     }
     </script>
 
