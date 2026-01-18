@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <!-- Homepage - Highest Priority -->
+    <url>
+        <loc>https://palmbeachwarehouses.com/</loc>
+        <lastmod>2026-01-18</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- Location Pages -->
+    <url>
+        <loc>https://palmbeachwarehouses.com/locations/west-palm-beach/</loc>
+        <lastmod>2026-01-18</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://palmbeachwarehouses.com/locations/boca-raton/</loc>
+        <lastmod>2026-01-18</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://palmbeachwarehouses.com/locations/delray-beach/</loc>
+        <lastmod>2026-01-18</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://palmbeachwarehouses.com/locations/boynton-beach/</loc>
+        <lastmod>2026-01-18</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://palmbeachwarehouses.com/locations/lake-worth/</loc>
+        <lastmod>2026-01-18</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Property Type Pages -->
+    <url>
+        <loc>https://palmbeachwarehouses.com/property-types/flex-space/</loc>
+        <lastmod>2026-01-18</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://palmbeachwarehouses.com/property-types/warehouse-space/</loc>
+        <lastmod>2026-01-18</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://palmbeachwarehouses.com/property-types/industrial-space/</loc>
+        <lastmod>2026-01-18</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+</urlset>

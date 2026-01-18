@@ -1,0 +1,16 @@
+# Robots.txt for palmbeachwarehouses.com
+# Commercial Real Estate - Palm Beach County Industrial Space
+
+User-agent: *
+Allow: /
+
+# Block non-content directories
+Disallow: /assets/
+Disallow: /*.js$
+Disallow: /*.css$
+
+# Sitemap location
+Sitemap: https://palmbeachwarehouses.com/sitemap.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1
