@@ -4,10 +4,12 @@
 User-agent: *
 Allow: /
 
-# Block non-content directories
-Disallow: /assets/
-Disallow: /*.js$
-Disallow: /*.css$
+# Allow CSS and JS for proper page rendering
+Allow: /*.css$
+Allow: /*.js$
+
+# Allow all assets for image indexing
+Allow: /assets/
 
 # Sitemap location
 Sitemap: https://palmbeachwarehouses.com/sitemap.xml

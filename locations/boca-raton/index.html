@@ -107,10 +107,10 @@
                         </div>
                     </div>
 
-                    <div class="location-form-card" id="contact-form">
+                    <div class="location-form-card" id="lead-form-section">
                         <h2 class="form-title">Find Boca Raton Space</h2>
                         <p class="form-subtitle">Tell me what you need and I'll search the market</p>
-                        <form id="location-lead-form" class="lead-form" onsubmit="handleLocationForm(event)">
+                        <form id="lead-form" class="lead-form">
                             <div class="form-group">
                                 <label for="name">Name *</label>
                                 <input type="text" id="name" name="name" required placeholder="Your name">
@@ -124,23 +124,52 @@
                                 <input type="email" id="email" name="email" required placeholder="email@example.com">
                             </div>
                             <div class="form-group">
-                                <label for="size">Space Needed</label>
-                                <select id="size" name="size">
+                                <label for="space_size">Space Needed *</label>
+                                <select id="space_size" name="space_size" required>
                                     <option value="">Select size...</option>
-                                    <option value="Under 1,000 SF">Under 1,000 SF</option>
-                                    <option value="1,000 - 2,500 SF">1,000 - 2,500 SF</option>
-                                    <option value="2,500 - 5,000 SF">2,500 - 5,000 SF</option>
-                                    <option value="5,000 - 10,000 SF">5,000 - 10,000 SF</option>
-                                    <option value="10,000+ SF">10,000+ SF</option>
+                                    <option value="0-1000">Under 1,000 SF</option>
+                                    <option value="1000-2500">1,000 - 2,500 SF</option>
+                                    <option value="2500-5000">2,500 - 5,000 SF</option>
+                                    <option value="5000-10000">5,000 - 10,000 SF</option>
+                                    <option value="10000+">10,000+ SF</option>
                                 </select>
                             </div>
-                            <button type="submit" class="submit-button">Search for Me</button>
+                            <div class="form-group">
+                                <label for="move_date">Move Timeline</label>
+                                <select id="move_date" name="move_date">
+                                    <option value="">When do you need space?</option>
+                                    <option value="Immediate (0-30 Days)">Immediate (0-30 Days)</option>
+                                    <option value="1-3 Months">1-3 Months</option>
+                                    <option value="3-6 Months">3-6 Months</option>
+                                    <option value="6-12 Months">6-12 Months</option>
+                                    <option value="Flexible / TBD">Flexible / TBD</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="notes">Special Requirements</label>
+                                <textarea id="notes" name="notes" rows="2" placeholder="e.g., Loading dock, A/C warehouse, specific area"></textarea>
+                            </div>
+                            <input type="hidden" name="preferred_area" value="Boca Raton, FL">
+                            <button type="submit" class="submit-button" id="submit-btn">
+                                <span id="btn-text">SEARCH FOR ME</span>
+                                <span id="btn-loading" class="hidden">Searching...</span>
+                            </button>
                             <p class="form-consent">I'll search available Boca Raton space and contact you within 24 hours.</p>
+                            <div class="form-trust-signals">
+                                <span>✓ 100% Free</span>
+                                <span>✓ No Obligation</span>
+                                <span>✓ 24hr Response</span>
+                            </div>
+                            <div id="form-message" class="form-message hidden"></div>
                         </form>
-                        <div id="form-success" class="form-success hidden">
-                            <div class="success-icon">&#10003;</div>
+                        <div id="success-message" class="success-screen hidden">
+                            <div class="success-icon">✓</div>
                             <h3>Got It!</h3>
                             <p>I'll search the Boca Raton market and get back to you within 24 hours.</p>
+                            <a href="tel:561-718-6725" class="phone-btn" style="margin-top: 1rem; display: inline-flex;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                                Want faster? Call now
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -306,16 +335,105 @@
     </script>
 
     <script>
-    function handleLocationForm(e) {
-        e.preventDefault();
-        const form = e.target;
-        const formData = new FormData(form);
+    // Trusenda CRM Integration
+    const CONFIG = {
+        TRUSENDA_SLUG: 'zacharyvorsteg',
+        TRUSENDA_API_URL: 'https://trusenda.com/.netlify/functions',
+        LOCATION_NAME: 'Boca Raton, FL'
+    };
 
-        form.style.display = 'none';
-        document.getElementById('form-success').classList.remove('hidden');
+    let tenantId = null;
 
-        console.log('Boca Raton form submitted:', Object.fromEntries(formData));
+    // Fetch tenant ID on page load
+    async function initTrusenda() {
+        try {
+            const response = await fetch(`${CONFIG.TRUSENDA_API_URL}/get-tenant-id?slug=${CONFIG.TRUSENDA_SLUG}`);
+            const data = await response.json();
+            if (data.tenantId) {
+                tenantId = data.tenantId;
+            }
+        } catch (error) {
+            console.error('Failed to initialize Trusenda:', error);
+        }
     }
+
+    // Form submission handler
+    document.addEventListener('DOMContentLoaded', function() {
+        initTrusenda();
+
+        const form = document.getElementById('lead-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const btnText = document.getElementById('btn-text');
+        const btnLoading = document.getElementById('btn-loading');
+        const formMessage = document.getElementById('form-message');
+        const successMessage = document.getElementById('success-message');
+
+        if (form) {
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+
+                // Show loading state
+                submitBtn.disabled = true;
+                btnText.classList.add('hidden');
+                btnLoading.classList.remove('hidden');
+                formMessage.classList.add('hidden');
+
+                const formData = new FormData(form);
+                const spaceSize = formData.get('space_size') || '';
+                let sizeMin = 0, sizeMax = 0;
+
+                if (spaceSize.includes('-')) {
+                    const parts = spaceSize.split('-');
+                    sizeMin = parseInt(parts[0]) || 0;
+                    sizeMax = parseInt(parts[1]) || 0;
+                } else if (spaceSize.includes('+')) {
+                    sizeMin = parseInt(spaceSize) || 0;
+                    sizeMax = 100000;
+                }
+
+                const leadData = {
+                    tenantId: tenantId,
+                    name: formData.get('name'),
+                    email: formData.get('email'),
+                    phone: formData.get('phone'),
+                    sizeMin: sizeMin,
+                    sizeMax: sizeMax,
+                    moveTiming: formData.get('move_date') || '',
+                    preferredArea: CONFIG.LOCATION_NAME,
+                    notes: formData.get('notes') || '',
+                    source: `palmbeachwarehouses.com - ${CONFIG.LOCATION_NAME} Page`,
+                    propertyType: 'warehouse'
+                };
+
+                try {
+                    const response = await fetch(`${CONFIG.TRUSENDA_API_URL}/ingest-lead`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(leadData)
+                    });
+
+                    if (response.ok) {
+                        // Track conversion
+                        if (typeof fbq !== 'undefined') {
+                            fbq('track', 'Lead', { content_name: CONFIG.LOCATION_NAME });
+                        }
+
+                        // Show success
+                        form.style.display = 'none';
+                        successMessage.classList.remove('hidden');
+                    } else {
+                        throw new Error('Submission failed');
+                    }
+                } catch (error) {
+                    formMessage.textContent = 'Something went wrong. Please call 561-718-6725 instead.';
+                    formMessage.classList.remove('hidden');
+                    submitBtn.disabled = false;
+                    btnText.classList.remove('hidden');
+                    btnLoading.classList.add('hidden');
+                }
+            });
+        }
+    });
     </script>
 </body>
 </html>

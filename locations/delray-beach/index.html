@@ -110,7 +110,7 @@
                     <div class="location-form-card" id="contact-form">
                         <h2 class="form-title">Find Delray Beach Space</h2>
                         <p class="form-subtitle">Tell me what you need and I'll search the market</p>
-                        <form id="location-lead-form" class="lead-form" onsubmit="handleLocationForm(event)">
+                        <form id="lead-form" class="lead-form">
                             <div class="form-group">
                                 <label for="name">Name *</label>
                                 <input type="text" id="name" name="name" required placeholder="Your name">
@@ -124,23 +124,44 @@
                                 <input type="email" id="email" name="email" required placeholder="email@example.com">
                             </div>
                             <div class="form-group">
-                                <label for="size">Space Needed</label>
-                                <select id="size" name="size">
+                                <label for="space_size">Space Needed *</label>
+                                <select id="space_size" name="space_size" required>
                                     <option value="">Select size...</option>
-                                    <option value="Under 1,000 SF">Under 1,000 SF</option>
-                                    <option value="1,000 - 2,500 SF">1,000 - 2,500 SF</option>
-                                    <option value="2,500 - 5,000 SF">2,500 - 5,000 SF</option>
-                                    <option value="5,000 - 10,000 SF">5,000 - 10,000 SF</option>
-                                    <option value="10,000+ SF">10,000+ SF</option>
+                                    <option value="0-1000">Under 1,000 SF</option>
+                                    <option value="1000-2500">1,000 - 2,500 SF</option>
+                                    <option value="2500-5000">2,500 - 5,000 SF</option>
+                                    <option value="5000-10000">5,000 - 10,000 SF</option>
+                                    <option value="10000+">10,000+ SF</option>
                                 </select>
                             </div>
-                            <button type="submit" class="submit-button">Search for Me</button>
-                            <p class="form-consent">I'll search available Delray Beach space and contact you within 24 hours.</p>
+                            <div class="form-group">
+                                <label for="move_date">Move Timeline</label>
+                                <select id="move_date" name="move_date">
+                                    <option value="">When do you need space?</option>
+                                    <option value="ASAP">ASAP</option>
+                                    <option value="1-2 months">1-2 months</option>
+                                    <option value="3-6 months">3-6 months</option>
+                                    <option value="6+ months">6+ months</option>
+                                    <option value="Just researching">Just researching</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="notes">Specific Requirements</label>
+                                <textarea id="notes" name="notes" rows="3" placeholder="Dock doors, power needs, special requirements..."></textarea>
+                            </div>
+                            <input type="hidden" name="preferred_area" value="Delray Beach, FL">
+                            <button type="submit" class="submit-button" id="submit-btn">
+                                <span id="btn-text">SEND ME OPTIONS</span>
+                                <span id="btn-loading" class="hidden">Sending...</span>
+                            </button>
+                            <div id="form-message" class="form-message hidden"></div>
+                            <p class="form-consent">I'll search available Delray Beach space and contact you within 24 hours. Free service - landlords pay my fee.</p>
                         </form>
-                        <div id="form-success" class="form-success hidden">
+                        <div id="success-message" class="success-screen hidden">
                             <div class="success-icon">&#10003;</div>
                             <h3>Got It!</h3>
                             <p>I'll search the Delray Beach market and get back to you within 24 hours.</p>
+                            <p class="success-phone">Questions? Call <a href="tel:561-718-6725">561-718-6725</a></p>
                         </div>
                     </div>
                 </div>
@@ -305,16 +326,105 @@
     </script>
 
     <script>
-    function handleLocationForm(e) {
-        e.preventDefault();
-        const form = e.target;
-        const formData = new FormData(form);
+    // Trusenda CRM Integration
+    const CONFIG = {
+        TRUSENDA_SLUG: 'zacharyvorsteg',
+        TRUSENDA_API_URL: 'https://trusenda.com/.netlify/functions',
+        LOCATION_NAME: 'Delray Beach, FL'
+    };
 
-        form.style.display = 'none';
-        document.getElementById('form-success').classList.remove('hidden');
+    let tenantId = null;
 
-        console.log('Delray Beach form submitted:', Object.fromEntries(formData));
+    // Fetch tenant ID on page load
+    async function initTrusenda() {
+        try {
+            const response = await fetch(`${CONFIG.TRUSENDA_API_URL}/get-tenant-id?slug=${CONFIG.TRUSENDA_SLUG}`);
+            const data = await response.json();
+            if (data.tenantId) {
+                tenantId = data.tenantId;
+            }
+        } catch (error) {
+            console.error('Failed to initialize Trusenda:', error);
+        }
     }
+
+    // Form submission handler
+    document.addEventListener('DOMContentLoaded', function() {
+        initTrusenda();
+
+        const form = document.getElementById('lead-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const btnText = document.getElementById('btn-text');
+        const btnLoading = document.getElementById('btn-loading');
+        const formMessage = document.getElementById('form-message');
+        const successMessage = document.getElementById('success-message');
+
+        if (form) {
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+
+                // Show loading state
+                submitBtn.disabled = true;
+                btnText.classList.add('hidden');
+                btnLoading.classList.remove('hidden');
+                formMessage.classList.add('hidden');
+
+                const formData = new FormData(form);
+                const spaceSize = formData.get('space_size') || '';
+                let sizeMin = 0, sizeMax = 0;
+
+                if (spaceSize.includes('-')) {
+                    const parts = spaceSize.split('-');
+                    sizeMin = parseInt(parts[0]) || 0;
+                    sizeMax = parseInt(parts[1]) || 0;
+                } else if (spaceSize.includes('+')) {
+                    sizeMin = parseInt(spaceSize) || 0;
+                    sizeMax = 100000;
+                }
+
+                const leadData = {
+                    tenantId: tenantId,
+                    name: formData.get('name'),
+                    email: formData.get('email'),
+                    phone: formData.get('phone'),
+                    sizeMin: sizeMin,
+                    sizeMax: sizeMax,
+                    moveTiming: formData.get('move_date') || '',
+                    preferredArea: CONFIG.LOCATION_NAME,
+                    notes: formData.get('notes') || '',
+                    source: `palmbeachwarehouses.com - ${CONFIG.LOCATION_NAME} Page`,
+                    propertyType: 'warehouse'
+                };
+
+                try {
+                    const response = await fetch(`${CONFIG.TRUSENDA_API_URL}/ingest-lead`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(leadData)
+                    });
+
+                    if (response.ok) {
+                        // Track conversion
+                        if (typeof fbq !== 'undefined') {
+                            fbq('track', 'Lead', { content_name: CONFIG.LOCATION_NAME });
+                        }
+
+                        // Show success
+                        form.style.display = 'none';
+                        successMessage.classList.remove('hidden');
+                    } else {
+                        throw new Error('Submission failed');
+                    }
+                } catch (error) {
+                    formMessage.textContent = 'Something went wrong. Please call 561-718-6725 instead.';
+                    formMessage.classList.remove('hidden');
+                    submitBtn.disabled = false;
+                    btnText.classList.remove('hidden');
+                    btnLoading.classList.add('hidden');
+                }
+            });
+        }
+    });
     </script>
 </body>
 </html>
