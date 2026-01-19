@@ -47,7 +47,7 @@
     <link rel="preconnect" href="https://connect.facebook.net">
     <link rel="dns-prefetch" href="https://trusenda.com">
 
-    <link rel="stylesheet" href="styles.css?v=44">
+    <link rel="stylesheet" href="styles.css?v=45">
 
     <!-- Meta Pixel Code -->
     <script>
@@ -138,10 +138,8 @@
 
                 <div class="hero-right">
                     <div class="form-card" id="lead-form-section">
-                        <div class="form-trust-header">100% FREE Service | Licensed FL Agent</div>
                         <h2 class="form-title">Get Matched in 24 Hours</h2>
-                        <p class="form-subtitle">50+ Palm Beach businesses helped find their space</p>
-                        <p class="form-market">Industrial vacancy at 3.2% - quality spaces lease fast</p>
+                        <p class="form-subtitle">50+ Palm Beach businesses helped</p>
 
                         <form id="lead-form" class="lead-form">
                             <div class="form-group">
@@ -150,50 +148,39 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="phone">Best Phone Number *</label>
+                                <label for="phone">Phone Number *</label>
                                 <input type="tel" id="phone" name="phone" required placeholder="(555) 123-4567" inputmode="tel" autocomplete="tel">
                             </div>
 
                             <div class="form-group">
-                                <label for="email">Email (optional)</label>
-                                <input type="email" id="email" name="email" placeholder="email@example.com" inputmode="email" autocomplete="email">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="space_size">How Much Space? *</label>
+                                <label for="space_size">Space Needed *</label>
                                 <select id="space_size" name="space_size" required>
                                     <option value="">Select size...</option>
-                                    <option value="0-1000">Under 1,000 SF</option>
-                                    <option value="1000-2500">1,000 - 2,500 SF</option>
-                                    <option value="2500-5000">2,500 - 5,000 SF</option>
+                                    <option value="0-5000">Under 5,000 SF</option>
                                     <option value="5000-10000">5,000 - 10,000 SF</option>
-                                    <option value="10000-20000">10,000 - 20,000 SF</option>
-                                    <option value="20000-50000">20,000 - 50,000 SF</option>
+                                    <option value="10000-25000">10,000 - 25,000 SF</option>
+                                    <option value="25000-50000">25,000 - 50,000 SF</option>
                                     <option value="50000+">50,000+ SF</option>
+                                    <option value="not-sure">Not sure yet</option>
                                 </select>
                             </div>
 
-                            <div class="form-group">
-                                <label for="notes">Anything else? (optional)</label>
-                                <textarea id="notes" name="notes" rows="2" placeholder="Company, timeline, special requirements..."></textarea>
-                            </div>
-
                             <!-- Hidden fields for CRM compatibility -->
+                            <input type="hidden" id="email" name="email" value="">
                             <input type="hidden" id="company" name="company" value="">
                             <input type="hidden" id="budget" name="budget" value="">
                             <input type="hidden" id="property_use" name="property_use" value="Warehouse">
                             <input type="hidden" id="move_date" name="move_date" value="">
                             <input type="hidden" id="industry" name="industry" value="">
                             <input type="hidden" id="lease_term" name="lease_term" value="">
+                            <input type="hidden" id="notes" name="notes" value="">
 
                             <button type="submit" class="submit-button" id="submit-btn">
-                                <span id="btn-text">Get My Personalized Options</span>
-                                <span id="btn-loading" class="hidden">Finding spaces...</span>
+                                <span id="btn-text">Find My Space</span>
+                                <span id="btn-loading" class="hidden">Finding...</span>
                             </button>
 
-                            <p class="form-trust">What happens next: I'll call within 24 hours with 2-3 matching options</p>
-                            <p class="form-privacy">100% free (landlords pay my fee) - Your info stays private</p>
-                            <p class="form-consent">By submitting, you agree to contact via phone or email about space options.</p>
+                            <p class="form-note">Free service – I'll call within 24 hours</p>
 
                             <div id="form-message" class="form-message hidden"></div>
                         </form>
@@ -201,13 +188,9 @@
                         <div id="success-message" class="success-screen hidden">
                             <div class="success-icon">✓</div>
                             <h3>Thank You!</h3>
-                            <p>We've received your requirements and will contact you within 24 hours to discuss available options.</p>
-                            <button onclick="resetForm()" class="reset-button">Submit Another Request</button>
+                            <p>I'll call you within 24 hours with matching options.</p>
+                            <button onclick="resetForm()" class="reset-button">Submit Another</button>
                         </div>
-                    </div>
-                    
-                    <div class="call-sooner">
-                        <p>Want it sooner? <a href="tel:561-718-6725">Call 561-718-6725</a></p>
                     </div>
                 </div>
             </div>
