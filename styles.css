@@ -661,12 +661,12 @@ footer.footer .footer-content p {
     /* Header - cleaner mobile layout */
     .header {
         height: auto;
-        padding: 0.75rem 1rem;
+        padding: 0.5rem 1rem;
     }
 
     .header-container {
         flex-direction: column;
-        gap: 0.75rem;
+        gap: 0.5rem;
         align-items: stretch;
     }
 
@@ -676,54 +676,59 @@ footer.footer .footer-content p {
     }
 
     .logo-img {
-        height: 40px;
+        height: 36px;
     }
 
     .brand-name {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 
     .tagline {
-        font-size: 0.7rem;
+        font-size: 0.65rem;
     }
 
     .header-cta {
         display: flex;
         flex-direction: row;
-        gap: 0.75rem;
+        gap: 0.5rem;
         width: 100%;
     }
 
     .phone-btn {
         flex: 1;
-        font-size: 0.9rem;
-        padding: 0.75rem 1rem;
+        font-size: 0.8rem;
+        padding: 0.6rem 0.75rem;
         justify-content: center;
     }
 
     .cta-button {
         flex: 1;
-        font-size: 0.9rem;
-        padding: 0.75rem 1rem;
+        font-size: 0.8rem;
+        padding: 0.6rem 0.75rem;
         text-align: center;
     }
 
-    /* Hero section - more breathing room */
+    /* Hero section - centered with proper padding */
     .hero {
-        padding: 1.5rem 1rem 2rem;
+        padding: 1.25rem 1.25rem 2rem;
         min-height: auto;
-        margin-top: 120px;
+        margin-top: 100px;
         overflow: visible;
     }
 
     .hero-content {
         grid-template-columns: 1fr;
         gap: 1.25rem;
+        max-width: 100%;
+        padding: 0;
     }
 
     /* MOBILE: Show form FIRST, then title/features */
     .hero-right {
         order: -1;
+        width: 100%;
+        display: flex;
+        justify-content: center;
     }
 
     .hero-left {
@@ -752,6 +757,7 @@ footer.footer .footer-content p {
     .features-compact {
         grid-template-columns: repeat(2, 1fr);
         gap: 0.5rem;
+        justify-content: center;
     }
 
     .feature-compact {
@@ -764,12 +770,14 @@ footer.footer .footer-content p {
         display: none;
     }
 
-    /* Form card - larger, more readable */
+    /* Form card - CENTERED with proper margins */
     .form-card {
-        padding: 1.25rem;
+        padding: 1.25rem 1.5rem;
         border-radius: 12px;
-        margin-top: 0;
+        margin: 0 auto;
         box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        width: 100%;
+        max-width: 400px;
     }
 
     .form-title {
@@ -844,44 +852,44 @@ footer.footer .footer-content p {
 @media (max-width: 480px) {
     /* Header - compact but readable */
     .header {
-        padding: 0.5rem 0.75rem;
+        padding: 0.4rem 0.75rem;
     }
 
     .header-container {
-        gap: 0.5rem;
+        gap: 0.4rem;
     }
 
     .logo-img {
-        height: 36px;
+        height: 32px;
     }
 
     .brand-name {
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
 
     .tagline {
-        font-size: 0.65rem;
+        font-size: 0.6rem;
     }
 
     .header-cta {
-        gap: 0.5rem;
+        gap: 0.4rem;
     }
 
     .phone-btn {
-        font-size: 0.85rem;
-        padding: 0.6rem 0.75rem;
+        font-size: 0.75rem;
+        padding: 0.5rem 0.6rem;
     }
 
     .cta-button {
-        font-size: 0.85rem;
-        padding: 0.6rem 0.75rem;
+        font-size: 0.75rem;
+        padding: 0.5rem 0.6rem;
     }
 
-    /* Hero - scrollable, not cramped */
+    /* Hero - centered with balanced margins */
     .hero {
-        padding: 1rem 0.75rem 1.5rem;
+        padding: 1rem 1rem 1.5rem;
         min-height: auto;
-        margin-top: 90px;
+        margin-top: 85px;
     }
 
     .hero-content {
@@ -891,6 +899,9 @@ footer.footer .footer-content p {
     /* Keep form-first ordering from tablet breakpoint */
     .hero-right {
         order: -1;
+        width: 100%;
+        display: flex;
+        justify-content: center;
     }
 
     .hero-left {
@@ -909,6 +920,7 @@ footer.footer .footer-content p {
 
     .features-compact {
         gap: 0.4rem;
+        justify-content: center;
     }
 
     .feature-compact {
@@ -932,9 +944,12 @@ footer.footer .footer-content p {
         margin-bottom: 0.75rem;
     }
 
-    /* Form - still readable */
+    /* Form - CENTERED with max-width */
     .form-card {
-        padding: 1rem;
+        padding: 1rem 1.25rem;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 360px;
     }
 
     .form-title {
