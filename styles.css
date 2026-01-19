@@ -483,25 +483,25 @@ main {
 }
 
 .success-screen h3 {
-    font-size: 1.5rem;
+    font-size: 1.35rem;
     font-weight: 600;
-    color: #1a1a1a;
-    margin-bottom: 1rem;
-    letter-spacing: -0.02em;
+    color: #222 !important;
+    margin-bottom: 0.75rem;
+    background: none !important;
 }
 
 .success-screen p {
-    color: #4a4a4a;
-    font-size: 1rem;
+    color: #555;
+    font-size: 0.95rem;
     line-height: 1.6;
     margin-bottom: 0.5rem;
 }
 
 .success-screen .success-name {
     color: #007AFF;
-    font-weight: 500;
-    font-size: 0.95rem;
-    margin-top: 1rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-top: 0.75rem;
 }
 
 .reset-button:hover {
