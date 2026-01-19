@@ -408,8 +408,14 @@ main {
 
 .form-group textarea {
     resize: none;
-    height: 50px;
-    line-height: 1.6;
+    min-height: 60px;
+    line-height: 1.5;
+}
+
+.optional-label {
+    font-weight: 400;
+    color: #8E8E93;
+    font-size: 0.85em;
 }
 
 .submit-button {
