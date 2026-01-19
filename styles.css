@@ -723,16 +723,15 @@ footer.footer .footer-content p {
         padding: 0;
     }
 
-    /* MOBILE: Show form FIRST, then title/features */
+    /* MOBILE: Title first, then form below */
     .hero-right {
-        order: -1;
         width: 100%;
         display: flex;
         justify-content: center;
     }
 
     .hero-left {
-        order: 1;
+        text-align: center;
     }
 
     /* Condense hero text on mobile */
@@ -896,16 +895,15 @@ footer.footer .footer-content p {
         gap: 1rem;
     }
 
-    /* Keep form-first ordering from tablet breakpoint */
+    /* Title first, then form below */
     .hero-right {
-        order: -1;
         width: 100%;
         display: flex;
         justify-content: center;
     }
 
     .hero-left {
-        order: 1;
+        text-align: center;
     }
 
     .hero-title {
