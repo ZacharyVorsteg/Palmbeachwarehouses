@@ -47,7 +47,7 @@
     <link rel="preconnect" href="https://connect.facebook.net">
     <link rel="dns-prefetch" href="https://trusenda.com">
 
-    <link rel="stylesheet" href="styles.css?v=48">
+    <link rel="stylesheet" href="styles.css?v=49">
 
     <!-- Meta Pixel Code -->
     <script>
@@ -171,6 +171,23 @@
                             </div>
 
                             <div class="form-group">
+                                <label for="industry">Industry *</label>
+                                <select id="industry" name="industry" required>
+                                    <option value="">What type of business?</option>
+                                    <option value="Auto/Mechanic">Auto/Mechanic</option>
+                                    <option value="Construction/Contractor">Construction/Contractor</option>
+                                    <option value="Distribution/Logistics">Distribution/Logistics</option>
+                                    <option value="E-commerce/Fulfillment">E-commerce/Fulfillment</option>
+                                    <option value="Food/Beverage">Food/Beverage</option>
+                                    <option value="Manufacturing">Manufacturing</option>
+                                    <option value="Marine/Boat">Marine/Boat</option>
+                                    <option value="Medical/Pharma">Medical/Pharma</option>
+                                    <option value="Retail/Showroom">Retail/Showroom</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
                                 <label for="move_date">Timeline *</label>
                                 <select id="move_date" name="move_date" required>
                                     <option value="">When do you need space?</option>
@@ -183,15 +200,14 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="notes">Anything else? <span class="optional-label">(optional)</span></label>
-                                <textarea id="notes" name="notes" rows="2" placeholder="Dock doors, power needs, specific location..."></textarea>
+                                <label for="notes">Special requirements <span class="optional-label">(optional)</span></label>
+                                <textarea id="notes" name="notes" rows="2" placeholder="Dock doors, power, location preferences..."></textarea>
                             </div>
 
                             <!-- Hidden fields for CRM compatibility -->
                             <input type="hidden" id="email" name="email" value="">
                             <input type="hidden" id="budget" name="budget" value="">
                             <input type="hidden" id="property_use" name="property_use" value="Warehouse">
-                            <input type="hidden" id="industry" name="industry" value="">
                             <input type="hidden" id="lease_term" name="lease_term" value="">
 
                             <button type="submit" class="submit-button" id="submit-btn">
