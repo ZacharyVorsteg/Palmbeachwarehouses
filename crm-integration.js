@@ -211,12 +211,24 @@
         form.classList.add('hidden');
         successScreen.classList.remove('hidden');
         
-        // Track conversion (if you have analytics)
+        // Track Google Ads Conversion
         if (typeof gtag !== 'undefined') {
-            gtag('event', 'lead_submission', {
-                'event_category': 'form',
-                'event_label': 'palm_beach_warehouses'
+            // Fire Google Ads conversion event for Contact conversion
+            gtag('event', 'conversion', {
+                'send_to': 'AW-17147516072/f_LJCMeD4tMaEKipyfA_',
+                'value': 1.0,
+                'currency': 'USD'
             });
+            console.log('✅ Google Ads conversion fired');
+        }
+
+        // Track Facebook/Meta Lead Conversion
+        if (typeof fbq !== 'undefined') {
+            fbq('track', 'Lead', {
+                content_name: 'Warehouse Inquiry',
+                content_category: 'Industrial Real Estate'
+            });
+            console.log('✅ Facebook Lead conversion fired');
         }
     }
 
