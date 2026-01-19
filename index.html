@@ -138,142 +138,60 @@
 
                 <div class="hero-right">
                     <div class="form-card" id="lead-form-section">
-                        <h2 class="form-title">Tell Us Your Needs</h2>
-                        <p class="form-subtitle">We'll connect you with ideal options fast</p>
-                        
+                        <div class="form-urgency">Limited Inventory - High Demand Market</div>
+                        <h2 class="form-title">Get Your Space Options</h2>
+                        <p class="form-subtitle">We'll match you with available spaces in 24 hours</p>
+
                         <form id="lead-form" class="lead-form">
                             <div class="form-group">
-                                <label for="name">Full Name *</label>
-                                <input type="text" id="name" name="name" required placeholder="Your name">
+                                <label for="name">Your Name *</label>
+                                <input type="text" id="name" name="name" required placeholder="Full name">
                             </div>
 
                             <div class="form-group">
-                                <label for="email">Email Address *</label>
-                                <input type="email" id="email" name="email" required placeholder="email@example.com">
+                                <label for="phone">Best Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" required placeholder="(555) 123-4567" inputmode="tel" autocomplete="tel">
                             </div>
 
                             <div class="form-group">
-                                <label for="phone">Phone Number *</label>
-                                <input type="tel" id="phone" name="phone" required placeholder="(555) 123-4567">
+                                <label for="email">Email (optional)</label>
+                                <input type="email" id="email" name="email" placeholder="email@example.com" inputmode="email" autocomplete="email">
                             </div>
 
                             <div class="form-group">
-                                <label for="company">Company *</label>
-                                <input type="text" id="company" name="company" required placeholder="Your company name">
-                            </div>
-
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="space_size">Square Feet Needed *</label>
-                                    <select id="space_size" name="space_size" required>
-                                        <option value="">Select size...</option>
-                                        <option value="0-1000">Less than 1,000 SF</option>
-                                        <option value="1000-2500">1,000 - 2,500 SF</option>
-                                        <option value="2500-5000">2,500 - 5,000 SF</option>
-                                        <option value="5000-10000">5,000 - 10,000 SF</option>
-                                        <option value="10000-20000">10,000 - 20,000 SF</option>
-                                        <option value="20000-50000">20,000 - 50,000 SF</option>
-                                        <option value="50000+">50,000+ SF</option>
-                                    </select>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="budget">Monthly Budget</label>
-                                    <select id="budget" name="budget">
-                                        <option value="">Select budget...</option>
-                                        <option value="Under $2,000/mo">Under $2,000/mo</option>
-                                        <option value="$2,000 - $5,000/mo">$2,000 - $5,000/mo</option>
-                                        <option value="$5,000 - $10,000/mo">$5,000 - $10,000/mo</option>
-                                        <option value="$10,000 - $20,000/mo">$10,000 - $20,000/mo</option>
-                                        <option value="$20,000 - $50,000/mo">$20,000 - $50,000/mo</option>
-                                        <option value="$50,000+/mo">$50,000+/mo</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="property_use">Property Type *</label>
-                                    <select id="property_use" name="property_use" required>
-                                        <option value="">Select type...</option>
-                                        <option value="Distribution">Distribution</option>
-                                        <option value="Flex">Flex</option>
-                                        <option value="Industrial">Industrial</option>
-                                        <option value="Office">Office</option>
-                                        <option value="Retail">Retail</option>
-                                        <option value="Warehouse">Warehouse</option>
-                                        <option value="Other">Other</option>
-                                    </select>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="move_date">Move Timeline</label>
-                                    <select id="move_date" name="move_date">
-                                        <option value="">Select timeline...</option>
-                                        <option value="Immediate (0-30 Days)">Immediate (0-30 Days)</option>
-                                        <option value="1-3 Months">1-3 Months</option>
-                                        <option value="3-6 Months">3-6 Months</option>
-                                        <option value="6-12 Months">6-12 Months</option>
-                                        <option value="12+ Months">12+ Months</option>
-                                        <option value="Flexible / TBD">Flexible / TBD</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="industry">Industry/Business Type</label>
-                                    <select id="industry" name="industry">
-                                        <option value="">Select industry...</option>
-                                        <option value="Automotive & Transportation">Automotive & Transportation</option>
-                                        <option value="Construction & Contracting">Construction & Contracting</option>
-                                        <option value="Creative & Media Production">Creative & Media Production</option>
-                                        <option value="Distribution & Logistics">Distribution & Logistics</option>
-                                        <option value="E-commerce & Fulfillment">E-commerce & Fulfillment</option>
-                                        <option value="Education & Training">Education & Training</option>
-                                        <option value="Financial Services">Financial Services</option>
-                                        <option value="Food & Beverage Production">Food & Beverage Production</option>
-                                        <option value="Healthcare & Medical">Healthcare & Medical</option>
-                                        <option value="Light Industrial">Light Industrial</option>
-                                        <option value="Manufacturing">Manufacturing</option>
-                                        <option value="Professional Services">Professional Services</option>
-                                        <option value="Research & Development">Research & Development</option>
-                                        <option value="Retail Operations">Retail Operations</option>
-                                        <option value="Technology & Software">Technology & Software</option>
-                                        <option value="Warehousing & Storage">Warehousing & Storage</option>
-                                        <option value="Wholesale Trade">Wholesale Trade</option>
-                                        <option value="Other">Other</option>
-                                    </select>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="lease_term">Desired Lease Term</label>
-                                    <select id="lease_term" name="lease_term">
-                                        <option value="">Select term...</option>
-                                        <option value="Month-to-Month">Month-to-Month</option>
-                                        <option value="3-6 Months">3-6 Months</option>
-                                        <option value="1 Year">1 Year</option>
-                                        <option value="2 Years">2 Years</option>
-                                        <option value="3 Years">3 Years</option>
-                                        <option value="5 Years">5 Years</option>
-                                        <option value="7-10 Years">7-10 Years</option>
-                                        <option value="10+ Years">10+ Years</option>
-                                        <option value="Flexible/TBD">Flexible/TBD</option>
-                                    </select>
-                                </div>
+                                <label for="space_size">How Much Space? *</label>
+                                <select id="space_size" name="space_size" required>
+                                    <option value="">Select size...</option>
+                                    <option value="0-1000">Under 1,000 SF</option>
+                                    <option value="1000-2500">1,000 - 2,500 SF</option>
+                                    <option value="2500-5000">2,500 - 5,000 SF</option>
+                                    <option value="5000-10000">5,000 - 10,000 SF</option>
+                                    <option value="10000-20000">10,000 - 20,000 SF</option>
+                                    <option value="20000-50000">20,000 - 50,000 SF</option>
+                                    <option value="50000+">50,000+ SF</option>
+                                </select>
                             </div>
 
                             <div class="form-group">
-                                <label for="notes">Additional Notes</label>
-                                <textarea id="notes" name="notes" rows="2" placeholder="e.g., Loading docks, office space, parking"></textarea>
+                                <label for="notes">Anything else? (optional)</label>
+                                <textarea id="notes" name="notes" rows="2" placeholder="Company, timeline, special requirements..."></textarea>
                             </div>
+
+                            <!-- Hidden fields for CRM compatibility -->
+                            <input type="hidden" id="company" name="company" value="">
+                            <input type="hidden" id="budget" name="budget" value="">
+                            <input type="hidden" id="property_use" name="property_use" value="Warehouse">
+                            <input type="hidden" id="move_date" name="move_date" value="">
+                            <input type="hidden" id="industry" name="industry" value="">
+                            <input type="hidden" id="lease_term" name="lease_term" value="">
 
                             <button type="submit" class="submit-button" id="submit-btn">
-                                <span id="btn-text">SUBMIT YOUR NEEDS</span>
-                                <span id="btn-loading" class="hidden">Sending...</span>
+                                <span id="btn-text">GET MY SPACE OPTIONS</span>
+                                <span id="btn-loading" class="hidden">Finding spaces...</span>
                             </button>
 
-                            <p class="form-consent">By submitting, you agree to contact via phone, email, or text about your space options (msg/data rates may apply).</p>
+                            <p class="form-trust">$0 cost to you - Response within 24 hours</p>
+                            <p class="form-consent">By submitting, you agree to contact via phone or email about space options.</p>
 
                             <div id="form-message" class="form-message hidden"></div>
                         </form>
@@ -899,16 +817,6 @@
     }
     </script>
     
-    <!-- Form Splash Modal -->
-    <div class="form-splash-modal" id="formSplashModal">
-        <div class="form-splash-content">
-            <h3>Let's Find Your Perfect Space</h3>
-            <p>Fill out the form with your requirements, including any special needs. We'll match you with the best warehouse or flex space options in Palm Beach County.</p>
-            <button class="form-splash-btn" onclick="closeFormSplash()">Continue to Form</button>
-        </div>
-    </div>
-
-    
     <script>
         // Ensure page loads at top
         window.addEventListener('beforeunload', function() {
@@ -925,67 +833,42 @@
             }, 0);
         });
 
-        // Show form splash modal
+        // Direct scroll to form - no modal friction
         function scrollToForm() {
-            const modal = document.getElementById('formSplashModal');
-            if (modal) {
-                modal.classList.add('active');
-            }
-        }
-
-        // Close splash and scroll to form
-        function closeFormSplash() {
-            const modal = document.getElementById('formSplashModal');
             const formCard = document.querySelector('.form-card');
             const firstInput = document.getElementById('name');
-            
-            // Close modal
-            if (modal) {
-                modal.classList.remove('active');
-            }
-            
-            // Scroll to form after modal closes
-            setTimeout(() => {
-                if (formCard) {
-                    formCard.scrollIntoView({ 
-                        behavior: 'smooth', 
-                        block: 'center'
-                    });
-                    
-                    // Highlight and focus
+
+            if (formCard) {
+                formCard.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+
+                // Highlight and focus
+                setTimeout(() => {
+                    if (formCard) {
+                        formCard.style.boxShadow = '0 0 0 4px rgba(26, 115, 232, 0.5), 0 20px 60px rgba(0, 0, 0, 0.3)';
+                        formCard.style.transition = 'box-shadow 0.4s ease';
+                    }
+
+                    if (firstInput) {
+                        firstInput.focus();
+                    }
+
+                    // Remove highlight
                     setTimeout(() => {
                         if (formCard) {
-                            formCard.style.boxShadow = '0 0 0 4px rgba(26, 115, 232, 0.5), 0 20px 60px rgba(0, 0, 0, 0.3)';
-                            formCard.style.transition = 'box-shadow 0.4s ease';
+                            formCard.style.boxShadow = '0 20px 60px rgba(0, 0, 0, 0.3)';
                         }
-                        
-                        if (firstInput) {
-                            firstInput.focus();
-                        }
-                        
-                        // Remove highlight
-                        setTimeout(() => {
-                            if (formCard) {
-                                formCard.style.boxShadow = '0 20px 60px rgba(0, 0, 0, 0.3)';
-                            }
-                        }, 2000);
-                    }, 400);
-                }
-            }, 300);
-        }
-
-        // Close modal on background click
-        document.addEventListener('click', function(e) {
-            const modal = document.getElementById('formSplashModal');
-            if (e.target === modal) {
-                closeFormSplash();
+                    }, 2000);
+                }, 400);
             }
-        });
+        }
 
         function resetForm() {
             const leadForm = document.getElementById('lead-form');
             const successMessage = document.getElementById('success-message');
-            
+
             if (leadForm) leadForm.reset();
             if (successMessage) successMessage.classList.add('hidden');
         }
