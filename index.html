@@ -1231,7 +1231,8 @@ END:VCARD`;
         let map = null;
         let mapInitialized = false;
 
-        // Property data with coordinates
+        // Property data with VERIFIED coordinates (US Census Geocoder - 2026-01-23)
+        // To verify/update coordinates: https://geocoding.geo.census.gov/geocoder/locations/onelineaddress
         const properties = [
             {
                 address: "1400 Forsythe Road Unit F",
@@ -1240,8 +1241,8 @@ END:VCARD`;
                 type: "Office/Warehouse",
                 price: "$3,000/mo",
                 details: ["3 Parking Spaces", "14' Clear Height"],
-                lat: 26.6847,
-                lng: -80.0503,
+                lat: 26.687928,
+                lng: -80.070881,
                 featured: false
             },
             {
@@ -1251,8 +1252,8 @@ END:VCARD`;
                 type: "Warehouse/Flex",
                 price: "$2,930/mo",
                 details: ["4 Parking Spaces", "14' Clear Height"],
-                lat: 26.6989,
-                lng: -80.1261,
+                lat: 26.682432,
+                lng: -80.149299,
                 featured: false
             },
             {
@@ -1262,8 +1263,8 @@ END:VCARD`;
                 type: "Office/Warehouse",
                 price: "$3,240/mo",
                 details: ["5 Parking Spaces", "14' Clear Height"],
-                lat: 26.6995,
-                lng: -80.1255,
+                lat: 26.683389,
+                lng: -80.149309,
                 featured: false
             },
             {
@@ -1273,8 +1274,8 @@ END:VCARD`;
                 type: "Office/Warehouse",
                 price: "$6,075/mo",
                 details: ["9 Parking Spaces", "Dock High & Grade"],
-                lat: 26.7093,
-                lng: -80.1442,
+                lat: 26.698530,
+                lng: -80.157682,
                 featured: false
             },
             {
@@ -1284,8 +1285,8 @@ END:VCARD`;
                 type: "Office/Warehouse + Yard",
                 price: "$17,780/mo",
                 details: ["8,006 SF Office", "3,527 SF Warehouse", "23 Parking", "Secured Yard"],
-                lat: 26.6830,
-                lng: -80.0543,
+                lat: 26.688576,
+                lng: -80.069131,
                 featured: true
             }
         ];
