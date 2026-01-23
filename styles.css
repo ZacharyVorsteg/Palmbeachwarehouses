@@ -2785,3 +2785,882 @@ footer.footer .footer-content p {
     }
 }
 
+/* ==========================================
+   MULTI-STEP FORM STYLES
+   ========================================== */
+
+/* Progress Indicator */
+.form-progress {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--form-border);
+}
+
+.progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.step-number {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #E5E7EB;
+    color: #6B7280;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.progress-step.active .step-number,
+.progress-step.completed .step-number {
+    background: var(--primary-blue);
+    color: white;
+}
+
+.progress-step.completed .step-number {
+    background: var(--success-green);
+}
+
+.step-label {
+    font-size: 0.7rem;
+    color: #9CA3AF;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+.progress-step.active .step-label {
+    color: var(--primary-blue);
+}
+
+.progress-step.completed .step-label {
+    color: var(--success-green);
+}
+
+.progress-line {
+    width: 60px;
+    height: 3px;
+    background: #E5E7EB;
+    margin: 0 0.75rem;
+    margin-bottom: 1.25rem;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    background: var(--primary-blue);
+    transition: width 0.4s ease;
+}
+
+/* Form Step Visibility */
+.multi-step-form .form-step {
+    display: none;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.multi-step-form .form-step.active {
+    display: block;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Form Buttons Row */
+.form-buttons {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: var(--spacing-sm);
+}
+
+.back-btn {
+    flex: 0 0 auto;
+    padding: 1rem 1.25rem;
+    background: transparent;
+    color: var(--form-placeholder);
+    border: 1px solid var(--form-border);
+    border-radius: var(--radius-md);
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.back-btn:hover {
+    background: #F3F4F6;
+    color: var(--form-text);
+    border-color: #D1D5DB;
+}
+
+.form-buttons .submit-button {
+    flex: 1;
+}
+
+/* Next Step Button */
+.next-step-btn {
+    width: 100%;
+}
+
+/* Success Icon */
+.success-screen .success-icon {
+    font-size: 2rem;
+    color: white;
+    background: var(--success-green);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+}
+
+/* Success Screen - Enhanced with Agent Info */
+.success-screen .success-progress {
+    margin-bottom: 1.5rem;
+}
+
+.success-screen .success-progress .progress-line.complete {
+    background: var(--success-green);
+}
+
+.success-screen .success-progress .progress-line.complete .progress-fill {
+    background: var(--success-green);
+    width: 100% !important;
+}
+
+.success-agent {
+    margin: 1.5rem 0;
+    text-align: center;
+}
+
+.success-headshot {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 0.75rem;
+    border: 3px solid var(--success-green);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.success-agent-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 0.25rem;
+}
+
+.success-agent-title {
+    font-size: 0.85rem;
+    color: var(--text-gray);
+    margin-bottom: 0.5rem;
+}
+
+.success-agent-phone {
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary-blue);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.success-agent-phone:hover {
+    color: var(--accent-blue);
+}
+
+.success-buttons {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.success-btn-primary {
+    padding: 0.85rem 1.25rem;
+    background: var(--primary-blue);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.success-btn-primary:hover {
+    background: var(--accent-blue);
+    transform: translateY(-1px);
+}
+
+.success-btn-secondary {
+    padding: 0.85rem 1.25rem;
+    background: transparent;
+    color: var(--primary-blue);
+    border: 2px solid var(--primary-blue);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.success-btn-secondary:hover {
+    background: var(--primary-blue);
+    color: white;
+}
+
+@media (max-width: 480px) {
+    .success-buttons {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .success-btn-primary,
+    .success-btn-secondary {
+        width: 100%;
+    }
+
+    .success-headshot {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+/* Mobile Adjustments for Multi-Step Form */
+@media (max-width: 768px) {
+    .form-progress {
+        margin-bottom: 1rem;
+        padding-bottom: 0.75rem;
+    }
+
+    .step-number {
+        width: 28px;
+        height: 28px;
+        font-size: 0.8rem;
+    }
+
+    .step-label {
+        font-size: 0.6rem;
+    }
+
+    .progress-line {
+        width: 40px;
+        margin: 0 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .form-buttons {
+        flex-direction: row;
+    }
+
+    .back-btn {
+        padding: 0.85rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-progress {
+        margin-bottom: 0.75rem;
+    }
+
+    .step-number {
+        width: 26px;
+        height: 26px;
+        font-size: 0.75rem;
+    }
+
+    .step-label {
+        font-size: 0.55rem;
+    }
+
+    .progress-line {
+        width: 30px;
+        margin: 0 0.35rem;
+        margin-bottom: 0.9rem;
+    }
+
+    .back-btn {
+        padding: 0.75rem 0.85rem;
+    }
+}
+
+/* Form Validation Error State */
+.form-group input.error,
+.form-group select.error,
+.form-group textarea.error {
+    border-color: var(--error-red);
+    background: #FEF2F2;
+    box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+}
+
+/* Shake Animation for Validation Errors */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-8px); }
+    40%, 80% { transform: translateX(8px); }
+}
+
+/* ==========================================
+   ADVANCED REQUIREMENTS (Collapsible)
+   ========================================== */
+
+.advanced-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.65rem 0.85rem;
+    margin: 0.25rem 0 0.5rem;
+    background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
+    border: 1px solid #E2E8F0;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.advanced-toggle:hover {
+    background: linear-gradient(135deg, #F1F5F9 0%, #E2E8F0 100%);
+    border-color: #CBD5E1;
+}
+
+.advanced-toggle.active {
+    background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
+    border-color: var(--primary-blue);
+}
+
+.toggle-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    background: #E2E8F0;
+    color: #64748B;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.advanced-toggle.active .toggle-icon {
+    background: var(--primary-blue);
+    color: white;
+    transform: rotate(45deg);
+}
+
+.toggle-text {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #475569;
+}
+
+.toggle-hint {
+    font-size: 0.7rem;
+    color: #94A3B8;
+    margin-left: auto;
+    font-style: italic;
+}
+
+/* Advanced Requirements Panel */
+.advanced-requirements {
+    display: none;
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    background: #FAFBFC;
+    border: 1px solid #E5E7EB;
+    border-radius: var(--radius-md);
+    animation: slideDown 0.2s ease;
+}
+
+.advanced-requirements.active {
+    display: block;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Requirement Groups */
+.req-group {
+    margin-bottom: 0.65rem;
+}
+
+.req-group:last-child {
+    margin-bottom: 0;
+}
+
+.req-group-title {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #64748B;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.4rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 1px solid #E5E7EB;
+}
+
+/* Checkbox Labels */
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.5rem;
+    margin: 0.15rem 0;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.checkbox-label:hover {
+    background: #F1F5F9;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--primary-blue);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.checkbox-text {
+    font-size: 0.82rem;
+    color: #374151;
+    line-height: 1.3;
+}
+
+/* Dropdown row layout for building specs */
+.dropdown-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+}
+
+.dropdown-row.four-col {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.dropdown-row.two-col {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.dropdown-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.dropdown-item.inline {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.dropdown-label {
+    font-size: 0.7rem;
+    color: #64748B;
+    font-weight: 500;
+}
+
+.form-select.compact {
+    padding: 0.35rem 0.5rem;
+    font-size: 0.78rem;
+    border-radius: 4px;
+    background-size: 10px;
+    min-width: 0;
+}
+
+/* Specialized row - mixed checkbox and dropdown */
+.specialized-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.specialized-row .checkbox-label {
+    margin: 0;
+    padding: 0.25rem 0.4rem;
+}
+
+.specialized-row .dropdown-item.inline {
+    flex: 0 0 auto;
+}
+
+.specialized-row .dropdown-item.inline .form-select.compact {
+    width: 90px;
+}
+
+/* Checkbox row layout */
+.checkbox-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 0.75rem;
+}
+
+.checkbox-row.two-col {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.2rem 0.5rem;
+}
+
+.checkbox-row .checkbox-label {
+    margin: 0;
+    padding: 0.25rem 0.4rem;
+    flex: 0 0 auto;
+}
+
+/* Full-width dropdown for Office Component */
+.dropdown-item.full-width {
+    width: 100%;
+}
+
+.dropdown-item.full-width .form-select.compact {
+    max-width: 220px;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .advanced-toggle {
+        padding: 0.55rem 0.75rem;
+    }
+
+    .toggle-icon {
+        width: 16px;
+        height: 16px;
+        font-size: 0.75rem;
+    }
+
+    .toggle-text {
+        font-size: 0.8rem;
+    }
+
+    .toggle-hint {
+        font-size: 0.65rem;
+    }
+
+    .advanced-requirements {
+        padding: 0.6rem;
+    }
+
+    .req-group-title {
+        font-size: 0.65rem;
+    }
+
+    .checkbox-label {
+        padding: 0.3rem 0.4rem;
+    }
+
+    .checkbox-text {
+        font-size: 0.78rem;
+    }
+
+    .dropdown-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.4rem;
+    }
+
+    .dropdown-row.four-col {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dropdown-label {
+        font-size: 0.65rem;
+    }
+
+    .form-select.compact {
+        padding: 0.3rem 0.4rem;
+        font-size: 0.75rem;
+    }
+
+    .specialized-row {
+        gap: 0.5rem;
+    }
+
+    .checkbox-row {
+        gap: 0.2rem 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .advanced-toggle {
+        padding: 0.5rem 0.65rem;
+    }
+
+    .toggle-text {
+        font-size: 0.75rem;
+    }
+
+    .checkbox-text {
+        font-size: 0.75rem;
+    }
+}
+
+/* ==========================================
+   VIEW TOGGLE & MAP STYLES
+   ========================================== */
+
+/* View Toggle Container */
+.view-toggle-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.view-toggle {
+    display: inline-flex;
+    background: var(--card-bg);
+    border-radius: 10px;
+    padding: 4px;
+    gap: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.view-toggle-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.65rem 1.25rem;
+    background: transparent;
+    color: var(--text-gray);
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.view-toggle-btn:hover {
+    color: var(--text-light);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.view-toggle-btn.active {
+    background: var(--action-blue);
+    color: white;
+    box-shadow: 0 2px 8px rgba(26, 115, 232, 0.3);
+}
+
+.view-toggle-btn svg {
+    flex-shrink: 0;
+}
+
+/* Map View Container */
+.map-view-container {
+    margin-bottom: 2rem;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--card-bg);
+}
+
+.properties-map {
+    width: 100%;
+    height: 500px;
+    background: #1a1f33;
+}
+
+.map-legend {
+    padding: 0.75rem 1rem;
+    background: var(--darker-bg);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--text-gray);
+}
+
+.legend-marker {
+    width: 12px;
+    height: 12px;
+    background: var(--action-blue);
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Map Popup Styles (Leaflet override) */
+.leaflet-popup-content-wrapper {
+    background: var(--card-bg) !important;
+    border-radius: 10px !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.leaflet-popup-content {
+    margin: 12px 14px !important;
+    color: var(--text-light) !important;
+    font-family: inherit !important;
+}
+
+.leaflet-popup-tip {
+    background: var(--card-bg) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.map-popup {
+    min-width: 200px;
+}
+
+.map-popup-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-light);
+    margin-bottom: 0.25rem;
+}
+
+.map-popup-location {
+    font-size: 0.8rem;
+    color: var(--text-gray);
+    margin-bottom: 0.5rem;
+}
+
+.map-popup-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.map-popup-detail {
+    font-size: 0.75rem;
+    color: var(--accent-blue);
+    background: rgba(0, 122, 255, 0.1);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+}
+
+.map-popup-price {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--success-green);
+    margin-bottom: 0.5rem;
+}
+
+.map-popup-cta {
+    display: block;
+    text-align: center;
+    padding: 0.5rem;
+    background: var(--action-blue);
+    color: white !important;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.map-popup-cta:hover {
+    background: var(--action-blue-dark);
+}
+
+/* Custom Marker Styles */
+.custom-marker {
+    background: var(--action-blue);
+    border: 3px solid white;
+    border-radius: 50%;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+    width: 24px !important;
+    height: 24px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.custom-marker.featured {
+    background: var(--success-green);
+    width: 30px !important;
+    height: 30px !important;
+}
+
+/* Map Loading State */
+.map-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 500px;
+    color: var(--text-gray);
+    gap: 1rem;
+}
+
+.map-loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    border-top-color: var(--action-blue);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .view-toggle-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    .properties-map {
+        height: 400px;
+    }
+
+    .map-popup {
+        min-width: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .view-toggle-btn {
+        padding: 0.5rem 0.85rem;
+        font-size: 0.8rem;
+        gap: 0.35rem;
+    }
+
+    .view-toggle-btn svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .properties-map {
+        height: 350px;
+    }
+}
+

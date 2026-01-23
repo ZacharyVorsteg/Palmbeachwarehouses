@@ -1,3 +1,8 @@
+<!--
+  LISTINGS SYNC: Property listings are duplicated across multiple files.
+  When modifying, check ALL: /index.html, /locations/*/index.html
+  See /CLAUDE.md for full checklist.
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,7 +52,7 @@
     <link rel="preconnect" href="https://connect.facebook.net">
     <link rel="dns-prefetch" href="https://trusenda.com">
 
-    <link rel="stylesheet" href="styles.css?v=50">
+    <link rel="stylesheet" href="styles.css?v=60">
 
     <!-- Meta Pixel Code -->
     <script>
@@ -138,92 +143,292 @@
 
                 <div class="hero-right">
                     <div class="form-card" id="lead-form-section">
-                        <h2 class="form-title">Get Matched in 24 Hours</h2>
-                        <p class="form-subtitle">50+ Palm Beach businesses helped</p>
+                        <!-- Progress Indicator -->
+                        <div class="form-progress">
+                            <div class="progress-step active" data-step="1">
+                                <span class="step-number">1</span>
+                                <span class="step-label">Space Needs</span>
+                            </div>
+                            <div class="progress-line"><div class="progress-fill"></div></div>
+                            <div class="progress-step" data-step="2">
+                                <span class="step-number">2</span>
+                                <span class="step-label">Contact</span>
+                            </div>
+                        </div>
 
-                        <form id="lead-form" class="lead-form">
-                            <div class="form-group">
-                                <label for="name">Your Name *</label>
-                                <input type="text" id="name" name="name" required placeholder="Full name">
+                        <form id="lead-form" class="lead-form multi-step-form">
+                            <!-- STEP 1: Property Requirements -->
+                            <div class="form-step active" id="step-1">
+                                <h2 class="form-title">What are you looking for?</h2>
+                                <p class="form-subtitle">Help us match you with the right space</p>
+
+                                <div class="form-group">
+                                    <label for="property_use">Property Type *</label>
+                                    <select id="property_use" name="property_use" required>
+                                        <option value="">Select type...</option>
+                                        <option value="Warehouse">Warehouse</option>
+                                        <option value="Flex Space">Flex Space</option>
+                                        <option value="Office/Warehouse">Office/Warehouse</option>
+                                        <option value="Industrial">Industrial</option>
+                                        <option value="Distribution">Distribution Center</option>
+                                        <option value="Not sure">Not sure yet</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="space_size">Square Footage *</label>
+                                    <select id="space_size" name="space_size" required>
+                                        <option value="">Select size...</option>
+                                        <option value="0-2500">Under 2,500 SF</option>
+                                        <option value="2500-5000">2,500 - 5,000 SF</option>
+                                        <option value="5000-10000">5,000 - 10,000 SF</option>
+                                        <option value="10000-25000">10,000 - 25,000 SF</option>
+                                        <option value="25000-50000">25,000 - 50,000 SF</option>
+                                        <option value="50000+">50,000+ SF</option>
+                                        <option value="not-sure">Not sure yet</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="budget">Budget Range *</label>
+                                    <select id="budget" name="budget" required>
+                                        <option value="">Select budget...</option>
+                                        <option value="$1,500-3,000/mo">$1,500 - $3,000/mo</option>
+                                        <option value="$3,000-5,000/mo">$3,000 - $5,000/mo</option>
+                                        <option value="$5,000-10,000/mo">$5,000 - $10,000/mo</option>
+                                        <option value="$10,000-20,000/mo">$10,000 - $20,000/mo</option>
+                                        <option value="$20,000+/mo">$20,000+/mo</option>
+                                        <option value="Flexible">Flexible / Not sure</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="move_date">Timeline *</label>
+                                        <select id="move_date" name="move_date" required>
+                                            <option value="">When?</option>
+                                            <option value="Immediate">Immediate</option>
+                                            <option value="1-3 months">1-3 months</option>
+                                            <option value="3-6 months">3-6 months</option>
+                                            <option value="6+ months">6+ months</option>
+                                            <option value="Just exploring">Exploring</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="lease_term">Lease Term *</label>
+                                        <select id="lease_term" name="lease_term" required>
+                                            <option value="">How long?</option>
+                                            <option value="Month-to-Month">Month-to-Month</option>
+                                            <option value="1-2 Years">1-2 Years</option>
+                                            <option value="3-5 Years">3-5 Years</option>
+                                            <option value="5+ Years">5+ Years</option>
+                                            <option value="Flexible">Flexible</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="industry">Industry *</label>
+                                    <select id="industry" name="industry" required>
+                                        <option value="">Select industry...</option>
+                                        <option value="Automotive & Transportation">Automotive & Transportation</option>
+                                        <option value="Construction & Contracting">Construction & Contracting</option>
+                                        <option value="Creative & Media Production">Creative & Media Production</option>
+                                        <option value="Distribution & Logistics">Distribution & Logistics</option>
+                                        <option value="E-commerce & Fulfillment">E-commerce & Fulfillment</option>
+                                        <option value="Education & Training">Education & Training</option>
+                                        <option value="Financial Services">Financial Services</option>
+                                        <option value="Food & Beverage Production">Food & Beverage Production</option>
+                                        <option value="Healthcare & Medical">Healthcare & Medical</option>
+                                        <option value="Light Industrial">Light Industrial</option>
+                                        <option value="Manufacturing">Manufacturing</option>
+                                        <option value="Professional Services">Professional Services</option>
+                                        <option value="Research & Development">Research & Development</option>
+                                        <option value="Retail Operations">Retail Operations</option>
+                                        <option value="Technology & Software">Technology & Software</option>
+                                        <option value="Warehousing & Storage">Warehousing & Storage</option>
+                                        <option value="Wholesale Trade">Wholesale Trade</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+
+                                <!-- Advanced Requirements (Optional, Collapsible) -->
+                                <div class="advanced-toggle" onclick="toggleAdvanced()">
+                                    <span class="toggle-icon">+</span>
+                                    <span class="toggle-text">Specific requirements</span>
+                                    <span class="toggle-hint">optional</span>
+                                </div>
+
+                                <div class="advanced-requirements" id="advanced-requirements">
+                                    <!-- Building Specs - Smart Dropdowns -->
+                                    <div class="req-group">
+                                        <div class="req-group-title">Building Specs</div>
+                                        <div class="dropdown-row four-col">
+                                            <div class="dropdown-item">
+                                                <label class="dropdown-label">Loading docks</label>
+                                                <select name="req_docks" class="form-select compact">
+                                                    <option value="">Any</option>
+                                                    <option value="1-2 dock doors">1-2</option>
+                                                    <option value="3-5 dock doors">3-5</option>
+                                                    <option value="6+ dock doors">6+</option>
+                                                </select>
+                                            </div>
+                                            <div class="dropdown-item">
+                                                <label class="dropdown-label">Ceiling height</label>
+                                                <select name="req_clearheight" class="form-select compact">
+                                                    <option value="">Any</option>
+                                                    <option value="18'+ clear height">18'+</option>
+                                                    <option value="24'+ clear height">24'+</option>
+                                                    <option value="28'+ clear height">28'+</option>
+                                                </select>
+                                            </div>
+                                            <div class="dropdown-item">
+                                                <label class="dropdown-label">Power</label>
+                                                <select name="req_power" class="form-select compact">
+                                                    <option value="">Standard</option>
+                                                    <option value="Heavy equipment power">Heavy equipment</option>
+                                                </select>
+                                            </div>
+                                            <div class="dropdown-item">
+                                                <label class="dropdown-label">Climate</label>
+                                                <select name="req_climate" class="form-select compact">
+                                                    <option value="">Any</option>
+                                                    <option value="Air conditioned">Air conditioned</option>
+                                                    <option value="Cold storage">Cold storage</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Access & Features -->
+                                    <div class="req-group">
+                                        <div class="req-group-title">Access & Features</div>
+                                        <div class="checkbox-row two-col">
+                                            <label class="checkbox-label">
+                                                <input type="checkbox" name="req_grade" value="Drive-in doors">
+                                                <span class="checkbox-text">Drive-in doors</span>
+                                            </label>
+                                            <label class="checkbox-label">
+                                                <input type="checkbox" name="req_semi" value="Semi-truck access">
+                                                <span class="checkbox-text">Semi-truck access</span>
+                                            </label>
+                                            <label class="checkbox-label">
+                                                <input type="checkbox" name="req_yard" value="Yard / outside storage">
+                                                <span class="checkbox-text">Yard / outside storage</span>
+                                            </label>
+                                            <label class="checkbox-label">
+                                                <input type="checkbox" name="req_trailer" value="Trailer parking">
+                                                <span class="checkbox-text">Trailer parking</span>
+                                            </label>
+                                            <label class="checkbox-label">
+                                                <input type="checkbox" name="req_247" value="24/7 access">
+                                                <span class="checkbox-text">24/7 access</span>
+                                            </label>
+                                            <label class="checkbox-label">
+                                                <input type="checkbox" name="req_fenced" value="Fenced / secured">
+                                                <span class="checkbox-text">Fenced / secured</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <!-- Office Component -->
+                                    <div class="req-group">
+                                        <div class="req-group-title">Office Component</div>
+                                        <div class="dropdown-row two-col">
+                                            <div class="dropdown-item">
+                                                <label class="dropdown-label">Office / showroom space</label>
+                                                <select name="req_office" class="form-select compact">
+                                                    <option value="">None needed</option>
+                                                    <option value="Minimal office (<500 sf)">Minimal (&lt;500 sf)</option>
+                                                    <option value="Moderate office (500-2k sf)">Moderate (500-2k sf)</option>
+                                                    <option value="Significant office (2k+ sf)">Significant (2k+ sf)</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button type="button" class="submit-button next-step-btn" onclick="nextStep()">
+                                    Continue →
+                                </button>
                             </div>
 
-                            <div class="form-group">
-                                <label for="phone">Phone *</label>
-                                <input type="tel" id="phone" name="phone" required placeholder="(555) 123-4567" inputmode="tel" autocomplete="tel">
+                            <!-- STEP 2: Contact Information -->
+                            <div class="form-step" id="step-2">
+                                <h2 class="form-title">Almost done!</h2>
+                                <p class="form-subtitle">How should I reach you?</p>
+
+                                <div class="form-group">
+                                    <label for="name">Your Name *</label>
+                                    <input type="text" id="name" name="name" required placeholder="Full name">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="company">Company *</label>
+                                    <input type="text" id="company" name="company" required placeholder="Company name">
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="phone">Phone *</label>
+                                        <input type="tel" id="phone" name="phone" required placeholder="(555) 123-4567" inputmode="tel" autocomplete="tel">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="email">Email *</label>
+                                        <input type="email" id="email" name="email" required placeholder="you@company.com" autocomplete="email">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="notes">Special requirements <span class="optional-label">(optional)</span></label>
+                                    <textarea id="notes" name="notes" rows="2" placeholder="Loading dock, AC, power needs, location preferences..."></textarea>
+                                </div>
+
+                                <div class="form-buttons">
+                                    <button type="button" class="back-btn" onclick="prevStep()">← Back</button>
+                                    <button type="submit" class="submit-button" id="submit-btn">
+                                        <span id="btn-text">Get Matched</span>
+                                        <span id="btn-loading" class="hidden">Submitting...</span>
+                                    </button>
+                                </div>
+
+                                <p class="form-note">Free service – I'll contact you within 24 hours</p>
+
+                                <div id="form-message" class="form-message hidden"></div>
                             </div>
-
-                            <div class="form-group">
-                                <label for="company">Company *</label>
-                                <input type="text" id="company" name="company" required placeholder="Company name">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="space_size">Space Needed *</label>
-                                <select id="space_size" name="space_size" required>
-                                    <option value="">Select size...</option>
-                                    <option value="0-5000">Under 5,000 SF</option>
-                                    <option value="5000-10000">5,000 - 10,000 SF</option>
-                                    <option value="10000-25000">10,000 - 25,000 SF</option>
-                                    <option value="25000-50000">25,000 - 50,000 SF</option>
-                                    <option value="50000+">50,000+ SF</option>
-                                    <option value="not-sure">Not sure yet</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="industry">Industry *</label>
-                                <select id="industry" name="industry" required>
-                                    <option value="">What type of business?</option>
-                                    <option value="Auto/Mechanic">Auto/Mechanic</option>
-                                    <option value="Construction/Contractor">Construction/Contractor</option>
-                                    <option value="Distribution/Logistics">Distribution/Logistics</option>
-                                    <option value="E-commerce/Fulfillment">E-commerce/Fulfillment</option>
-                                    <option value="Food/Beverage">Food/Beverage</option>
-                                    <option value="Manufacturing">Manufacturing</option>
-                                    <option value="Marine/Boat">Marine/Boat</option>
-                                    <option value="Medical/Pharma">Medical/Pharma</option>
-                                    <option value="Retail/Showroom">Retail/Showroom</option>
-                                    <option value="Other">Other</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="move_date">Timeline *</label>
-                                <select id="move_date" name="move_date" required>
-                                    <option value="">When do you need space?</option>
-                                    <option value="Immediate">Immediate (0-30 days)</option>
-                                    <option value="1-3 months">1-3 months</option>
-                                    <option value="3-6 months">3-6 months</option>
-                                    <option value="6+ months">6+ months</option>
-                                    <option value="Just exploring">Just exploring</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="notes">Special requirements <span class="optional-label">(optional)</span></label>
-                                <textarea id="notes" name="notes" rows="2" placeholder="Dock doors, power, location preferences..."></textarea>
-                            </div>
-
-                            <!-- Hidden fields for CRM compatibility -->
-                            <input type="hidden" id="email" name="email" value="">
-                            <input type="hidden" id="budget" name="budget" value="">
-                            <input type="hidden" id="property_use" name="property_use" value="Warehouse">
-                            <input type="hidden" id="lease_term" name="lease_term" value="">
-
-                            <button type="submit" class="submit-button" id="submit-btn">
-                                <span id="btn-text">Find My Space</span>
-                                <span id="btn-loading" class="hidden">Finding...</span>
-                            </button>
-
-                            <p class="form-note">Free service – I'll call within 24 hours</p>
-
-                            <div id="form-message" class="form-message hidden"></div>
                         </form>
 
                         <div id="success-message" class="success-screen hidden">
-                            <h3>Request Received</h3>
-                            <p>I'll call you within 24 hours with 2-3 spaces that match your needs.</p>
-                            <p class="success-name">— Zach Vorsteg</p>
+                            <!-- Progress indicator - both steps complete -->
+                            <div class="form-progress success-progress">
+                                <div class="progress-step completed" data-step="1">
+                                    <span class="step-number">✓</span>
+                                    <span class="step-label">Space Needs</span>
+                                </div>
+                                <div class="progress-line complete"><div class="progress-fill" style="width: 100%"></div></div>
+                                <div class="progress-step completed" data-step="2">
+                                    <span class="step-number">✓</span>
+                                    <span class="step-label">Contact</span>
+                                </div>
+                            </div>
+
+                            <div class="success-icon">✓</div>
+                            <h3>Request Received!</h3>
+                            <p>I'll review your requirements and call you within 24 hours.</p>
+
+                            <div class="success-agent">
+                                <img src="assets/headshot.jpg?v=1" alt="Zach Vorsteg" class="success-headshot">
+                                <div class="success-agent-name">Zach Vorsteg</div>
+                                <div class="success-agent-title">Licensed Commercial Real Estate Agent</div>
+                                <a href="tel:561-718-6725" class="success-agent-phone">561-718-6725</a>
+                            </div>
+
+                            <div class="success-buttons">
+                                <button type="button" class="success-btn-primary" onclick="downloadVCard()">Save My Contact</button>
+                                <button type="button" class="success-btn-secondary" onclick="scrollToListings()">Browse Listings ↓</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -235,6 +440,36 @@
             <div class="listings-container">
                 <h2 class="listings-title">Available Spaces</h2>
                 <p class="listings-subtitle">Industrial, warehouse, and flex spaces currently for lease in Palm Beach County</p>
+
+                <!-- View Toggle -->
+                <div class="view-toggle-container">
+                    <div class="view-toggle">
+                        <button class="view-toggle-btn active" data-view="grid" onclick="switchView('grid')">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="7" height="7"></rect>
+                                <rect x="14" y="3" width="7" height="7"></rect>
+                                <rect x="3" y="14" width="7" height="7"></rect>
+                                <rect x="14" y="14" width="7" height="7"></rect>
+                            </svg>
+                            Grid
+                        </button>
+                        <button class="view-toggle-btn" data-view="map" onclick="switchView('map')">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            Map
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Map View Container (hidden by default, lazy loaded) -->
+                <div id="map-view" class="map-view-container" style="display: none;">
+                    <div id="properties-map" class="properties-map"></div>
+                    <div class="map-legend">
+                        <span class="legend-item"><span class="legend-marker"></span> Click marker for details</span>
+                    </div>
+                </div>
 
                 <div class="listings-grid">
                     <!-- Listing 1 -->
@@ -852,6 +1087,316 @@
 
             if (leadForm) leadForm.reset();
             if (successMessage) successMessage.classList.add('hidden');
+
+            // Reset to step 1
+            goToStep(1);
+        }
+
+        // Multi-step form navigation
+        let currentStep = 1;
+        const totalSteps = 2;
+
+        function validateStep(step) {
+            const stepEl = document.getElementById(`step-${step}`);
+            if (!stepEl) return true;
+
+            const requiredFields = stepEl.querySelectorAll('[required]');
+            let isValid = true;
+
+            requiredFields.forEach(field => {
+                if (!field.value) {
+                    isValid = false;
+                    field.classList.add('error');
+                    // Remove error class after user starts typing
+                    field.addEventListener('change', () => {
+                        field.classList.remove('error');
+                    }, { once: true });
+                } else {
+                    field.classList.remove('error');
+                }
+            });
+
+            return isValid;
+        }
+
+        function goToStep(step) {
+            // Update form steps visibility
+            document.querySelectorAll('.form-step').forEach(el => {
+                el.classList.remove('active');
+            });
+            const targetStep = document.getElementById(`step-${step}`);
+            if (targetStep) {
+                targetStep.classList.add('active');
+            }
+
+            // Update progress indicator
+            document.querySelectorAll('.progress-step').forEach((el, idx) => {
+                const stepNum = idx + 1;
+                el.classList.remove('active', 'completed');
+                if (stepNum < step) {
+                    el.classList.add('completed');
+                } else if (stepNum === step) {
+                    el.classList.add('active');
+                }
+            });
+
+            // Update progress line fill
+            const progressFill = document.querySelector('.progress-fill');
+            if (progressFill) {
+                const progress = ((step - 1) / (totalSteps - 1)) * 100;
+                progressFill.style.width = `${progress}%`;
+            }
+
+            currentStep = step;
+
+            // Focus first input in new step
+            setTimeout(() => {
+                const firstInput = targetStep?.querySelector('select, input');
+                if (firstInput) firstInput.focus();
+            }, 100);
+        }
+
+        function nextStep() {
+            if (!validateStep(currentStep)) {
+                // Shake the form card to indicate error
+                const formCard = document.querySelector('.form-card');
+                formCard.style.animation = 'shake 0.3s ease';
+                setTimeout(() => {
+                    formCard.style.animation = '';
+                }, 300);
+                return;
+            }
+
+            if (currentStep < totalSteps) {
+                goToStep(currentStep + 1);
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 1) {
+                goToStep(currentStep - 1);
+            }
+        }
+
+        function toggleAdvanced() {
+            const section = document.getElementById('advanced-requirements');
+            const toggle = document.querySelector('.advanced-toggle');
+            const icon = toggle.querySelector('.toggle-icon');
+
+            section.classList.toggle('active');
+            toggle.classList.toggle('expanded');
+            icon.textContent = section.classList.contains('active') ? '−' : '+';
+        }
+
+        // Download vCard for contact saving
+        function downloadVCard() {
+            const vcard = `BEGIN:VCARD
+VERSION:3.0
+N:Vorsteg;Zach;;;
+FN:Zach Vorsteg
+ORG:Cornerstone Realty
+TITLE:Licensed Commercial Real Estate Agent
+TEL;TYPE=CELL:+1-561-718-6725
+EMAIL:zach@cri-re.com
+URL:https://palmbeachwarehouses.com
+NOTE:Industrial & Warehouse Space Specialist - Palm Beach County
+END:VCARD`;
+
+            const blob = new Blob([vcard], { type: 'text/vcard;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'Zach_Vorsteg_Contact.vcf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+        }
+
+        // Scroll to listings section
+        function scrollToListings() {
+            const listingsSection = document.getElementById('listings');
+            if (listingsSection) {
+                listingsSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+
+        // ==========================================
+        // MAP VIEW FUNCTIONALITY
+        // ==========================================
+
+        let map = null;
+        let mapInitialized = false;
+
+        // Property data with coordinates
+        const properties = [
+            {
+                address: "1400 Forsythe Road Unit F",
+                location: "Tuxedo Industrial Park, West Palm Beach, FL 33405",
+                size: "1,600 SF",
+                type: "Office/Warehouse",
+                price: "$3,000/mo",
+                details: ["3 Parking Spaces", "14' Clear Height"],
+                lat: 26.6847,
+                lng: -80.0503,
+                featured: false
+            },
+            {
+                address: "352 Tall Pines Road Unit C",
+                location: "Tall Pines Industrial Park, West Palm Beach, FL 33413",
+                size: "2,170 SF",
+                type: "Warehouse/Flex",
+                price: "$2,930/mo",
+                details: ["4 Parking Spaces", "14' Clear Height"],
+                lat: 26.6989,
+                lng: -80.1261,
+                featured: false
+            },
+            {
+                address: "440 Tall Pines Rd Unit F",
+                location: "Tall Pines Industrial Park, West Palm Beach, FL 33413",
+                size: "2,400 SF",
+                type: "Office/Warehouse",
+                price: "$3,240/mo",
+                details: ["5 Parking Spaces", "14' Clear Height"],
+                lat: 26.6995,
+                lng: -80.1255,
+                featured: false
+            },
+            {
+                address: "1426 Skees Rd Units A & B",
+                location: "West Palm Beach, FL 33411",
+                size: "4,500 SF",
+                type: "Office/Warehouse",
+                price: "$6,075/mo",
+                details: ["9 Parking Spaces", "Dock High & Grade"],
+                lat: 26.7093,
+                lng: -80.1442,
+                featured: false
+            },
+            {
+                address: "1225 Omar Road",
+                location: "West Palm Beach, FL 33405",
+                size: "11,533 SF",
+                type: "Office/Warehouse + Yard",
+                price: "$17,780/mo",
+                details: ["8,006 SF Office", "3,527 SF Warehouse", "23 Parking", "Secured Yard"],
+                lat: 26.6830,
+                lng: -80.0543,
+                featured: true
+            }
+        ];
+
+        // Switch between grid and map views
+        function switchView(view) {
+            const gridView = document.querySelector('.listings-grid');
+            const mapView = document.getElementById('map-view');
+            const buttons = document.querySelectorAll('.view-toggle-btn');
+
+            buttons.forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.view === view);
+            });
+
+            if (view === 'map') {
+                gridView.style.display = 'none';
+                mapView.style.display = 'block';
+
+                // Initialize map on first view (lazy load)
+                if (!mapInitialized) {
+                    loadLeafletAndInitMap();
+                } else if (map) {
+                    // Refresh map size when shown
+                    setTimeout(() => map.invalidateSize(), 100);
+                }
+            } else {
+                gridView.style.display = 'grid';
+                mapView.style.display = 'none';
+            }
+        }
+
+        // Lazy load Leaflet CSS and JS
+        function loadLeafletAndInitMap() {
+            const mapContainer = document.getElementById('properties-map');
+            mapContainer.innerHTML = '<div class="map-loading"><div class="map-loading-spinner"></div><span>Loading map...</span></div>';
+
+            // Load Leaflet CSS
+            const leafletCSS = document.createElement('link');
+            leafletCSS.rel = 'stylesheet';
+            leafletCSS.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+            document.head.appendChild(leafletCSS);
+
+            // Load Leaflet JS
+            const leafletJS = document.createElement('script');
+            leafletJS.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+            leafletJS.onload = initializeMap;
+            document.body.appendChild(leafletJS);
+        }
+
+        // Initialize the map with markers
+        function initializeMap() {
+            const mapContainer = document.getElementById('properties-map');
+            mapContainer.innerHTML = ''; // Clear loading state
+
+            // Calculate center point (average of all properties)
+            const centerLat = properties.reduce((sum, p) => sum + p.lat, 0) / properties.length;
+            const centerLng = properties.reduce((sum, p) => sum + p.lng, 0) / properties.length;
+
+            // Initialize map
+            map = L.map('properties-map', {
+                center: [centerLat, centerLng],
+                zoom: 12,
+                scrollWheelZoom: true
+            });
+
+            // Add OpenStreetMap tiles (free, no API key)
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors',
+                maxZoom: 19
+            }).addTo(map);
+
+            // Add markers for each property
+            const markers = [];
+            properties.forEach((property, index) => {
+                // Create custom icon
+                const iconSize = property.featured ? [30, 30] : [24, 24];
+                const iconClass = property.featured ? 'custom-marker featured' : 'custom-marker';
+
+                const customIcon = L.divIcon({
+                    className: iconClass,
+                    iconSize: iconSize,
+                    iconAnchor: [iconSize[0]/2, iconSize[1]/2],
+                    popupAnchor: [0, -iconSize[1]/2]
+                });
+
+                // Create popup content
+                const popupContent = `
+                    <div class="map-popup">
+                        <div class="map-popup-title">${property.address}</div>
+                        <div class="map-popup-location">${property.location}</div>
+                        <div class="map-popup-details">
+                            <span class="map-popup-detail">${property.size}</span>
+                            <span class="map-popup-detail">${property.type}</span>
+                        </div>
+                        <div class="map-popup-price">${property.price}</div>
+                        <a href="tel:561-718-6725" class="map-popup-cta">Schedule Tour</a>
+                    </div>
+                `;
+
+                const marker = L.marker([property.lat, property.lng], { icon: customIcon })
+                    .bindPopup(popupContent, { maxWidth: 280 })
+                    .addTo(map);
+
+                markers.push(marker);
+            });
+
+            // Fit map to show all markers with padding
+            const group = L.featureGroup(markers);
+            map.fitBounds(group.getBounds().pad(0.1));
+
+            mapInitialized = true;
         }
 
     </script>
