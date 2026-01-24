@@ -56,7 +56,7 @@ const SITE_CONFIG = {
 
     // === META ===
     copyrightYear: 2025,
-    lastUpdated: "2026-01-23",
+    lastUpdated: "2026-01-23", // LoopNet sync
     siteUrl: "https://palmbeachwarehouses.com",
     siteName: "Palm Beach Warehouses"
 };
