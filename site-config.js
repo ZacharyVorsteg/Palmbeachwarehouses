@@ -24,8 +24,8 @@ const SITE_CONFIG = {
     // === LISTING COUNTS (update when inventory changes) ===
     // When you add/remove listings, update these counts
     listingCounts: {
-        total: 6,           // Total across all areas
-        westPalmBeach: 5,   // WPB page listings
+        total: 10,          // Total across all areas
+        westPalmBeach: 8,   // WPB page listings (includes 1 FOR SALE)
         bocaRaton: 0,       // Boca page listings
         delrayBeach: 0      // Delray page listings
     },
