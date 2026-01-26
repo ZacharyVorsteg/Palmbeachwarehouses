@@ -174,7 +174,8 @@
             moveTiming: formDataObj.get('move_date') || null,
             industry: formDataObj.get('industry') || null,
             leaseTerm: formDataObj.get('lease_term') || null,
-            preferredArea: formDataObj.get('preferred_location') || formDataObj.get('preferred_area') || 'Palm Beach County, FL',
+            preferredArea: formDataObj.get('preferred_location_value') || formDataObj.get('preferred_location') || formDataObj.get('preferred_area') || 'Palm Beach County, FL',
+            searchRadius: parseInt(formDataObj.get('search_radius'), 10) || 25,
             notes: buildNotesField(formDataObj),
             source: 'palmbeachwarehouses.com'
         };
@@ -188,9 +189,10 @@
     function buildNotesField(formData) {
         const notes = [];
         
-        const preferredLocation = formData.get('preferred_location') || formData.get('preferred_area') || 'Palm Beach County, FL';
+        const preferredLocation = formData.get('preferred_location_value') || formData.get('preferred_location') || formData.get('preferred_area') || 'Palm Beach County, FL';
+        const searchRadius = formData.get('search_radius') || '25';
         notes.push('Source: palmbeachwarehouses.com');
-        notes.push('Preferred Location: ' + preferredLocation);
+        notes.push('Preferred Location: ' + preferredLocation + ' (within ' + searchRadius + ' miles)');
         notes.push('');
         
         const customNotes = formData.get('notes');
