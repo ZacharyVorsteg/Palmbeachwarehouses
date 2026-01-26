@@ -52,7 +52,7 @@
     <link rel="preconnect" href="https://connect.facebook.net">
     <link rel="dns-prefetch" href="https://trusenda.com">
 
-    <link rel="stylesheet" href="styles.css?v=69">
+    <link rel="stylesheet" href="styles.css?v=70">
 
     <!-- Meta Pixel Code -->
     <script>
@@ -1654,34 +1654,11 @@ END:VCARD`;
             }
         });
 
-        // Radius slider handler with accurate thumb alignment
+        // Simple radius slider - just update the display text
         if (radiusSlider && radiusDisplay) {
-            const min = parseInt(radiusSlider.min);
-            const max = parseInt(radiusSlider.max);
-            const thumbWidth = 16; // Must match CSS thumb width
-
-            function updateRadiusDisplay() {
-                const value = parseInt(radiusSlider.value);
-                radiusDisplay.textContent = value + ' miles';
-
-                // Calculate accurate fill percentage accounting for thumb width
-                const sliderWidth = radiusSlider.offsetWidth;
-                const range = max - min;
-                const ratio = (value - min) / range;
-
-                // Adjust for thumb: at 0% thumb center is at thumbWidth/2, at 100% it's at width - thumbWidth/2
-                const thumbOffset = thumbWidth / 2;
-                const availableWidth = sliderWidth - thumbWidth;
-                const thumbCenterPx = thumbOffset + (ratio * availableWidth);
-                const fillPercent = (thumbCenterPx / sliderWidth) * 100;
-
-                radiusSlider.style.background = `linear-gradient(to right, #007AFF 0%, #007AFF ${fillPercent}%, #E5E7EB ${fillPercent}%, #E5E7EB 100%)`;
-            }
-
-            radiusSlider.addEventListener('input', updateRadiusDisplay);
-            // Initialize on load and resize
-            updateRadiusDisplay();
-            window.addEventListener('resize', updateRadiusDisplay);
+            radiusSlider.addEventListener('input', () => {
+                radiusDisplay.textContent = radiusSlider.value + ' miles';
+            });
         }
     })();
     </script>

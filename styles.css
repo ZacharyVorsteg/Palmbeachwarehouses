@@ -475,7 +475,7 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
 }
 
 .radius-label {
@@ -487,79 +487,18 @@ main {
 .radius-value {
     font-size: 14px;
     font-weight: 500;
-    color: #007AFF;
+    color: #1a73e8;
     min-width: 60px;
     text-align: right;
 }
 
-/* Clean minimal slider - matches Trusenda style */
+/* Native slider with accent-color - simple and reliable */
 .radius-slider {
     width: 100%;
-    height: 4px;
-    -webkit-appearance: none;
-    appearance: none;
-    background: #E5E7EB;
-    border-radius: 2px;
-    outline: none;
+    height: 6px;
+    border-radius: 3px;
     cursor: pointer;
-    padding: 0;
-    margin: 8px 0;
-    overflow: visible;
-}
-
-.radius-slider::-webkit-slider-runnable-track {
-    width: 100%;
-    height: 4px;
-    background: transparent;
-    border-radius: 2px;
-    cursor: pointer;
-}
-
-.radius-slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 16px;
-    height: 16px;
-    background: #007AFF;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    margin-top: -6px;
-}
-
-.radius-slider::-webkit-slider-thumb:hover {
-    background: #0066DD;
-}
-
-.radius-slider::-webkit-slider-thumb:active {
-    background: #0055CC;
-}
-
-.radius-slider::-moz-range-track {
-    height: 4px;
-    background: transparent;
-    border-radius: 2px;
-    border: none;
-    cursor: pointer;
-}
-
-.radius-slider::-moz-range-thumb {
-    width: 16px;
-    height: 16px;
-    background: #007AFF;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-.radius-slider::-moz-range-thumb:hover {
-    background: #0066DD;
-}
-
-.radius-slider::-moz-range-progress {
-    background: #007AFF;
-    height: 4px;
-    border-radius: 2px;
+    accent-color: #1a73e8;
 }
 
 /* Location selected state */
