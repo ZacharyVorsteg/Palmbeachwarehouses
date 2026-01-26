@@ -174,7 +174,7 @@
             moveTiming: formDataObj.get('move_date') || null,
             industry: formDataObj.get('industry') || null,
             leaseTerm: formDataObj.get('lease_term') || null,
-            preferredArea: 'Palm Beach County, FL',
+            preferredArea: formDataObj.get('preferred_location') || formDataObj.get('preferred_area') || 'Palm Beach County, FL',
             notes: buildNotesField(formDataObj),
             source: 'palmbeachwarehouses.com'
         };
@@ -188,8 +188,9 @@
     function buildNotesField(formData) {
         const notes = [];
         
+        const preferredLocation = formData.get('preferred_location') || formData.get('preferred_area') || 'Palm Beach County, FL';
         notes.push('Source: palmbeachwarehouses.com');
-        notes.push('Location: Palm Beach County, FL');
+        notes.push('Preferred Location: ' + preferredLocation);
         notes.push('');
         
         const customNotes = formData.get('notes');
