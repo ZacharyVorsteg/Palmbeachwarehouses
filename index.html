@@ -52,7 +52,7 @@
     <link rel="preconnect" href="https://connect.facebook.net">
     <link rel="dns-prefetch" href="https://trusenda.com">
 
-    <link rel="stylesheet" href="styles.css?v=63">
+    <link rel="stylesheet" href="styles.css?v=64">
 
     <!-- Meta Pixel Code -->
     <script>
@@ -1659,13 +1659,13 @@ END:VCARD`;
             function updateRadiusDisplay() {
                 const value = radiusSlider.value;
                 radiusDisplay.textContent = value + ' miles';
-                // Update slider background gradient
+                // Update slider track fill
                 const percent = ((value - 5) / 45) * 100;
-                radiusSlider.style.background = `linear-gradient(to right, var(--primary-blue) 0%, var(--primary-blue) ${percent}%, #E5E5E5 ${percent}%, #E5E5E5 100%)`;
+                radiusSlider.style.background = `linear-gradient(to right, #007AFF 0%, #007AFF ${percent}%, #E5E7EB ${percent}%, #E5E7EB 100%)`;
             }
 
             radiusSlider.addEventListener('input', updateRadiusDisplay);
-            // Initialize
+            // Initialize on load
             updateRadiusDisplay();
         }
     })();

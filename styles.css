@@ -465,64 +465,91 @@ main {
     margin-top: 4px;
 }
 
-/* Radius Slider Styles */
+/* Radius Slider Styles - Matches Trusenda design */
 .radius-group {
-    margin-top: 8px;
+    margin-top: 12px;
+    padding: 0 2px;
 }
 
 .radius-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 
 .radius-label {
     font-size: 13px;
-    color: var(--form-placeholder);
+    font-weight: 400;
+    color: #6B7280;
 }
 
 .radius-value {
     font-size: 14px;
-    font-weight: 600;
-    color: var(--primary-blue);
+    font-weight: 500;
+    color: #007AFF;
 }
 
 .radius-slider {
     width: 100%;
-    height: 6px;
+    height: 4px;
     -webkit-appearance: none;
     appearance: none;
-    background: linear-gradient(to right, var(--primary-blue) 0%, var(--primary-blue) 50%, #E5E5E5 50%, #E5E5E5 100%);
-    border-radius: 3px;
+    background: #E5E7EB;
+    border-radius: 2px;
     outline: none;
     cursor: pointer;
+    margin: 0;
+    padding: 0;
+}
+
+.radius-slider::-webkit-slider-runnable-track {
+    height: 4px;
+    border-radius: 2px;
 }
 
 .radius-slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 18px;
-    height: 18px;
-    background: var(--primary-blue);
+    width: 16px;
+    height: 16px;
+    background: #007AFF;
     border-radius: 50%;
     cursor: pointer;
-    box-shadow: 0 2px 6px rgba(0, 122, 255, 0.4);
-    transition: transform 0.15s ease;
+    margin-top: -6px;
+    box-shadow: 0 1px 3px rgba(0, 122, 255, 0.3);
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
 }
 
 .radius-slider::-webkit-slider-thumb:hover {
-    transform: scale(1.1);
+    box-shadow: 0 2px 6px rgba(0, 122, 255, 0.4);
+    transform: scale(1.05);
+}
+
+.radius-slider::-webkit-slider-thumb:active {
+    transform: scale(0.98);
+}
+
+.radius-slider::-moz-range-track {
+    height: 4px;
+    background: #E5E7EB;
+    border-radius: 2px;
 }
 
 .radius-slider::-moz-range-thumb {
-    width: 18px;
-    height: 18px;
-    background: var(--primary-blue);
+    width: 16px;
+    height: 16px;
+    background: #007AFF;
     border-radius: 50%;
     cursor: pointer;
     border: none;
-    box-shadow: 0 2px 6px rgba(0, 122, 255, 0.4);
+    box-shadow: 0 1px 3px rgba(0, 122, 255, 0.3);
+}
+
+.radius-slider::-moz-range-progress {
+    background: #007AFF;
+    height: 4px;
+    border-radius: 2px;
 }
 
 /* Location selected state */
