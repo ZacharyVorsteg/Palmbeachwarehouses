@@ -467,94 +467,98 @@ main {
 
 /* Radius Slider Styles - Professional Polish */
 .radius-group {
-    margin-top: 16px;
-    padding: 14px 0 8px 0;
+    margin-top: 12px;
+    padding: 8px 0;
 }
 
 .radius-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 18px;
+    margin-bottom: 12px;
 }
 
 .radius-label {
     font-size: 13px;
     font-weight: 400;
     color: #6B7280;
-    letter-spacing: -0.1px;
 }
 
 .radius-value {
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 500;
     color: #007AFF;
-    min-width: 65px;
+    min-width: 60px;
     text-align: right;
-    font-variant-numeric: tabular-nums;
 }
 
+/* Clean minimal slider - matches Trusenda style */
 .radius-slider {
     width: 100%;
-    height: 6px;
+    height: 4px;
     -webkit-appearance: none;
     appearance: none;
     background: #E5E7EB;
-    border-radius: 3px;
+    border-radius: 2px;
     outline: none;
     cursor: pointer;
     padding: 0;
     margin: 0;
-    display: block;
-    touch-action: pan-x;
-    box-sizing: border-box;
 }
 
 .radius-slider::-webkit-slider-runnable-track {
     width: 100%;
-    height: 6px;
+    height: 4px;
     background: transparent;
-    border-radius: 3px;
+    border-radius: 2px;
     cursor: pointer;
 }
 
 .radius-slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
     background: #007AFF;
-    border: 2.5px solid #FFFFFF;
+    border: none;
     border-radius: 50%;
-    cursor: grab;
-    margin-top: -7px;
-    box-shadow: 0 2px 6px rgba(0, 122, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.12s ease, transform 0.12s ease, border-width 0.12s ease;
+    cursor: pointer;
+    margin-top: -6px;
+}
+
+.radius-slider::-webkit-slider-thumb:hover {
+    background: #0066DD;
+}
+
+.radius-slider::-webkit-slider-thumb:active {
+    background: #0055CC;
 }
 
 .radius-slider::-moz-range-track {
-    height: 6px;
+    height: 4px;
     background: transparent;
-    border-radius: 3px;
+    border-radius: 2px;
     border: none;
     cursor: pointer;
 }
 
 .radius-slider::-moz-range-thumb {
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
     background: #007AFF;
-    border: 2.5px solid #FFFFFF;
+    border: none;
     border-radius: 50%;
-    cursor: grab;
-    box-shadow: 0 2px 8px rgba(0, 122, 255, 0.35), 0 1px 3px rgba(0, 0, 0, 0.12);
-    transition: box-shadow 0.15s ease, transform 0.15s ease;
+    cursor: pointer;
+}
+
+.radius-slider::-moz-range-thumb:hover {
+    background: #0066DD;
 }
 
 .radius-slider::-moz-range-progress {
     background: #007AFF;
-    height: 6px;
-    border-radius: 3px;
+    height: 4px;
+    border-radius: 2px;
 }
 
 /* Location selected state */
