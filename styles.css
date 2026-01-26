@@ -468,21 +468,21 @@ main {
 /* Radius Slider Styles - Professional Polish */
 .radius-group {
     margin-top: 16px;
-    padding: 12px 0;
+    padding: 14px 0 8px 0;
 }
 
 .radius-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 16px;
+    margin-bottom: 18px;
 }
 
 .radius-label {
     font-size: 13px;
     font-weight: 400;
     color: #6B7280;
-    letter-spacing: -0.2px;
+    letter-spacing: -0.1px;
 }
 
 .radius-value {
@@ -491,10 +491,13 @@ main {
     color: #007AFF;
     min-width: 65px;
     text-align: right;
+    font-variant-numeric: tabular-nums;
 }
 
 .radius-slider {
     width: 100%;
+    width: calc(100% - 4px);
+    margin: 0 2px;
     height: 6px;
     -webkit-appearance: none;
     appearance: none;
@@ -502,15 +505,16 @@ main {
     border-radius: 3px;
     outline: none;
     cursor: pointer;
-    margin: 0;
     padding: 0;
     display: block;
+    touch-action: pan-x;
 }
 
 .radius-slider::-webkit-slider-runnable-track {
     height: 6px;
     background: transparent;
     border-radius: 3px;
+    cursor: pointer;
 }
 
 .radius-slider::-webkit-slider-thumb {
@@ -519,21 +523,12 @@ main {
     width: 20px;
     height: 20px;
     background: #007AFF;
-    border: 3px solid #FFFFFF;
+    border: 2.5px solid #FFFFFF;
     border-radius: 50%;
-    cursor: pointer;
+    cursor: grab;
     margin-top: -7px;
-    box-shadow: 0 2px 8px rgba(0, 122, 255, 0.35), 0 1px 3px rgba(0, 0, 0, 0.12);
-    transition: box-shadow 0.15s ease, transform 0.15s ease;
-}
-
-.radius-slider::-webkit-slider-thumb:hover {
-    box-shadow: 0 4px 12px rgba(0, 122, 255, 0.45), 0 2px 4px rgba(0, 0, 0, 0.15);
-    transform: scale(1.08);
-}
-
-.radius-slider::-webkit-slider-thumb:active {
-    transform: scale(0.95);
+    box-shadow: 0 2px 6px rgba(0, 122, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.12s ease, transform 0.12s ease, border-width 0.12s ease;
 }
 
 .radius-slider::-moz-range-track {
@@ -541,15 +536,16 @@ main {
     background: #E5E7EB;
     border-radius: 3px;
     border: none;
+    cursor: pointer;
 }
 
 .radius-slider::-moz-range-thumb {
     width: 20px;
     height: 20px;
     background: #007AFF;
-    border: 3px solid #FFFFFF;
+    border: 2.5px solid #FFFFFF;
     border-radius: 50%;
-    cursor: pointer;
+    cursor: grab;
     box-shadow: 0 2px 8px rgba(0, 122, 255, 0.35), 0 1px 3px rgba(0, 0, 0, 0.12);
     transition: box-shadow 0.15s ease, transform 0.15s ease;
 }
