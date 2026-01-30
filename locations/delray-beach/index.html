@@ -35,11 +35,14 @@
     <meta property="article:modified_time" content="2026-01-18">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
-    <!-- Performance -->
-    <link rel="preconnect" href="https://connect.facebook.net">
-    <link rel="dns-prefetch" href="https://trusenda.com">
+    <!-- Performance: Preconnect to third-party domains -->
+    <link rel="preconnect" href="https://connect.facebook.net" crossorigin>
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+    <link rel="preconnect" href="https://trusenda.com" crossorigin>
 
-    <link rel="stylesheet" href="../../styles.css?v=77">
+    <!-- Preload critical CSS -->
+    <link rel="preload" href="../../styles.css?v=78" as="style">
+    <link rel="stylesheet" href="../../styles.css?v=78">
 
     <script>
     !function(f,b,e,v,n,t,s)

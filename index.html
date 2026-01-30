@@ -49,10 +49,14 @@
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
     <!-- Performance: Preconnect to third-party domains -->
-    <link rel="preconnect" href="https://connect.facebook.net">
-    <link rel="dns-prefetch" href="https://trusenda.com">
+    <link rel="preconnect" href="https://connect.facebook.net" crossorigin>
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+    <link rel="preconnect" href="https://trusenda.com" crossorigin>
+    <link rel="dns-prefetch" href="https://unpkg.com">
 
-    <link rel="stylesheet" href="styles.css?v=77">
+    <!-- Preload critical CSS -->
+    <link rel="preload" href="styles.css?v=78" as="style">
+    <link rel="stylesheet" href="styles.css?v=78">
 
     <!-- Meta Pixel Code -->
     <script>
@@ -435,7 +439,7 @@
                             <p>I'll review your requirements and call you within 24 hours.</p>
 
                             <div class="success-agent">
-                                <img src="assets/headshot.jpg?v=1" alt="Zach Vorsteg" class="success-headshot">
+                                <img src="assets/headshot.jpg?v=1" alt="Zach Vorsteg" class="success-headshot" width="80" height="80" loading="lazy">
                                 <div class="success-agent-name">Zach Vorsteg</div>
                                 <div class="success-agent-title">Licensed Commercial Real Estate Agent</div>
                                 <a href="tel:561-718-6725" class="success-agent-phone">561-718-6725</a>
@@ -660,7 +664,7 @@
                     <div class="about-grid">
                         <div class="about-text">
                             <div class="about-intro-wrapper">
-                                <img src="assets/headshot.jpg?v=1" alt="Zachary Vorsteg - Palm Beach County Industrial Real Estate Specialist" class="about-headshot" width="140" height="140">
+                                <img src="assets/headshot.jpg?v=1" alt="Zachary Vorsteg - Palm Beach County Industrial Real Estate Specialist" class="about-headshot" width="140" height="140" loading="lazy">
                                 <p class="about-intro">I'm <strong>Zachary Vorsteg</strong>, a licensed commercial real estate professional specializing exclusively in Palm Beach County industrial properties.</p>
                             </div>
                             <p>Unlike national brokers who juggle multiple markets, I focus 100% on local warehouse, flex, and industrial spaces. This means I know every property, every landlord, and every deal happening in the market.</p>
@@ -799,7 +803,7 @@
     </footer>
 
     <!-- Trusenda CRM Integration -->
-    <script src="crm-integration.js"></script>
+    <script src="crm-integration.js" defer></script>
 
     <!-- Structured Data / Schema Markup -->
     <script type="application/ld+json">
