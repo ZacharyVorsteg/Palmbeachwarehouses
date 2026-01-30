@@ -111,12 +111,12 @@ main {
 }
 
 .logo-img {
-    height: 90px;
+    height: 70px;
     width: auto;
     background: #FAFBFB;
-    border-radius: 10px;
-    padding: 6px 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    padding: 5px 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
 .logo-text {
@@ -736,7 +736,7 @@ footer.footer .footer-content p {
     }
 
     .logo-img {
-        height: 70px;
+        height: 55px;
     }
 
     .brand-name {
@@ -919,7 +919,7 @@ footer.footer .footer-content p {
     }
 
     .logo-img {
-        height: 55px;
+        height: 45px;
     }
 
     .brand-name {
