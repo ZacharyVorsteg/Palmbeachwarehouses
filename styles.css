@@ -111,12 +111,12 @@ main {
 }
 
 .logo-img {
-    height: 70px;
+    height: 55px;
     width: auto;
     background: #FAFBFB;
-    border-radius: 8px;
-    padding: 5px 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    border-radius: 6px;
+    padding: 4px 6px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
 }
 
 .logo-text {
@@ -736,7 +736,7 @@ footer.footer .footer-content p {
     }
 
     .logo-img {
-        height: 55px;
+        height: 48px;
     }
 
     .brand-name {
@@ -754,18 +754,22 @@ footer.footer .footer-content p {
         width: 100%;
     }
 
-    .phone-btn {
-        flex: 1;
-        font-size: 0.8rem;
-        padding: 0.6rem 0.75rem;
-        justify-content: center;
-    }
-
+    .phone-btn,
     .cta-button {
         flex: 1;
         font-size: 0.8rem;
-        padding: 0.6rem 0.75rem;
+        padding: 0.65rem 0.75rem;
+        height: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         text-align: center;
+        box-sizing: border-box;
+    }
+
+    .phone-btn .phone-icon {
+        width: 14px;
+        height: 14px;
     }
 
     /* Hero section - centered with proper padding */
@@ -919,7 +923,7 @@ footer.footer .footer-content p {
     }
 
     .logo-img {
-        height: 45px;
+        height: 40px;
     }
 
     .brand-name {
@@ -934,14 +938,16 @@ footer.footer .footer-content p {
         gap: 0.4rem;
     }
 
-    .phone-btn {
-        font-size: 0.75rem;
-        padding: 0.5rem 0.6rem;
-    }
-
+    .phone-btn,
     .cta-button {
         font-size: 0.75rem;
         padding: 0.5rem 0.6rem;
+        height: 38px;
+    }
+
+    .phone-btn .phone-icon {
+        width: 12px;
+        height: 12px;
     }
 
     /* Hero - centered with balanced margins */
