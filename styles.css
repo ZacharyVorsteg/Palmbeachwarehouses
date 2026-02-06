@@ -2523,11 +2523,12 @@ footer.footer .footer-content p {
 
 /* Section Subtitle */
 .section-subtitle {
-    color: var(--text-gray);
-    font-size: 1rem;
+    color: var(--text-light);
+    font-size: 1.05rem;
     text-align: center;
     margin-top: -1rem;
     margin-bottom: 2rem;
+    opacity: 0.85;
 }
 
 /* Location Hero Grid Responsive */
@@ -3805,16 +3806,16 @@ footer.footer .footer-content p {
 }
 
 .step-title {
-    color: var(--text-light);
-    font-size: 1.15rem;
-    font-weight: 600;
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: 700;
     margin-bottom: 0.75rem;
 }
 
 .step-desc {
-    color: var(--text-gray);
-    font-size: 0.9rem;
-    line-height: 1.65;
+    color: var(--text-light);
+    font-size: 1rem;
+    line-height: 1.7;
 }
 
 @media (max-width: 768px) {
