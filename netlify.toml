@@ -40,6 +40,11 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
 [[redirects]]
   # Redirect www to non-www (optional)
   from = "https://www.palmbeachwarehouses.com/*"
