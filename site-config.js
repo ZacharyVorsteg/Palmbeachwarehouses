@@ -55,8 +55,8 @@ const SITE_CONFIG = {
     trusendaApiUrl: "https://trusenda.com/.netlify/functions",
 
     // === META ===
-    copyrightYear: 2025,
-    lastUpdated: "2026-01-23", // LoopNet sync
+    copyrightYear: 2026,
+    lastUpdated: "2026-02-05", // SEO optimization update
     siteUrl: "https://palmbeachwarehouses.com",
     siteName: "Palm Beach Warehouses"
 };
