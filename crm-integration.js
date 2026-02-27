@@ -15,14 +15,11 @@
 
     let tenantId = null;
 
-    // Initialize on page load
-    document.addEventListener('DOMContentLoaded', async function() {
+    // Initialize on page load — attach form handler immediately, fetch tenant ID in background
+    document.addEventListener('DOMContentLoaded', function() {
         console.log('🚀 Initializing Trusenda CRM Integration...');
-        
-        // Fetch tenant ID from Trusenda API
-        await fetchTenantId();
-        
-        // Set up form submission handler
+
+        // Attach form handler immediately (no await blocking)
         const form = document.getElementById('lead-form');
         if (form) {
             form.addEventListener('submit', handleFormSubmit);
@@ -30,6 +27,15 @@
         } else {
             console.error('❌ Lead form not found on page');
         }
+
+        // Try localStorage cache first, then fetch in background
+        const cached = localStorage.getItem('trusenda_tenant_id');
+        if (cached) {
+            tenantId = cached;
+            console.log('✅ Tenant ID loaded from cache:', tenantId);
+        }
+        // Always refresh in background (updates cache for next visit)
+        fetchTenantId();
     });
 
     /**
@@ -49,7 +55,8 @@
 
             const data = await response.json();
             tenantId = data.tenantId;
-            
+            localStorage.setItem('trusenda_tenant_id', tenantId);
+
             console.log('✅ Tenant ID retrieved successfully:', tenantId);
             return tenantId;
         } catch (error) {

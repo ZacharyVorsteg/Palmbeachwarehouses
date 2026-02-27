@@ -35,11 +35,14 @@
     <meta property="article:modified_time" content="2026-01-18">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
-    <!-- Performance -->
-    <link rel="preconnect" href="https://connect.facebook.net">
-    <link rel="dns-prefetch" href="https://trusenda.com">
+    <!-- Performance: Preconnect to third-party domains -->
+    <link rel="preconnect" href="https://connect.facebook.net" crossorigin>
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+    <link rel="preconnect" href="https://trusenda.com" crossorigin>
 
-    <link rel="stylesheet" href="../../styles.css?v=44">
+    <!-- Preload critical CSS -->
+    <link rel="preload" href="../../styles.css?v=79" as="style">
+    <link rel="stylesheet" href="../../styles.css?v=79">
 
     <script>
     !function(f,b,e,v,n,t,s)
@@ -67,11 +70,7 @@
     <header class="header">
         <div class="header-container">
             <a href="/" class="logo">
-                <img src="../../assets/logo.png" alt="Palm Beach Warehouses" class="logo-img" width="180" height="50" onerror="this.style.display='none'">
-                <div class="logo-text">
-                    <div class="brand-name">INDUSTRIAL SPACE</div>
-                    <div class="tagline">Palm Beach County</div>
-                </div>
+                <span class="brand-name">Palm Beach Warehouses</span>
             </a>
             <nav class="nav-desktop">
                 <a href="/">Home</a>
@@ -263,7 +262,7 @@
                 <div class="locations-grid">
                     <a href="/locations/west-palm-beach/" class="location-card">
                         <h3>West Palm Beach</h3>
-                        <p>6 spaces available now - largest selection in the county</p>
+                        <p>8 spaces available now — largest selection in the county</p>
                     </a>
                     <a href="/locations/boca-raton/" class="location-card">
                         <h3>Boca Raton</h3>
@@ -324,7 +323,7 @@
             </div>
             <div class="footer-bottom">
                 <p>Zachary Vorsteg | Licensed Sales Associate #SL3603483 | Cornerstone Realty | Palm Beach County, FL</p>
-                <p class="footer-copyright">&copy; 2025 Palm Beach Warehouses. All rights reserved.</p>
+                <p class="footer-copyright">&copy; 2026 Palm Beach Warehouses. All rights reserved.</p>
             </div>
         </div>
     </footer>
