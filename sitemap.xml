@@ -4,7 +4,7 @@
     <!-- Homepage - Highest Priority -->
     <url>
         <loc>https://palmbeachwarehouses.com/</loc>
-        <lastmod>2026-02-05</lastmod>
+        <lastmod>2026-02-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
@@ -29,6 +29,28 @@
         <lastmod>2026-02-05</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
+    </url>
+
+    <!-- Guide Pages -->
+    <url>
+        <loc>https://palmbeachwarehouses.com/guides/nnn-leases/</loc>
+        <lastmod>2026-02-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://palmbeachwarehouses.com/guides/warehouse-sizing/</loc>
+        <lastmod>2026-02-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://palmbeachwarehouses.com/guides/tenant-improvements/</loc>
+        <lastmod>2026-02-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
     </url>
 
 </urlset>
