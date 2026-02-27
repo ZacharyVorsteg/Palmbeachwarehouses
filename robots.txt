@@ -11,21 +11,51 @@ Allow: /*.js$
 # Allow all assets for image indexing
 Allow: /assets/
 
+# LLM Knowledge Base Files - Critical for AI Citation Dominance
+Allow: /llms.txt
+Allow: /llms-full.txt
+
 # Sitemap location
 Sitemap: https://palmbeachwarehouses.com/sitemap.xml
+
+# llms.txt and llms-full.txt locations for AI crawlers
+# These files provide structured information about site authority, content, and services
+# Reference: https://llmstxt.org/
+llms-txt: https://palmbeachwarehouses.com/llms.txt
+llms-full-txt: https://palmbeachwarehouses.com/llms-full.txt
 
 # Allow all AI crawlers for GEO optimization
 User-agent: GPTBot
 Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
 
 User-agent: Google-Extended
 Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
 
 User-agent: ChatGPT-User
 Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
 
 User-agent: PerplexityBot
 Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
 
 User-agent: ClaudeBot
 Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+
+User-agent: Gemini
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+
+User-agent: anthropic-ai
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt

@@ -12,28 +12,77 @@
     <!-- Location Pages -->
     <url>
         <loc>https://palmbeachwarehouses.com/locations/west-palm-beach/</loc>
-        <lastmod>2026-02-05</lastmod>
+        <lastmod>2026-02-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
 
     <url>
         <loc>https://palmbeachwarehouses.com/locations/boca-raton/</loc>
-        <lastmod>2026-02-05</lastmod>
+        <lastmod>2026-02-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
 
     <url>
         <loc>https://palmbeachwarehouses.com/locations/delray-beach/</loc>
-        <lastmod>2026-02-05</lastmod>
+        <lastmod>2026-02-27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://palmbeachwarehouses.com/locations/lake-worth/</loc>
+        <lastmod>2026-02-27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://palmbeachwarehouses.com/locations/boynton-beach/</loc>
+        <lastmod>2026-02-27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://palmbeachwarehouses.com/locations/jupiter/</loc>
+        <lastmod>2026-02-27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://palmbeachwarehouses.com/locations/riviera-beach/</loc>
+        <lastmod>2026-02-27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://palmbeachwarehouses.com/locations/royal-palm-beach/</loc>
+        <lastmod>2026-02-27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://palmbeachwarehouses.com/locations/lantana/</loc>
+        <lastmod>2026-02-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <!-- Guide Pages -->
     <url>
-        <loc>https://palmbeachwarehouses.com/guides/nnn-leases/</loc>
+        <loc>https://palmbeachwarehouses.com/guides/palm-beach-industrial-market/</loc>
+        <lastmod>2026-02-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://palmbeachwarehouses.com/guides/how-to-lease-warehouse/</loc>
         <lastmod>2026-02-27</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
@@ -47,7 +96,35 @@
     </url>
 
     <url>
+        <loc>https://palmbeachwarehouses.com/guides/warehouse-vs-flex-space/</loc>
+        <lastmod>2026-02-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://palmbeachwarehouses.com/guides/nnn-leases/</loc>
+        <lastmod>2026-02-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
         <loc>https://palmbeachwarehouses.com/guides/tenant-improvements/</loc>
+        <lastmod>2026-02-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://palmbeachwarehouses.com/guides/loading-dock-guide/</loc>
+        <lastmod>2026-02-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://palmbeachwarehouses.com/guides/cold-storage/</loc>
         <lastmod>2026-02-27</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
