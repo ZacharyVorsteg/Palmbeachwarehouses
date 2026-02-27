@@ -52,7 +52,7 @@
     <link rel="preconnect" href="https://connect.facebook.net">
     <link rel="dns-prefetch" href="https://trusenda.com">
 
-    <link rel="stylesheet" href="styles.css?v=70">
+    <link rel="stylesheet" href="styles.css?v=80">
 
     <!-- Meta Pixel Code -->
     <script>
@@ -726,35 +726,26 @@
             </div>
         </section>
 
-        <!-- Testimonials Section -->
-        <section class="testimonials-section" id="testimonials">
-            <div class="testimonials-container">
-                <h2 class="section-title">What Clients Say</h2>
-                <p class="testimonials-subtitle">Real feedback from businesses we've helped find space in Palm Beach County</p>
-                <div class="testimonials-grid">
-                    <div class="testimonial-card">
-                        <div class="testimonial-stars">★★★★★</div>
-                        <p class="testimonial-text">"Zach found us a 3,200 SF flex space in West Palm within two weeks. He handled everything — tours, negotiations, even the TI allowance. We paid nothing for his help."</p>
-                        <div class="testimonial-author">
-                            <div class="testimonial-name">Marcus R.</div>
-                            <div class="testimonial-role">E-commerce Fulfillment, West Palm Beach</div>
-                        </div>
+        <!-- Why Work With a Tenant Rep Section -->
+        <section class="why-tenant-rep-section" id="why-tenant-rep">
+            <div class="why-tenant-rep-container">
+                <h2 class="section-title">Why Work With a Tenant Rep?</h2>
+                <p class="why-tenant-rep-subtitle">Most businesses don't realize they can have expert representation at zero cost</p>
+                <div class="why-tenant-rep-grid">
+                    <div class="why-card">
+                        <div class="why-icon">$0</div>
+                        <h3>You Pay Nothing</h3>
+                        <p>Landlords pay the broker commission. You get professional representation — site selection, tours, lease negotiation — completely free.</p>
                     </div>
-                    <div class="testimonial-card">
-                        <div class="testimonial-stars">★★★★★</div>
-                        <p class="testimonial-text">"We were outgrowing our old warehouse and needed to move fast. Zach showed us five options in one day and we signed a lease that same week. Incredible responsiveness."</p>
-                        <div class="testimonial-author">
-                            <div class="testimonial-name">Jennifer L.</div>
-                            <div class="testimonial-role">Distribution Company, Lake Worth</div>
-                        </div>
+                    <div class="why-card">
+                        <div class="why-icon">24h</div>
+                        <h3>Faster Than DIY</h3>
+                        <p>Instead of calling listing agents who work for landlords, you get one point of contact who searches the entire market on your behalf.</p>
                     </div>
-                    <div class="testimonial-card">
-                        <div class="testimonial-stars">★★★★★</div>
-                        <p class="testimonial-text">"As a small contractor, I didn't think a broker would take my search seriously. Zach treated me like a priority and found a perfect unit with yard space. Highly recommend."</p>
-                        <div class="testimonial-author">
-                            <div class="testimonial-name">David K.</div>
-                            <div class="testimonial-role">General Contractor, Royal Palm Beach</div>
-                        </div>
+                    <div class="why-card">
+                        <div class="why-icon">&#9919;</div>
+                        <h3>Off-Market Access</h3>
+                        <p>Many warehouse spaces never hit LoopNet or CoStar. Through broker networks and landlord relationships, you see inventory others miss.</p>
                     </div>
                 </div>
             </div>
@@ -941,7 +932,7 @@
             "areaServed": "Palm Beach County, FL"
         },
         "sameAs": [
-            "https://www.google.com/maps/place/YOUR_GOOGLE_BUSINESS_PROFILE_URL_HERE"
+            "https://www.instagram.com/palmbeachwarehouses/"
         ],
         "slogan": "Free tenant representation for warehouse and industrial space in Palm Beach County",
         "makesOffer": {
@@ -957,42 +948,39 @@
     }
     </script>
 
+    <!-- Organization Schema -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "@id": "https://palmbeachwarehouses.com/#reviews",
-        "name": "Palm Beach Warehouses - Zachary Vorsteg",
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "5.0",
-            "reviewCount": "3",
-            "bestRating": "5",
-            "worstRating": "1"
+        "@type": "Organization",
+        "@id": "https://palmbeachwarehouses.com/#organization",
+        "name": "Palm Beach Warehouses",
+        "legalName": "Palm Beach Warehouses",
+        "url": "https://palmbeachwarehouses.com",
+        "logo": "https://palmbeachwarehouses.com/assets/logo.png",
+        "image": "https://palmbeachwarehouses.com/assets/og-image.png",
+        "description": "Tenant representation brokerage for warehouse and industrial space in Palm Beach County, FL. Free service — landlords pay the commission.",
+        "telephone": "+1-561-718-6725",
+        "email": "zach@cri-re.com",
+        "founder": {
+            "@type": "Person",
+            "@id": "https://palmbeachwarehouses.com/#zachary-vorsteg"
         },
-        "review": [
-            {
-                "@type": "Review",
-                "author": {"@type": "Person", "name": "Marcus R."},
-                "datePublished": "2026-01-15",
-                "reviewRating": {"@type": "Rating", "ratingValue": "5"},
-                "reviewBody": "Zach found us a 3,200 SF flex space in West Palm within two weeks. He handled everything — tours, negotiations, even the TI allowance. We paid nothing for his help."
-            },
-            {
-                "@type": "Review",
-                "author": {"@type": "Person", "name": "Jennifer L."},
-                "datePublished": "2026-02-01",
-                "reviewRating": {"@type": "Rating", "ratingValue": "5"},
-                "reviewBody": "We were outgrowing our old warehouse and needed to move fast. Zach showed us five options in one day and we signed a lease that same week. Incredible responsiveness."
-            },
-            {
-                "@type": "Review",
-                "author": {"@type": "Person", "name": "David K."},
-                "datePublished": "2026-02-10",
-                "reviewRating": {"@type": "Rating", "ratingValue": "5"},
-                "reviewBody": "As a small contractor, I didn't think a broker would take my search seriously. Zach treated me like a priority and found a perfect unit with yard space. Highly recommend."
-            }
-        ]
+        "areaServed": {
+            "@type": "AdministrativeArea",
+            "name": "Palm Beach County, Florida"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "West Palm Beach",
+            "addressRegion": "FL",
+            "postalCode": "33401",
+            "addressCountry": "US"
+        },
+        "parentOrganization": {
+            "@type": "RealEstateAgent",
+            "name": "Cornerstone Realty"
+        }
     }
     </script>
 
