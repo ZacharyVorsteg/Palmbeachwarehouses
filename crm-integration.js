@@ -14,6 +14,7 @@
     };
 
     let tenantId = null;
+    let isSubmitting = false;  // Prevent double-submit
 
     // Initialize on page load — attach form handler immediately, fetch tenant ID in background
     document.addEventListener('DOMContentLoaded', function() {
@@ -71,7 +72,14 @@
      */
     async function handleFormSubmit(event) {
         event.preventDefault();
-        
+
+        // PREVENT DOUBLE-SUBMIT
+        if (isSubmitting) {
+            console.warn('⚠️ Form submission already in progress');
+            return;
+        }
+        isSubmitting = true;
+
         console.log('📝 Form submission started...');
 
         // Get form elements
@@ -126,11 +134,15 @@
         } catch (error) {
             console.error('❌ Form submission error:', error);
             showError(error.message);
-            
-            // Re-enable form
+
+            // Re-enable form on error
             submitBtn.disabled = false;
             btnText.classList.remove('hidden');
             btnLoading.classList.add('hidden');
+
+        } finally {
+            // RESET SUBMISSION FLAG
+            isSubmitting = false;
         }
     }
 
@@ -181,7 +193,23 @@
             moveTiming: formDataObj.get('move_date') || null,
             industry: formDataObj.get('industry') || null,
             leaseTerm: formDataObj.get('lease_term') || null,
-            preferredArea: formDataObj.get('preferred_location_value') || formDataObj.get('preferred_location') || 'Palm Beach County, FL',
+            preferredArea: (function() {
+                const selected = formDataObj.get('preferred_location_value');
+                const typed = formDataObj.get('preferred_location');
+
+                if (selected) {
+                    return selected;  // User selected from dropdown
+                }
+
+                if (typed && typed.trim()) {
+                    // User typed something but didn't select - use it but warn in notes
+                    console.warn('⚠️ Location not confirmed from dropdown. User typed:', typed);
+                    return typed;  // Use what they typed
+                }
+
+                // Fallback only if completely empty
+                return 'Palm Beach County, FL';
+            })(),
             searchRadiusMiles: parseInt(formDataObj.get('search_radius'), 10) || 25,
             notes: buildNotesField(formDataObj)
         };
@@ -241,23 +269,49 @@
         form.classList.add('hidden');
         successScreen.classList.remove('hidden');
 
-        // Track Google Ads Conversion
+        // SCORE THE LEAD
+        const formData = collectFormData(form);
+        const qualification = QUALIFICATION.scoreQualification(formData);
+        console.log(`📊 Lead Qualification: ${qualification.tier} (Score: ${qualification.score})`);
+
+        // Show appropriate callout based on lead tier
+        const calloutDiv = document.getElementById('success-callout');
+        let calloutMessage = '';
+        let conversionValue = 5; // Default: COOL
+
+        if (qualification.tier === 'HOT') {
+            calloutMessage = '⚡ <strong>Priority Lead!</strong> Zach typically responds to high-urgency requests within 2 hours.';
+            conversionValue = 50;
+        } else if (qualification.tier === 'WARM') {
+            calloutMessage = '<strong>✓ Good fit!</strong> You should hear from Zach within 24 hours with matching properties.';
+            conversionValue = 25;
+        } else {
+            calloutMessage = 'Zach will review your request and reach out if he finds matching spaces in your area.';
+            conversionValue = 5;
+        }
+
+        calloutDiv.innerHTML = calloutMessage;
+        calloutDiv.style.display = 'block';
+
+        // Track Google Ads Conversion (with lead value)
         if (typeof gtag !== 'undefined') {
             gtag('event', 'conversion', {
                 'send_to': 'AW-17147516072/f_LJCMeD4tMaEKipyfA_',
-                'value': 1.0,
+                'value': conversionValue,
                 'currency': 'USD'
             });
-            console.log('✅ Google Ads conversion fired');
+            console.log(`✅ Google Ads conversion fired (Value: $${conversionValue})`);
         }
 
         // Track Facebook/Meta Lead Conversion
         if (typeof fbq !== 'undefined') {
             fbq('track', 'Lead', {
-                content_name: 'Warehouse Inquiry',
-                content_category: 'Industrial Real Estate'
+                'content_name': 'Warehouse Inquiry',
+                'content_category': qualification.tier,
+                'value': conversionValue,
+                'currency': 'USD'
             });
-            console.log('✅ Facebook Lead conversion fired');
+            console.log(`✅ Facebook Lead conversion fired (Tier: ${qualification.tier})`);
         }
     }
 
@@ -281,18 +335,39 @@
         const btnText = document.getElementById('btn-text');
         const btnLoading = document.getElementById('btn-loading');
         const messageDiv = document.getElementById('form-message');
-        
+
         // Reset form
         form.reset();
         form.classList.remove('hidden');
         successScreen.classList.add('hidden');
-        
+
         // Reset button state
         submitBtn.disabled = false;
         btnText.classList.remove('hidden');
         btnLoading.classList.add('hidden');
         messageDiv.classList.add('hidden');
-        
+
+        // RESET PROGRESS INDICATOR TO STEP 1
+        document.querySelectorAll('.progress-step').forEach((el, idx) => {
+            el.classList.remove('active', 'completed');
+            if (idx === 0) el.classList.add('active');
+        });
+        const progressFill = document.querySelector('.progress-fill');
+        if (progressFill) progressFill.style.width = '0%';
+
+        // Go back to Step 1
+        currentStep = 1;
+        const step1 = document.getElementById('step-1');
+        document.querySelectorAll('.form-step').forEach(el => el.classList.remove('active'));
+        if (step1) {
+            step1.classList.add('active');
+            // Focus first input
+            setTimeout(() => {
+                const firstInput = step1.querySelector('select, input');
+                if (firstInput) firstInput.focus();
+            }, 100);
+        }
+
         // Scroll to form
         scrollToForm();
     };

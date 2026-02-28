@@ -53,7 +53,7 @@
     <link rel="preconnect" href="https://connect.facebook.net">
     <link rel="dns-prefetch" href="https://trusenda.com">
 
-    <link rel="stylesheet" href="styles.css?v=84">
+    <link rel="stylesheet" href="styles.css?v=87">
 
     <!-- Meta Pixel Code -->
     <script>
@@ -144,7 +144,7 @@
                         Find Warehouse & Industrial Space in <span class="highlight">Palm Beach County</span>
                     </h1>
                     <p class="hero-subtitle">
-                        Matched by a local specialist with direct landlord relationships and 5+ years of market intelligence.
+                        Matched by a local specialist with direct landlord relationships and deep market intelligence.
                         <strong class="hero-emphasis">Free expert representation — from your first search to signed lease.</strong>
                     </p>
 
@@ -155,7 +155,7 @@
                         </div>
                         <div class="feature-compact">
                             <span class="feature-icon-small">✓</span>
-                            <span>5+ years of hyperlocal pricing data and market insight</span>
+                            <span>Hyperlocal pricing data and market insight across Palm Beach County</span>
                         </div>
                         <div class="feature-compact">
                             <span class="feature-icon-small">✓</span>
@@ -408,6 +408,20 @@
                                     </div>
                                 </div>
 
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="lease_term">Preferred Lease Term <span class="optional-label">(optional)</span></label>
+                                        <select id="lease_term" name="lease_term">
+                                            <option value="">Any length</option>
+                                            <option value="1-2 years">1-2 years</option>
+                                            <option value="3-5 years">3-5 years</option>
+                                            <option value="5-10 years">5-10 years</option>
+                                            <option value="10+ years">10+ years</option>
+                                            <option value="Flexible">Flexible</option>
+                                        </select>
+                                    </div>
+                                </div>
+
                                 <div class="form-group">
                                     <label for="notes">Anything else we should know? <span class="optional-label">(optional)</span></label>
                                     <textarea id="notes" name="notes" rows="2" placeholder="Special requirements, lease term preference, etc."></textarea>
@@ -447,7 +461,7 @@
                             <div class="success-agent">
                                 <img src="assets/headshot.jpg?v=1" alt="Zach Vorsteg" class="success-headshot">
                                 <div class="success-agent-name">Zach Vorsteg</div>
-                                <div class="success-agent-title">Licensed Commercial Real Estate Agent</div>
+                                <div class="success-agent-title">Licensed Sales Associate, Cornerstone Realty</div>
                                 <a href="tel:561-718-6725" class="success-agent-phone">561-718-6725</a>
                             </div>
 
@@ -489,203 +503,30 @@
             </div>
         </div>
 
-        <!-- Featured Listings Section -->
+        <!-- Space Search CTA Section -->
         <section class="listings-section" id="listings">
             <div class="listings-container">
-                <h2 class="listings-title">Available Spaces</h2>
-                <p class="listings-subtitle">Industrial warehouse lease options and flex spaces currently available in Palm Beach County</p>
-
-                <!-- View Toggle -->
-                <div class="view-toggle-container">
-                    <div class="view-toggle">
-                        <button class="view-toggle-btn active" data-view="grid" onclick="switchView('grid')">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="3" y="3" width="7" height="7"></rect>
-                                <rect x="14" y="3" width="7" height="7"></rect>
-                                <rect x="3" y="14" width="7" height="7"></rect>
-                                <rect x="14" y="14" width="7" height="7"></rect>
-                            </svg>
-                            Grid
-                        </button>
-                        <button class="view-toggle-btn" data-view="map" onclick="switchView('map')">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                <circle cx="12" cy="10" r="3"></circle>
-                            </svg>
-                            Map
-                        </button>
+                <h2 class="listings-title">Find Your Ideal Industrial Space</h2>
+                <p class="listings-subtitle">I search the entire Palm Beach County market to find warehouse, flex, and industrial spaces that match your exact requirements — at no cost to you.</p>
+                <div class="listings-cta" style="margin-top: 2rem;">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; max-width: 700px; margin: 0 auto 2rem;">
+                        <div style="text-align: center; padding: 1rem;">
+                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">&#128269;</div>
+                            <strong>Full Market Access</strong>
+                            <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 0.5rem;">Every available space in Palm Beach County, not just my listings</p>
+                        </div>
+                        <div style="text-align: center; padding: 1rem;">
+                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">&#128176;</div>
+                            <strong>100% Free Service</strong>
+                            <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 0.5rem;">Landlords pay my commission — you pay nothing</p>
+                        </div>
+                        <div style="text-align: center; padding: 1rem;">
+                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">&#9201;</div>
+                            <strong>Fast Turnaround</strong>
+                            <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 0.5rem;">Curated options within days, tours same week</p>
+                        </div>
                     </div>
-                </div>
-
-                <!-- Map View Container (hidden by default, lazy loaded) -->
-                <div id="map-view" class="map-view-container" style="display: none;">
-                    <div id="properties-map" class="properties-map"></div>
-                    <div class="map-legend">
-                        <span class="legend-item"><span class="legend-marker"></span> Click marker for details</span>
-                    </div>
-                </div>
-
-                <div class="listings-grid">
-                    <!-- Listing 1 -->
-                    <div class="listing-card">
-                        <div class="listing-header">
-                            <span class="listing-size">1,600 SF</span>
-                            <span class="listing-type">Flex Space</span>
-                        </div>
-                        <h3 class="listing-address">1400 Forsythe Road Unit F</h3>
-                        <p class="listing-location">Tuxedo Industrial Park, West Palm Beach, FL 33405</p>
-                        <div class="listing-details">
-                            <span>12 Parking Spaces</span>
-                            <span>16' Clear Height</span>
-                        </div>
-                        <div class="listing-price">
-                            <span class="price-amount">$3,133</span>
-                            <span class="price-term">/month</span>
-                        </div>
-                        <a href="tel:561-718-6725" class="listing-cta">Schedule Tour</a>
-                    </div>
-
-                    <!-- Listing 2 -->
-                    <div class="listing-card">
-                        <div class="listing-header">
-                            <span class="listing-size">2,170 SF</span>
-                            <span class="listing-type">Warehouse/Flex</span>
-                        </div>
-                        <h3 class="listing-address">352 Tall Pines Road Unit C</h3>
-                        <p class="listing-location">Tall Pines Industrial Park, West Palm Beach, FL 33413</p>
-                        <div class="listing-details">
-                            <span>4 Parking Spaces</span>
-                            <span>20' Clear Height</span>
-                        </div>
-                        <div class="listing-price">
-                            <span class="price-amount">$4,159</span>
-                            <span class="price-term">/month</span>
-                        </div>
-                        <a href="tel:561-718-6725" class="listing-cta">Schedule Tour</a>
-                    </div>
-
-                    <!-- Listing 5 -->
-                    <div class="listing-card">
-                        <div class="listing-header">
-                            <span class="listing-size">2,400 SF</span>
-                            <span class="listing-type">Office/Warehouse</span>
-                        </div>
-                        <h3 class="listing-address">440 Tall Pines Rd Unit F</h3>
-                        <p class="listing-location">Tall Pines Industrial Park, West Palm Beach, FL 33413</p>
-                        <div class="listing-details">
-                            <span>40 Parking Spaces</span>
-                            <span>17'5" Clear Height</span>
-                        </div>
-                        <div class="listing-price">
-                            <span class="price-amount">$4,000</span>
-                            <span class="price-term">/month</span>
-                        </div>
-                        <a href="tel:561-718-6725" class="listing-cta">Schedule Tour</a>
-                    </div>
-
-                    <!-- Listing 6 -->
-                    <div class="listing-card featured">
-                        <div class="listing-badge">Featured</div>
-                        <div class="listing-header">
-                            <span class="listing-size">11,563 SF</span>
-                            <span class="listing-type">Office/Warehouse + Yard</span>
-                        </div>
-                        <h3 class="listing-address">1225 Omar Road</h3>
-                        <p class="listing-location">West Palm Beach, FL 33405</p>
-                        <div class="listing-details">
-                            <span>8,006 SF Office</span>
-                            <span>3,527 SF Warehouse</span>
-                            <span>23 Parking Spaces</span>
-                            <span>Secured Yard</span>
-                        </div>
-                        <div class="listing-price">
-                            <span class="price-amount">$17,826</span>
-                            <span class="price-term">/month</span>
-                        </div>
-                        <a href="tel:561-718-6725" class="listing-cta">Schedule Tour</a>
-                    </div>
-
-                    <!-- Listing 7 -->
-                    <div class="listing-card">
-                        <div class="listing-header">
-                            <span class="listing-size">1,500 SF</span>
-                            <span class="listing-type">Flex Space</span>
-                        </div>
-                        <h3 class="listing-address">585 105th Ave N</h3>
-                        <p class="listing-location">Royal Palm Beach, FL 33411</p>
-                        <div class="listing-details">
-                            <span>36 Parking Spaces</span>
-                            <span>16' Clear Height</span>
-                        </div>
-                        <div class="listing-price">
-                            <span class="price-amount">$3,125</span>
-                            <span class="price-term">/month</span>
-                        </div>
-                        <a href="tel:561-718-6725" class="listing-cta">Schedule Tour</a>
-                    </div>
-
-                    <!-- Listing 8 -->
-                    <div class="listing-card">
-                        <div class="listing-header">
-                            <span class="listing-size">550 SF</span>
-                            <span class="listing-type">Office</span>
-                        </div>
-                        <h3 class="listing-address">605 Belvedere Rd</h3>
-                        <p class="listing-location">West Palm Beach, FL 33405</p>
-                        <div class="listing-details">
-                            <span>Professional Office Space</span>
-                        </div>
-                        <div class="listing-price">
-                            <span class="price-amount">$1,200</span>
-                            <span class="price-term">/month</span>
-                        </div>
-                        <a href="tel:561-718-6725" class="listing-cta">Schedule Tour</a>
-                    </div>
-
-                    <!-- Listing 9 - Multiple Units -->
-                    <div class="listing-card">
-                        <div class="listing-header">
-                            <span class="listing-size">1,800-5,400 SF</span>
-                            <span class="listing-type">Industrial</span>
-                        </div>
-                        <h3 class="listing-address">7233 Southern Blvd (A Building)</h3>
-                        <p class="listing-location">West Palm Beach, FL 33411</p>
-                        <div class="listing-details">
-                            <span>2 Units Available</span>
-                            <span>36 Parking Spaces</span>
-                            <span>14' Clear Height</span>
-                        </div>
-                        <div class="listing-price">
-                            <span class="price-amount">$3,525-$10,575</span>
-                            <span class="price-term">/month</span>
-                        </div>
-                        <a href="tel:561-718-6725" class="listing-cta">Schedule Tour</a>
-                    </div>
-
-                    <!-- Listing 10 - FOR SALE -->
-                    <div class="listing-card">
-                        <div class="listing-badge" style="background: #2563eb;">For Sale</div>
-                        <div class="listing-header">
-                            <span class="listing-size">1,300-1,340 SF</span>
-                            <span class="listing-type">Industrial Condo</span>
-                        </div>
-                        <h3 class="listing-address">7231 W Southern Blvd (C Building)</h3>
-                        <p class="listing-location">West Palm Beach, FL 33411</p>
-                        <div class="listing-details">
-                            <span>2 Units Available</span>
-                            <span>Industrial Condos</span>
-                        </div>
-                        <div class="listing-price">
-                            <span class="price-amount">$410,000-$422,000</span>
-                            <span class="price-term"></span>
-                        </div>
-                        <a href="tel:561-718-6725" class="listing-cta">Schedule Tour</a>
-                    </div>
-                </div>
-
-                <div class="listings-cta">
-                    <p>Don't see what you're looking for?</p>
-                    <button onclick="scrollToForm()" class="cta-button">Tell Us Your Needs</button>
+                    <button onclick="scrollToForm()" class="cta-button">Tell Me What You Need</button>
                 </div>
             </div>
         </section>
@@ -715,7 +556,7 @@
                                     <span class="benefit-icon-check">24h</span>
                                     <div>
                                         <strong>Fast Response</strong>
-                                        <p>I respond within 24 hours and can schedule tours same-week.</p>
+                                        <p>I typically respond within 24 hours and can schedule tours same-week.</p>
                                     </div>
                                 </div>
                                 <div class="benefit-item">
@@ -864,7 +705,9 @@
                         <li><a href="/locations/royal-palm-beach/">Royal Palm Beach</a></li>
                         <li><a href="/locations/lantana/">Lantana</a></li>
                     </ul>
-                    <h4 style="margin-top: 1rem;">Guides</h4>
+                </div>
+                <div class="footer-guides">
+                    <h4>Guides</h4>
                     <ul>
                         <li><a href="/guides/palm-beach-industrial-market/">Market Report 2026</a></li>
                         <li><a href="/guides/how-to-lease-warehouse/">How to Lease</a></li>
@@ -882,9 +725,12 @@
                     <p class="footer-guarantee">100% Free Service - No Obligation</p>
                 </div>
             </div>
+            <div class="footer-legal">
+                <p><a href="/privacy/">Privacy Policy</a> | <a href="/terms/">Terms of Service</a> | <a href="javascript:void(0)" onclick="window.showCookieSettings && window.showCookieSettings()">Cookie Settings</a></p>
+            </div>
             <div class="footer-bottom">
                 <p>Zachary Vorsteg | Licensed Sales Associate #SL3603483 | Cornerstone Realty | Palm Beach County, FL</p>
-                <p class="footer-copyright">© 2025-2026 Palm Beach Warehouses. All rights reserved.</p>
+                <p class="footer-copyright">&copy; 2025-2026 Palm Beach Warehouses. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -897,6 +743,9 @@
 
     <!-- Trusenda CRM Integration -->
     <script src="crm-integration.js"></script>
+
+    <!-- Cookie Consent (GDPR/CCPA) -->
+    <script src="/cookie-consent.js"></script>
 
     <!-- Structured Data / Schema Markup -->
     <script type="application/ld+json">
@@ -949,6 +798,26 @@
             {
                 "@type": "City",
                 "name": "Lake Worth",
+                "containedInPlace": {"@type": "State", "name": "Florida"}
+            },
+            {
+                "@type": "City",
+                "name": "Jupiter",
+                "containedInPlace": {"@type": "State", "name": "Florida"}
+            },
+            {
+                "@type": "City",
+                "name": "Lantana",
+                "containedInPlace": {"@type": "State", "name": "Florida"}
+            },
+            {
+                "@type": "City",
+                "name": "Royal Palm Beach",
+                "containedInPlace": {"@type": "State", "name": "Florida"}
+            },
+            {
+                "@type": "City",
+                "name": "Riviera Beach",
                 "containedInPlace": {"@type": "State", "name": "Florida"}
             }
         ],
@@ -1055,7 +924,7 @@
         "@id": "https://palmbeachwarehouses.com/#zachary-vorsteg",
         "name": "Zachary Vorsteg",
         "jobTitle": "Commercial Real Estate Specialist",
-        "description": "Licensed Florida real estate professional specializing in warehouse and industrial space leasing in Palm Beach County. Over 4 years of commercial real estate experience.",
+        "description": "Licensed Florida real estate professional specializing in warehouse and industrial space leasing in Palm Beach County.",
         "image": "https://palmbeachwarehouses.com/assets/headshot.jpg",
         "telephone": "+1-561-718-6725",
         "email": "zach@cri-re.com",
@@ -1104,7 +973,11 @@
             {"@type": "City", "name": "Boca Raton", "addressRegion": "FL"},
             {"@type": "City", "name": "Delray Beach", "addressRegion": "FL"},
             {"@type": "City", "name": "Lake Worth", "addressRegion": "FL"},
-            {"@type": "City", "name": "Boynton Beach", "addressRegion": "FL"}
+            {"@type": "City", "name": "Boynton Beach", "addressRegion": "FL"},
+            {"@type": "City", "name": "Jupiter", "addressRegion": "FL"},
+            {"@type": "City", "name": "Lantana", "addressRegion": "FL"},
+            {"@type": "City", "name": "Royal Palm Beach", "addressRegion": "FL"},
+            {"@type": "City", "name": "Riviera Beach", "addressRegion": "FL"}
         ],
         "offers": {
             "@type": "Offer",
@@ -1250,7 +1123,10 @@
             {"@type": "City", "name": "Delray Beach", "addressRegion": "FL"},
             {"@type": "City", "name": "Boynton Beach", "addressRegion": "FL"},
             {"@type": "City", "name": "Lake Worth", "addressRegion": "FL"},
-            {"@type": "City", "name": "Royal Palm Beach", "addressRegion": "FL"}
+            {"@type": "City", "name": "Royal Palm Beach", "addressRegion": "FL"},
+            {"@type": "City", "name": "Jupiter", "addressRegion": "FL"},
+            {"@type": "City", "name": "Lantana", "addressRegion": "FL"},
+            {"@type": "City", "name": "Riviera Beach", "addressRegion": "FL"}
         ],
         "sameAs": [
             "https://www.instagram.com/palmbeachwarehouses/"
@@ -1258,98 +1134,6 @@
     }
     </script>
 
-    <!-- ItemList Schema for Property Listings -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "ItemList",
-        "name": "Available Warehouse and Industrial Spaces in Palm Beach County",
-        "description": "Current warehouse lease and industrial space listings available in Palm Beach County, Florida.",
-        "numberOfItems": 8,
-        "itemListElement": [
-            {
-                "@type": "ListItem",
-                "position": 1,
-                "item": {
-                    "@type": "RealEstateListing",
-                    "name": "1400 Forsythe Road Unit F - Flex Space",
-                    "description": "1,600 SF flex space in Tuxedo Industrial Park with 12 parking spaces and 16' clear height.",
-                    "address": {"@type": "PostalAddress", "streetAddress": "1400 Forsythe Road Unit F", "addressLocality": "West Palm Beach", "addressRegion": "FL", "postalCode": "33405"}
-                }
-            },
-            {
-                "@type": "ListItem",
-                "position": 2,
-                "item": {
-                    "@type": "RealEstateListing",
-                    "name": "352 Tall Pines Road Unit C - Warehouse/Flex",
-                    "description": "2,170 SF warehouse/flex space in Tall Pines Industrial Park with 4 parking spaces and 20' clear height.",
-                    "address": {"@type": "PostalAddress", "streetAddress": "352 Tall Pines Road Unit C", "addressLocality": "West Palm Beach", "addressRegion": "FL", "postalCode": "33413"}
-                }
-            },
-            {
-                "@type": "ListItem",
-                "position": 3,
-                "item": {
-                    "@type": "RealEstateListing",
-                    "name": "440 Tall Pines Rd Unit F - Office/Warehouse",
-                    "description": "2,400 SF office/warehouse space in Tall Pines Industrial Park with 40 parking spaces and 17'5\" clear height.",
-                    "address": {"@type": "PostalAddress", "streetAddress": "440 Tall Pines Rd Unit F", "addressLocality": "West Palm Beach", "addressRegion": "FL", "postalCode": "33413"}
-                }
-            },
-            {
-                "@type": "ListItem",
-                "position": 4,
-                "item": {
-                    "@type": "RealEstateListing",
-                    "name": "1225 Omar Road - Office/Warehouse + Yard",
-                    "description": "11,563 SF office/warehouse with secured yard. 8,006 SF office, 3,527 SF warehouse, 23 parking spaces.",
-                    "address": {"@type": "PostalAddress", "streetAddress": "1225 Omar Road", "addressLocality": "West Palm Beach", "addressRegion": "FL", "postalCode": "33405"}
-                }
-            },
-            {
-                "@type": "ListItem",
-                "position": 5,
-                "item": {
-                    "@type": "RealEstateListing",
-                    "name": "585 105th Ave N - Flex Space",
-                    "description": "1,500 SF flex space with 36 parking spaces and 16' clear height.",
-                    "address": {"@type": "PostalAddress", "streetAddress": "585 105th Ave N", "addressLocality": "Royal Palm Beach", "addressRegion": "FL", "postalCode": "33411"}
-                }
-            },
-            {
-                "@type": "ListItem",
-                "position": 6,
-                "item": {
-                    "@type": "RealEstateListing",
-                    "name": "605 Belvedere Rd - Professional Office",
-                    "description": "550 SF professional office space.",
-                    "address": {"@type": "PostalAddress", "streetAddress": "605 Belvedere Rd", "addressLocality": "West Palm Beach", "addressRegion": "FL", "postalCode": "33405"}
-                }
-            },
-            {
-                "@type": "ListItem",
-                "position": 7,
-                "item": {
-                    "@type": "RealEstateListing",
-                    "name": "7233 Southern Blvd (A Building) - Industrial",
-                    "description": "1,800-5,400 SF industrial space with 2 units available, 36 parking spaces, and 14' clear height.",
-                    "address": {"@type": "PostalAddress", "streetAddress": "7233 Southern Blvd", "addressLocality": "West Palm Beach", "addressRegion": "FL", "postalCode": "33411"}
-                }
-            },
-            {
-                "@type": "ListItem",
-                "position": 8,
-                "item": {
-                    "@type": "RealEstateListing",
-                    "name": "7231 W Southern Blvd (C Building) - Industrial Condo For Sale",
-                    "description": "1,300-1,340 SF industrial condos for sale. 2 units available.",
-                    "address": {"@type": "PostalAddress", "streetAddress": "7231 W Southern Blvd", "addressLocality": "West Palm Beach", "addressRegion": "FL", "postalCode": "33411"}
-                }
-            }
-        ]
-    }
-    </script>
     
     <script>
         // Ensure page loads at top
@@ -1513,7 +1297,7 @@ VERSION:3.0
 N:Vorsteg;Zach;;;
 FN:Zach Vorsteg
 ORG:Cornerstone Realty
-TITLE:Licensed Commercial Real Estate Agent
+TITLE:Licensed Sales Associate - Cornerstone Realty
 TEL;TYPE=CELL:+1-561-718-6725
 EMAIL:zach@cri-re.com
 URL:https://palmbeachwarehouses.com
@@ -1529,226 +1313,6 @@ END:VCARD`;
             link.click();
             document.body.removeChild(link);
             URL.revokeObjectURL(url);
-        }
-
-        // Scroll to listings section
-        function scrollToListings() {
-            const listingsSection = document.getElementById('listings');
-            if (listingsSection) {
-                listingsSection.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        }
-
-        // ==========================================
-        // MAP VIEW FUNCTIONALITY
-        // ==========================================
-
-        let map = null;
-        let mapInitialized = false;
-
-        // Property data with VERIFIED coordinates (US Census Geocoder - 2026-01-23)
-        // To verify/update coordinates: https://geocoding.geo.census.gov/geocoder/locations/onelineaddress
-        const properties = [
-            {
-                address: "1400 Forsythe Road Unit F",
-                location: "Tuxedo Industrial Park, West Palm Beach, FL 33405",
-                size: "1,600 SF",
-                type: "Flex Space",
-                price: "$3,133/mo",
-                details: ["12 Parking Spaces", "16' Clear Height"],
-                lat: 26.687928,
-                lng: -80.070881,
-                featured: false
-            },
-            {
-                address: "352 Tall Pines Road Unit C",
-                location: "Tall Pines Industrial Park, West Palm Beach, FL 33413",
-                size: "2,170 SF",
-                type: "Warehouse/Flex",
-                price: "$4,159/mo",
-                details: ["4 Parking Spaces", "20' Clear Height"],
-                lat: 26.682432,
-                lng: -80.149299,
-                featured: false
-            },
-            {
-                address: "440 Tall Pines Rd Unit F",
-                location: "Tall Pines Industrial Park, West Palm Beach, FL 33413",
-                size: "2,400 SF",
-                type: "Office/Warehouse",
-                price: "$4,000/mo",
-                details: ["40 Parking Spaces", "17'5\" Clear Height"],
-                lat: 26.683389,
-                lng: -80.149309,
-                featured: false
-            },
-            {
-                address: "1225 Omar Road",
-                location: "West Palm Beach, FL 33405",
-                size: "11,563 SF",
-                type: "Office/Warehouse + Yard",
-                price: "$17,826/mo",
-                details: ["8,006 SF Office", "3,527 SF Warehouse", "23 Parking", "Secured Yard"],
-                lat: 26.688576,
-                lng: -80.069131,
-                featured: true
-            },
-            {
-                address: "585 105th Ave N",
-                location: "Royal Palm Beach, FL 33411",
-                size: "1,500 SF",
-                type: "Flex Space",
-                price: "$3,125/mo",
-                details: ["36 Parking Spaces", "16' Clear Height"],
-                lat: 26.683862,
-                lng: -80.210033,
-                featured: false
-            },
-            {
-                address: "605 Belvedere Rd",
-                location: "West Palm Beach, FL 33405",
-                size: "550 SF",
-                type: "Office",
-                price: "$1,200/mo",
-                details: ["Professional Office Space"],
-                lat: 26.690461,
-                lng: -80.057452,
-                featured: false
-            },
-            {
-                address: "7233 Southern Blvd (A Building)",
-                location: "West Palm Beach, FL 33411",
-                size: "1,800-5,400 SF",
-                type: "Industrial",
-                price: "$3,525-$10,575/mo",
-                details: ["2 Units Available", "36 Parking Spaces", "14' Clear Height"],
-                lat: 26.679353,
-                lng: -80.161563,
-                featured: false
-            },
-            {
-                address: "7231 W Southern Blvd (C Building)",
-                location: "West Palm Beach, FL 33411",
-                size: "1,300-1,340 SF",
-                type: "Industrial Condo - FOR SALE",
-                price: "$410,000-$422,000",
-                details: ["2 Units Available", "Industrial Condos"],
-                lat: 26.679353,
-                lng: -80.161542,
-                featured: false
-            }
-        ];
-
-        // Switch between grid and map views
-        function switchView(view) {
-            const gridView = document.querySelector('.listings-grid');
-            const mapView = document.getElementById('map-view');
-            const buttons = document.querySelectorAll('.view-toggle-btn');
-
-            buttons.forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.view === view);
-            });
-
-            if (view === 'map') {
-                gridView.style.display = 'none';
-                mapView.style.display = 'block';
-
-                // Initialize map on first view (lazy load)
-                if (!mapInitialized) {
-                    loadLeafletAndInitMap();
-                } else if (map) {
-                    // Refresh map size when shown
-                    setTimeout(() => map.invalidateSize(), 100);
-                }
-            } else {
-                gridView.style.display = 'grid';
-                mapView.style.display = 'none';
-            }
-        }
-
-        // Lazy load Leaflet CSS and JS
-        function loadLeafletAndInitMap() {
-            const mapContainer = document.getElementById('properties-map');
-            mapContainer.innerHTML = '<div class="map-loading"><div class="map-loading-spinner"></div><span>Loading map...</span></div>';
-
-            // Load Leaflet CSS
-            const leafletCSS = document.createElement('link');
-            leafletCSS.rel = 'stylesheet';
-            leafletCSS.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
-            document.head.appendChild(leafletCSS);
-
-            // Load Leaflet JS
-            const leafletJS = document.createElement('script');
-            leafletJS.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
-            leafletJS.onload = initializeMap;
-            document.body.appendChild(leafletJS);
-        }
-
-        // Initialize the map with markers
-        function initializeMap() {
-            const mapContainer = document.getElementById('properties-map');
-            mapContainer.innerHTML = ''; // Clear loading state
-
-            // Calculate center point (average of all properties)
-            const centerLat = properties.reduce((sum, p) => sum + p.lat, 0) / properties.length;
-            const centerLng = properties.reduce((sum, p) => sum + p.lng, 0) / properties.length;
-
-            // Initialize map
-            map = L.map('properties-map', {
-                center: [centerLat, centerLng],
-                zoom: 12,
-                scrollWheelZoom: true
-            });
-
-            // Add OpenStreetMap tiles (free, no API key)
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '© OpenStreetMap contributors',
-                maxZoom: 19
-            }).addTo(map);
-
-            // Add markers for each property
-            const markers = [];
-            properties.forEach((property, index) => {
-                // Create custom icon
-                const iconSize = property.featured ? [30, 30] : [24, 24];
-                const iconClass = property.featured ? 'custom-marker featured' : 'custom-marker';
-
-                const customIcon = L.divIcon({
-                    className: iconClass,
-                    iconSize: iconSize,
-                    iconAnchor: [iconSize[0]/2, iconSize[1]/2],
-                    popupAnchor: [0, -iconSize[1]/2]
-                });
-
-                // Create popup content
-                const popupContent = `
-                    <div class="map-popup">
-                        <div class="map-popup-title">${property.address}</div>
-                        <div class="map-popup-location">${property.location}</div>
-                        <div class="map-popup-details">
-                            <span class="map-popup-detail">${property.size}</span>
-                            <span class="map-popup-detail">${property.type}</span>
-                        </div>
-                        <div class="map-popup-price">${property.price}</div>
-                        <a href="tel:561-718-6725" class="map-popup-cta">Schedule Tour</a>
-                    </div>
-                `;
-
-                const marker = L.marker([property.lat, property.lng], { icon: customIcon })
-                    .bindPopup(popupContent, { maxWidth: 280 })
-                    .addTo(map);
-
-                markers.push(marker);
-            });
-
-            // Fit map to show all markers with padding
-            const group = L.featureGroup(markers);
-            map.fitBounds(group.getBounds().pad(0.1));
-
-            mapInitialized = true;
         }
 
     </script>
