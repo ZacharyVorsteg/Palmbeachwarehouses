@@ -23,7 +23,7 @@ html, body {
     --dark-bg: #1a1f33;
     --darker-bg: #141824;
     --card-bg: #1e2438;
-    --accent-blue: #007AFF;
+    --accent-blue: #3B93FF;
     --text-light: #e8eaed;
     --text-gray: #b0b6bc;
     --action-blue: #1a73e8;
@@ -1879,7 +1879,7 @@ footer.footer .footer-content p {
 
 .footer-phone {
     display: block;
-    color: var(--action-blue);
+    color: var(--accent-blue);
     font-size: 1.1rem;
     font-weight: 600;
     text-decoration: none;
@@ -2394,7 +2394,7 @@ footer.footer .footer-content p {
 }
 
 .cta-button-large:hover {
-    background: var(--accent-blue);
+    background: var(--action-blue);
     color: white;
     transform: translateY(-2px);
 }
@@ -2718,7 +2718,7 @@ footer.footer .footer-content p {
 }
 
 .success-screen .reset-button:hover {
-    background: var(--accent-blue);
+    background: var(--action-blue);
     color: white;
 }
 
@@ -3356,7 +3356,7 @@ footer.footer .footer-content p {
 }
 
 .success-btn-primary:hover {
-    background: var(--accent-blue);
+    background: var(--action-blue);
     transform: translateY(-1px);
 }
 
