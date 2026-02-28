@@ -49,14 +49,12 @@
     <meta property="article:modified_time" content="2026-02-27">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
-    <!-- Performance: Preconnect to third-party domains -->
-    <link rel="preconnect" href="https://connect.facebook.net">
-    <link rel="dns-prefetch" href="https://trusenda.com">
 
     <link rel="stylesheet" href="styles.css?v=87">
     <script src="/tracking-init.js"></script>
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <header class="header">
         <div class="header-container">
             <div class="logo">
@@ -96,7 +94,7 @@
                     </div>
                 </div>
             </nav>
-            <button type="button" class="mobile-menu-btn" aria-label="Toggle navigation menu" onclick="toggleMobileMenu()">
+            <button type="button" class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false" onclick="toggleMobileMenu()">
                 <span></span><span></span><span></span>
             </button>
             <div class="header-cta">
@@ -109,7 +107,7 @@
         </div>
     </header>
 
-    <main>
+    <main id="main-content">
         <section class="hero">
             <div class="hero-content">
                 <div class="hero-left">
@@ -410,7 +408,7 @@
 
                                 <p class="form-note">Free service – Zach will contact you within 24 hours</p>
 
-                                <div id="form-message" class="form-message hidden"></div>
+                                <div id="form-message" class="form-message hidden" role="status" aria-live="polite"></div>
                             </div>
                         </form>
 
@@ -432,7 +430,7 @@
                             <p id="success-subtitle">Zach will review your requirements and reach out within 24 hours with matching spaces.</p>
 
                             <div class="success-agent">
-                                <img src="assets/headshot.jpg?v=1" alt="Zach Vorsteg" class="success-headshot" loading="lazy" decoding="async">
+                                <img src="assets/headshot.jpg?v=1" alt="Zach Vorsteg" class="success-headshot" width="60" height="60" loading="lazy" decoding="async">
                                 <div class="success-agent-name">Zach Vorsteg</div>
                                 <div class="success-agent-title">Licensed Sales Associate, Cornerstone Realty</div>
                                 <a href="tel:561-718-6725" class="success-agent-phone">561-718-6725</a>

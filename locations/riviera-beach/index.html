@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Warehouse Space in Riviera Beach | PBW</title>
-    <meta name="description" content="Industrial warehouse and distribution space in Riviera Beach. Prime Port of Palm Beach proximity. Modern logistics facilities. Lease your next space.">
+    <title>Riviera Beach Warehouse & Industrial Space for Lease | PBW</title>
+    <meta name="description" content="Industrial warehouse and distribution space in Riviera Beach, FL. Prime Port of Palm Beach proximity, modern logistics facilities. Find your next lease.">
     <meta name="keywords" content="industrial space Riviera Beach, warehouse lease Riviera Beach, distribution space, Port of Palm Beach, logistics warehouse, industrial real estate">
     <link rel="canonical" href="https://palmbeachwarehouses.com/locations/riviera-beach/">
 
@@ -15,22 +15,26 @@
     <meta name="ICBM" content="26.7681, -80.0593">
 
     <!-- Open Graph Tags -->
-    <meta property="og:title" content="Riviera Beach Industrial Warehouse Space | Palm Beach Warehouses">
-    <meta property="og:description" content="Industrial warehouse and distribution space in Riviera Beach. Prime Port of Palm Beach proximity. Modern logistics facilities.">
+    <meta property="og:title" content="Riviera Beach Warehouse & Industrial Space for Lease | PBW">
+    <meta property="og:description" content="Industrial warehouse and distribution space in Riviera Beach, FL. Prime Port of Palm Beach proximity, modern logistics facilities. Find your next lease.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://palmbeachwarehouses.com/locations/riviera-beach/">
-    <meta property="og:image" content="https://palmbeachwarehouses.com/og-image.jpg">
+    <meta property="og:image" content="https://palmbeachwarehouses.com/assets/og-image.png">
+    <meta property="og:image:alt" content="Warehouse and industrial space for lease in Riviera Beach, Palm Beach County">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
 
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Riviera Beach Industrial Warehouse Space | Palm Beach Warehouses">
-    <meta name="twitter:description" content="Industrial warehouse and distribution space in Riviera Beach. Prime Port of Palm Beach proximity. Modern logistics facilities.">
-    <meta name="twitter:image" content="https://palmbeachwarehouses.com/og-image.jpg">
+    <meta name="twitter:title" content="Riviera Beach Warehouse & Industrial Space for Lease | PBW">
+    <meta name="twitter:description" content="Industrial warehouse and distribution space in Riviera Beach, FL. Prime Port of Palm Beach proximity, modern logistics facilities. Find your next lease.">
+    <meta name="twitter:image" content="https://palmbeachwarehouses.com/assets/og-image.png">
 
     <link rel="stylesheet" href="../../styles.css?v=87">
     <script src="/tracking-init.js"></script>
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <!-- Header & Navigation -->
     <header class="header">
         <div class="header-container">
@@ -67,7 +71,7 @@
                     </div>
                 </div>
             </nav>
-            <button class="mobile-menu-btn" aria-label="Toggle navigation menu" onclick="toggleMobileMenu()">
+            <button class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false" onclick="toggleMobileMenu()">
                 <span></span><span></span><span></span>
             </button>
             <div class="header-cta">
@@ -85,12 +89,12 @@
         <div class="breadcrumb-container">
             <a href="/">Home</a>
             <span class="breadcrumb-separator">/</span>
-            <span class="breadcrumb-current">Riviera Beach</span>
+            <span class="breadcrumb-current" aria-current="page">Riviera Beach</span>
         </div>
     </nav>
 
     <!-- Hero Section with CRM Form -->
-    <section class="hero">
+    <section class="hero" id="main-content">
         <div class="hero-content">
             <h1>Riviera Beach Industrial & Distribution Space</h1>
             <p class="hero-subtitle">Port-Adjacent Logistics Hub | Strategic Distribution Gateway</p>
@@ -124,18 +128,22 @@
                 </div>
 
                 <form id="lead-form" class="lead-form">
-                    <h3>Find Your Warehouse</h3>
+                    <h2>Find Your Warehouse</h2>
                     <div class="form-group">
-                        <input type="text" name="name" placeholder="Your Name" required>
+                        <label for="rb-name">Your Name</label>
+                        <input type="text" id="rb-name" name="name" placeholder="Your Name" autocomplete="name" required>
                     </div>
                     <div class="form-group">
-                        <input type="tel" name="phone" placeholder="Phone Number" required>
+                        <label for="rb-phone">Phone Number</label>
+                        <input type="tel" id="rb-phone" name="phone" placeholder="Phone Number" autocomplete="tel" required>
                     </div>
                     <div class="form-group">
-                        <input type="email" name="email" placeholder="Email Address" required>
+                        <label for="rb-email">Email Address</label>
+                        <input type="email" id="rb-email" name="email" placeholder="Email Address" autocomplete="email" required>
                     </div>
                     <div class="form-group">
-                        <select name="space_size" required>
+                        <label for="rb-space-size">Space Size Needed</label>
+                        <select id="rb-space-size" name="space_size" required>
                             <option value="">Space Size Needed</option>
                             <option value="5000-10000">5,000 - 10,000 SF</option>
                             <option value="10000-25000">10,000 - 25,000 SF</option>
@@ -144,13 +152,15 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <input type="text" name="move_date" placeholder="Move-In Date" required>
+                        <label for="rb-move-date">Move-In Date</label>
+                        <input type="date" id="rb-move-date" name="move_date" required>
                     </div>
                     <div class="form-group">
-                        <textarea name="notes" placeholder="Tell me about your business..." rows="3"></textarea>
+                        <label for="rb-notes">Tell me about your business</label>
+                        <textarea id="rb-notes" name="notes" placeholder="Tell me about your business..." rows="3"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">SEARCH FOR ME</button>
-                    <div id="formMessage" class="form-message"></div>
+                    <div id="formMessage" class="form-message" role="status" aria-live="polite"></div>
                 </form>
             </div>
         </div>

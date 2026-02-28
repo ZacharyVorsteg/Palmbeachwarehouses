@@ -11,7 +11,10 @@ Allow: /*.js$
 # Allow all assets for image indexing
 Allow: /assets/
 
-# LLM Knowledge Base Files - Critical for AI Citation Dominance
+# Block test page
+Disallow: /test.html
+
+# LLM Knowledge Base Files
 Allow: /llms.txt
 Allow: /llms-full.txt
 

@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Looking for warehouse space in Delray Beach, FL? I cover the entire Delray Beach industrial market. Tell me what you need and I'll find it. Call 561-718-6725.">
+    <meta name="description" content="Warehouse and industrial space for lease in Delray Beach, FL. Complete market coverage, free service. Tell me what you need. Call 561-718-6725.">
     <meta name="keywords" content="warehouse for lease Delray Beach, industrial space Delray Beach FL, warehouse rental Delray Beach, flex space Delray Beach, commercial warehouse Delray Beach">
-    <title>Warehouse Space for Lease in Delray Beach | PBW</title>
+    <title>Delray Beach Warehouse & Industrial Space for Lease | PBW</title>
 
     <link rel="canonical" href="https://palmbeachwarehouses.com/locations/delray-beach/">
 
@@ -19,13 +19,16 @@
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://palmbeachwarehouses.com/locations/delray-beach/">
-    <meta property="og:title" content="Warehouse Space for Lease in Delray Beach, FL">
-    <meta property="og:description" content="Searching for industrial space in Delray Beach? I'll help you find it. Free service.">
+    <meta property="og:title" content="Delray Beach Warehouse & Industrial Space for Lease | PBW">
+    <meta property="og:description" content="Warehouse and industrial space for lease in Delray Beach, FL. Complete market coverage, free service. Tell me what you need. Call 561-718-6725.">
     <meta property="og:image" content="https://palmbeachwarehouses.com/assets/og-image.png">
+    <meta property="og:image:alt" content="Warehouse and industrial space for lease in Delray Beach, Palm Beach County">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Warehouse Space for Lease in Delray Beach, FL">
-    <meta name="twitter:description" content="Searching for industrial space in Delray Beach? I'll help you find it. Free service.">
+    <meta name="twitter:title" content="Delray Beach Warehouse & Industrial Space for Lease | PBW">
+    <meta name="twitter:description" content="Warehouse and industrial space for lease in Delray Beach, FL. Complete market coverage, free service. Tell me what you need. Call 561-718-6725.">
     <meta name="twitter:image" content="https://palmbeachwarehouses.com/assets/og-image.png">
 
     <!-- GEO/AI Optimization -->
@@ -36,10 +39,6 @@
     <meta property="article:modified_time" content="2026-01-18">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
-    <!-- Performance: Preconnect to third-party domains -->
-    <link rel="preconnect" href="https://connect.facebook.net" crossorigin>
-    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
-    <link rel="preconnect" href="https://trusenda.com" crossorigin>
 
     <!-- Preload critical CSS -->
     <link rel="preload" href="../../styles.css?v=87" as="style">
@@ -47,6 +46,7 @@
     <script src="/tracking-init.js"></script>
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <header class="header">
         <div class="header-container">
             <a href="/" class="logo">
@@ -82,7 +82,7 @@
                     </div>
                 </div>
             </nav>
-            <button class="mobile-menu-btn" aria-label="Toggle navigation menu" onclick="toggleMobileMenu()">
+            <button class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false" onclick="toggleMobileMenu()">
                 <span></span><span></span><span></span>
             </button>
             <div class="header-cta">
@@ -99,11 +99,11 @@
         <div class="breadcrumb-container">
             <a href="/">Home</a>
             <span class="breadcrumb-separator">/</span>
-            <span class="breadcrumb-current">Delray Beach</span>
+            <span class="breadcrumb-current" aria-current="page">Delray Beach</span>
         </div>
     </nav>
 
-    <main>
+    <main id="main-content">
         <section class="location-hero">
             <div class="location-hero-content">
                 <div class="location-hero-grid">
@@ -181,7 +181,7 @@
                                 <span id="btn-text">SEARCH FOR ME</span>
                                 <span id="btn-loading" class="hidden">Searching...</span>
                             </button>
-                            <div id="form-message" class="form-message hidden"></div>
+                            <div id="form-message" class="form-message hidden" role="status" aria-live="polite"></div>
                             <p class="form-consent">I'll search available Delray Beach space and contact you within 24 hours. Free service - landlords pay my fee.</p>
                         </form>
                         <div id="success-message" class="success-screen hidden">
@@ -276,10 +276,6 @@
                     <a href="/locations/lantana/" class="location-card">
                         <h3>Lantana</h3>
                         <p>Smaller industrial market with tight community</p>
-                    </a>
-                    <a href="/locations/north-palm-beach/" class="location-card">
-                        <h3>North Palm Beach</h3>
-                        <p>Northern county distribution and light industrial</p>
                     </a>
                     <a href="/locations/riviera-beach/" class="location-card">
                         <h3>Riviera Beach</h3>

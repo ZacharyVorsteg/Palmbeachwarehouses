@@ -29,18 +29,17 @@
     <meta property="og:description" content="Industrial warehouse and self-storage space in Lantana, FL. I-95 access, value pricing. North Broadway corridor.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://palmbeachwarehouses.com/locations/lantana/">
-    <meta property="og:image" content="https://palmbeachwarehouses.com/og-image.jpg">
+    <meta property="og:image" content="https://palmbeachwarehouses.com/assets/og-image.png">
+    <meta property="og:image:alt" content="Warehouse and industrial space for lease in Lantana, Palm Beach County">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
 
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Lantana Industrial Warehouse Space | Palm Beach Warehouses">
     <meta name="twitter:description" content="Industrial warehouse and self-storage space in Lantana, FL. I-95 access, value pricing. North Broadway corridor.">
-    <meta name="twitter:image" content="https://palmbeachwarehouses.com/og-image.jpg">
+    <meta name="twitter:image" content="https://palmbeachwarehouses.com/assets/og-image.png">
 
-    <!-- Performance: Preconnect to third-party domains -->
-    <link rel="preconnect" href="https://connect.facebook.net" crossorigin>
-    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
-    <link rel="preconnect" href="https://trusenda.com" crossorigin>
 
     <!-- Preload critical CSS -->
     <link rel="preload" href="../../styles.css?v=87" as="style">
@@ -48,6 +47,7 @@
     <script src="/tracking-init.js"></script>
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <!-- Header & Navigation -->
     <header class="header">
         <div class="header-container">
@@ -84,7 +84,7 @@
                     </div>
                 </div>
             </nav>
-            <button class="mobile-menu-btn" aria-label="Toggle navigation menu" onclick="toggleMobileMenu()">
+            <button class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false" onclick="toggleMobileMenu()">
                 <span></span><span></span><span></span>
             </button>
             <div class="header-cta">
@@ -102,12 +102,12 @@
         <div class="breadcrumb-container">
             <a href="/">Home</a>
             <span class="breadcrumb-separator">/</span>
-            <span class="breadcrumb-current">Lantana</span>
+            <span class="breadcrumb-current" aria-current="page">Lantana</span>
         </div>
     </nav>
 
     <!-- Hero Section with CRM Form -->
-    <section class="hero">
+    <section class="hero" id="main-content">
         <div class="hero-content">
             <h1>Lantana Industrial & Self-Storage Space</h1>
             <p class="hero-subtitle">Compact Market Excellence | I-95 Value Positioning</p>
@@ -141,18 +141,22 @@
                 </div>
 
                 <form id="lead-form" class="lead-form">
-                    <h3>Find Your Warehouse</h3>
+                    <h2>Find Your Warehouse</h2>
                     <div class="form-group">
-                        <input type="text" name="name" placeholder="Your Name" required>
+                        <label for="lt-name">Your Name</label>
+                        <input type="text" id="lt-name" name="name" placeholder="Your Name" autocomplete="name" required>
                     </div>
                     <div class="form-group">
-                        <input type="tel" name="phone" placeholder="Phone Number" required>
+                        <label for="lt-phone">Phone Number</label>
+                        <input type="tel" id="lt-phone" name="phone" placeholder="Phone Number" autocomplete="tel" required>
                     </div>
                     <div class="form-group">
-                        <input type="email" name="email" placeholder="Email Address" required>
+                        <label for="lt-email">Email Address</label>
+                        <input type="email" id="lt-email" name="email" placeholder="Email Address" autocomplete="email" required>
                     </div>
                     <div class="form-group">
-                        <select name="space_size" required>
+                        <label for="lt-space-size">Space Size Needed</label>
+                        <select id="lt-space-size" name="space_size" required>
                             <option value="">Space Size Needed</option>
                             <option value="5000-10000">5,000 - 10,000 SF</option>
                             <option value="10000-25000">10,000 - 25,000 SF</option>
@@ -161,13 +165,15 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <input type="text" name="move_date" placeholder="Move-In Date" required>
+                        <label for="lt-move-date">Move-In Date</label>
+                        <input type="date" id="lt-move-date" name="move_date" required>
                     </div>
                     <div class="form-group">
-                        <textarea name="notes" placeholder="Tell me about your business..." rows="3"></textarea>
+                        <label for="lt-notes">Tell me about your business</label>
+                        <textarea id="lt-notes" name="notes" placeholder="Tell me about your business..." rows="3"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">SEARCH FOR ME</button>
-                    <div id="formMessage" class="form-message"></div>
+                    <div id="formMessage" class="form-message" role="status" aria-live="polite"></div>
                 </form>
             </div>
         </div>

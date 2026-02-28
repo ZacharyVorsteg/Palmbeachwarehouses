@@ -1,5 +1,5 @@
 # Redirect www to non-www
 https://www.palmbeachwarehouses.com/* https://palmbeachwarehouses.com/:splat 301!
 
-# SPA fallback - serve index.html for any non-existent routes
-/* /index.html 200
+# 404 fallback for non-existent routes
+/* /404.html 404
