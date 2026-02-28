@@ -1,163 +1,11 @@
-/**
- * Cookie Consent Banner - GDPR & CCPA Compliant
- * Manages tracking consent for Facebook Pixel and Google Ads
- * Auto-injects banner on first visit, respects user preferences
- */
-
-(function() {
-  'use strict';
-
-  const CONSENT_KEY = 'cookieConsent';
-  const CONSENT_VERSION = '1.0';
-  const PIXEL_ID = '1245057844149331';
-  const GOOGLE_ADS_ID = 'AW-17147516072';
-
-  // Color scheme from site's CSS
-  const COLORS = {
-    darkBg: '#141824',
-    darkBgLight: '#1a1f33',
-    accentBlue: '#007AFF',
-    textLight: '#e8eaed',
-    textGray: '#b0b6bc',
-  };
-
-  class CookieConsentManager {
-    constructor() {
-      this.consentState = this.getConsentState();
-      this.hasConsented = this.consentState !== null;
-      this.consentGiven = this.consentState === 'accept';
-      this.init();
-    }
-
-    /**
-     * Get the current consent state from localStorage
-     */
-    getConsentState() {
-      try {
-        const stored = localStorage.getItem(CONSENT_KEY);
-        if (stored) {
-          const data = JSON.parse(stored);
-          return data.choice; // 'accept' or 'decline'
-        }
-        return null;
-      } catch (e) {
-        console.warn('Error reading consent from localStorage:', e);
-        return null;
-      }
-    }
-
-    /**
-     * Save consent state to localStorage
-     */
-    saveConsentState(choice) {
-      try {
-        const data = {
-          choice: choice,
-          version: CONSENT_VERSION,
-          timestamp: new Date().toISOString(),
-        };
-        localStorage.setItem(CONSENT_KEY, JSON.stringify(data));
-        this.consentState = choice;
-        this.consentGiven = choice === 'accept';
-      } catch (e) {
-        console.warn('Error saving consent to localStorage:', e);
-      }
-    }
-
-    /**
-     * Initialize: Block tracking by default, show banner if needed, load FB/GA if consented
-     */
-    init() {
-      // Block Facebook Pixel and Google Ads by default
-      this.blockTracking();
-
-      // Show banner only if no consent given yet
-      if (!this.hasConsented) {
-        this.showBanner();
-      } else if (this.consentGiven) {
-        // Consent already given, load tracking scripts
-        this.loadTracking();
-      }
-    }
-
-    /**
-     * Block tracking by preventing fbq and gtag from firing
-     */
-    blockTracking() {
-      window.fbq = window.fbq || function() {};
-      window.gtag = window.gtag || function() {};
-
-      // Disable actual tracking
-      window.trackingBlocked = true;
-
-      // Prevent image beacon for Facebook
-      if (document.currentScript) {
-        const noscripts = document.querySelectorAll('noscript');
-        noscripts.forEach((noscript) => {
-          if (noscript.textContent.includes('facebook.com/tr')) {
-            noscript.style.display = 'none';
-          }
-        });
-      }
-    }
-
-    /**
-     * Load Facebook Pixel and Google Ads scripts
-     */
-    loadTracking() {
-      // Load Facebook Pixel
-      this.loadFacebookPixel();
-
-      // Load Google Ads
-      this.loadGoogleAds();
-    }
-
-    /**
-     * Dynamically load Facebook Pixel
-     */
-    loadFacebookPixel() {
-      if (window.fbq && typeof window.fbq === 'function') {
-        try {
-          window.fbq('init', PIXEL_ID);
-          window.fbq('track', 'PageView');
-        } catch (e) {
-          console.warn('Error initializing Facebook Pixel:', e);
-        }
-      }
-    }
-
-    /**
-     * Dynamically load Google Ads via gtag
-     */
-    loadGoogleAds() {
-      if (typeof window.gtag === 'function') {
-        try {
-          window.gtag('js', new Date());
-          window.gtag('config', GOOGLE_ADS_ID);
-        } catch (e) {
-          console.warn('Error initializing Google Ads:', e);
-        }
-      }
-    }
-
-    /**
-     * Create and inject the cookie consent banner HTML
-     */
-    createBanner() {
-      const banner = document.createElement('div');
-      banner.id = 'cookie-consent-banner';
-      banner.setAttribute('role', 'dialog');
-      banner.setAttribute('aria-labelledby', 'cookie-consent-title');
-      banner.setAttribute('aria-describedby', 'cookie-consent-text');
-
-      banner.innerHTML = `
+(function(){"use strict";const o="cookieConsent",c="1245057844149331",s="AW-17147516072",n={darkBg:"#141824",darkBgLight:"#1a1f33",accentBlue:"#007AFF",textLight:"#e8eaed",textGray:"#b0b6bc"};class i{constructor(){this.consentState=this.getConsentState(),this.hasConsented=this.consentState!==null,this.consentGiven=this.consentState==="accept",this.init()}getConsentState(){try{const e=localStorage.getItem(o);return e?JSON.parse(e).choice:null}catch(e){return console.warn("Error reading consent from localStorage:",e),null}}saveConsentState(e){try{const t={choice:e,version:"1.0",timestamp:new Date().toISOString()};localStorage.setItem(o,JSON.stringify(t)),this.consentState=e,this.consentGiven=e==="accept"}catch(t){console.warn("Error saving consent to localStorage:",t)}}init(){this.blockTracking(),this.hasConsented?this.consentGiven&&this.loadTracking():this.showBanner()}blockTracking(){window.fbq=window.fbq||function(){},window.gtag=window.gtag||function(){},window.trackingBlocked=!0,document.currentScript&&document.querySelectorAll("noscript").forEach(t=>{t.textContent.includes("facebook.com/tr")&&(t.style.display="none")})}loadTracking(){this.loadFacebookPixel(),this.loadGoogleAds()}loadFacebookPixel(){if(window.fbq&&typeof window.fbq=="function")try{window.fbq("init",c),window.fbq("track","PageView")}catch(e){console.warn("Error initializing Facebook Pixel:",e)}}loadGoogleAds(){if(typeof window.gtag=="function")try{window.gtag("js",new Date),window.gtag("config",s)}catch(e){console.warn("Error initializing Google Ads:",e)}}createBanner(){const e=document.createElement("div");return e.id="cookie-consent-banner",e.setAttribute("role","dialog"),e.setAttribute("aria-labelledby","cookie-consent-title"),e.setAttribute("aria-describedby","cookie-consent-text"),e.innerHTML=`
         <div style="
           position: fixed;
           bottom: 0;
           left: 0;
           right: 0;
-          background-color: ${COLORS.darkBg};
-          border-top: 1px solid ${COLORS.accentBlue}40;
+          background-color: ${n.darkBg};
+          border-top: 1px solid ${n.accentBlue}40;
           padding: 20px;
           z-index: 9999;
           box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.3);
@@ -193,19 +41,19 @@
               margin: 0;
               font-size: 16px;
               font-weight: 600;
-              color: ${COLORS.textLight};
+              color: ${n.textLight};
               line-height: 1.4;
             }
 
             #cookie-consent-text {
               margin: 0;
               font-size: 14px;
-              color: ${COLORS.textGray};
+              color: ${n.textGray};
               line-height: 1.5;
             }
 
             #cookie-consent-text a {
-              color: ${COLORS.accentBlue};
+              color: ${n.accentBlue};
               text-decoration: none;
               transition: color 0.2s ease;
             }
@@ -236,7 +84,7 @@
             }
 
             #cookie-consent-accept {
-              background-color: ${COLORS.accentBlue};
+              background-color: ${n.accentBlue};
               color: white;
               flex: 1;
               min-width: 140px;
@@ -254,15 +102,15 @@
 
             #cookie-consent-decline {
               background-color: transparent;
-              color: ${COLORS.textLight};
-              border: 1px solid ${COLORS.textGray};
+              color: ${n.textLight};
+              border: 1px solid ${n.textGray};
               flex: 1;
               min-width: 140px;
             }
 
             #cookie-consent-decline:hover {
               background-color: rgba(255, 255, 255, 0.05);
-              border-color: ${COLORS.textLight};
+              border-color: ${n.textLight};
             }
 
             #cookie-consent-decline:active {
@@ -308,138 +156,4 @@
             <button id="cookie-consent-decline" class="cookie-consent-btn">Decline Non-Essential</button>
           </div>
         </div>
-      `;
-
-      return banner;
-    }
-
-    /**
-     * Show the consent banner and attach event listeners
-     */
-    showBanner() {
-      if (document.getElementById('cookie-consent-banner')) {
-        return; // Already shown
-      }
-
-      const banner = this.createBanner();
-      document.body.appendChild(banner);
-
-      // Attach event listeners
-      document.getElementById('cookie-consent-accept').addEventListener('click', () => {
-        this.handleAccept();
-      });
-
-      document.getElementById('cookie-consent-decline').addEventListener('click', () => {
-        this.handleDecline();
-      });
-
-      // Keyboard accessibility: close on Escape
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-          this.removeBanner();
-        }
-      });
-    }
-
-    /**
-     * Handle "Accept All" click
-     */
-    handleAccept() {
-      this.saveConsentState('accept');
-      this.loadTracking();
-      this.removeBanner();
-      this.dispatchEvent('cookieConsent:accept');
-    }
-
-    /**
-     * Handle "Decline Non-Essential" click
-     */
-    handleDecline() {
-      this.saveConsentState('decline');
-      this.blockTracking();
-      this.removeBanner();
-      this.dispatchEvent('cookieConsent:decline');
-    }
-
-    /**
-     * Remove the banner from the DOM
-     */
-    removeBanner() {
-      const banner = document.getElementById('cookie-consent-banner');
-      if (banner) {
-        banner.style.animation = 'slideUp 0.3s ease-out reverse';
-        setTimeout(() => {
-          if (banner.parentNode) {
-            banner.parentNode.removeChild(banner);
-          }
-        }, 300);
-      }
-    }
-
-    /**
-     * Dispatch custom event for external listeners
-     */
-    dispatchEvent(eventName) {
-      if (window.CustomEvent) {
-        const event = new CustomEvent(eventName, {
-          detail: { choice: this.consentState },
-        });
-        window.dispatchEvent(event);
-      }
-    }
-
-    /**
-     * Show banner again (for "Cookie Settings" link in footer)
-     */
-    showSettings() {
-      this.showBanner();
-    }
-
-    /**
-     * Get current consent status
-     */
-    getConsent() {
-      return {
-        given: this.consentGiven,
-        choice: this.consentState,
-      };
-    }
-
-    /**
-     * Check if tracking is allowed
-     */
-    isTrackingAllowed() {
-      return this.consentGiven;
-    }
-  }
-
-  // Initialize on DOM ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-      window.cookieConsent = new CookieConsentManager();
-    });
-  } else {
-    window.cookieConsent = new CookieConsentManager();
-  }
-
-  // Expose API for footer "Cookie Settings" link
-  window.showCookieSettings = function() {
-    if (window.cookieConsent) {
-      window.cookieConsent.showSettings();
-    }
-  };
-
-  window.getCookieConsent = function() {
-    if (window.cookieConsent) {
-      return window.cookieConsent.getConsent();
-    }
-    return null;
-  };
-
-  window.isTrackingAllowed = function() {
-    if (window.cookieConsent) {
-      return window.cookieConsent.isTrackingAllowed();
-    }
-    return false;
-  };
-})();
+      `,e}showBanner(){if(document.getElementById("cookie-consent-banner"))return;const e=this.createBanner();document.body.appendChild(e),document.getElementById("cookie-consent-accept").addEventListener("click",()=>{this.handleAccept()}),document.getElementById("cookie-consent-decline").addEventListener("click",()=>{this.handleDecline()}),document.addEventListener("keydown",t=>{t.key==="Escape"&&this.removeBanner()})}handleAccept(){this.saveConsentState("accept"),this.loadTracking(),this.removeBanner(),this.dispatchEvent("cookieConsent:accept")}handleDecline(){this.saveConsentState("decline"),this.blockTracking(),this.removeBanner(),this.dispatchEvent("cookieConsent:decline")}removeBanner(){const e=document.getElementById("cookie-consent-banner");e&&(e.style.animation="slideUp 0.3s ease-out reverse",setTimeout(()=>{e.parentNode&&e.parentNode.removeChild(e)},300))}dispatchEvent(e){if(window.CustomEvent){const t=new CustomEvent(e,{detail:{choice:this.consentState}});window.dispatchEvent(t)}}showSettings(){this.showBanner()}getConsent(){return{given:this.consentGiven,choice:this.consentState}}isTrackingAllowed(){return this.consentGiven}}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",()=>{window.cookieConsent=new i}):window.cookieConsent=new i,window.showCookieSettings=function(){window.cookieConsent&&window.cookieConsent.showSettings()},window.getCookieConsent=function(){return window.cookieConsent?window.cookieConsent.getConsent():null},window.isTrackingAllowed=function(){return window.cookieConsent?window.cookieConsent.isTrackingAllowed():!1}})();
