@@ -22,7 +22,7 @@ window.addEventListener('load', function() {
 
 // Multi-step form navigation
 let currentStep = 1;
-const totalSteps = 3;
+const totalSteps = 2;
 
 function validateStep(step) {
     const stepEl = document.getElementById(`step-${step}`);
@@ -144,58 +144,6 @@ function scrollToListings() {
             block: 'start'
         });
     }
-}
-
-// ==========================================
-// PAIN DISCOVERY & QUALIFICATION HANDLERS
-// ==========================================
-
-/**
- * Handle pain point selection change
- * Provides visual feedback when user selects a pain point
- */
-function onPainPointChange() {
-    const painPointInputs = document.querySelectorAll('input[name="pain_point"]');
-    const selectedPain = Array.from(painPointInputs).find(input => input.checked);
-
-    if (selectedPain) {
-        // Remove error state if it exists
-        painPointInputs.forEach(input => {
-            const label = input.closest('.radio-label');
-            if (label) {
-                label.classList.remove('error');
-            }
-        });
-
-        // Log for debugging
-        console.log('Pain point selected:', selectedPain.value);
-    }
-}
-
-/**
- * Handle qualification-related field changes
- * Updates when timeline, ghosting status, or budget changes
- * This is called from move_timeline select and been_ghosted radio buttons
- */
-function onQualificationChange() {
-    const moveTimeline = document.getElementById('move_timeline');
-    const beenGhostedInputs = document.querySelectorAll('input[name="been_ghosted"]');
-
-    const timeline = moveTimeline?.value || null;
-    const ghosted = Array.from(beenGhostedInputs).find(input => input.checked)?.value || null;
-
-    // Remove error states
-    if (moveTimeline) {
-        moveTimeline.classList.remove('error');
-    }
-    beenGhostedInputs.forEach(input => {
-        const label = input.closest('.radio-label');
-        if (label) {
-            label.classList.remove('error');
-        }
-    });
-
-    console.log('Qualification changed - Timeline:', timeline, 'Ghosted:', ghosted);
 }
 
 // ==========================================

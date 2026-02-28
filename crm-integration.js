@@ -167,7 +167,7 @@
             }
         }
 
-        // Map form fields to Trusenda CRM format
+        // Map form fields to Trusenda CRM format (1:1 with ingest-lead API)
         const leadData = {
             tenant_id: tenantId,
             name: formDataObj.get('name'),
@@ -181,23 +181,10 @@
             moveTiming: formDataObj.get('move_date') || null,
             industry: formDataObj.get('industry') || null,
             leaseTerm: formDataObj.get('lease_term') || null,
-            preferredArea: formDataObj.get('preferred_location_value') || formDataObj.get('preferred_location') || formDataObj.get('preferred_area') || 'Palm Beach County, FL',
-            searchRadius: parseInt(formDataObj.get('search_radius'), 10) || 25,
-            notes: buildNotesField(formDataObj),
-            source: 'palmbeachwarehouses.com',
-            // Pain Discovery fields (Phase 2)
-            painPoint: formDataObj.get('pain_point') || null,
-            moveTimeline: formDataObj.get('move_timeline') || null,
-            beenGhosted: formDataObj.get('been_ghosted') === 'yes'
+            preferredArea: formDataObj.get('preferred_location_value') || formDataObj.get('preferred_location') || 'Palm Beach County, FL',
+            searchRadiusMiles: parseInt(formDataObj.get('search_radius'), 10) || 25,
+            notes: buildNotesField(formDataObj)
         };
-
-        // Calculate qualification score
-        if (typeof QUALIFICATION !== 'undefined') {
-            const qualification = QUALIFICATION.scoreQualification(leadData);
-            leadData.qualificationScore = qualification.score;
-            leadData.qualificationTier = qualification.tier;
-            console.log(`📊 Lead qualified as: ${qualification.tier} (${qualification.score} points)`);
-        }
 
         return leadData;
     }
@@ -207,19 +194,40 @@
      */
     function buildNotesField(formData) {
         const notes = [];
-        
-        const preferredLocation = formData.get('preferred_location_value') || formData.get('preferred_location') || formData.get('preferred_area') || 'Palm Beach County, FL';
-        const searchRadius = formData.get('search_radius') || '25';
+
         notes.push('Source: palmbeachwarehouses.com');
-        notes.push('Preferred Location: ' + preferredLocation + ' (within ' + searchRadius + ' miles)');
-        notes.push('');
-        
+
+        // Advanced building specs
+        const specs = [];
+        const docks = formData.get('req_docks');
+        const clearHeight = formData.get('req_clearheight');
+        const power = formData.get('req_power');
+        const climate = formData.get('req_climate');
+        const office = formData.get('req_office');
+
+        if (docks) specs.push(docks);
+        if (clearHeight) specs.push(clearHeight);
+        if (power) specs.push(power);
+        if (climate) specs.push(climate);
+        if (office) specs.push(office);
+
+        // Checkbox features
+        const checkboxFields = ['req_grade', 'req_semi', 'req_yard', 'req_trailer', 'req_247', 'req_fenced'];
+        checkboxFields.forEach(field => {
+            const val = formData.get(field);
+            if (val) specs.push(val);
+        });
+
+        if (specs.length > 0) {
+            notes.push('Requirements: ' + specs.join(', '));
+        }
+
+        // User-entered notes
         const customNotes = formData.get('notes');
         if (customNotes && customNotes.trim()) {
-            notes.push('Special Requirements:');
-            notes.push(customNotes.trim());
+            notes.push('Notes: ' + customNotes.trim());
         }
-        
+
         return notes.join('\n');
     }
 
@@ -230,36 +238,11 @@
         const form = document.getElementById('lead-form');
         const successScreen = document.getElementById('success-message');
 
-        // Get the form data for qualification scoring
-        const formDataObj = new FormData(form);
-        const leadData = {
-            budget: formDataObj.get('budget'),
-            property_use: formDataObj.get('property_use'),
-            move_timeline: formDataObj.get('move_timeline'),
-            pain_point: formDataObj.get('pain_point'),
-            been_ghosted: formDataObj.get('been_ghosted'),
-            industry: formDataObj.get('industry'),
-            space_size: formDataObj.get('space_size')
-        };
-
-        // Calculate qualification
-        let qualification = null;
-        if (typeof QUALIFICATION !== 'undefined') {
-            qualification = QUALIFICATION.scoreQualification(leadData);
-            console.log(`📊 Success screen: ${qualification.tier} lead (${qualification.score} pts)`);
-        }
-
-        // Update success screen content
-        if (qualification) {
-            displayQualificationBadge(qualification);
-        }
-
         form.classList.add('hidden');
         successScreen.classList.remove('hidden');
 
         // Track Google Ads Conversion
         if (typeof gtag !== 'undefined') {
-            // Fire Google Ads conversion event for Contact conversion
             gtag('event', 'conversion', {
                 'send_to': 'AW-17147516072/f_LJCMeD4tMaEKipyfA_',
                 'value': 1.0,
@@ -275,53 +258,6 @@
                 content_category: 'Industrial Real Estate'
             });
             console.log('✅ Facebook Lead conversion fired');
-        }
-    }
-
-    /**
-     * Display qualification badge and next steps on success screen
-     */
-    function displayQualificationBadge(qualification) {
-        const badge = document.getElementById('qualification-badge');
-        const tierBadge = document.getElementById('qualification-tier');
-        const tierLabel = document.getElementById('qualification-label');
-        const headline = document.getElementById('success-headline');
-        const subtitle = document.getElementById('success-subtitle');
-        const nextStepsDiv = document.getElementById('success-next-steps');
-        const stepsContainer = document.getElementById('steps-container');
-        const calloutDiv = document.getElementById('success-callout');
-
-        const customMsg = QUALIFICATION.getCustomMessage(qualification);
-
-        // Show badge
-        if (badge) {
-            tierBadge.textContent = qualification.tier;
-            tierBadge.style.backgroundColor = customMsg.tierColor;
-            tierLabel.textContent = customMsg.tierLabel;
-            badge.style.display = 'flex';
-        }
-
-        // Update headline and subtitle
-        if (headline) headline.textContent = customMsg.headline;
-        if (subtitle) subtitle.textContent = customMsg.subtitle;
-
-        // Show next steps
-        if (nextStepsDiv && stepsContainer && customMsg.nextSteps) {
-            stepsContainer.innerHTML = '';
-            customMsg.nextSteps.forEach(step => {
-                const stepEl = document.createElement('div');
-                stepEl.className = 'step-item';
-                stepEl.innerHTML = `<span class="step-icon">${step.icon}</span><span class="step-text">${step.text}</span>`;
-                stepsContainer.appendChild(stepEl);
-            });
-            nextStepsDiv.style.display = 'block';
-        }
-
-        // Show callout
-        if (calloutDiv && customMsg.calloutText) {
-            calloutDiv.textContent = customMsg.calloutText;
-            calloutDiv.className = `success-callout ${qualification.tier.toLowerCase()}`;
-            calloutDiv.style.display = 'block';
         }
     }
 

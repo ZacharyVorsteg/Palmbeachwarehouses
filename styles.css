@@ -646,6 +646,64 @@ main {
     50% { transform: translateY(-10px); }
 }
 
+/* Trust Bar — between hero and listings */
+.trust-bar {
+    background: rgba(26, 115, 232, 0.06);
+    border-top: 1px solid rgba(26, 115, 232, 0.15);
+    border-bottom: 1px solid rgba(26, 115, 232, 0.15);
+    padding: 0.75rem 2rem;
+}
+
+.trust-bar-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.trust-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--text-gray);
+    font-size: 0.8rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.trust-icon {
+    color: var(--action-blue);
+    font-size: 0.9rem;
+}
+
+.trust-divider {
+    width: 1px;
+    height: 16px;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+@media (max-width: 600px) {
+    .trust-bar {
+        padding: 0.6rem 1rem;
+    }
+
+    .trust-bar-inner {
+        gap: 0.5rem 1rem;
+        justify-content: center;
+    }
+
+    .trust-divider {
+        display: none;
+    }
+
+    .trust-item {
+        font-size: 0.72rem;
+    }
+}
+
 /* Footer - Minimal & Clean */
 footer.footer {
     background: var(--darker-bg) !important;
@@ -1605,6 +1663,34 @@ footer.footer .footer-content p {
 .credential-item span:last-child {
     color: var(--text-light);
     font-size: 0.9rem;
+}
+
+/* Broker / Investor Card */
+.broker-card {
+    margin-top: 1.25rem;
+    background: rgba(5, 150, 105, 0.08);
+    border-color: rgba(5, 150, 105, 0.2);
+}
+
+.broker-text {
+    color: var(--text-gray);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0.75rem 0 1rem;
+}
+
+.broker-cta {
+    display: inline-block;
+    color: #10b981;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(16, 185, 129, 0.3);
+    transition: border-color 0.2s;
+}
+
+.broker-cta:hover {
+    border-color: #10b981;
 }
 
 @media (max-width: 768px) {
