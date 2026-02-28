@@ -53,7 +53,7 @@
     <link rel="preconnect" href="https://connect.facebook.net">
     <link rel="dns-prefetch" href="https://trusenda.com">
 
-    <link rel="stylesheet" href="styles.css?v=82">
+    <link rel="stylesheet" href="styles.css?v=83">
 
     <!-- Meta Pixel Code -->
     <script>
@@ -141,29 +141,29 @@
             <div class="hero-content">
                 <div class="hero-left">
                     <h1 class="hero-title">
-                        Find The Perfect <span class="highlight">Warehouse or Flex Space</span>
+                        Stop Wasting Time on <span class="highlight">Wrong Warehouse Spaces</span>
                     </h1>
                     <p class="hero-subtitle">
-                        Specializing in warehouse lease and industrial space for rent in Palm Beach County.
-                        <strong class="hero-emphasis">Expert warehouse leasing guidance and quick matches tailored to your commercial real estate needs.</strong>
+                        Tired of ghosting landlords, inflated quotes, and spaces that don't fit?
+                        <strong class="hero-emphasis">Get matched with the right industrial space in Palm Beach County — no BS, no time wasted.</strong>
                     </p>
-                    
+
                     <div class="features-compact">
                         <div class="feature-compact">
                             <span class="feature-icon-small">✓</span>
-                            <span>1,000-50,000+ sq ft</span>
+                            <span>Know landlords personally — no ghosting</span>
                         </div>
                         <div class="feature-compact">
                             <span class="feature-icon-small">✓</span>
-                            <span>Local Palm Beach Experts</span>
+                            <span>Right price, right space — 5+ years PBC data</span>
                         </div>
                         <div class="feature-compact">
                             <span class="feature-icon-small">✓</span>
-                            <span>Lease or Purchase Options</span>
+                            <span>Matched in 2 weeks, not 3 months</span>
                         </div>
                         <div class="feature-compact">
                             <span class="feature-icon-small">✓</span>
-                            <span>24-Hour Response</span>
+                            <span>24-hour response guarantee</span>
                         </div>
                     </div>
 
@@ -175,18 +175,85 @@
                         <div class="form-progress">
                             <div class="progress-step active" data-step="1">
                                 <span class="step-number">1</span>
-                                <span class="step-label">Space Needs</span>
+                                <span class="step-label">Pain Point</span>
                             </div>
                             <div class="progress-line"><div class="progress-fill"></div></div>
                             <div class="progress-step" data-step="2">
                                 <span class="step-number">2</span>
+                                <span class="step-label">Space Needs</span>
+                            </div>
+                            <div class="progress-line"><div class="progress-fill"></div></div>
+                            <div class="progress-step" data-step="3">
+                                <span class="step-number">3</span>
                                 <span class="step-label">Contact</span>
                             </div>
                         </div>
 
                         <form id="lead-form" class="lead-form multi-step-form">
-                            <!-- STEP 1: Property Requirements -->
+                            <!-- STEP 1: Pain Discovery (Sandler Method) -->
                             <div class="form-step active" id="step-1">
+                                <h2 class="form-title">What's Your Main Challenge?</h2>
+                                <p class="form-subtitle">Understanding your situation helps us find the right fit</p>
+
+                                <div class="form-group">
+                                    <label>What's your biggest pain point right now? *</label>
+                                    <div class="radio-group">
+                                        <label class="radio-label">
+                                            <input type="radio" name="pain_point" value="timeline_pressure" required onchange="onPainPointChange()">
+                                            <span class="radio-text">Timeline pressure — I need to move ASAP</span>
+                                        </label>
+                                        <label class="radio-label">
+                                            <input type="radio" name="pain_point" value="budget_uncertainty" required onchange="onPainPointChange()">
+                                            <span class="radio-text">Budget uncertainty — Not sure if quotes are fair</span>
+                                        </label>
+                                        <label class="radio-label">
+                                            <input type="radio" name="pain_point" value="wrong_space_before" required onchange="onPainPointChange()">
+                                            <span class="radio-text">Been burned — Rented wrong space before, need expert</span>
+                                        </label>
+                                        <label class="radio-label">
+                                            <input type="radio" name="pain_point" value="landlord_ghosting" required onchange="onPainPointChange()">
+                                            <span class="radio-text">Landlord ghosting — Can't get responses to inquiries</span>
+                                        </label>
+                                        <label class="radio-label">
+                                            <input type="radio" name="pain_point" value="other_pain" required onchange="onPainPointChange()">
+                                            <span class="radio-text">Something else</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="move_timeline">When do you need to move? *</label>
+                                    <select id="move_timeline" name="move_timeline" required onchange="onQualificationChange()">
+                                        <option value="">Select timeline...</option>
+                                        <option value="Immediate (0-30 days)">Immediate (0-30 days)</option>
+                                        <option value="1-3 months">1-3 months</option>
+                                        <option value="3-6 months">3-6 months</option>
+                                        <option value="6+ months">6+ months</option>
+                                        <option value="Just exploring">Just exploring / No timeline</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Have landlords ghosted you? *</label>
+                                    <div class="radio-group two-col">
+                                        <label class="radio-label">
+                                            <input type="radio" name="been_ghosted" value="yes" required onchange="onQualificationChange()">
+                                            <span class="radio-text">Yes, it's frustrating</span>
+                                        </label>
+                                        <label class="radio-label">
+                                            <input type="radio" name="been_ghosted" value="no" required onchange="onQualificationChange()">
+                                            <span class="radio-text">No, not yet</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <button type="button" class="submit-button next-step-btn" onclick="nextStep()">
+                                    Continue →
+                                </button>
+                            </div>
+
+                            <!-- STEP 2: Property Requirements -->
+                            <div class="form-step" id="step-2">
                                 <h2 class="form-title">What are you looking for?</h2>
                                 <p class="form-subtitle">Help us match you with the right space</p>
 
@@ -402,8 +469,8 @@
                                 </button>
                             </div>
 
-                            <!-- STEP 2: Contact Information -->
-                            <div class="form-step" id="step-2">
+                            <!-- STEP 3: Contact Information -->
+                            <div class="form-step" id="step-3">
                                 <h2 class="form-title">Almost done!</h2>
                                 <p class="form-subtitle">How should I reach you?</p>
 
@@ -449,22 +516,39 @@
                         </form>
 
                         <div id="success-message" class="success-screen hidden">
-                            <!-- Progress indicator - both steps complete -->
+                            <!-- Progress indicator - all three steps complete -->
                             <div class="form-progress success-progress">
                                 <div class="progress-step completed" data-step="1">
+                                    <span class="step-number">✓</span>
+                                    <span class="step-label">Pain Point</span>
+                                </div>
+                                <div class="progress-line complete"><div class="progress-fill" style="width: 100%"></div></div>
+                                <div class="progress-step completed" data-step="2">
                                     <span class="step-number">✓</span>
                                     <span class="step-label">Space Needs</span>
                                 </div>
                                 <div class="progress-line complete"><div class="progress-fill" style="width: 100%"></div></div>
-                                <div class="progress-step completed" data-step="2">
+                                <div class="progress-step completed" data-step="3">
                                     <span class="step-number">✓</span>
                                     <span class="step-label">Contact</span>
                                 </div>
                             </div>
 
+                            <!-- Qualification Badge (Dynamic) -->
+                            <div class="qualification-badge" id="qualification-badge" style="display:none;">
+                                <span id="qualification-tier" class="tier-badge"></span>
+                                <span id="qualification-label" class="tier-label"></span>
+                            </div>
+
                             <div class="success-icon">✓</div>
-                            <h3>Request Received!</h3>
-                            <p>I'll review your requirements and call you within 24 hours.</p>
+                            <h3 id="success-headline">Request Received!</h3>
+                            <p id="success-subtitle">I'll review your requirements and call you within 24 hours.</p>
+
+                            <!-- Next Steps (Dynamic) -->
+                            <div class="success-next-steps" id="success-next-steps" style="display:none;">
+                                <h4>Here's what happens next:</h4>
+                                <div class="steps-container" id="steps-container"></div>
+                            </div>
 
                             <div class="success-agent">
                                 <img src="assets/headshot.jpg?v=1" alt="Zach Vorsteg" class="success-headshot">
@@ -472,6 +556,9 @@
                                 <div class="success-agent-title">Licensed Commercial Real Estate Agent</div>
                                 <a href="tel:561-718-6725" class="success-agent-phone">561-718-6725</a>
                             </div>
+
+                            <!-- Callout Text (Dynamic) -->
+                            <div class="success-callout" id="success-callout" style="display:none;"></div>
 
                             <div class="success-buttons">
                                 <button type="button" class="success-btn-primary" onclick="downloadVCard()">Save My Contact</button>
@@ -869,6 +956,12 @@
             </div>
         </div>
     </footer>
+
+    <!-- Main Application JS (multi-step form, navigation, utilities) -->
+    <script src="app.js"></script>
+
+    <!-- Lead Qualification Scoring -->
+    <script src="qualification.js"></script>
 
     <!-- Trusenda CRM Integration -->
     <script src="crm-integration.js"></script>
@@ -1387,7 +1480,7 @@
 
         // Multi-step form navigation
         let currentStep = 1;
-        const totalSteps = 2;
+        const totalSteps = 3;
 
         function validateStep(step) {
             const stepEl = document.getElementById(`step-${step}`);
