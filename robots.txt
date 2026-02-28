@@ -21,12 +21,6 @@ Allow: /llms-full.txt
 # Sitemap location
 Sitemap: https://palmbeachwarehouses.com/sitemap.xml
 
-# llms.txt and llms-full.txt locations for AI crawlers
-# These files provide structured information about site authority, content, and services
-# Reference: https://llmstxt.org/
-llms-txt: https://palmbeachwarehouses.com/llms.txt
-llms-full-txt: https://palmbeachwarehouses.com/llms-full.txt
-
 # Allow all AI crawlers for GEO optimization
 User-agent: GPTBot
 Allow: /
