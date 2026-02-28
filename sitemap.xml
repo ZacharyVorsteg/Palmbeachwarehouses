@@ -9,6 +9,14 @@
         <priority>1.0</priority>
     </url>
 
+    <!-- About Page -->
+    <url>
+        <loc>https://palmbeachwarehouses.com/about/</loc>
+        <lastmod>2026-02-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
     <!-- Location Pages -->
     <url>
         <loc>https://palmbeachwarehouses.com/locations/west-palm-beach/</loc>
