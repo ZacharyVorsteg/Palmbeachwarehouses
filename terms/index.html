@@ -132,8 +132,8 @@
                 <div class="nav-dropdown">
                     <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">Locations <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg></button>
                     <div class="nav-dropdown-menu" role="menu">
-                        <a href="/locations/west-palm-beach/" role="menuitem">West Palm Beach</a>
                         <a href="/locations/boca-raton/" role="menuitem">Boca Raton</a>
+                        <a href="/locations/west-palm-beach/" role="menuitem">West Palm Beach</a>
                         <a href="/locations/delray-beach/" role="menuitem">Delray Beach</a>
                         <a href="/locations/lake-worth/" role="menuitem">Lake Worth</a>
                         <a href="/locations/boynton-beach/" role="menuitem">Boynton Beach</a>
@@ -389,9 +389,9 @@
                 <p><a href="/privacy/">Privacy Policy</a> | <a href="/terms/">Terms of Service</a> | <button type="button" onclick="window.showCookieSettings && window.showCookieSettings()" style="background:none;border:none;color:inherit;font:inherit;cursor:pointer;padding:0;text-decoration:underline;">Cookie Settings</button> | <a href="/privacy/#do-not-sell">Do Not Sell My Personal Information</a></p>
             </div>
             <div class="footer-bottom">
-                <p><strong>Zachary Vorsteg</strong> | Licensed Sales Associate #SL3603483 | Cornerstone Realty | Palm Beach County, FL</p>
+                <p>Zachary Vorsteg | Licensed Sales Associate #SL3603483 | Cornerstone Realty | Palm Beach County, FL</p>
                 <p class="footer-eho">Equal Housing Opportunity</p>
-                <p class="footer-copyright">© 2025-2026 Palm Beach Warehouses. All rights reserved.</p>
+                <p class="footer-copyright">&copy; 2025-2026 Palm Beach Warehouses. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -402,8 +402,8 @@
         <a href="/about/">About</a>
         <div class="mobile-nav-section">
             <h4>Locations</h4>
-            <a href="/locations/west-palm-beach/">West Palm Beach</a>
             <a href="/locations/boca-raton/">Boca Raton</a>
+            <a href="/locations/west-palm-beach/">West Palm Beach</a>
             <a href="/locations/delray-beach/">Delray Beach</a>
             <a href="/locations/lake-worth/">Lake Worth</a>
             <a href="/locations/boynton-beach/">Boynton Beach</a>
@@ -449,6 +449,32 @@
         btn.classList.toggle('open');
         nav.classList.toggle('open');
         document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+    }
+    </script>
+
+    <!-- JSON-LD: WebPage + BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Terms of Service",
+        "description": "Terms of Service for Palm Beach Warehouses. Legal terms, conditions, and disclaimers for commercial real estate brokerage services.",
+        "url": "https://palmbeachwarehouses.com/terms/",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Palm Beach Warehouses",
+            "url": "https://palmbeachwarehouses.com"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://palmbeachwarehouses.com/"},
+            {"@type": "ListItem", "position": 2, "name": "Terms of Service", "item": "https://palmbeachwarehouses.com/terms/"}
+        ]
     }
     </script>
 
