@@ -1,4 +1,4 @@
-(function(){"use strict";const o="cookieConsent",c="1245057844149331",s="AW-17147516072",n={darkBg:"#141824",darkBgLight:"#1a1f33",accentBlue:"#007AFF",textLight:"#e8eaed",textGray:"#b0b6bc"};class i{constructor(){this.consentState=this.getConsentState(),this.hasConsented=this.consentState!==null,this.consentGiven=this.consentState==="accept",this.init()}getConsentState(){try{const e=localStorage.getItem(o);return e?JSON.parse(e).choice:null}catch(e){return console.warn("Error reading consent from localStorage:",e),null}}saveConsentState(e){try{const t={choice:e,version:"1.0",timestamp:new Date().toISOString()};localStorage.setItem(o,JSON.stringify(t)),this.consentState=e,this.consentGiven=e==="accept"}catch(t){console.warn("Error saving consent to localStorage:",t)}}init(){this.blockTracking(),this.hasConsented?this.consentGiven&&this.loadTracking():this.showBanner()}blockTracking(){window.fbq=window.fbq||function(){},window.gtag=window.gtag||function(){},window.trackingBlocked=!0,document.currentScript&&document.querySelectorAll("noscript").forEach(t=>{t.textContent.includes("facebook.com/tr")&&(t.style.display="none")})}loadTracking(){window.__loadTracking&&window.__loadTracking()}createBanner(){const e=document.createElement("div");return e.id="cookie-consent-banner",e.setAttribute("role","dialog"),e.setAttribute("aria-labelledby","cookie-consent-title"),e.setAttribute("aria-describedby","cookie-consent-text"),e.innerHTML=`
+(function(){"use strict";const o="cookieConsent",c="1245057844149331",s="AW-17147516072",n={darkBg:"#141824",darkBgLight:"#1a1f33",accentBlue:"#0057E0",textLight:"#e8eaed",textGray:"#b0b6bc"};class i{constructor(){this.consentState=this.getConsentState(),this.hasConsented=this.consentState!==null,this.consentGiven=this.consentState==="accept",this.init()}getConsentState(){try{const e=localStorage.getItem(o);return e?JSON.parse(e).choice:null}catch(e){return console.warn("Error reading consent from localStorage:",e),null}}saveConsentState(e){try{const t={choice:e,version:"1.0",timestamp:new Date().toISOString()};localStorage.setItem(o,JSON.stringify(t)),this.consentState=e,this.consentGiven=e==="accept"}catch(t){console.warn("Error saving consent to localStorage:",t)}}init(){this.blockTracking(),this.hasConsented?this.consentGiven&&this.loadTracking():this.showBanner()}blockTracking(){window.fbq=window.fbq||function(){},window.gtag=window.gtag||function(){},window.trackingBlocked=!0,document.currentScript&&document.querySelectorAll("noscript").forEach(t=>{t.textContent.includes("facebook.com/tr")&&(t.style.display="none")})}loadTracking(){window.__loadTracking&&window.__loadTracking()}createBanner(){const e=document.createElement("div");return e.id="cookie-consent-banner",e.setAttribute("role","dialog"),e.setAttribute("aria-labelledby","cookie-consent-title"),e.setAttribute("aria-describedby","cookie-consent-text"),e.innerHTML=`
         <div style="
           position: fixed;
           bottom: 0;
@@ -91,9 +91,9 @@
             }
 
             #cookie-consent-accept:hover {
-              background-color: #4EA8FF;
+              background-color: #1967F4;
               transform: translateY(-1px);
-              box-shadow: 0 4px 12px rgba(0, 122, 255, 0.3);
+              box-shadow: 0 4px 12px rgba(0, 87, 224, 0.3);
             }
 
             #cookie-consent-accept:active {
