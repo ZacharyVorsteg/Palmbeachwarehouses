@@ -54,7 +54,7 @@
 
             #cookie-consent-text a {
               color: ${n.accentBlue};
-              text-decoration: none;
+              text-decoration: underline;
               transition: color 0.2s ease;
             }
 
@@ -147,7 +147,7 @@
           <div id="cookie-consent-content">
             <h2 id="cookie-consent-title">Cookie & Tracking Consent</h2>
             <p id="cookie-consent-text">
-              This website uses cookies and tracking technologies (Facebook Pixel, Google Ads) to improve your experience and measure advertising effectiveness. See our <a href="/privacy/" target="_blank" style="color: var(--primary-blue-light);">Privacy Policy</a> for details.
+              This website uses cookies and tracking technologies (Facebook Pixel, Google Ads) to improve your experience and measure advertising effectiveness. See our <a href="/privacy/" target="_blank">Privacy Policy</a> for details.
             </p>
           </div>
 
