@@ -724,6 +724,9 @@
     <!-- Trusenda CRM Integration -->
     <script defer src="/crm-integration.js"></script>
 
+    <!-- Navigation JS -->
+    <script defer src="/nav-script.js"></script>
+
     <!-- Structured Data / Schema Markup -->
     <script type="application/ld+json">
     {
@@ -1114,108 +1117,6 @@
         ]
     }
     </script>
-
-    
-    <script>
-        // Ensure page loads at top
-        window.addEventListener('beforeunload', function() {
-            window.scrollTo(0, 0);
-        });
-
-        if (history.scrollRestoration) {
-            history.scrollRestoration = 'manual';
-        }
-
-        window.addEventListener('load', function() {
-            setTimeout(() => {
-                window.scrollTo(0, 0);
-            }, 0);
-        });
-
-        // Direct scroll to form - no modal friction
-        function scrollToForm() {
-            const formCard = document.querySelector('.form-card');
-            const firstInput = document.getElementById('name');
-
-            if (formCard) {
-                formCard.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'center'
-                });
-
-                // Highlight and focus
-                setTimeout(() => {
-                    if (formCard) {
-                        formCard.style.boxShadow = '0 0 0 4px rgba(26, 115, 232, 0.5), 0 20px 60px rgba(0, 0, 0, 0.3)';
-                        formCard.style.transition = 'box-shadow 0.4s ease';
-                    }
-
-                    if (firstInput) {
-                        firstInput.focus();
-                    }
-
-                    // Remove highlight
-                    setTimeout(() => {
-                        if (formCard) {
-                            formCard.style.boxShadow = '0 20px 60px rgba(0, 0, 0, 0.3)';
-                        }
-                    }, 2000);
-                }, 400);
-            }
-        }
-
-        function resetForm() {
-            const leadForm = document.getElementById('lead-form');
-            const successMessage = document.getElementById('success-message');
-
-            if (leadForm) leadForm.reset();
-            if (successMessage) successMessage.classList.add('hidden');
-
-            // Reset to step 1
-            goToStep(1);
-        }
-
-        // Multi-step form navigation
-        let currentStep = 1;
-        const totalSteps = 3;
-
-        function validateStep(step) {
-            const stepEl = document.getElementById(`step-${step}`);
-            if (!stepEl) return true;
-
-            const requiredFields = stepEl.querySelectorAll('[required]');
-            let isValid = true;
-
-            requiredFields.forEach(field => {
-                if (!field.value) {
-                    isValid = false;
-                    field.classList.add('error');
-                    // Remove error class after user starts typing
-                    field.addEventListener('change', () => {
-                        field.classList.remove('error');
-                    }, { once: true });
-                } else {
-                    field.classList.remove('error');
-                }
-            });
-
-            return isValid;
-        }
-
-        function goToStep(step) {
-            // Update form steps visibility
-            document.querySelectorAll('.form-step').forEach(el => {
-                el.classList.remove('active');
-            });
-            const targetStep = document.getElementById(`step-${step}`);
-            if (targetStep) {
-                targetStep.classList.add('active');
-            }
-
-            // Update progress indicator
-            document.querySelectorAll('.progress-step').forEach((el, idx) => {
-                const stepNum = idx + 1;
-                el.classList.remove('active', 'completed');
                 if (stepNum < step) {
                     el.classList.add('completed');
                 } else if (stepNum === step) {
@@ -1299,155 +1200,6 @@ END:VCARD`;
     </script>
 
     <!-- Location Autocomplete Script -->
-    <script>
-    (function() {
-        // Florida cities for Palm Beach County and surrounding areas
-        const floridaCities = [
-            { name: 'West Palm Beach', state: 'FL', display: 'West Palm Beach, FL' },
-            { name: 'Palm Beach Gardens', state: 'FL', display: 'Palm Beach Gardens, FL' },
-            { name: 'Royal Palm Beach', state: 'FL', display: 'Royal Palm Beach, FL' },
-            { name: 'Wellington', state: 'FL', display: 'Wellington, FL' },
-            { name: 'Boca Raton', state: 'FL', display: 'Boca Raton, FL' },
-            { name: 'Delray Beach', state: 'FL', display: 'Delray Beach, FL' },
-            { name: 'Boynton Beach', state: 'FL', display: 'Boynton Beach, FL' },
-            { name: 'Lake Worth', state: 'FL', display: 'Lake Worth, FL' },
-            { name: 'Jupiter', state: 'FL', display: 'Jupiter, FL' },
-            { name: 'Riviera Beach', state: 'FL', display: 'Riviera Beach, FL' },
-            { name: 'Greenacres', state: 'FL', display: 'Greenacres, FL' },
-            { name: 'Palm Springs', state: 'FL', display: 'Palm Springs, FL' },
-            { name: 'Lantana', state: 'FL', display: 'Lantana, FL' },
-            { name: 'Lake Park', state: 'FL', display: 'Lake Park, FL' },
-            { name: 'Loxahatchee', state: 'FL', display: 'Loxahatchee, FL' },
-            { name: 'Belle Glade', state: 'FL', display: 'Belle Glade, FL' },
-            { name: 'Pahokee', state: 'FL', display: 'Pahokee, FL' },
-            { name: 'Tequesta', state: 'FL', display: 'Tequesta, FL' },
-            { name: 'North Palm Beach', state: 'FL', display: 'North Palm Beach, FL' },
-            { name: 'Juno Beach', state: 'FL', display: 'Juno Beach, FL' },
-            { name: 'Palm Beach', state: 'FL', display: 'Palm Beach, FL' },
-            { name: 'Atlantis', state: 'FL', display: 'Atlantis, FL' },
-            { name: 'Hypoluxo', state: 'FL', display: 'Hypoluxo, FL' },
-            { name: 'Manalapan', state: 'FL', display: 'Manalapan, FL' },
-            { name: 'Ocean Ridge', state: 'FL', display: 'Ocean Ridge, FL' },
-            { name: 'Gulf Stream', state: 'FL', display: 'Gulf Stream, FL' },
-            { name: 'Highland Beach', state: 'FL', display: 'Highland Beach, FL' },
-            { name: 'South Palm Beach', state: 'FL', display: 'South Palm Beach, FL' },
-            { name: 'Cloud Lake', state: 'FL', display: 'Cloud Lake, FL' },
-            { name: 'Glen Ridge', state: 'FL', display: 'Glen Ridge, FL' },
-            { name: 'Haverhill', state: 'FL', display: 'Haverhill, FL' },
-            { name: 'Fort Lauderdale', state: 'FL', display: 'Fort Lauderdale, FL' },
-            { name: 'Miami', state: 'FL', display: 'Miami, FL' },
-            { name: 'Pompano Beach', state: 'FL', display: 'Pompano Beach, FL' },
-            { name: 'Deerfield Beach', state: 'FL', display: 'Deerfield Beach, FL' },
-            { name: 'Coral Springs', state: 'FL', display: 'Coral Springs, FL' },
-            { name: 'Parkland', state: 'FL', display: 'Parkland, FL' },
-            { name: 'Stuart', state: 'FL', display: 'Stuart, FL' },
-            { name: 'Port St. Lucie', state: 'FL', display: 'Port St. Lucie, FL' }
-        ];
-
-        const input = document.getElementById('preferred_location_input');
-        const hiddenInput = document.getElementById('preferred_location');
-        const suggestionsDiv = document.getElementById('location-suggestions');
-        const radiusSlider = document.getElementById('search_radius');
-        const radiusDisplay = document.getElementById('radius-display');
-
-        if (!input || !suggestionsDiv) return;
-
-        let highlightedIndex = -1;
-
-        // Filter cities based on input
-        function filterCities(query) {
-            if (!query || query.length < 2) return [];
-            const lowerQuery = query.toLowerCase();
-            return floridaCities.filter(city =>
-                city.name.toLowerCase().includes(lowerQuery) ||
-                city.display.toLowerCase().includes(lowerQuery)
-            ).slice(0, 8);
-        }
-
-        // Render suggestions
-        function renderSuggestions(cities) {
-            if (cities.length === 0) {
-                suggestionsDiv.classList.add('hidden');
-                return;
-            }
-
-            suggestionsDiv.innerHTML = cities.map((city, index) => `
-                <div class="location-suggestion-item${index === highlightedIndex ? ' highlighted' : ''}"
-                     data-value="${city.display}" data-index="${index}">
-                    <span class="location-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></span>
-                    <span>${city.display}</span>
-                </div>
-            `).join('');
-
-            suggestionsDiv.classList.remove('hidden');
-
-            // Add click handlers
-            suggestionsDiv.querySelectorAll('.location-suggestion-item').forEach(item => {
-                item.addEventListener('click', () => selectCity(item.dataset.value));
-            });
-        }
-
-        // Select a city
-        function selectCity(value) {
-            input.value = value;
-            if (hiddenInput) hiddenInput.value = value;
-            input.classList.add('selected');
-            suggestionsDiv.classList.add('hidden');
-            highlightedIndex = -1;
-        }
-
-        // Input event handler
-        input.addEventListener('input', function() {
-            const query = this.value;
-            input.classList.remove('selected');
-            if (hiddenInput) hiddenInput.value = '';
-            highlightedIndex = -1;
-            const matches = filterCities(query);
-            renderSuggestions(matches);
-        });
-
-        // Keyboard navigation
-        input.addEventListener('keydown', function(e) {
-            const items = suggestionsDiv.querySelectorAll('.location-suggestion-item');
-            if (items.length === 0) return;
-
-            if (e.key === 'ArrowDown') {
-                e.preventDefault();
-                highlightedIndex = Math.min(highlightedIndex + 1, items.length - 1);
-                renderSuggestions(filterCities(input.value));
-            } else if (e.key === 'ArrowUp') {
-                e.preventDefault();
-                highlightedIndex = Math.max(highlightedIndex - 1, 0);
-                renderSuggestions(filterCities(input.value));
-            } else if (e.key === 'Enter' && highlightedIndex >= 0) {
-                e.preventDefault();
-                selectCity(items[highlightedIndex].dataset.value);
-            } else if (e.key === 'Escape') {
-                suggestionsDiv.classList.add('hidden');
-            }
-        });
-
-        // Hide suggestions on blur (with delay for click)
-        input.addEventListener('blur', function() {
-            setTimeout(() => suggestionsDiv.classList.add('hidden'), 200);
-        });
-
-        // Show suggestions on focus if has value
-        input.addEventListener('focus', function() {
-            if (this.value.length >= 2) {
-                renderSuggestions(filterCities(this.value));
-            }
-        });
-
-        // Simple radius slider - just update the display text
-        if (radiusSlider && radiusDisplay) {
-            radiusSlider.addEventListener('input', () => {
-                radiusDisplay.textContent = radiusSlider.value + ' miles';
-            });
-        }
-    })();
-    </script>
-
     <!-- Mobile Navigation Overlay -->
     <div class="mobile-nav-overlay" id="mobileNav">
         <a href="/">Home</a>
@@ -1480,23 +1232,8 @@ END:VCARD`;
         </div>
     </div>
 
-    <!-- Nav Dropdown + Mobile Menu JS -->
+    <!-- Mobile Menu JS -->
     <script>
-    // Desktop dropdown toggles
-    document.querySelectorAll('.nav-dropdown-toggle').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const dropdown = btn.parentElement;
-            const wasOpen = dropdown.classList.contains('open');
-            document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
-            if (!wasOpen) dropdown.classList.add('open');
-            btn.setAttribute('aria-expanded', !wasOpen);
-        });
-    });
-    document.addEventListener('click', () => {
-        document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
-    });
-
     // Mobile menu
     function toggleMobileMenu() {
         const btn = document.querySelector('.mobile-menu-btn');
