@@ -37,3 +37,6 @@ build/
 # Netlify
 .netlify/
 
+LIGHTHOUSE_AUDIT_2026-02-28.txt
+audit_report.txt
+*.report.html
