@@ -57,3 +57,48 @@
 .sr-only{pointer-events:none}
 /* Neutralize hover effects on touch devices — prevents iOS first-tap-triggers-hover */
 @media(hover:none){.submit-button:hover:not(:disabled){transform:none;box-shadow:none}.back-btn:hover{background:transparent}.advanced-toggle:hover{background:none;border-color:inherit}.checkbox-label:hover{background:transparent}.location-suggestion-item:hover{background:transparent}.listing-cta:hover{transform:none}.location-form-card .submit-button:hover{transform:none}}
+
+/* === Listing card fixes === */
+
+/* Fix detail chips: style <li> same as <span> + remove default list styling */
+.listing-details{list-style:none;padding-left:0}
+.listing-details li{font-size:.8rem;color:var(--text-gray);background:#ffffff0d;padding:.35rem .75rem;border-radius:4px}
+
+/* Prominent price styling */
+.listing-price{font-size:1.3rem;font-weight:700;color:var(--success-green)}
+
+/* Lease type badge */
+.listing-lease{display:inline-block;font-size:.7rem;font-weight:600;color:var(--accent-blue);background:#007aff1a;padding:.2rem .6rem;border-radius:4px;margin-left:.5rem;vertical-align:middle;letter-spacing:.3px}
+
+/* === Smooth view transitions === */
+.listings-grid,.map-view-container{transition:opacity .25s ease,transform .25s ease}
+
+/* === "Don't see what you need" CTA redesign (fully explicit — no cascade dependency) === */
+.listings-note{display:flex;flex-direction:column;align-items:center;text-align:center;gap:.75rem;max-width:700px;margin-left:auto;margin-right:auto;margin-top:2.5rem;padding:2rem 2.5rem;background:#4a9eff14;border:1px solid rgba(74,158,255,.2);border-radius:10px}
+.listings-note:before,.listings-note::before{display:none!important}
+.listings-note-cta{display:inline-block;margin-top:.75rem;padding:.85rem 2rem;background:var(--primary-blue);color:#fff;border-radius:8px;text-decoration:none;font-weight:600;font-size:1rem;line-height:1.4;transition:all .2s ease}
+.listings-note-cta:hover{background:var(--primary-blue-dark);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,87,224,.3)}
+
+/* === Mobile listing card improvements === */
+@media(max-width:768px){
+  .listing-details li{font-size:.75rem;padding:.3rem .6rem}
+  .listing-price{font-size:1.15rem}
+  .listings-note{padding:1.75rem 1.25rem}
+  .listings-note-cta{padding:.75rem 1.75rem;font-size:.95rem}
+  .view-toggle-btn{padding:.75rem 1.5rem}
+}
+@media(max-width:480px){
+  .listing-card{padding:1.125rem}
+  .listing-details{gap:.5rem}
+  .listing-details li{font-size:.7rem;padding:.25rem .5rem}
+  .listing-price{font-size:1.05rem}
+  .listing-lease{font-size:.75rem;padding:.25rem .55rem}
+  .listing-address{word-break:break-word;overflow-wrap:break-word}
+  .listings-grid{gap:1rem}
+  .listings-note{padding:1.25rem 1rem;margin-top:1.5rem}
+  .listings-note-cta{padding:.7rem 1.5rem;margin-top:.5rem;font-size:.9rem;width:100%;text-align:center}
+}
+
+/* === Map error + popup lease badge === */
+.map-error{display:flex;align-items:center;justify-content:center;height:500px;color:var(--error-red);text-align:center;padding:2rem}
+.map-popup-lease{background:#22c55e1a!important;color:var(--success-green)!important}
