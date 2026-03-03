@@ -51,3 +51,7 @@
 
 /* Success screen phone link */
 .success-phone{margin-top:.75rem;font-size:.9rem;color:var(--text-gray)}.success-phone a{color:var(--accent-blue);font-weight:600;text-decoration:none}.success-phone a:hover{text-decoration:underline}
+
+/* Mobile double-tap fix — eliminates 300ms tap delay on iOS Safari */
+.lead-form input,.lead-form select,.lead-form textarea,.lead-form button,.lead-form label,.lead-form .form-group{touch-action:manipulation}
+.sr-only{pointer-events:none}
