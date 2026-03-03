@@ -48,6 +48,7 @@
     <script>window.addEventListener('load',function(){var s=document.createElement('script');s.src='/tracking-init.js';document.head.appendChild(s)})</script>
 </head>
 <body>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1245057844149331&ev=PageView&noscript=1" alt="" /></noscript>
     <a href="#main-content" class="skip-link">Skip to main content</a>
     <header class="header">
         <div class="header-container">
@@ -268,11 +269,37 @@
 
 
         <!-- Nearby Listings -->
+        <!-- BEGIN_LISTINGS: Lake Worth | Count: 1 -->
         <section class="listings-section" id="listings">
             <div class="listings-container">
-                <div class="no-listings-message">
-                    <h2>No Current Listings in Lake Worth</h2>
-                    <p>I don't have any exclusive Lake Worth listings available at the moment. However, I work with every landlord and property manager in the area and stay updated on all available spaces as they come to market. Fill out the form above to get on my notification list for the next available Lake Worth spaces, or call me directly at 561-718-6725 to discuss your specific needs.</p>
+                <h2 class="listings-title">Available Lake Worth Spaces</h2>
+                <p class="listings-subtitle">1 property currently available in Lake Worth.</p>
+
+                <div class="listings-grid" id="listings-grid">
+
+                    <!-- 1. 3551 23rd Ave S -->
+                    <div class="listing-card">
+                        <div class="listing-header">
+                            <span class="listing-type">Industrial</span>
+                        </div>
+                        <h3 class="listing-address">3551 23rd Ave S</h3>
+                        <p class="listing-location">Marlin Industrial Park, Lake Worth, FL 33461</p>
+                        <p class="listing-size">1,440 SF</p>
+                        <p class="listing-price">$18.00/SF/YR <span class="listing-lease">NNN</span></p>
+                        <ul class="listing-details">
+                            <li>Glass Storefront, 500 SF Office, Restroom</li>
+                            <li>14' Clear, 2 Overhead Doors (10'x10')</li>
+                            <li>2 Drive-In Bays, 18 Parking</li>
+                            <li>Available May 2026, 1-3yr Terms</li>
+                        </ul>
+                        <a href="#lead-form-section" class="listing-cta">Request Info</a>
+                    </div>
+
+                </div>
+
+                <div class="listings-note">
+                    <p>Don't see what you need? I search the entire Lake Worth market — not just these listings.</p>
+                    <a href="#lead-form-section" class="listings-note-cta">Tell Me Your Requirements</a>
                 </div>
             </div>
         </section>
@@ -750,6 +777,13 @@
                         // Track conversion
                         if (typeof fbq !== 'undefined') {
                             fbq('track', 'Lead', { content_name: CONFIG.LOCATION_NAME });
+                        }
+                        if (typeof gtag !== 'undefined') {
+                            gtag('event', 'conversion', {
+                                send_to: 'AW-17147516072/f_LJCMeD4tMaEKipyfA_',
+                                value: 25,
+                                currency: 'USD'
+                            });
                         }
 
                         // Show success
