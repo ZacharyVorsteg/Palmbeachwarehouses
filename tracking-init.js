@@ -41,13 +41,14 @@
   }
 
   // Synchronous consent check — runs before any tracking fires
+  // US-based business: load tracking by default, block only if user explicitly declined
   var consent;
   try { consent = JSON.parse(localStorage.getItem('cookieConsent')); } catch(e) {}
 
-  if (consent && consent.choice === 'accept') {
-    loadTracking();
-  } else {
+  if (consent && consent.choice === 'decline') {
     blockTracking();
+  } else {
+    loadTracking();
   }
 
   // Expose for cookie-consent.js to call when user accepts
