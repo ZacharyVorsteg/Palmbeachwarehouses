@@ -255,18 +255,19 @@
     const pixelValue = qualification.conversionValue;
 
     // Fire Google Ads conversion
-    if (typeof gtag !== 'undefined' && window.isTrackingAllowed && window.isTrackingAllowed()) {
+    if (typeof gtag !== 'undefined') {
       gtag('event', 'conversion', {
         send_to: 'AW-17147516072/f_LJCMeD4tMaEKipyfA_',
         value: pixelValue,
         currency: 'USD',
-        conversion_label: leadData.name,
+        conversion_label: qualification.tier,
+        transaction_id: Date.now().toString(),
       });
-      console.log(`✅ Google Ads conversion fired (Value: $${pixelValue})`);
+      console.log(`✅ Google Ads conversion fired (Value: $${pixelValue}, Tier: ${qualification.tier})`);
     }
 
     // Fire Meta Lead event with UTM data
-    if (typeof fbq !== 'undefined' && window.isTrackingAllowed && window.isTrackingAllowed()) {
+    if (typeof fbq !== 'undefined') {
       fbq('track', 'Lead', {
         content_name: 'Warehouse Inquiry',
         content_category: qualification.tier,
@@ -372,34 +373,31 @@
     const link = event.target.closest('a[href^="tel:"],a[href^="mailto:"]');
     if (!link) return;
 
-    if (window.isTrackingAllowed && window.isTrackingAllowed()) {
-      const contactType = link.href.startsWith('tel:') ? 'Phone' : 'Email';
+    const contactType = link.href.startsWith('tel:') ? 'Phone' : 'Email';
 
-      // Fire Meta tracking
-      if (typeof fbq !== 'undefined') {
-        fbq('track', 'Contact', {
-          content_name: contactType + ' Click',
-          content_category: 'Contact',
-          utm_source: window.__utm?.source || 'direct',
-          utm_campaign: window.__utm?.campaign || 'organic',
-        });
-      }
-
-      // Fire Google Ads - scale value based on context
-      // If user came from paid ad, track higher value
-      const isFromAd = window.__utm?.source === 'facebook' || window.__utm?.source === 'google';
-      const contactValue = isFromAd ? 10 : 1;
-
-      if (typeof gtag !== 'undefined') {
-        gtag('event', 'conversion', {
-          send_to: 'AW-17147516072/f_LJCMeD4tMaEKipyfA_',
-          value: contactValue,
-          currency: 'USD',
-        });
-      }
-
-      console.log(`✅ Contact tracking fired (${contactType}):`, { value: contactValue });
+    // Fire Meta tracking
+    if (typeof fbq !== 'undefined') {
+      fbq('track', 'Contact', {
+        content_name: contactType + ' Click',
+        content_category: 'Contact',
+        utm_source: window.__utm?.source || 'direct',
+        utm_campaign: window.__utm?.campaign || 'organic',
+      });
     }
+
+    // Fire Google Ads - scale value based on context
+    const isFromAd = window.__utm?.source === 'facebook' || window.__utm?.source === 'google';
+    const contactValue = isFromAd ? 10 : 1;
+
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'conversion', {
+        send_to: 'AW-17147516072/f_LJCMeD4tMaEKipyfA_',
+        value: contactValue,
+        currency: 'USD',
+      });
+    }
+
+    console.log(`✅ Contact tracking fired (${contactType}):`, { value: contactValue });
   });
 
   console.log('🎉 Trusenda CRM Integration loaded successfully');
