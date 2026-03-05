@@ -1410,6 +1410,20 @@
         </a>
         <button type="button" class="sticky-cta-dismiss" onclick="dismissStickyCta()" aria-label="Dismiss">&times;</button>
     </div>
+
+    <!-- Exit Intent Modal -->
+    <div class="exit-intent-overlay" id="exitIntentOverlay">
+        <div class="exit-intent-modal">
+            <button type="button" class="exit-intent-close" onclick="dismissExitIntent()" aria-label="Close modal">&times;</button>
+            <h2 class="exit-intent-title">Before you go</h2>
+            <p class="exit-intent-text">Get a free space shortlist in 24 hours</p>
+            <form class="exit-intent-form" id="exitIntentForm">
+                <input type="tel" placeholder="Your phone" required aria-label="Phone number" class="exit-intent-input">
+                <button type="submit" class="exit-intent-submit">Get Matched Now</button>
+            </form>
+            <p class="exit-intent-footnote">No spam, no BS. We just call if we find your space.</p>
+        </div>
+    </div>
     <script>
     // Sticky CTA: delayed, dismissible, session-aware
     function dismissStickyCta() {
@@ -1433,6 +1447,61 @@
             sticky.classList.toggle('visible', shouldShow);
         }, { threshold: 0 });
         observer.observe(form);
+    })();
+
+    // Exit Intent Modal
+    function dismissExitIntent() {
+        var overlay = document.getElementById('exitIntentOverlay');
+        if (overlay) { overlay.classList.remove('visible'); }
+        try { sessionStorage.setItem('exitIntentDismissed', '1'); } catch(e) {}
+    }
+    (function() {
+        var modal = document.getElementById('exitIntentOverlay');
+        if (!modal) return;
+
+        // Don't show if dismissed this session
+        try { if (sessionStorage.getItem('exitIntentDismissed')) return; } catch(e) {}
+
+        var exitIntentShown = false;
+
+        // Desktop: detect mouse leaving viewport top
+        document.addEventListener('mouseout', function(e) {
+            if (exitIntentShown) return;
+            if (e.clientY < 10) {
+                exitIntentShown = true;
+                modal.classList.add('visible');
+                try { sessionStorage.setItem('exitIntentDismissed', '1'); } catch(e) {}
+            }
+        });
+
+        // Mobile: detect back button / beforeunload
+        window.addEventListener('beforeunload', function(e) {
+            if (!exitIntentShown) {
+                exitIntentShown = true;
+                modal.classList.add('visible');
+                try { sessionStorage.setItem('exitIntentDismissed', '1'); } catch(e) {}
+            }
+        });
+    })();
+
+    // Exit Intent Form Submission
+    (function() {
+        var form = document.getElementById('exitIntentForm');
+        if (!form) return;
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            var phone = form.querySelector('input[type="tel"]').value.trim();
+            if (!phone) return;
+
+            // Copy to main form and scroll
+            var mainForm = document.getElementById('lead-form');
+            if (mainForm) {
+                mainForm.querySelector('input[name="phone"]').value = phone;
+                dismissExitIntent();
+                scrollToForm();
+                mainForm.querySelector('select, input:not([type="hidden"])').focus();
+            }
+        });
     })();
     </script>
 </body>
