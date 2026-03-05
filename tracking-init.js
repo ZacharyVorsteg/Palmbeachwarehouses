@@ -7,6 +7,7 @@
   function loadTracking() {
     if (window.__trackingLoaded) return;
     window.__trackingLoaded = true;
+    window.__trackingConsent = true;
 
     // Facebook Pixel
     !function(f,b,e,v,n,t,s) {
@@ -32,6 +33,7 @@
   }
 
   function blockTracking() {
+    window.__trackingConsent = false;
     window.fbq = function() {};
     window.gtag = function() {};
     window.dataLayer = window.dataLayer || [];
