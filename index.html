@@ -1496,10 +1496,18 @@
             // Copy to main form and scroll
             var mainForm = document.getElementById('lead-form');
             if (mainForm) {
-                mainForm.querySelector('input[name="phone"]').value = phone;
+                var phoneField = mainForm.querySelector('input[name="phone"]');
+                if (phoneField) phoneField.value = phone;
                 dismissExitIntent();
                 scrollToForm();
-                mainForm.querySelector('select, input:not([type="hidden"])').focus();
+                var firstField = mainForm.querySelector('select, input:not([type="hidden"])');
+                if (firstField) firstField.focus();
+
+                // Fire tracking for exit-intent capture
+                if (window.isTrackingAllowed && window.isTrackingAllowed()) {
+                    if (typeof fbq !== 'undefined') fbq('track', 'Lead', { content_name: 'Exit Intent Capture', value: 10, currency: 'USD' });
+                    if (typeof gtag !== 'undefined') gtag('event', 'conversion', { send_to: 'AW-17147516072/f_LJCMeD4tMaEKipyfA_', value: 10, currency: 'USD' });
+                }
             }
         });
     })();
