@@ -26,15 +26,15 @@
     Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://connect.facebook.net https://www.googletagmanager.com https://www.google-analytics.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://unpkg.com; img-src 'self' data: https:; connect-src 'self' https://trusenda.com https://*.google-analytics.com https://*.googletagmanager.com https://www.google.com https://googleads.g.doubleclick.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com; frame-src 'self' https://www.googletagmanager.com; form-action 'self' https://trusenda.com"
 
 [[headers]]
-  # Cache static assets
+  # Cache CSS/JS with short TTL + revalidation (no content hashing in filenames)
   for = "*.css"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "public, max-age=3600, must-revalidate"
 
 [[headers]]
   for = "*.js"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "public, max-age=3600, must-revalidate"
 
 [[headers]]
   for = "/assets/*"
