@@ -50,6 +50,8 @@
 .agent-preview-info{display:flex;flex-direction:column;gap:2px}
 .agent-preview-name{font-size:.9rem;font-weight:600;color:#1a1a1a;line-height:1.3}
 .agent-preview-credentials{font-size:.78rem;color:#6b7280;line-height:1.3;letter-spacing:.2px}
+.save-contact-btn{display:inline-flex;align-items:center;gap:5px;font-size:.75rem;font-weight:600;color:#2563eb;background:#eff6ff;border:1px solid #dbeafe;border-radius:8px;padding:6px 10px;cursor:pointer;transition:background .15s,border-color .15s;white-space:nowrap;margin-left:auto;flex-shrink:0}
+.save-contact-btn:hover{background:#dbeafe;border-color:#bfdbfe}
 
 /* ==================== FORM PRIVACY NOTE ==================== */
 
