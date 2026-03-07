@@ -154,6 +154,14 @@
                             <h2 class="form-title">Get Matched with Space</h2>
                             <p class="form-subtitle">Tell us about your business — we send curated matches within 24 hours.</p>
 
+                            <div class="agent-preview">
+                                <img src="assets/headshot.jpg?v=1" alt="Zach Vorsteg" class="agent-preview-photo" width="48" height="48" loading="lazy" decoding="async">
+                                <div class="agent-preview-info">
+                                    <div class="agent-preview-name">You'll hear directly from Zach</div>
+                                    <div class="agent-preview-credentials">Licensed Sales Associate, Cornerstone Realty</div>
+                                </div>
+                            </div>
+
                             <div class="form-group">
                                 <label for="property_use">Type of space *</label>
                                 <select id="property_use" name="property_use" required>
@@ -201,11 +209,11 @@
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="name">Your Name *</label>
-                                    <input type="text" id="name" name="name" required placeholder="Full name">
+                                    <input type="text" id="name" name="name" required placeholder="Full name" autocomplete="name">
                                 </div>
                                 <div class="form-group">
                                     <label for="company">Company Name *</label>
-                                    <input type="text" id="company" name="company" required placeholder="Your company">
+                                    <input type="text" id="company" name="company" required placeholder="Your company" autocomplete="organization">
                                 </div>
                             </div>
 
@@ -386,6 +394,7 @@
                             </button>
 
                             <p class="form-note">No obligation. No cost. Response within 24 hours.</p>
+                            <p class="form-privacy-note">Your information is confidential and never shared with third parties.</p>
 
                             <div id="form-message" class="form-message hidden" role="status" aria-live="polite"></div>
                         </form>
