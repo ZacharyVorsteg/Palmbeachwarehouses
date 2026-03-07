@@ -45,13 +45,17 @@
 
 /* ==================== AGENT PREVIEW CARD ==================== */
 
-.agent-preview{display:flex;align-items:center;gap:14px;background:#f8f9fb;border:1px solid #e8eaed;border-radius:12px;padding:14px 16px;margin-bottom:20px;margin-top:-4px}
-.agent-preview-photo{width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid #e0e4ea;flex-shrink:0}
-.agent-preview-info{display:flex;flex-direction:column;gap:2px}
-.agent-preview-name{font-size:.9rem;font-weight:600;color:#1a1a1a;line-height:1.3}
-.agent-preview-credentials{font-size:.78rem;color:#6b7280;line-height:1.3;letter-spacing:.2px}
-.save-contact-btn{display:inline-flex;align-items:center;gap:5px;font-size:.75rem;font-weight:600;color:#2563eb;background:#eff6ff;border:1px solid #dbeafe;border-radius:8px;padding:6px 10px;cursor:pointer;transition:background .15s,border-color .15s;white-space:nowrap;margin-left:auto;flex-shrink:0}
-.save-contact-btn:hover{background:#dbeafe;border-color:#bfdbfe}
+.agent-preview{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:16px 18px;margin-bottom:20px;margin-top:-4px;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.agent-preview-photo-wrap{position:relative;flex-shrink:0}
+.agent-preview-photo{width:64px;height:64px;border-radius:50%;object-fit:cover;border:2.5px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.1);display:block}
+.agent-status-dot{position:absolute;bottom:2px;right:2px;width:14px;height:14px;background:#10b981;border:2.5px solid #fff;border-radius:50%}
+.agent-preview-info{display:flex;flex-direction:column;gap:3px;flex:1;min-width:0}
+.agent-preview-name{font-size:1rem;font-weight:700;color:#111827;line-height:1.3}
+.agent-preview-role{font-size:.82rem;font-weight:500;color:#2563eb;line-height:1.3}
+.agent-preview-credentials{display:inline-flex;align-items:center;gap:4px;font-size:.72rem;color:#9ca3af;line-height:1.3;letter-spacing:.1px}
+.agent-preview-credentials svg{flex-shrink:0;color:#d1d5db}
+.save-contact-btn{display:flex;align-items:center;justify-content:center;width:36px;height:36px;color:#9ca3af;background:transparent;border:1px solid #e5e7eb;border-radius:10px;cursor:pointer;transition:all .15s;margin-left:auto;flex-shrink:0;padding:0}
+.save-contact-btn:hover{color:#2563eb;background:#eff6ff;border-color:#dbeafe}
 
 /* ==================== FORM PRIVACY NOTE ==================== */
 
