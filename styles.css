@@ -77,9 +77,13 @@
 /* Mobile adjustments for agent preview */
 @media(max-width:480px){
   .agent-preview{padding:12px 14px;gap:12px}
-  .agent-preview-photo{width:42px;height:42px}
-  .agent-preview-name{font-size:.85rem}
-  .agent-preview-credentials{font-size:.74rem}
+  .agent-preview-photo{width:52px;height:52px}
+  .agent-preview-name{font-size:.9rem}
+  .agent-preview-role{font-size:.78rem}
+  .agent-preview-meta{gap:4px}
+  .agent-preview-credentials{font-size:.68rem}
+  .agent-preview-divider{display:none}
+  .save-contact-link{font-size:.68rem}
 }
 
 /* No-listings message for location pages without active inventory */
