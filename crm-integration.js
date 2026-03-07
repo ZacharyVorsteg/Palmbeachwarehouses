@@ -300,13 +300,13 @@
     let message = '';
 
     if (qualification.tier === 'ENTERPRISE') {
-      message = '⚡ <strong>Enterprise Lead!</strong> Zach will call you within 1 hour.';
+      message = '<strong>Priority request received.</strong> Given your requirements, Zach will personally call you within the hour to discuss available options and schedule tours.';
     } else if (qualification.tier === 'HOT') {
-      message = '⚡ <strong>Priority Lead!</strong> Zach typically responds to high-urgency requests within 2 hours.';
+      message = '<strong>Great fit — your request is in good hands.</strong> Zach will personally follow up within a few hours with curated matches for your business.';
     } else if (qualification.tier === 'WARM') {
-      message = '<strong>✓ Good fit!</strong> You should hear from Zach within 24 hours with matching properties.';
+      message = '<strong>Request received.</strong> Zach will review available spaces in your area and reach out within 24 hours with options that match your criteria.';
     } else {
-      message = 'Zach will review your request and reach out if he finds matching spaces in your area.';
+      message = '<strong>Request received.</strong> Zach will review your requirements and follow up within 24-48 hours with relevant options.';
     }
 
     callout.innerHTML = message;

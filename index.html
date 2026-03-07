@@ -152,7 +152,7 @@
                     <div class="form-card" id="lead-form-section">
                         <form id="lead-form" class="lead-form" method="POST" action="javascript:void(0);">
                             <h2 class="form-title">Get Matched with Space</h2>
-                            <p class="form-subtitle">Tell us what you need — we send curated matches within 24 hours.</p>
+                            <p class="form-subtitle">Tell us about your business — we send curated matches within 24 hours.</p>
 
                             <div class="form-group">
                                 <label for="property_use">Type of space *</label>
@@ -198,9 +198,15 @@
 
                             <div class="form-divider"></div>
 
-                            <div class="form-group">
-                                <label for="name">Your Name *</label>
-                                <input type="text" id="name" name="name" required placeholder="Full name">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">Your Name *</label>
+                                    <input type="text" id="name" name="name" required placeholder="Full name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="company">Company Name *</label>
+                                    <input type="text" id="company" name="company" required placeholder="Your company">
+                                </div>
                             </div>
 
                             <div class="form-row">
@@ -214,11 +220,41 @@
                                 </div>
                             </div>
 
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="budget">Monthly Budget *</label>
+                                    <select id="budget" name="budget" required>
+                                        <option value="">Select budget range...</option>
+                                        <option value="$1,500-3,000/mo">$1,500 - $3,000/mo</option>
+                                        <option value="$3,000-5,000/mo">$3,000 - $5,000/mo</option>
+                                        <option value="$5,000-10,000/mo">$5,000 - $10,000/mo</option>
+                                        <option value="$10,000-20,000/mo">$10,000 - $20,000/mo</option>
+                                        <option value="$20,000+/mo">$20,000+/mo</option>
+                                        <option value="Flexible">Flexible / Not sure</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="industry">Your Industry *</label>
+                                    <select id="industry" name="industry" required>
+                                        <option value="">Select industry...</option>
+                                        <option value="Automotive & Transportation">Automotive</option>
+                                        <option value="Construction & Contracting">Construction</option>
+                                        <option value="Distribution & Logistics">Distribution</option>
+                                        <option value="E-commerce & Fulfillment">E-commerce</option>
+                                        <option value="Food & Beverage Production">Food & Beverage</option>
+                                        <option value="Light Industrial">Light Industrial</option>
+                                        <option value="Manufacturing">Manufacturing</option>
+                                        <option value="Warehousing & Storage">Warehousing</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+
                             <!-- Optional details - collapsible -->
                             <button type="button" class="advanced-toggle" aria-expanded="false" aria-controls="advanced-requirements" onclick="toggleAdvanced()">
                                 <span class="toggle-icon">+</span>
                                 <span class="toggle-text">Refine your search</span>
-                                <span class="toggle-hint">budget, location, building specs</span>
+                                <span class="toggle-hint">location, building specs</span>
                             </button>
 
                             <div class="advanced-requirements" id="advanced-requirements">
@@ -242,52 +278,16 @@
                                            aria-label="Search radius in miles">
                                 </div>
 
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="budget">Monthly Budget</label>
-                                        <select id="budget" name="budget">
-                                            <option value="">Approximate range...</option>
-                                            <option value="$1,500-3,000/mo">$1,500 - $3,000/mo</option>
-                                            <option value="$3,000-5,000/mo">$3,000 - $5,000/mo</option>
-                                            <option value="$5,000-10,000/mo">$5,000 - $10,000/mo</option>
-                                            <option value="$10,000-20,000/mo">$10,000 - $20,000/mo</option>
-                                            <option value="$20,000+/mo">$20,000+/mo</option>
-                                            <option value="Flexible">Flexible / Not sure</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="industry">Your Industry</label>
-                                        <select id="industry" name="industry">
-                                            <option value="">What does your business do?</option>
-                                            <option value="Automotive & Transportation">Automotive</option>
-                                            <option value="Construction & Contracting">Construction</option>
-                                            <option value="Distribution & Logistics">Distribution</option>
-                                            <option value="E-commerce & Fulfillment">E-commerce</option>
-                                            <option value="Food & Beverage Production">Food & Beverage</option>
-                                            <option value="Light Industrial">Light Industrial</option>
-                                            <option value="Manufacturing">Manufacturing</option>
-                                            <option value="Warehousing & Storage">Warehousing</option>
-                                            <option value="Other">Other</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="company">Company</label>
-                                        <input type="text" id="company" name="company" placeholder="Company name">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="lease_term">Lease Length</label>
-                                        <select id="lease_term" name="lease_term">
-                                            <option value="">How long do you need it?</option>
-                                            <option value="1-2 years">1-2 years</option>
-                                            <option value="3-5 years">3-5 years</option>
-                                            <option value="5-10 years">5-10 years</option>
-                                            <option value="10+ years">10+ years</option>
-                                            <option value="Flexible">Flexible</option>
-                                        </select>
-                                    </div>
+                                <div class="form-group">
+                                    <label for="lease_term">Lease Length</label>
+                                    <select id="lease_term" name="lease_term">
+                                        <option value="">How long do you need it?</option>
+                                        <option value="1-2 years">1-2 years</option>
+                                        <option value="3-5 years">3-5 years</option>
+                                        <option value="5-10 years">5-10 years</option>
+                                        <option value="10+ years">10+ years</option>
+                                        <option value="Flexible">Flexible</option>
+                                    </select>
                                 </div>
 
                                 <div class="req-group">
