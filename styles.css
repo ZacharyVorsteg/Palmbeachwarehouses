@@ -55,6 +55,16 @@
 
 .form-privacy-note{font-size:.75rem;color:#9ca3af;text-align:center;margin-top:8px;line-height:1.4;letter-spacing:.1px}
 
+/* ==================== ALTERNATIVE CONTACT STRIP ==================== */
+
+.alt-contact{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:12px;padding-top:12px;border-top:1px solid #f0f0f0}
+.alt-contact-label{font-size:.78rem;color:#9ca3af;letter-spacing:.1px}
+.alt-contact-link{display:inline-flex;align-items:center;gap:5px;font-size:.8rem;font-weight:600;text-decoration:none;padding:6px 12px;border-radius:8px;transition:background .15s}
+.alt-contact-call{color:#2563eb;background:#eff6ff}
+.alt-contact-call:hover{background:#dbeafe}
+.alt-contact-text{color:#059669;background:#ecfdf5}
+.alt-contact-text:hover{background:#d1fae5}
+
 /* Mobile adjustments for agent preview */
 @media(max-width:480px){
   .agent-preview{padding:12px 14px;gap:12px}
@@ -235,6 +245,19 @@
 
   .sticky-cta-phone {
     color: var(--accent-blue);
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    text-decoration: none;
+    padding: 10px 10px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .sticky-cta-text {
+    color: #34d399;
     font-size: 13px;
     font-weight: 600;
     white-space: nowrap;
