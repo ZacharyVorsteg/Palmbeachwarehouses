@@ -81,6 +81,22 @@
         <priority>0.8</priority>
     </url>
 
+    <!-- Landlord Acquisition -->
+    <url>
+        <loc>https://palmbeachwarehouses.com/list-your-space/</loc>
+        <lastmod>2026-03-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Market Report Lead Magnet -->
+    <url>
+        <loc>https://palmbeachwarehouses.com/market-report/</loc>
+        <lastmod>2026-03-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
     <!-- Guide Pages -->
     <url>
         <loc>https://palmbeachwarehouses.com/guides/palm-beach-industrial-market/</loc>

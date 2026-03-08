@@ -8,17 +8,31 @@
 
   let tenantId = null;
   let isSubmitting = false;
+  let activeFormType = null; // 'tenant' | 'landlord' | 'report'
 
   // Initialize on page load
   document.addEventListener('DOMContentLoaded', function() {
     console.log('🚀 Initializing Trusenda CRM Integration...');
 
-    const form = document.getElementById('lead-form');
-    if (form) {
-      form.addEventListener('submit', handleFormSubmit);
-      console.log('✅ Form submission handler attached');
+    // Detect which form exists on this page
+    const tenantForm = document.getElementById('lead-form');
+    const landlordForm = document.getElementById('landlord-lead-form');
+    const reportForm = document.getElementById('report-lead-form');
+
+    if (tenantForm) {
+      activeFormType = 'tenant';
+      tenantForm.addEventListener('submit', handleFormSubmit);
+      console.log('✅ Tenant form handler attached');
+    } else if (landlordForm) {
+      activeFormType = 'landlord';
+      landlordForm.addEventListener('submit', handleFormSubmit);
+      console.log('✅ Landlord form handler attached');
+    } else if (reportForm) {
+      activeFormType = 'report';
+      reportForm.addEventListener('submit', handleFormSubmit);
+      console.log('✅ Report form handler attached');
     } else {
-      console.error('❌ Lead form not found on page');
+      console.warn('⚠️  No known form found on page');
     }
 
     // Try to load tenant ID from cache
@@ -67,7 +81,7 @@
     }
 
     isSubmitting = true;
-    console.log('📝 Form submission started...');
+    console.log(`📝 ${activeFormType} form submission started...`);
 
     const form = event.target;
     const submitBtn = document.getElementById('submit-btn');
@@ -77,9 +91,15 @@
 
     // Disable button and show loading
     submitBtn.disabled = true;
-    btnText.classList.add('hidden');
-    btnLoading.classList.remove('hidden');
-    formMessage.classList.add('hidden');
+    if (btnText) btnText.classList.add('hidden');
+    if (btnLoading) btnLoading.classList.remove('hidden');
+    if (formMessage) formMessage.classList.add('hidden');
+
+    // For report form (no btn-text/btn-loading spans), update button text
+    if (!btnText && submitBtn) {
+      submitBtn.dataset.originalText = submitBtn.textContent;
+      submitBtn.textContent = 'Submitting...';
+    }
 
     try {
       // Ensure we have tenant ID
@@ -91,8 +111,15 @@
         }
       }
 
-      // Build lead data with UTM parameters
-      const leadData = extractFormData(form);
+      // Build lead data based on form type
+      let leadData;
+      if (activeFormType === 'landlord') {
+        leadData = extractLandlordFormData(form);
+      } else if (activeFormType === 'report') {
+        leadData = extractReportFormData(form);
+      } else {
+        leadData = extractTenantFormData(form);
+      }
       console.log('📦 Submitting lead data:', leadData);
 
       // POST to CRM
@@ -125,15 +152,19 @@
       console.error('❌ Form submission error:', error);
       showErrorMessage(error.message);
       submitBtn.disabled = false;
-      btnText.classList.remove('hidden');
-      btnLoading.classList.add('hidden');
+      if (btnText) {
+        btnText.classList.remove('hidden');
+      } else if (submitBtn.dataset.originalText) {
+        submitBtn.textContent = submitBtn.dataset.originalText;
+      }
+      if (btnLoading) btnLoading.classList.add('hidden');
     } finally {
       isSubmitting = false;
     }
   }
 
-  // Extract form data including UTM parameters
-  function extractFormData(form) {
+  // ─── TENANT form data extraction (original) ───
+  function extractTenantFormData(form) {
     const formData = new FormData(form);
     const spaceSize = formData.get('space_size');
 
@@ -173,8 +204,72 @@
       leaseTerm: formData.get('lease_term') || null,
       preferredArea: getPreferredArea(formData),
       searchRadiusMiles: parseInt(formData.get('search_radius'), 10) || 25,
-      notes: buildNotesField(formData),
-      // ADD UTM AND REFERRER DATA
+      notes: buildTenantNotesField(formData),
+      ...getUtmData()
+    };
+  }
+
+  // ─── LANDLORD form data extraction ───
+  function extractLandlordFormData(form) {
+    const formData = new FormData(form);
+    const propertySize = formData.get('property_size');
+
+    let sizeMin = null;
+    if (propertySize) {
+      const match = propertySize.match(/(\d[\d,]*)/);
+      if (match) {
+        sizeMin = parseInt(match[1].replace(/,/g, ''), 10);
+      }
+    }
+
+    const notes = [
+      'Source: palmbeachwarehouses.com/list-your-space',
+      'Lead Type: LANDLORD LISTING',
+      `Property: ${formData.get('property_address') || 'N/A'}, ${formData.get('property_city') || ''} ${formData.get('property_zip') || ''}`,
+      `Property Type: ${formData.get('property_type') || 'N/A'}`,
+      `Property Size: ${propertySize || 'N/A'}`,
+      `Current Status: ${formData.get('property_status') || 'N/A'}`,
+      `Timeline: ${formData.get('timeline') || 'N/A'}`
+    ].join('\n');
+
+    return {
+      tenant_id: tenantId,
+      name: formData.get('name'),
+      email: formData.get('email') || null,
+      phone: formData.get('phone') || null,
+      company: formData.get('company') || null,
+      sizeMin: sizeMin,
+      propertyType: formData.get('property_type') || 'Warehouse',
+      preferredArea: formData.get('property_city') || 'Palm Beach County, FL',
+      notes: notes,
+      ...getUtmData()
+    };
+  }
+
+  // ─── REPORT form data extraction ───
+  function extractReportFormData(form) {
+    const formData = new FormData(form);
+
+    const notes = [
+      'Source: palmbeachwarehouses.com/market-report',
+      'Lead Type: MARKET REPORT DOWNLOAD',
+      `Role: ${formData.get('role') || 'N/A'}`,
+      `Preferred Location: ${formData.get('preferred_location') || 'N/A'}`
+    ].join('\n');
+
+    return {
+      tenant_id: tenantId,
+      name: formData.get('name'),
+      email: formData.get('email') || null,
+      preferredArea: formData.get('preferred_location') || 'Palm Beach County, FL',
+      notes: notes,
+      ...getUtmData()
+    };
+  }
+
+  // Shared UTM data extraction
+  function getUtmData() {
+    return {
       utm_source: window.__utm?.source || null,
       utm_medium: window.__utm?.medium || null,
       utm_campaign: window.__utm?.campaign || null,
@@ -186,7 +281,7 @@
     };
   }
 
-  // Get preferred area with fallback
+  // Get preferred area with fallback (tenant form)
   function getPreferredArea(formData) {
     const selected = formData.get('preferred_location_value');
     const typed = formData.get('preferred_location');
@@ -203,8 +298,8 @@
     return 'Palm Beach County, FL';
   }
 
-  // Build notes field from requirements
-  function buildNotesField(formData) {
+  // Build notes field from requirements (tenant form)
+  function buildTenantNotesField(formData) {
     const notes = [];
     notes.push('Source: palmbeachwarehouses.com');
 
@@ -245,16 +340,24 @@
     return notes.join('\n');
   }
 
-  // New function: Fire tracking ONLY after CRM success
+  // Fire tracking ONLY after CRM success
   function fireTrackingPixels(leadData) {
-    // Qualify the lead
+    if (activeFormType === 'tenant') {
+      fireTenantPixels(leadData);
+    } else if (activeFormType === 'landlord') {
+      fireLandlordPixels(leadData);
+    } else if (activeFormType === 'report') {
+      fireReportPixels(leadData);
+    }
+  }
+
+  // Tenant tracking (original - with qualification scoring)
+  function fireTenantPixels(leadData) {
     const qualification = QUALIFICATION.scoreQualification(leadData);
     console.log(`📊 Lead Qualification: ${qualification.tier} (Score: ${qualification.score})`);
 
-    // Prepare pixel value
     const pixelValue = qualification.conversionValue;
 
-    // Fire Google Ads conversion
     if (typeof gtag !== 'undefined') {
       gtag('event', 'conversion', {
         send_to: 'AW-17147516072/f_LJCMeD4tMaEKipyfA_',
@@ -266,7 +369,6 @@
       console.log(`✅ Google Ads conversion fired (Value: $${pixelValue}, Tier: ${qualification.tier})`);
     }
 
-    // Fire Meta Lead event with UTM data
     if (typeof fbq !== 'undefined') {
       fbq('track', 'Lead', {
         content_name: 'Warehouse Inquiry',
@@ -287,30 +389,110 @@
     }
   }
 
-  // Show success message
-  function showSuccessMessage(form, leadData) {
-    const leadForm = document.getElementById('lead-form');
-    const successMessage = document.getElementById('success-message');
+  // Landlord tracking (high-value listing lead)
+  function fireLandlordPixels(leadData) {
+    const pixelValue = 150; // Listing agreements are high-value
 
-    leadForm.classList.add('hidden');
-    successMessage.classList.remove('hidden');
-
-    const qualification = QUALIFICATION.scoreQualification(leadData);
-    const callout = document.getElementById('success-callout');
-    let message = '';
-
-    if (qualification.tier === 'ENTERPRISE') {
-      message = '<strong>Priority request received.</strong> Given your requirements, Zach will personally call you within the hour to discuss available options and schedule tours.';
-    } else if (qualification.tier === 'HOT') {
-      message = '<strong>Great fit — your request is in good hands.</strong> Zach will personally follow up within a few hours with curated matches for your business.';
-    } else if (qualification.tier === 'WARM') {
-      message = '<strong>Request received.</strong> Zach will review available spaces in your area and reach out within 24 hours with options that match your criteria.';
-    } else {
-      message = '<strong>Request received.</strong> Zach will review your requirements and follow up within 24-48 hours with relevant options.';
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'conversion', {
+        send_to: 'AW-17147516072/f_LJCMeD4tMaEKipyfA_',
+        value: pixelValue,
+        currency: 'USD',
+        conversion_label: 'LANDLORD_LISTING',
+        transaction_id: Date.now().toString(),
+      });
+      console.log(`✅ Google Ads conversion fired (Landlord Listing: $${pixelValue})`);
     }
 
-    callout.innerHTML = message;
-    callout.style.display = 'block';
+    if (typeof fbq !== 'undefined') {
+      fbq('track', 'Lead', {
+        content_name: 'Landlord Listing',
+        content_category: 'LANDLORD',
+        content_type: 'listing',
+        value: pixelValue,
+        currency: 'USD',
+        status: 'new_listing',
+        utm_source: window.__utm?.source || null,
+        utm_campaign: window.__utm?.campaign || null,
+        utm_content: window.__utm?.content || null,
+        utm_medium: window.__utm?.medium || null,
+        ad_set_id: window.__utm?.adSetId || null,
+        location: leadData.preferredArea,
+      });
+      console.log('✅ Facebook Lead conversion fired (Landlord Listing)');
+    }
+  }
+
+  // Report tracking (top-of-funnel lead magnet)
+  function fireReportPixels(leadData) {
+    const pixelValue = 25; // Lower value - top-of-funnel
+
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'conversion', {
+        send_to: 'AW-17147516072/f_LJCMeD4tMaEKipyfA_',
+        value: pixelValue,
+        currency: 'USD',
+        conversion_label: 'MARKET_REPORT',
+        transaction_id: Date.now().toString(),
+      });
+      console.log(`✅ Google Ads conversion fired (Market Report: $${pixelValue})`);
+    }
+
+    if (typeof fbq !== 'undefined') {
+      fbq('track', 'Lead', {
+        content_name: 'Market Report Download',
+        content_category: 'REPORT',
+        content_type: 'content',
+        value: pixelValue,
+        currency: 'USD',
+        status: 'nurture',
+        utm_source: window.__utm?.source || null,
+        utm_campaign: window.__utm?.campaign || null,
+        utm_content: window.__utm?.content || null,
+        utm_medium: window.__utm?.medium || null,
+        ad_set_id: window.__utm?.adSetId || null,
+        location: leadData.preferredArea,
+      });
+      console.log('✅ Facebook Lead conversion fired (Market Report)');
+    }
+  }
+
+  // Show success message (form-type aware)
+  function showSuccessMessage(form, leadData) {
+    const successMessage = document.getElementById('success-message');
+
+    if (activeFormType === 'tenant') {
+      // Tenant: hide form, show success with qualification callout
+      const leadForm = document.getElementById('lead-form');
+      leadForm.classList.add('hidden');
+      successMessage.classList.remove('hidden');
+
+      const qualification = QUALIFICATION.scoreQualification(leadData);
+      const callout = document.getElementById('success-callout');
+      let message = '';
+
+      if (qualification.tier === 'ENTERPRISE') {
+        message = '<strong>Priority request received.</strong> Given your requirements, Zach will personally call you within the hour to discuss available options and schedule tours.';
+      } else if (qualification.tier === 'HOT') {
+        message = '<strong>Great fit — your request is in good hands.</strong> Zach will personally follow up within a few hours with curated matches for your business.';
+      } else if (qualification.tier === 'WARM') {
+        message = '<strong>Request received.</strong> Zach will review available spaces in your area and reach out within 24 hours with options that match your criteria.';
+      } else {
+        message = '<strong>Request received.</strong> Zach will review your requirements and follow up within 24-48 hours with relevant options.';
+      }
+
+      callout.innerHTML = message;
+      callout.style.display = 'block';
+    } else if (activeFormType === 'landlord') {
+      // Landlord: hide form, show success (content is already in HTML)
+      const landlordForm = document.getElementById('landlord-lead-form');
+      landlordForm.classList.add('hidden');
+      successMessage.classList.remove('hidden');
+    } else if (activeFormType === 'report') {
+      // Report: hide form, show success via display style
+      form.style.display = 'none';
+      successMessage.style.display = 'block';
+    }
   }
 
   // Show error message
@@ -319,11 +501,16 @@
     formMessage.textContent = message;
     formMessage.className = 'form-message error';
     formMessage.classList.remove('hidden');
+    formMessage.style.display = 'block';
   }
 
   // Global reset function
   window.resetForm = function() {
-    const form = document.getElementById('lead-form');
+    const formId = activeFormType === 'landlord' ? 'landlord-lead-form'
+                 : activeFormType === 'report' ? 'report-lead-form'
+                 : 'lead-form';
+
+    const form = document.getElementById(formId);
     const successMessage = document.getElementById('success-message');
     const submitBtn = document.getElementById('submit-btn');
     const btnText = document.getElementById('btn-text');
@@ -332,11 +519,20 @@
 
     form.reset();
     form.classList.remove('hidden');
+    form.style.display = '';
     successMessage.classList.add('hidden');
+    successMessage.style.display = '';
     submitBtn.disabled = false;
-    btnText.classList.remove('hidden');
-    btnLoading.classList.add('hidden');
-    formMessage.classList.add('hidden');
+    if (btnText) {
+      btnText.classList.remove('hidden');
+    } else if (submitBtn.dataset.originalText) {
+      submitBtn.textContent = submitBtn.dataset.originalText;
+    }
+    if (btnLoading) btnLoading.classList.add('hidden');
+    if (formMessage) {
+      formMessage.classList.add('hidden');
+      formMessage.style.display = '';
+    }
 
     const advancedReqs = document.getElementById('advanced-requirements');
     if (advancedReqs) {
@@ -353,11 +549,16 @@
 
   // Global scroll to form function
   window.scrollToForm = function() {
-    const formSection = document.getElementById('lead-form-section');
+    const formSection = document.getElementById('lead-form-section')
+                     || document.getElementById('landlord-lead-form')
+                     || document.getElementById('report-lead-form');
     if (formSection) {
       formSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
       setTimeout(function() {
-        const form = document.getElementById('lead-form');
+        const formId = activeFormType === 'landlord' ? 'landlord-lead-form'
+                     : activeFormType === 'report' ? 'report-lead-form'
+                     : 'lead-form';
+        const form = document.getElementById(formId);
         if (form) {
           const firstInput = form.querySelector('select, input:not([type=hidden])');
           if (firstInput) {

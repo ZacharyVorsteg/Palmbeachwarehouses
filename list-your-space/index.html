@@ -1,0 +1,930 @@
+<!--
+  LANDLORD LISTING PAGE: For property owners seeking to list warehouse space
+  Purpose: Acquire landlord leads, drive market analysis form submissions
+  Form ID: landlord-lead-form (different from tenant lead-form)
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="List your warehouse or industrial property in Palm Beach County. Free market analysis. No upfront listing costs. Connect with 150+ active tenants seeking space.">
+    <meta name="keywords" content="list warehouse Palm Beach, landlord listing Palm Beach County, industrial property leasing FL, warehouse space for rent, list commercial property">
+    <title>List Your Warehouse Space | Palm Beach County | Free Market Analysis</title>
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://palmbeachwarehouses.com/list-your-space/">
+
+    <!-- Geo Tags for Local SEO -->
+    <meta name="geo.region" content="US-FL">
+    <meta name="geo.placename" content="Palm Beach County">
+    <meta name="geo.position" content="26.7153;-80.0534">
+    <meta name="ICBM" content="26.7153, -80.0534">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <!-- Open Graph (Facebook, LinkedIn, iMessage, etc.) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://palmbeachwarehouses.com/list-your-space/">
+    <meta property="og:title" content="List Your Warehouse Space | Free Market Analysis">
+    <meta property="og:description" content="List your warehouse or industrial property in Palm Beach County. Free market analysis. No upfront costs. Connect with 150+ active tenants.">
+    <meta property="og:image" content="https://palmbeachwarehouses.com/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Palm Beach Warehouses">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="List Your Warehouse Space | Free Market Analysis">
+    <meta name="twitter:description" content="Free market analysis for your warehouse property. No upfront listing costs. 45-day average lease-up. Contact Zach Vorsteg today.">
+    <meta name="twitter:image" content="https://palmbeachwarehouses.com/assets/og-image.png">
+    <meta name="twitter:creator" content="@palmbeachwarehouses">
+
+    <!-- Critical Inline CSS (from homepage) -->
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        :root {
+            --dark-bg: #1a1f33;
+            --darker-bg: #141824;
+            --card-bg: #1e2438;
+            --accent-blue: #3B93FF;
+            --primary-blue: #0057E0;
+            --primary-blue-light: #1a73e8;
+            --action-blue: #1a73e8;
+            --text-light: #e8eaed;
+            --text-gray: #c0c6cc;
+            --text-muted: #9ca3af;
+            --form-bg: #FFFFFF;
+            --form-border: #E5E5E5;
+            --form-text: #202124;
+            --success-green: #34A853;
+            --error-red: #D33B27;
+            --border-color: rgba(232, 234, 237, 0.12);
+            --line-color: rgba(255, 255, 255, 0.08);
+            --font-family: Inter, -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        body { background: var(--dark-bg); color: var(--text-light); font-family: var(--font-family); line-height: 1.6; }
+        a { color: inherit; text-decoration: none; }
+        button { font-family: inherit; }
+
+        /* Skip Link */
+        .skip-link { position: absolute; top: -40px; left: 0; background: var(--accent-blue); color: white; padding: 8px 16px; text-decoration: none; z-index: 100; border-radius: 0 0 6px 0; }
+        .skip-link:focus { top: 0; }
+
+        /* Header / Navigation */
+        header { background: var(--darker-bg); border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 50; }
+        .header-container { max-width: 1400px; margin: 0 auto; padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; }
+        .logo-section { display: flex; align-items: center; gap: 1rem; }
+        .logo-image { width: 40px; height: 40px; }
+        .logo-text { font-weight: 700; font-size: 0.95rem; line-height: 1.2; }
+        .logo-brand { color: var(--text-light); }
+        .logo-tagline { color: var(--text-gray); font-size: 0.75rem; }
+        .nav-desktop { display: flex; gap: 0; align-items: center; }
+        .nav-link { padding: 0.75rem 1.25rem; color: var(--text-light); font-size: 0.95rem; display: flex; align-items: center; gap: 0.5rem; position: relative; transition: color 0.2s; }
+        .nav-link:hover { color: var(--accent-blue); }
+        .nav-link.active { color: var(--accent-blue); }
+        .nav-dropdown { position: relative; }
+        .nav-dropdown > .nav-link::after { content: '▼'; font-size: 0.6rem; margin-left: 0.35rem; }
+        .nav-menu { position: absolute; top: 100%; left: 0; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 6px; min-width: 180px; padding: 0.5rem 0; display: none; }
+        .nav-dropdown:hover .nav-menu { display: block; }
+        .nav-menu a { display: block; padding: 0.75rem 1.25rem; color: var(--text-light); font-size: 0.9rem; transition: all 0.2s; }
+        .nav-menu a:hover { background: rgba(59, 147, 255, 0.1); color: var(--accent-blue); }
+        .nav-menu a.active { background: rgba(59, 147, 255, 0.15); color: var(--accent-blue); }
+        .nav-cta { margin-left: auto; display: flex; align-items: center; gap: 1rem; }
+        .phone-cta { color: var(--text-gray); font-size: 0.9rem; transition: color 0.2s; }
+        .phone-cta:hover { color: var(--accent-blue); }
+        .btn-primary { background: var(--accent-blue); color: white; padding: 0.65rem 1.5rem; border-radius: 6px; font-weight: 600; font-size: 0.9rem; border: none; cursor: pointer; transition: all 0.2s; }
+        .btn-primary:hover { background: var(--primary-blue); transform: translateY(-1px); }
+        .mobile-menu-btn { display: none; background: none; border: none; color: var(--text-light); font-size: 1.5rem; cursor: pointer; }
+        @media (max-width: 768px) {
+            .nav-desktop { display: none; }
+            .mobile-menu-btn { display: block; }
+            .nav-cta { margin-left: 0; gap: 0.5rem; }
+        }
+
+        /* Hero Section */
+        .hero { padding: 4rem 2rem; background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 100%); }
+        .hero-container { max-width: 1400px; margin: 0 auto; }
+        .hero-content { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+        .hero-left { }
+        .hero-left h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 1.25rem; line-height: 1.2; color: var(--text-light); }
+        .hero-left h1 .highlight { color: var(--accent-blue); }
+        .hero-subtitle { font-size: 1.1rem; color: var(--text-gray); margin-bottom: 2rem; line-height: 1.6; }
+        .features-compact { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+        .feature-compact { background: rgba(59, 147, 255, 0.05); border-left: 3px solid var(--accent-blue); padding: 1rem 1.25rem; border-radius: 6px; }
+        .feature-compact p { color: var(--text-gray); font-size: 0.95rem; line-height: 1.5; }
+        .hero-right { }
+
+        /* Form Styles */
+        .form-card { background: var(--form-bg); border-radius: 12px; padding: 2.5rem; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); }
+        .form-title { font-size: 1.5rem; font-weight: 700; color: var(--form-text); margin-bottom: 0.5rem; }
+        .form-subtitle { color: #666; font-size: 0.95rem; margin-bottom: 1.75rem; }
+        .form-group { margin-bottom: 1.25rem; }
+        .form-label { display: block; font-weight: 600; color: var(--form-text); font-size: 0.85rem; margin-bottom: 0.5rem; }
+        .form-input, .form-select { width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--form-border); border-radius: 6px; font-family: inherit; font-size: 0.95rem; color: var(--form-text); background: white; transition: border-color 0.2s; }
+        .form-input:focus, .form-select:focus { outline: none; border-color: var(--primary-blue); box-shadow: 0 0 0 3px rgba(0, 87, 224, 0.1); }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .form-divider { border-bottom: 1px solid var(--form-border); margin: 1.5rem 0; }
+        .agent-preview { background: #f5f5f5; border-radius: 8px; padding: 1.25rem; margin-bottom: 1.75rem; display: flex; gap: 1rem; align-items: flex-start; }
+        .agent-photo { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+        .agent-info { font-size: 0.9rem; }
+        .agent-name { font-weight: 700; color: var(--form-text); margin-bottom: 0.25rem; }
+        .agent-title { color: #666; font-size: 0.85rem; }
+        .submit-button { width: 100%; padding: 0.875rem; background: var(--primary-blue); color: white; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.95rem; transition: all 0.2s; }
+        .submit-button:hover { background: #0046b3; transform: translateY(-1px); }
+        .form-note, .form-privacy-note { font-size: 0.8rem; color: #666; text-align: center; margin-top: 1rem; }
+        .form-privacy-note { margin-top: 0.5rem; }
+        .alt-contact { text-align: center; margin-top: 1.5rem; }
+        .alt-contact-label { display: block; font-size: 0.85rem; color: #666; margin-bottom: 0.75rem; }
+        .alt-contact-buttons { display: flex; gap: 0.75rem; justify-content: center; }
+        .alt-contact-link { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.65rem 1.25rem; border: 1px solid var(--form-border); border-radius: 6px; color: var(--form-text); font-size: 0.9rem; font-weight: 600; transition: all 0.2s; }
+        .alt-contact-link:hover { border-color: var(--primary-blue); color: var(--primary-blue); }
+        .form-message { padding: 1rem; border-radius: 6px; margin-bottom: 1rem; font-size: 0.9rem; }
+        .form-message.error { background: #fee2e2; color: #c53030; border: 1px solid #f5a5a5; }
+        .form-message.success { background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; }
+        .hidden { display: none !important; }
+
+        /* Success Screen */
+        .success-screen { background: var(--form-bg); border-radius: 12px; padding: 2.5rem; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); text-align: center; }
+        .success-icon { width: 64px; height: 64px; margin: 0 auto 1.5rem; background: rgba(52, 168, 83, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--success-green); }
+        .success-icon svg { width: 32px; height: 32px; }
+        .success-screen h3 { font-size: 1.5rem; font-weight: 700; color: var(--form-text); margin-bottom: 0.75rem; }
+        .success-screen p { color: #666; margin-bottom: 1.5rem; }
+        .success-agent { background: #f5f5f5; border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; }
+        .success-headshot { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; margin-bottom: 0.75rem; }
+        .success-agent-name { font-weight: 700; color: var(--form-text); font-size: 0.95rem; }
+        .success-agent-title { font-size: 0.85rem; color: #666; margin-bottom: 0.75rem; }
+        .success-agent-phone { display: inline-block; color: var(--primary-blue); font-weight: 600; font-size: 0.9rem; }
+        .success-buttons { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1.5rem; }
+        .success-btn-primary { background: var(--primary-blue); color: white; padding: 0.875rem; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; text-align: center; transition: all 0.2s; }
+        .success-btn-primary:hover { background: #0046b3; }
+        .success-btn-secondary { background: transparent; color: var(--primary-blue); padding: 0.875rem; border: 1px solid var(--primary-blue); border-radius: 6px; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+        .success-btn-secondary:hover { background: rgba(0, 87, 224, 0.1); }
+
+        /* Trust Bar */
+        .trust-bar { background: rgba(0, 87, 224, 0.08); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); padding: 1.5rem 0; }
+        .trust-bar-inner { max-width: 1400px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; justify-content: flex-start; flex-wrap: wrap; gap: 1.5rem; }
+        .trust-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; color: var(--text-gray); }
+        .trust-icon { color: var(--accent-blue); display: flex; align-items: center; }
+        .trust-divider { width: 1px; height: 24px; background: var(--border-color); }
+        @media (max-width: 768px) {
+            .trust-bar-inner { gap: 1rem; }
+            .trust-divider { display: none; }
+        }
+
+        /* Landlord-specific Sections */
+        .landlord-section { padding: 4rem 2rem; }
+        .landlord-section-title { text-align: center; font-size: 2rem; font-weight: 700; color: var(--text-light); margin-bottom: 0.75rem; }
+        .landlord-section-sub { text-align: center; color: var(--text-gray); font-size: 1.05rem; margin-bottom: 2.5rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+
+        .value-props { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
+        .value-prop-card { background: var(--card-bg); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 2rem; }
+        .value-prop-card h3 { color: var(--accent-blue); font-size: 1.15rem; margin-bottom: 0.75rem; }
+        .value-prop-card p { color: var(--text-gray); font-size: 0.95rem; line-height: 1.6; }
+
+        .comparison-section { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
+        .comparison-table { width: 100%; border-collapse: collapse; background: var(--card-bg); border-radius: 12px; overflow: hidden; }
+        .comparison-table th { background: rgba(0, 87, 224, 0.15); padding: 1rem 1.25rem; text-align: left; font-weight: 600; color: var(--accent-blue); font-size: 0.9rem; }
+        .comparison-table td { padding: 0.875rem 1.25rem; border-bottom: 1px solid rgba(255, 255, 255, 0.06); font-size: 0.9rem; color: var(--text-gray); }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .comparison-check { color: var(--success-green); font-weight: 700; }
+        .comparison-x { color: var(--text-gray); opacity: 0.5; }
+
+        .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
+        .process-step { background: var(--card-bg); border-radius: 12px; padding: 1.5rem; border-left: 4px solid var(--accent-blue); }
+        .step-number { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: var(--accent-blue); color: white; border-radius: 50%; font-weight: 700; font-size: 1rem; margin-bottom: 1rem; }
+        .process-step h3 { color: var(--text-light); font-size: 1.05rem; margin-bottom: 0.5rem; }
+        .process-step p { color: var(--text-gray); font-size: 0.9rem; line-height: 1.5; }
+
+        .faq-list { max-width: 800px; margin: 0 auto; padding: 0 2rem; }
+        .faq-item { border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding: 1.5rem 0; }
+        .faq-item:last-child { border-bottom: none; }
+        .faq-q { font-weight: 600; color: var(--text-light); font-size: 1.05rem; margin-bottom: 0.5rem; cursor: pointer; }
+        .faq-a { color: var(--text-gray); font-size: 0.95rem; line-height: 1.6; }
+
+        .bottom-cta { background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 100%); padding: 4rem 2rem; text-align: center; }
+        .bottom-cta h2 { font-size: 2rem; font-weight: 700; color: var(--text-light); margin-bottom: 0.75rem; }
+        .bottom-cta p { color: var(--text-gray); font-size: 1.05rem; margin-bottom: 1.5rem; }
+        .bottom-cta .btn-primary { }
+
+        /* Footer */
+        .footer { background: var(--darker-bg); border-top: 1px solid var(--border-color); }
+        .footer-content { max-width: 1400px; margin: 0 auto; padding: 3rem 2rem; }
+        .footer-main { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2rem; margin-bottom: 3rem; }
+        .footer-brand { }
+        .footer-logo { font-weight: 700; font-size: 0.95rem; margin-bottom: 0.25rem; }
+        .footer-tagline { color: var(--text-gray); font-size: 0.8rem; margin-bottom: 1rem; }
+        .footer-desc { color: var(--text-gray); font-size: 0.85rem; line-height: 1.5; }
+        .footer-contact h4, .footer-areas h4, .footer-guides h4, .footer-cta-box h4 { font-size: 0.95rem; margin-bottom: 1rem; color: var(--text-light); font-weight: 600; }
+        .footer-contact a { display: block; color: var(--text-gray); font-size: 0.9rem; margin-bottom: 0.5rem; transition: color 0.2s; }
+        .footer-contact a:hover { color: var(--accent-blue); }
+        .footer-phone { font-weight: 600; }
+        .footer-hours { font-size: 0.8rem; color: var(--text-gray); line-height: 1.4; margin-top: 0.75rem; }
+        .footer-areas ul, .footer-guides ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+        .footer-areas a, .footer-guides a { color: var(--text-gray); font-size: 0.9rem; transition: color 0.2s; }
+        .footer-areas a:hover, .footer-guides a:hover { color: var(--accent-blue); }
+        .footer-cta-sub { color: var(--text-gray); font-size: 0.85rem; margin-bottom: 1rem; }
+        .footer-cta-btn { width: 100%; background: var(--accent-blue); color: white; padding: 0.75rem; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.9rem; margin-bottom: 0.75rem; }
+        .footer-cta-btn:hover { background: var(--primary-blue); }
+        .footer-phone-link { display: block; color: var(--text-gray); font-size: 0.85rem; text-align: center; }
+        .footer-legal { padding: 1.5rem 0; border-top: 1px solid var(--border-color); text-align: center; }
+        .footer-legal a, .footer-legal button { color: var(--text-gray); font-size: 0.8rem; transition: color 0.2s; }
+        .footer-legal a:hover, .footer-legal button:hover { color: var(--accent-blue); }
+        .footer-bottom { text-align: center; color: var(--text-gray); font-size: 0.75rem; padding-top: 1.5rem; }
+        .footer-eho { font-size: 0.75rem; margin-top: 0.5rem; }
+        .footer-copyright { margin-top: 0.5rem; }
+        @media (max-width: 768px) {
+            .footer-main { grid-template-columns: 1fr; }
+            .value-props { grid-template-columns: 1fr; }
+            .process-steps { grid-template-columns: 1fr; }
+            .comparison-table { font-size: 0.8rem; }
+            .comparison-table th, .comparison-table td { padding: 0.625rem 0.75rem; }
+        }
+    </style>
+
+    <!-- Link to main stylesheet -->
+    <link rel="stylesheet" href="/styles.css">
+
+    <!-- Preload fonts for performance -->
+    <link rel="preload" href="https://rsms.me/inter/inter.css" as="style">
+
+    <!-- GTM (Google Tag Manager) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K8H0L9J7R2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-K8H0L9J7R2');
+    </script>
+
+    <!-- Facebook Pixel -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1245057844149331');
+    fbq('track', 'PageView');
+    </script>
+    <noscript>
+    <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1245057844149331&ev=PageView&noscript=1"/>
+    </noscript>
+
+    <!-- UTM Capture Script -->
+    <script defer src="/utm-capture.js"></script>
+
+    <!-- Tracking Init -->
+    <script>
+        window.addEventListener('load', function() {
+            if (window.initializeTracking) { window.initializeTracking(); }
+        });
+    </script>
+</head>
+<body>
+    <!-- Skip to main content link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header / Navigation -->
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <picture>
+                    <source srcset="/assets/logo.webp" type="image/webp">
+                    <img src="/assets/logo.png" alt="Palm Beach Warehouses Logo" class="logo-image" width="40" height="40" loading="lazy" decoding="async">
+                </picture>
+                <div>
+                    <div class="logo-brand">INDUSTRIAL SPACE</div>
+                    <div class="logo-tagline">Palm Beach County</div>
+                </div>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <nav class="nav-desktop">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/#about" class="nav-link">About</a>
+                <a href="/list-your-space/" class="nav-link active">List Your Space</a>
+
+                <!-- Locations Dropdown -->
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-link">Locations</a>
+                    <div class="nav-menu">
+                        <a href="/locations/west-palm-beach/">West Palm Beach</a>
+                        <a href="/locations/boca-raton/">Boca Raton</a>
+                        <a href="/locations/delray-beach/">Delray Beach</a>
+                        <a href="/locations/lake-worth/">Lake Worth</a>
+                        <a href="/locations/boynton-beach/">Boynton Beach</a>
+                        <a href="/locations/jupiter/">Jupiter</a>
+                        <a href="/locations/riviera-beach/">Riviera Beach</a>
+                        <a href="/locations/royal-palm-beach/">Royal Palm Beach</a>
+                        <a href="/locations/lantana/">Lantana</a>
+                    </div>
+                </div>
+
+                <!-- Guides Dropdown -->
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-link">Guides</a>
+                    <div class="nav-menu">
+                        <a href="/guides/palm-beach-industrial-market/">Market Report 2026</a>
+                        <a href="/guides/how-to-lease-warehouse/">How to Lease</a>
+                        <a href="/guides/warehouse-sizing/">Warehouse Sizing</a>
+                        <a href="/guides/warehouse-vs-flex-space/">Warehouse vs Flex</a>
+                        <a href="/guides/nnn-leases/">NNN Leases</a>
+                        <a href="/guides/tenant-improvements/">Tenant Improvements</a>
+                        <a href="/guides/loading-dock-guide/">Loading Docks</a>
+                        <a href="/guides/cold-storage/">Cold Storage</a>
+                    </div>
+                </div>
+
+                <!-- List Your Space Link (Active) -->
+                <a href="/list-your-space/" class="nav-link active">List Your Space</a>
+            </nav>
+
+            <!-- Header CTA Section -->
+            <div class="nav-cta">
+                <a href="tel:561-718-6725" class="phone-cta">561-718-6725</a>
+                <button class="btn-primary" onclick="document.getElementById('lead-form-section').scrollIntoView({behavior: 'smooth'})">List Your Space</button>
+                <button class="mobile-menu-btn" aria-label="Toggle menu">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="hero-left">
+                        <h1>List Your Warehouse on Palm Beach County's <span class="highlight">#1 Platform</span></h1>
+                        <p class="hero-subtitle">Connect with active tenants searching for space right now. palmbeachwarehouses.com reaches more warehouse seekers than any other local platform.</p>
+
+                        <div class="features-compact">
+                            <div class="feature-compact">
+                                <p>Direct access to active tenant pipeline</p>
+                            </div>
+                            <div class="feature-compact">
+                                <p>#1 Google ranking for 'Palm Beach warehouses'</p>
+                            </div>
+                            <div class="feature-compact">
+                                <p>Average 45-day lease-up vs. 120+ industry average</p>
+                            </div>
+                            <div class="feature-compact">
+                                <p>Professional marketing at no upfront cost</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hero-right">
+                        <div class="form-card" id="lead-form-section">
+                            <h2 class="form-title">Get a Free Market Analysis</h2>
+                            <p class="form-subtitle">Find out what your space is worth and how fast it can lease.</p>
+
+                            <div class="agent-preview">
+                                <img src="/assets/headshot.jpg?v=1" alt="Zach Vorsteg - Commercial Real Estate Specialist" class="agent-photo" width="60" height="60" loading="lazy" decoding="async">
+                                <div class="agent-info">
+                                    <div class="agent-name">Zach Vorsteg</div>
+                                    <div class="agent-title">Licensed Specialist, Cornerstone Realty</div>
+                                </div>
+                            </div>
+
+                            <form id="landlord-lead-form" method="POST" action="/api/leads">
+                                <!-- Property Address -->
+                                <div class="form-group">
+                                    <label for="property_address" class="form-label">Property Address</label>
+                                    <input type="text" id="property_address" name="property_address" class="form-input" placeholder="123 Main Street" required>
+                                </div>
+
+                                <!-- City + Zip Row -->
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="property_city" class="form-label">City</label>
+                                        <select id="property_city" name="property_city" class="form-select" required>
+                                            <option value="">Select city</option>
+                                            <option value="West Palm Beach">West Palm Beach</option>
+                                            <option value="Boca Raton">Boca Raton</option>
+                                            <option value="Delray Beach">Delray Beach</option>
+                                            <option value="Lake Worth">Lake Worth</option>
+                                            <option value="Boynton Beach">Boynton Beach</option>
+                                            <option value="Jupiter">Jupiter</option>
+                                            <option value="Riviera Beach">Riviera Beach</option>
+                                            <option value="Royal Palm Beach">Royal Palm Beach</option>
+                                            <option value="Lantana">Lantana</option>
+                                            <option value="Other PBC">Other PBC</option>
+                                            <option value="Other South FL">Other South FL</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="property_zip" class="form-label">Zip Code</label>
+                                        <input type="text" id="property_zip" name="property_zip" class="form-input" placeholder="33401">
+                                    </div>
+                                </div>
+
+                                <!-- Square Footage + Property Type Row -->
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="property_size" class="form-label">Square Footage</label>
+                                        <select id="property_size" name="property_size" class="form-select" required>
+                                            <option value="">Select size range</option>
+                                            <option value="Under 2,500 SF">Under 2,500 SF</option>
+                                            <option value="2,500-5,000">2,500-5,000 SF</option>
+                                            <option value="5,000-10,000">5,000-10,000 SF</option>
+                                            <option value="10,000-25,000">10,000-25,000 SF</option>
+                                            <option value="25,000-50,000">25,000-50,000 SF</option>
+                                            <option value="50,000-100,000">50,000-100,000 SF</option>
+                                            <option value="100,000+">100,000+ SF</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="property_type" class="form-label">Property Type</label>
+                                        <select id="property_type" name="property_type" class="form-select" required>
+                                            <option value="">Select type</option>
+                                            <option value="Warehouse">Warehouse</option>
+                                            <option value="Flex Space">Flex Space</option>
+                                            <option value="Industrial">Industrial</option>
+                                            <option value="Office/Warehouse">Office/Warehouse</option>
+                                            <option value="Cold Storage">Cold Storage</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Divider -->
+                                <div class="form-divider"></div>
+
+                                <!-- Current Status + Timeline Row -->
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="property_status" class="form-label">Current Status</label>
+                                        <select id="property_status" name="property_status" class="form-select" required>
+                                            <option value="">Select status</option>
+                                            <option value="Vacant">Vacant</option>
+                                            <option value="Partially Occupied">Partially Occupied</option>
+                                            <option value="Fully Occupied - Lease Expiring">Fully Occupied - Lease Expiring</option>
+                                            <option value="Month-to-Month">Month-to-Month</option>
+                                            <option value="For Sale">For Sale</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="timeline" class="form-label">Timeline</label>
+                                        <select id="timeline" name="timeline" class="form-select" required>
+                                            <option value="">Select timeline</option>
+                                            <option value="List ASAP">List ASAP</option>
+                                            <option value="Within 30 days">Within 30 days</option>
+                                            <option value="Within 60 days">Within 60 days</option>
+                                            <option value="Just exploring options">Just exploring options</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Name + Company Row -->
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="name" class="form-label">Your Name</label>
+                                        <input type="text" id="name" name="name" class="form-input" placeholder="John Smith" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="company" class="form-label">Company</label>
+                                        <input type="text" id="company" name="company" class="form-input" placeholder="ABC Property Management">
+                                    </div>
+                                </div>
+
+                                <!-- Phone + Email Row -->
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="phone" class="form-label">Phone</label>
+                                        <input type="tel" id="phone" name="phone" class="form-input" placeholder="(561) 123-4567" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="email" id="email" name="email" class="form-input" placeholder="john@company.com" required>
+                                    </div>
+                                </div>
+
+                                <!-- Hidden lead source -->
+                                <input type="hidden" name="lead_source" value="landlord_listing">
+
+                                <!-- Submit Button -->
+                                <button type="submit" class="submit-button" id="submit-btn">
+                                    <span id="btn-text">Get Free Market Analysis</span>
+                                    <span id="btn-loading" class="hidden">Submitting...</span>
+                                </button>
+
+                                <p class="form-note">No obligation. Analysis within 24 hours. Confidential.</p>
+                                <p class="form-privacy-note">Your information is confidential and never shared with third parties.</p>
+
+                                <!-- Alt Contact Links -->
+                                <div class="alt-contact">
+                                    <span class="alt-contact-label">or reach out directly</span>
+                                    <div class="alt-contact-buttons">
+                                        <a href="tel:561-718-6725" class="alt-contact-link alt-contact-call">
+                                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                                            Call Zach
+                                        </a>
+                                        <a href="sms:561-718-6725&body=Hi%20Zach%2C%20I%27m%20a%20landlord%20interested%20in%20listing%20my%20warehouse%20space." class="alt-contact-link alt-contact-text">
+                                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                                            Text Zach
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div id="form-message" class="form-message hidden" role="status" aria-live="polite"></div>
+                            </form>
+
+                            <!-- Success Screen -->
+                            <div id="success-message" class="success-screen hidden">
+                                <div class="success-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
+                                <h3 id="success-headline">Property Received!</h3>
+                                <p id="success-subtitle">Zach will review your property details and call within 2 hours with a market analysis and next steps.</p>
+
+                                <div class="success-agent">
+                                    <img src="/assets/headshot.jpg?v=1" alt="Zach Vorsteg, Licensed Commercial Real Estate Broker" class="success-headshot" width="60" height="60" loading="lazy" decoding="async">
+                                    <div class="success-agent-name">Zach Vorsteg</div>
+                                    <div class="success-agent-title">Licensed Commercial Agent, Cornerstone Realty</div>
+                                    <a href="tel:561-718-6725" class="success-agent-phone">561-718-6725</a>
+                                </div>
+
+                                <div class="success-callout" id="success-callout" style="display:none;"></div>
+
+                                <div class="success-buttons">
+                                    <a href="/assets/Zach_Vorsteg_Contact.vcf" class="success-btn-primary">Save My Contact</a>
+                                    <a href="/" class="success-btn-secondary">Back to Home</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trust Bar -->
+        <div class="trust-bar">
+            <div class="trust-bar-inner">
+                <div class="trust-item">
+                    <span class="trust-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+                    <span>Licensed FL #SL3603483</span>
+                </div>
+                <div class="trust-divider"></div>
+                <div class="trust-item">
+                    <span class="trust-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+                    <span>Cornerstone Realty</span>
+                </div>
+                <div class="trust-divider"></div>
+                <div class="trust-item">
+                    <span class="trust-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+                    <span>Palm Beach County Specialist</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Why List With Zach Section -->
+        <section class="landlord-section" style="background: linear-gradient(135deg, rgba(0, 87, 224, 0.05) 0%, rgba(0, 0, 0, 0) 100%);">
+            <h2 class="landlord-section-title">Why Property Owners Choose Palm Beach Warehouses</h2>
+            <p class="landlord-section-sub">Listed on the #1 platform in Palm Beach County for industrial property owners seeking serious tenants.</p>
+
+            <div class="value-props">
+                <div class="value-prop-card">
+                    <h3>Direct Tenant Network</h3>
+                    <p>150+ active facility managers and logistics companies actively searching for space. No passive listings — we actively match.</p>
+                </div>
+                <div class="value-prop-card">
+                    <h3>#1 Digital Presence</h3>
+                    <p>palmbeachwarehouses.com ranks #1 on Google for warehouse space in Palm Beach County. Your property gets maximum visibility.</p>
+                </div>
+                <div class="value-prop-card">
+                    <h3>Fast Lease-Up</h3>
+                    <p>Average 45-day lease-up vs. 120+ day county average. Active marketing, weekly updates, real results.</p>
+                </div>
+                <div class="value-prop-card">
+                    <h3>Zero Upfront Cost</h3>
+                    <p>No listing fees, no marketing costs upfront. Commission is earned only when your space is leased.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison Table Section -->
+        <section class="landlord-section">
+            <h2 class="landlord-section-title">How We Compare</h2>
+            <p class="landlord-section-sub">See how Palm Beach Warehouses stacks up against traditional brokers.</p>
+
+            <div class="comparison-section">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Traditional Broker</th>
+                            <th>Palm Beach Warehouses</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Tenant Network</td>
+                            <td class="comparison-x">Passive MLS listing</td>
+                            <td class="comparison-check">Active pipeline of 150+ tenants</td>
+                        </tr>
+                        <tr>
+                            <td>Digital Marketing</td>
+                            <td class="comparison-x">Yard sign + MLS</td>
+                            <td class="comparison-check">#1 Google ranking + targeted ads</td>
+                        </tr>
+                        <tr>
+                            <td>Time to Lease</td>
+                            <td class="comparison-x">120+ days average</td>
+                            <td class="comparison-check">45 days average</td>
+                        </tr>
+                        <tr>
+                            <td>Market Reports</td>
+                            <td class="comparison-x">Quarterly at best</td>
+                            <td class="comparison-check">Monthly updates + weekly activity</td>
+                        </tr>
+                        <tr>
+                            <td>Communication</td>
+                            <td class="comparison-x">Call when there's news</td>
+                            <td class="comparison-check">Weekly updates, real-time feedback</td>
+                        </tr>
+                        <tr>
+                            <td>Upfront Costs</td>
+                            <td class="comparison-x">Varies</td>
+                            <td class="comparison-check">Zero — pay only at lease signing</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="landlord-section" style="background: linear-gradient(135deg, rgba(0, 87, 224, 0.05) 0%, rgba(0, 0, 0, 0) 100%);">
+            <h2 class="landlord-section-title">How It Works</h2>
+
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Free Consultation</h3>
+                    <p>15-minute call to understand your property, goals, and timeline.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Market Analysis</h3>
+                    <p>We pull comps, pricing data, and tenant demand for your specific submarket.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Active Marketing</h3>
+                    <p>Professional listing on palmbeachwarehouses.com, targeted ads, and direct tenant outreach.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Lease Signing</h3>
+                    <p>We handle showings, tenant vetting, and negotiation. You sign when the right tenant is found.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="landlord-section">
+            <h2 class="landlord-section-title">Frequently Asked Questions</h2>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-q">How much does it cost to list my space?</div>
+                    <div class="faq-a">Nothing upfront. Our commission is earned only when your space is leased. Standard brokerage commission applies at lease signing.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">How long does it take to lease?</div>
+                    <div class="faq-a">In the current Palm Beach market (6.8% industrial vacancy), our average lease-up time is 45 days. Small-bay spaces under 10,000 SF often lease even faster due to ultra-tight 2.3% vacancy.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">Do I need an exclusive listing agreement?</div>
+                    <div class="faq-a">We offer both exclusive and co-broke arrangements. Most landlords prefer exclusive because it guarantees our full marketing effort — but we're flexible based on your situation.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">How do you vet tenants?</div>
+                    <div class="faq-a">Every inquiry is pre-qualified. We verify business legitimacy, check references, and assess financial capacity before scheduling showings. You only meet serious prospects.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">What if my space needs renovation?</div>
+                    <div class="faq-a">We'll give honest feedback on market-rate potential before and after improvements. Many spaces lease as-is in this market.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">Can you help with investment sales too?</div>
+                    <div class="faq-a">Yes. We handle both leasing and sales of industrial properties in Palm Beach County. Whether you want to lease, sell, or explore your options, we can advise.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bottom CTA Section -->
+        <section class="bottom-cta">
+            <h2>Ready to List Your Space?</h2>
+            <p>Get a free market analysis and see what your property is worth.</p>
+            <button class="btn-primary" onclick="document.getElementById('lead-form-section').scrollIntoView({behavior: 'smooth'})">Get Free Market Analysis</button>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <div class="footer-logo">INDUSTRIAL SPACE</div>
+                    <div class="footer-tagline">Palm Beach County</div>
+                    <p class="footer-desc">Helping property owners and businesses find the perfect warehouse, flex, and industrial space in Palm Beach County.</p>
+                </div>
+                <div class="footer-contact">
+                    <h4>Get In Touch</h4>
+                    <a href="tel:561-718-6725" class="footer-phone">561-718-6725</a>
+                    <a href="mailto:zach@cri-re.com" class="footer-email">zach@cri-re.com</a>
+                    <p class="footer-hours">Available Mon-Fri 8am-6pm<br>Weekends by appointment</p>
+                </div>
+                <div class="footer-areas">
+                    <h4>Service Areas</h4>
+                    <ul>
+                        <li><a href="/locations/west-palm-beach/">West Palm Beach</a></li>
+                        <li><a href="/locations/boca-raton/">Boca Raton</a></li>
+                        <li><a href="/locations/delray-beach/">Delray Beach</a></li>
+                        <li><a href="/locations/lake-worth/">Lake Worth</a></li>
+                        <li><a href="/locations/boynton-beach/">Boynton Beach</a></li>
+                        <li><a href="/locations/jupiter/">Jupiter</a></li>
+                        <li><a href="/locations/riviera-beach/">Riviera Beach</a></li>
+                        <li><a href="/locations/royal-palm-beach/">Royal Palm Beach</a></li>
+                        <li><a href="/locations/lantana/">Lantana</a></li>
+                    </ul>
+                </div>
+                <div class="footer-guides">
+                    <h4>For Owners</h4>
+                    <ul>
+                        <li><a href="/list-your-space/">List Your Space</a></li>
+                        <li><a href="/guides/palm-beach-industrial-market/">Market Report 2026</a></li>
+                        <li><a href="/guides/nnn-leases/">NNN Leases</a></li>
+                        <li><a href="/guides/tenant-improvements/">Tenant Improvements</a></li>
+                        <li><a href="/guides/loading-dock-guide/">Loading Docks</a></li>
+                        <li><a href="/guides/cold-storage/">Cold Storage</a></li>
+                        <li><a href="/guides/warehouse-sizing/">Warehouse Sizing</a></li>
+                        <li><a href="/guides/warehouse-vs-flex-space/">Warehouse vs Flex</a></li>
+                    </ul>
+                </div>
+                <div class="footer-cta-box">
+                    <h4>Ready to List?</h4>
+                    <p class="footer-cta-sub">Get a free market analysis. Zero upfront costs.</p>
+                    <button class="footer-cta-btn" onclick="document.getElementById('lead-form-section').scrollIntoView({behavior: 'smooth'})">Get Market Analysis</button>
+                    <a href="tel:561-718-6725" class="footer-phone-link">or call 561-718-6725</a>
+                </div>
+            </div>
+            <div class="footer-legal">
+                <p><a href="/privacy/">Privacy Policy</a> | <a href="/terms/">Terms of Service</a> | <button type="button" onclick="window.showCookieSettings && window.showCookieSettings()" style="background:none;border:none;color:inherit;font:inherit;cursor:pointer;padding:12px 16px;min-width:48px;min-height:48px;margin:0 8px;text-decoration:underline;display:inline-block;">Cookie Settings</button> | <a href="/privacy/#do-not-sell">Do Not Sell My Personal Information</a></p>
+            </div>
+            <div class="footer-bottom">
+                <p>Zach Vorsteg | Licensed Sales Associate #SL3603483 | Cornerstone Realty | Palm Beach County, FL</p>
+                <p class="footer-eho">Equal Housing Opportunity</p>
+                <p class="footer-copyright">&copy; 2025-2026 Palm Beach Warehouses. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts (deferred) -->
+    <script defer src="/app.js?v=91"></script>
+    <script defer src="/qualification.js?v=91"></script>
+    <script defer src="/cookie-consent.js?v=91"></script>
+    <script defer src="/crm-integration.js?v=91"></script>
+    <script defer src="/nav-script.js?v=91"></script>
+
+    <!-- Structured Data / Schema Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "RealEstateAgent",
+        "@id": "https://palmbeachwarehouses.com/#agent",
+        "name": "Zach Vorsteg - Palm Beach Warehouses",
+        "alternateName": "Palm Beach Warehouses",
+        "description": "Commercial real estate specialist for warehouse, flex, and industrial space leasing and sales in Palm Beach County, Florida. Expert landlord and tenant representation.",
+        "url": "https://palmbeachwarehouses.com",
+        "telephone": "+1-561-718-6725",
+        "email": "zach@cri-re.com",
+        "image": "https://palmbeachwarehouses.com/assets/headshot.jpg",
+        "logo": "https://palmbeachwarehouses.com/assets/logo.png",
+        "priceRange": "$$$$",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "West Palm Beach",
+            "addressRegion": "FL",
+            "postalCode": "33401",
+            "addressCountry": "US"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 26.7153,
+            "longitude": -80.0534
+        },
+        "areaServed": [
+            {"@type": "City", "name": "West Palm Beach", "containedInPlace": {"@type": "State", "name": "Florida"}},
+            {"@type": "City", "name": "Boca Raton", "containedInPlace": {"@type": "State", "name": "Florida"}},
+            {"@type": "City", "name": "Delray Beach", "containedInPlace": {"@type": "State", "name": "Florida"}},
+            {"@type": "City", "name": "Boynton Beach", "containedInPlace": {"@type": "State", "name": "Florida"}},
+            {"@type": "City", "name": "Lake Worth", "containedInPlace": {"@type": "State", "name": "Florida"}},
+            {"@type": "City", "name": "Jupiter", "containedInPlace": {"@type": "State", "name": "Florida"}},
+            {"@type": "City", "name": "Lantana", "containedInPlace": {"@type": "State", "name": "Florida"}},
+            {"@type": "City", "name": "Royal Palm Beach", "containedInPlace": {"@type": "State", "name": "Florida"}},
+            {"@type": "City", "name": "Riviera Beach", "containedInPlace": {"@type": "State", "name": "Florida"}}
+        ],
+        "openingHoursSpecification": [
+            {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "08:00", "closes": "18:00"}
+        ],
+        "hasCredential": {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "Real Estate License",
+            "recognizedBy": {"@type": "Organization", "name": "Florida Department of Business and Professional Regulation"},
+            "validIn": {"@type": "State", "name": "Florida"},
+            "credentialId": "SL3603483"
+        },
+        "memberOf": {"@type": "Organization", "name": "Cornerstone Realty"},
+        "knowsAbout": ["Warehouse Leasing", "Industrial Real Estate", "Flex Space", "Commercial Property", "Tenant Representation", "Landlord Representation", "Distribution Centers", "NNN Leases"],
+        "foundingDate": "2021",
+        "numberOfEmployees": 1,
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+1-561-718-6725",
+            "contactType": "sales",
+            "email": "zach@cri-re.com",
+            "availableLanguage": "English",
+            "areaServed": "Palm Beach County, FL"
+        },
+        "sameAs": ["https://www.instagram.com/palmbeachwarehouses/"],
+        "slogan": "Free listing platform for warehouse and industrial property owners in Palm Beach County",
+        "makesOffer": [
+            {
+                "@type": "Offer",
+                "itemOffered": {"@type": "Service", "name": "Landlord Representation & Listing Services", "description": "Professional warehouse and industrial property leasing and marketing. Commission earned at lease signing."},
+                "price": "Commission at Lease",
+                "priceCurrency": "USD"
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": {"@type": "Service", "name": "Market Analysis", "description": "Free market analysis for industrial properties."},
+                "price": "0",
+                "priceCurrency": "USD"
+            }
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How much does it cost to list my space?",
+                "acceptedAnswer": {"@type": "Answer", "text": "Nothing upfront. Our commission is earned only when your space is leased. Standard brokerage commission applies at lease signing."}
+            },
+            {
+                "@type": "Question",
+                "name": "How long does it take to lease?",
+                "acceptedAnswer": {"@type": "Answer", "text": "In the current Palm Beach market (6.8% industrial vacancy), our average lease-up time is 45 days. Small-bay spaces under 10,000 SF often lease even faster due to ultra-tight 2.3% vacancy."}
+            },
+            {
+                "@type": "Question",
+                "name": "Do I need an exclusive listing agreement?",
+                "acceptedAnswer": {"@type": "Answer", "text": "We offer both exclusive and co-broke arrangements. Most landlords prefer exclusive because it guarantees our full marketing effort — but we're flexible based on your situation."}
+            },
+            {
+                "@type": "Question",
+                "name": "How do you vet tenants?",
+                "acceptedAnswer": {"@type": "Answer", "text": "Every inquiry is pre-qualified. We verify business legitimacy, check references, and assess financial capacity before scheduling showings. You only meet serious prospects."}
+            },
+            {
+                "@type": "Question",
+                "name": "What if my space needs renovation?",
+                "acceptedAnswer": {"@type": "Answer", "text": "We'll give honest feedback on market-rate potential before and after improvements. Many spaces lease as-is in this market."}
+            },
+            {
+                "@type": "Question",
+                "name": "Can you help with investment sales too?",
+                "acceptedAnswer": {"@type": "Answer", "text": "Yes. We handle both leasing and sales of industrial properties in Palm Beach County. Whether you want to lease, sell, or explore your options, we can advise."}
+            }
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://palmbeachwarehouses.com/"},
+            {"@type": "ListItem", "position": 2, "name": "List Your Space", "item": "https://palmbeachwarehouses.com/list-your-space/"}
+        ]
+    }
+    </script>
+</body>
+</html>

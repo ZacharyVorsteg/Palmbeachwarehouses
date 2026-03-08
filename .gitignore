@@ -40,3 +40,9 @@ build/
 LIGHTHOUSE_AUDIT_2026-02-28.txt
 audit_report.txt
 *.report.html
+
+# Strategy docs (internal only, don't deploy)
+STRATEGY_SUMMARY.md
+LANDLORD_*.md
+IMPLEMENTATION_CHECKLIST.md
+COMPLETION_REPORT.md
