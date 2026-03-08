@@ -1,0 +1,13 @@
+{
+  "name": "palmbeachwarehouses-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Palm Beach Warehouses - Industrial Real Estate",
+  "scripts": {
+    "build": "node build-blog.js",
+    "new-post": "node new-post.js"
+  },
+  "dependencies": {
+    "marked": "^15.0.0"
+  }
+}

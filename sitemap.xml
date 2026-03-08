@@ -193,4 +193,48 @@
         <priority>0.3</priority>
     </url>
 
+
+    <!-- Blog Articles -->
+    <url>
+        <loc>https://palmbeachwarehouses.com/blog/</loc>
+        <lastmod>2026-03-08</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://palmbeachwarehouses.com/blog/commercial-zoning-warehouse-palm-beach-county/</loc>
+        <lastmod>2026-03-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://palmbeachwarehouses.com/blog/industrial-parks-palm-beach-county-comparison/</loc>
+        <lastmod>2026-03-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://palmbeachwarehouses.com/blog/park-of-commerce-jupiter-tenant-guide/</loc>
+        <lastmod>2026-03-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://palmbeachwarehouses.com/blog/south-florida-industrial-market-outlook-2026/</loc>
+        <lastmod>2026-03-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://palmbeachwarehouses.com/blog/warehouse-clear-height-guide/</loc>
+        <lastmod>2026-03-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://palmbeachwarehouses.com/blog/warehouse-space-cost-palm-beach-county/</loc>
+        <lastmod>2026-03-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
 </urlset>

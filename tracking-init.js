@@ -32,6 +32,9 @@
   gtag('js', new Date());
   gtag('config', GADS_ID);
 
+  // GA4 — Add measurement ID when GA4 property is created
+  // gtag('config', 'G-XXXXXXXXXX');
+
   // Legacy compat — cookie-consent.js may call this
   window.__loadTracking = function() {};
 })();

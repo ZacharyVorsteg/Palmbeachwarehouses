@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{TITLE}} | Palm Beach Warehouses</title>
+    <meta name="description" content="{{DESCRIPTION}}" />
+    <meta name="keywords" content="{{KEYWORDS}}">
+    <meta name="author" content="Zachary Vorsteg">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="canonical" href="https://palmbeachwarehouses.com/blog/{{SLUG}}/">
+
+    <!-- Geo Tags for Local SEO -->
+    <meta name="geo.region" content="US-FL">
+    <meta name="geo.placename" content="Palm Beach County">
+    <meta name="geo.position" content="26.7153;-80.0534">
+    <meta name="ICBM" content="26.7153, -80.0534">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://palmbeachwarehouses.com/blog/{{SLUG}}/">
+    <meta property="og:title" content="{{TITLE}} | Palm Beach Warehouses">
+    <meta property="og:description" content="{{DESCRIPTION}}">
+    <meta property="og:image" content="https://palmbeachwarehouses.com/assets/og-image.png">
+    <meta property="og:image:alt" content="{{TITLE}}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Palm Beach Warehouses">
+    <meta property="og:locale" content="en_US">
+    <meta property="article:published_time" content="{{DATE}}">
+    <meta property="article:modified_time" content="{{DATE}}">
+    <meta property="article:author" content="Zachary Vorsteg">
+    <meta property="article:section" content="{{PILLAR}}">
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{TITLE}} | Palm Beach Warehouses">
+    <meta name="twitter:description" content="{{DESCRIPTION}}">
+    <meta name="twitter:image" content="https://palmbeachwarehouses.com/assets/og-image.png">
+
+    <style>:root{--primary-blue: #0057E0;--primary-blue-light: #4EA8FF;--primary-blue-dark: #0056B3;--dark-bg: #1a1f33;--darker-bg: #141824;--card-bg: #1e2438;--accent-blue: #3B93FF;--text-light: #e8eaed;--text-gray: #c0c6cc;--action-blue: #1a73e8;--action-blue-dark: #1557b0;--action-blue-light: #4285f4;--error-red: #dc3545;--success-green: #22c55e;--form-bg: #FFFFFF;--form-border: #E5E5E5;--form-border-focus: #007AFF;--form-text: #212529;--form-label: #212529;--form-placeholder: #6B7280;--form-shadow-focus: rgba(0, 122, 255, .1);--spacing-xs: 4px;--spacing-sm: 8px;--spacing-md: 12px;--spacing-lg: 16px;--spacing-xl: 24px;--radius-sm: 6px;--radius-md: 8px;--radius-lg: 12px;--radius-xl: 16px}*{margin:0;padding:0;box-sizing:border-box}body{font-family:Inter,-apple-system,BlinkMacSystemFont,SF Pro Display,Segoe UI,Roboto,sans-serif;line-height:1.6;color:var(--text-light);background:var(--dark-bg);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}html,body{overflow-x:hidden;width:100%}main{position:relative}*:focus-visible{outline:2px solid var(--accent-blue);outline-offset:2px}*:focus:not(:focus-visible){outline:none}.brand-name{font-size:1.25rem;font-weight:700;letter-spacing:.5px;color:var(--accent-blue)}.cta-button{background:var(--primary-blue);color:#fff;border:none;padding:.75rem 1.5rem;border-radius:6px;font-weight:600;font-size:.95rem;cursor:pointer;transition:all .2s}.cta-button:hover{background:var(--primary-blue-dark);transform:translateY(-2px);box-shadow:0 4px 12px #1a73e84d}.header{background:var(--dark-bg);padding:.75rem 2rem;box-shadow:0 2px 10px #0000001a;position:fixed;top:0;left:0;right:0;z-index:9999;height:70px}.header-container{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:2rem}.header-cta{display:flex;align-items:center;gap:1rem}.logo{display:flex;align-items:center;gap:.75rem}.logo-img{height:50px;width:auto;border-radius:12px}.logo-text{color:#fff}.mobile-menu-btn{display:none;background:none;border:none;color:var(--text-light);cursor:pointer;padding:.5rem;z-index:1001}.mobile-menu-btn span{display:block;width:22px;height:2px;background:currentColor;margin:5px 0;transition:all .3s}.mobile-menu-btn.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}.mobile-menu-btn.open span:nth-child(2){opacity:0}.mobile-menu-btn.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}.nav-desktop{display:flex;gap:.25rem;align-items:center}.nav-desktop>a{color:var(--text-light);text-decoration:none;font-weight:500;font-size:.9rem;transition:color .2s;padding:.5rem .75rem}.nav-desktop>a:hover,.nav-desktop>a.active{color:var(--accent-blue)}.nav-dropdown{position:relative}.nav-dropdown-menu{display:none;position:absolute;top:100%;left:0;background:var(--dark-bg);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:.5rem 0;min-width:220px;box-shadow:0 8px 24px #0000004d;z-index:1000}.nav-dropdown-menu a{display:block;color:var(--text-gray);text-decoration:none;padding:.5rem 1.25rem;font-size:.85rem;transition:all .15s}.nav-dropdown-menu a:hover{color:var(--accent-blue);background:#ffffff0d}.nav-dropdown-toggle{color:var(--text-light);text-decoration:none;font-weight:500;font-size:.9rem;padding:.5rem .75rem;cursor:pointer;background:none;border:none;display:flex;align-items:center;gap:.3rem;transition:color .2s}.nav-dropdown-toggle svg{width:12px;height:12px;transition:transform .2s}.nav-dropdown-toggle:hover,.nav-dropdown.open .nav-dropdown-toggle{color:var(--accent-blue)}.nav-dropdown.open .nav-dropdown-menu{display:block}.nav-dropdown.open .nav-dropdown-toggle svg{transform:rotate(180deg)}.phone-btn{display:flex;align-items:center;gap:.5rem;background:var(--action-blue);color:#fff;padding:.75rem 1.25rem;border-radius:50px;text-decoration:none;font-weight:600;transition:all .2s}.phone-btn .phone-icon{flex-shrink:0}.phone-btn:hover{background:var(--action-blue-dark);transform:scale(1.05)}.tagline{font-size:.75rem;color:var(--text-gray)}@media(min-width:769px){html,body{overflow:visible;height:auto}main{height:auto;overflow:visible}}</style>
+    <link rel="stylesheet" href="/styles.css?v=94">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <style>
+        .guide-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            margin-top: 70px;
+        }
+        .guide-content h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-light);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        .guide-meta {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .guide-meta .pillar-badge {
+            background: var(--action-blue);
+            color: #fff;
+            padding: 0.2rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .guide-content h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-light);
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+        }
+        .guide-content h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--accent-blue);
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+        }
+        .guide-content p {
+            color: var(--text-gray);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+        .guide-content ul, .guide-content ol {
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+        .guide-content li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+        .guide-content strong {
+            color: var(--text-light);
+        }
+        .guide-content a {
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+        .guide-content a:hover {
+            text-decoration: underline;
+        }
+        .guide-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0 2rem;
+            font-size: 0.95rem;
+        }
+        .guide-content th {
+            background: var(--card-bg);
+            color: var(--accent-blue);
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid rgba(255,255,255,0.1);
+        }
+        .guide-content td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            color: var(--text-gray);
+        }
+        .guide-content tr:hover td {
+            background: rgba(255,255,255,0.02);
+        }
+        .guide-content blockquote {
+            border-left: 3px solid var(--accent-blue);
+            margin: 1.5rem 0;
+            padding: 1rem 1.5rem;
+            background: rgba(59,147,255,0.05);
+            border-radius: 0 8px 8px 0;
+        }
+        .guide-content blockquote p {
+            margin-bottom: 0;
+        }
+        .guide-content code {
+            background: var(--card-bg);
+            padding: 0.15rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+        .guide-cta {
+            background: var(--card-bg);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 3rem;
+            text-align: center;
+        }
+        .guide-cta h3 {
+            color: var(--text-light) !important;
+            font-size: 1.5rem !important;
+            margin-top: 0 !important;
+        }
+        .guide-cta p {
+            max-width: 600px;
+            margin: 0.5rem auto 1.5rem;
+        }
+        .guide-disclaimer {
+            margin-top: 2rem;
+            padding: 1.25rem;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 8px;
+            font-size: 0.8rem;
+            color: #9aa0a6;
+            line-height: 1.6;
+        }
+        .related-articles {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .related-articles h3 {
+            color: var(--text-light) !important;
+            margin-top: 0 !important;
+        }
+        .related-articles ul {
+            list-style: none;
+            padding: 0;
+        }
+        .related-articles li {
+            margin-bottom: 0.75rem;
+        }
+        .related-articles a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .related-articles a:hover {
+            text-decoration: underline;
+        }
+        .breadcrumb {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+        }
+        .breadcrumb a {
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .inline-cta {
+            background: linear-gradient(135deg, rgba(0,87,224,0.1), rgba(59,147,255,0.1));
+            border: 1px solid rgba(59,147,255,0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        .inline-cta p {
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+            color: var(--text-light);
+        }
+        .inline-cta a {
+            display: inline-block;
+            background: var(--action-blue);
+            color: #fff;
+            padding: 0.6rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .inline-cta a:hover {
+            background: var(--action-blue-dark);
+            transform: translateY(-1px);
+            text-decoration: none;
+        }
+        @media (max-width: 768px) {
+            .guide-content { padding: 1rem; }
+            .guide-content h1 { font-size: 1.75rem; }
+            .guide-content h2 { font-size: 1.35rem; }
+            .guide-content table { font-size: 0.8rem; }
+            .guide-content th, .guide-content td { padding: 0.5rem; }
+        }
+    </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "{{TITLE}}",
+        "description": "{{DESCRIPTION}}",
+        "author": {
+            "@type": "Person",
+            "name": "Zachary Vorsteg",
+            "jobTitle": "Licensed Commercial Real Estate Broker",
+            "url": "https://palmbeachwarehouses.com/about/"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Palm Beach Warehouses",
+            "url": "https://palmbeachwarehouses.com",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://palmbeachwarehouses.com/assets/logo.png"
+            }
+        },
+        "datePublished": "{{DATE}}",
+        "dateModified": "{{DATE}}",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://palmbeachwarehouses.com/blog/{{SLUG}}/"
+        },
+        "articleSection": "{{PILLAR}}",
+        "about": {
+            "@type": "Thing",
+            "name": "Industrial Real Estate",
+            "description": "Warehouse and industrial property leasing in Palm Beach County, Florida"
+        }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://palmbeachwarehouses.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://palmbeachwarehouses.com/blog/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "{{TITLE}}",
+                "item": "https://palmbeachwarehouses.com/blog/{{SLUG}}/"
+            }
+        ]
+    }
+    </script>
+
+    <script defer src="/utm-capture.js?v=91"></script>
+    <script>window.addEventListener('load',function(){var s=document.createElement('script');s.src='/tracking-init.js';document.head.appendChild(s)})</script>
+</head>
+<body>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1245057844149331&ev=PageView&noscript=1" alt="" /></noscript>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="/" style="display:flex;align-items:center;gap:.75rem;text-decoration:none">
+                <picture><source srcset="/assets/logo.webp" type="image/webp"><img src="/assets/logo.png" alt="Palm Beach Warehouses" class="logo-img" width="180" height="50" decoding="async"></picture>
+                <div class="logo-text">
+                    <div class="brand-name">INDUSTRIAL SPACE</div>
+                    <div class="tagline">Palm Beach County</div>
+                </div>
+                </a>
+            </div>
+            <nav class="nav-desktop">
+                <a href="/">Home</a>
+                <a href="/about/">About</a>
+                <a href="/list-your-space/">List Your Space</a>
+                <a href="/sell-your-property/">Sell Your Property</a>
+                <div class="nav-dropdown">
+                    <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">Locations <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg></button>
+                    <div class="nav-dropdown-menu" role="menu">
+                        <a href="/locations/boca-raton/" role="menuitem">Boca Raton</a>
+                        <a href="/locations/west-palm-beach/" role="menuitem">West Palm Beach</a>
+                        <a href="/locations/delray-beach/" role="menuitem">Delray Beach</a>
+                        <a href="/locations/lake-worth/" role="menuitem">Lake Worth</a>
+                        <a href="/locations/boynton-beach/" role="menuitem">Boynton Beach</a>
+                        <a href="/locations/jupiter/" role="menuitem">Jupiter</a>
+                        <a href="/locations/riviera-beach/" role="menuitem">Riviera Beach</a>
+                        <a href="/locations/royal-palm-beach/" role="menuitem">Royal Palm Beach</a>
+                        <a href="/locations/lantana/" role="menuitem">Lantana</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">Guides <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg></button>
+                    <div class="nav-dropdown-menu" role="menu">
+                        <a href="/guides/palm-beach-industrial-market/" role="menuitem">Market Report 2026</a>
+                        <a href="/guides/how-to-lease-warehouse/" role="menuitem">How to Lease</a>
+                        <a href="/guides/warehouse-sizing/" role="menuitem">Warehouse Sizing</a>
+                        <a href="/guides/warehouse-vs-flex-space/" role="menuitem">Warehouse vs Flex</a>
+                        <a href="/guides/nnn-leases/" role="menuitem">NNN Leases</a>
+                        <a href="/guides/tenant-improvements/" role="menuitem">Tenant Improvements</a>
+                        <a href="/guides/loading-dock-guide/" role="menuitem">Loading Docks</a>
+                        <a href="/guides/cold-storage/" role="menuitem">Cold Storage</a>
+                    </div>
+                </div>
+                <a href="/blog/" class="active">Blog</a>
+            </nav>
+            <button type="button" class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false" onclick="toggleMobileMenu()">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="header-cta">
+                <a href="tel:561-718-6725" class="phone-btn">
+                    <svg class="phone-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    561-718-6725
+                </a>
+                <a href="/#lead-form" class="cta-button">Get Matched Now</a>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <article class="guide-content">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="/">Home</a> &rsaquo; <a href="/blog/">Blog</a> &rsaquo; {{TITLE}}
+            </nav>
+
+            <h1>{{TITLE}}</h1>
+
+            <div class="guide-meta">
+                <span class="pillar-badge">{{PILLAR}}</span>
+                <span>By Zachary Vorsteg</span>
+                <span>{{DATE_FORMATTED}}</span>
+                <span>{{READ_TIME}}</span>
+            </div>
+
+            {{CONTENT}}
+
+            <div class="guide-disclaimer">
+                <strong>Disclaimer:</strong> This article is for informational purposes only and does not constitute legal, financial, or real estate advice. Market rates, lease terms, and property specifications referenced are estimates based on publicly available data and may not reflect current conditions. Always consult with a licensed professional before making leasing or purchasing decisions. Zachary Vorsteg is a licensed real estate sales associate (License #SL3603483) with Cornerstone Realty, Palm Beach County, FL.
+            </div>
+
+            <div class="guide-cta">
+                <h3>Need Help Finding the Right Space?</h3>
+                <p>I specialize in warehouse and industrial leasing in Palm Beach County. Whether you need 1,500 SF or 50,000 SF, I'll match you with the right space at the right price. Landlords pay my fee — you pay nothing.</p>
+                <a href="tel:561-718-6725" class="phone-btn" style="display:inline-flex;margin-bottom:1rem">
+                    <svg class="phone-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    Call 561-718-6725
+                </a>
+                <br>
+                <a href="/" style="color:var(--accent-blue);text-decoration:none;font-weight:500">Or submit your requirements online &rarr;</a>
+            </div>
+
+            <div class="related-articles">
+                <h3>Related Articles</h3>
+                <ul>{{RELATED_ARTICLES}}
+                </ul>
+            </div>
+
+        </article>
+    </main>
+
+    <footer class="footer enhanced-footer">
+        <div class="footer-content">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <div class="footer-logo">INDUSTRIAL SPACE</div>
+                    <div class="footer-tagline">Palm Beach County</div>
+                    <p class="footer-desc">Helping businesses find warehouse and industrial space. Landlords pay my fee - you pay nothing.</p>
+                </div>
+                <div class="footer-contact">
+                    <h4>Get In Touch</h4>
+                    <a href="tel:561-718-6725" class="footer-phone">561-718-6725</a>
+                    <a href="mailto:zach@cri-re.com" class="footer-email">zach@cri-re.com</a>
+                    <p class="footer-hours">Mon-Fri 8am-6pm<br>Weekends by appointment</p>
+                </div>
+                <div class="footer-areas">
+                    <h4>Service Areas</h4>
+                    <ul>
+                        <li><a href="/locations/west-palm-beach/">West Palm Beach</a></li>
+                        <li><a href="/locations/boca-raton/">Boca Raton</a></li>
+                        <li><a href="/locations/delray-beach/">Delray Beach</a></li>
+                        <li><a href="/locations/lake-worth/">Lake Worth</a></li>
+                        <li><a href="/locations/boynton-beach/">Boynton Beach</a></li>
+                        <li><a href="/locations/jupiter/">Jupiter</a></li>
+                        <li><a href="/locations/riviera-beach/">Riviera Beach</a></li>
+                        <li><a href="/locations/royal-palm-beach/">Royal Palm Beach</a></li>
+                        <li><a href="/locations/lantana/">Lantana</a></li>
+                    </ul>
+                </div>
+                <div class="footer-guides">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="/blog/">Blog</a></li>
+                        <li><a href="/guides/palm-beach-industrial-market/">Market Report 2026</a></li>
+                        <li><a href="/guides/how-to-lease-warehouse/">How to Lease</a></li>
+                        <li><a href="/guides/warehouse-sizing/">Warehouse Sizing</a></li>
+                        <li><a href="/guides/nnn-leases/">NNN Leases</a></li>
+                        <li><a href="/guides/cold-storage/">Cold Storage</a></li>
+                        <li><a href="/guides/loading-dock-guide/">Loading Docks</a></li>
+                    </ul>
+                </div>
+                <div class="footer-cta-box">
+                    <h4>Need Space?</h4>
+                    <a href="/" class="footer-cta-btn">Submit Your Requirements</a>
+                    <p class="footer-guarantee">Free service - landlords pay my fee</p>
+                </div>
+            </div>
+            <div class="footer-legal">
+                <p><a href="/privacy/">Privacy Policy</a> | <a href="/terms/">Terms of Service</a> | <button type="button" onclick="window.showCookieSettings && window.showCookieSettings()" style="background:none;border:none;color:inherit;font:inherit;cursor:pointer;padding:0;text-decoration:underline;">Cookie Settings</button> | <a href="/privacy/#do-not-sell">Do Not Sell My Personal Information</a></p>
+            </div>
+            <div class="footer-bottom">
+                <p>Zachary Vorsteg | Licensed Sales Associate #SL3603483 | Cornerstone Realty | Palm Beach County, FL</p>
+                <p class="footer-eho">Equal Housing Opportunity</p>
+                <p class="footer-copyright">&copy; 2025-2026 Palm Beach Warehouses. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-nav-overlay" id="mobileNav">
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+        <a href="/blog/">Blog</a>
+        <div class="mobile-nav-section">
+            <h4>Locations</h4>
+            <a href="/locations/boca-raton/">Boca Raton</a>
+            <a href="/locations/west-palm-beach/">West Palm Beach</a>
+            <a href="/locations/delray-beach/">Delray Beach</a>
+            <a href="/locations/lake-worth/">Lake Worth</a>
+            <a href="/locations/boynton-beach/">Boynton Beach</a>
+            <a href="/locations/jupiter/">Jupiter</a>
+            <a href="/locations/riviera-beach/">Riviera Beach</a>
+            <a href="/locations/royal-palm-beach/">Royal Palm Beach</a>
+            <a href="/locations/lantana/">Lantana</a>
+        </div>
+        <div class="mobile-nav-section">
+            <h4>Guides</h4>
+            <a href="/guides/palm-beach-industrial-market/">Market Report 2026</a>
+            <a href="/guides/how-to-lease-warehouse/">How to Lease</a>
+            <a href="/guides/warehouse-sizing/">Warehouse Sizing</a>
+            <a href="/guides/warehouse-vs-flex-space/">Warehouse vs Flex</a>
+            <a href="/guides/nnn-leases/">NNN Leases</a>
+            <a href="/guides/tenant-improvements/">Tenant Improvements</a>
+            <a href="/guides/loading-dock-guide/">Loading Docks</a>
+            <a href="/guides/cold-storage/">Cold Storage</a>
+        </div>
+        <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1);">
+            <a href="tel:561-718-6725" style="color: var(--accent-blue); font-weight: 600;">Call 561-718-6725</a>
+        </div>
+    </div>
+
+    <!-- Nav Dropdown + Mobile Menu JS -->
+    <script>
+    document.querySelectorAll('.nav-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const dropdown = btn.parentElement;
+            const wasOpen = dropdown.classList.contains('open');
+            document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+            if (!wasOpen) dropdown.classList.add('open');
+            btn.setAttribute('aria-expanded', !wasOpen);
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+    });
+    function toggleMobileMenu() {
+        const btn = document.querySelector('.mobile-menu-btn');
+        const nav = document.getElementById('mobileNav');
+        btn.classList.toggle('open');
+        nav.classList.toggle('open');
+        document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+    }
+
+    // Track blog article engagement
+    if (typeof fbq !== 'undefined') {
+        fbq('track', 'ViewContent', {
+            content_name: '{{TITLE}}',
+            content_type: 'blog_article',
+            content_ids: ['blog-{{SLUG}}']
+        });
+    }
+    </script>
+
+    <script defer src="/cookie-consent.js"></script>
+</body>
+</html>

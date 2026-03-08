@@ -29,10 +29,14 @@ yarn-error.log*
 .env.local
 .env.*.local
 
-# Build Output (if you add build tools later)
+# Build Output
 dist/
 build/
 .cache/
+node_modules/
+
+# Generated blog HTML (rebuilt on deploy)
+blog/*/
 
 # Netlify
 .netlify/
