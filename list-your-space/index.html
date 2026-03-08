@@ -106,6 +106,23 @@
             .nav-desktop { display: none; }
             .mobile-menu-btn { display: block; }
             .nav-cta { margin-left: 0; gap: 0.5rem; }
+            .hero { padding: 2rem 1rem; }
+            .hero-content { grid-template-columns: 1fr; gap: 1.5rem; }
+            .hero-left h1 { font-size: 1.75rem; }
+            .hero-subtitle { font-size: 0.95rem; margin-bottom: 1.25rem; }
+            .features-compact { grid-template-columns: 1fr; gap: 0.75rem; }
+            .form-card { padding: 1.5rem; }
+            .form-title { font-size: 1.25rem; }
+            .form-row { grid-template-columns: 1fr; gap: 1rem; }
+            .agent-preview { flex-direction: column; align-items: center; text-align: center; }
+            .alt-contact-buttons { flex-direction: column; }
+            .landlord-section { padding: 2.5rem 1rem; }
+            .landlord-section-title { font-size: 1.5rem; }
+            .bottom-cta { padding: 2.5rem 1rem; }
+            .bottom-cta h2 { font-size: 1.5rem; }
+            .header-container { padding: 0.75rem 1rem; }
+            .btn-primary { padding: 0.5rem 1rem; font-size: 0.85rem; }
+            .phone-cta { font-size: 0.8rem; }
         }
 
         /* Hero Section */
@@ -254,41 +271,16 @@
     <!-- Preload fonts for performance -->
     <link rel="preload" href="https://rsms.me/inter/inter.css" as="style">
 
-    <!-- GTM (Google Tag Manager) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K8H0L9J7R2"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-K8H0L9J7R2');
-    </script>
-
-    <!-- Facebook Pixel -->
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1245057844149331');
-    fbq('track', 'PageView');
-    </script>
-    <noscript>
-    <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1245057844149331&ev=PageView&noscript=1"/>
-    </noscript>
-
     <!-- UTM Capture Script -->
     <script defer src="/utm-capture.js"></script>
 
-    <!-- Tracking Init -->
-    <script>
-        window.addEventListener('load', function() {
-            if (window.initializeTracking) { window.initializeTracking(); }
-        });
-    </script>
+    <!-- Tracking Init (Facebook Pixel + Google Ads) -->
+    <script>window.addEventListener('load',function(){var s=document.createElement('script');s.src='/tracking-init.js';document.head.appendChild(s)})</script>
+
+    <!-- Facebook Pixel noscript fallback -->
+    <noscript>
+    <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1245057844149331&ev=PageView&noscript=1"/>
+    </noscript>
 </head>
 <body>
     <!-- Skip to main content link -->
@@ -313,6 +305,7 @@
                 <a href="/" class="nav-link">Home</a>
                 <a href="/#about" class="nav-link">About</a>
                 <a href="/list-your-space/" class="nav-link active">List Your Space</a>
+                <a href="/sell-your-property/" class="nav-link">Sell Your Property</a>
 
                 <!-- Locations Dropdown -->
                 <div class="nav-dropdown">
@@ -344,16 +337,13 @@
                         <a href="/guides/cold-storage/">Cold Storage</a>
                     </div>
                 </div>
-
-                <!-- List Your Space Link (Active) -->
-                <a href="/list-your-space/" class="nav-link active">List Your Space</a>
             </nav>
 
             <!-- Header CTA Section -->
             <div class="nav-cta">
                 <a href="tel:561-718-6725" class="phone-cta">561-718-6725</a>
                 <button class="btn-primary" onclick="document.getElementById('lead-form-section').scrollIntoView({behavior: 'smooth'})">List Your Space</button>
-                <button class="mobile-menu-btn" aria-label="Toggle menu">☰</button>
+                <button class="mobile-menu-btn" aria-label="Toggle menu" onclick="toggleMobileMenu()">☰</button>
             </div>
         </div>
     </header>
@@ -926,5 +916,104 @@
         ]
     }
     </script>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav-overlay" id="mobileNav">
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+        <a href="/list-your-space/" class="active">List Your Space</a>
+        <a href="/sell-your-property/">Sell Your Property</a>
+        <div class="mobile-nav-section">
+            <h4>Locations</h4>
+            <a href="/locations/boca-raton/">Boca Raton</a>
+            <a href="/locations/west-palm-beach/">West Palm Beach</a>
+            <a href="/locations/delray-beach/">Delray Beach</a>
+            <a href="/locations/lake-worth/">Lake Worth</a>
+            <a href="/locations/boynton-beach/">Boynton Beach</a>
+            <a href="/locations/jupiter/">Jupiter</a>
+            <a href="/locations/riviera-beach/">Riviera Beach</a>
+            <a href="/locations/royal-palm-beach/">Royal Palm Beach</a>
+            <a href="/locations/lantana/">Lantana</a>
+        </div>
+        <div class="mobile-nav-section">
+            <h4>Guides</h4>
+            <a href="/guides/palm-beach-industrial-market/">Market Report 2026</a>
+            <a href="/guides/how-to-lease-warehouse/">How to Lease</a>
+            <a href="/guides/warehouse-sizing/">Warehouse Sizing</a>
+            <a href="/guides/warehouse-vs-flex-space/">Warehouse vs Flex</a>
+            <a href="/guides/nnn-leases/">NNN Leases</a>
+            <a href="/guides/tenant-improvements/">Tenant Improvements</a>
+            <a href="/guides/loading-dock-guide/">Loading Docks</a>
+            <a href="/guides/cold-storage/">Cold Storage</a>
+        </div>
+        <a href="/market-report/">Free Market Report</a>
+        <a href="tel:561-718-6725" style="color: var(--accent-blue); font-weight: 600;">Call: 561-718-6725</a>
+    </div>
+
+    <style>
+        .mobile-nav-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--darker-bg);
+            z-index: 49;
+            padding: 5rem 2rem 2rem;
+            overflow-y: auto;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+        .mobile-nav-overlay.open {
+            display: flex;
+        }
+        .mobile-nav-overlay > a {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            font-weight: 500;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .mobile-nav-overlay > a.active {
+            color: var(--accent-blue);
+        }
+        .mobile-nav-section {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .mobile-nav-section h4 {
+            color: var(--text-gray);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+        .mobile-nav-section a {
+            display: block;
+            color: var(--text-light);
+            font-size: 0.95rem;
+            padding: 0.4rem 0 0.4rem 1rem;
+        }
+    </style>
+
+    <!-- Mobile Menu JS -->
+    <script>
+    function toggleMobileMenu() {
+        var btn = document.querySelector('.mobile-menu-btn');
+        var nav = document.getElementById('mobileNav');
+        if (btn.textContent.trim() === '☰') {
+            btn.textContent = '✕';
+            nav.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        } else {
+            btn.textContent = '☰';
+            nav.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+    }
+    </script>
+
+
 </body>
 </html>

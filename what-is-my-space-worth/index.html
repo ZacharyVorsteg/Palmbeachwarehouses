@@ -1,0 +1,995 @@
+<!--
+  VALUATION TOOL PAGE: For property owners seeking a free valuation estimate
+  Purpose: Acquire landlord leads before they're ready to list
+  Form ID: valuation-lead-form (captures contact + all property data for custom analysis)
+  Tool Flow: 3-step wizard (Property Basics → Features & Condition → Results + Lead Capture)
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free warehouse valuation in Palm Beach County. Get estimated lease rates, market value, and comps. No obligation. Instant results.">
+    <meta name="keywords" content="warehouse valuation Palm Beach, industrial property value, what is my warehouse worth, commercial property appraisal, lease rate calculator">
+    <title>What Is My Warehouse Worth? | Free Palm Beach County Valuation | PBW</title>
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://palmbeachwarehouses.com/what-is-my-space-worth/">
+
+    <!-- Geo Tags for Local SEO -->
+    <meta name="geo.region" content="US-FL">
+    <meta name="geo.placename" content="Palm Beach County">
+    <meta name="geo.position" content="26.7153;-80.0534">
+    <meta name="ICBM" content="26.7153, -80.0534">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <!-- Open Graph (Facebook, LinkedIn, iMessage, etc.) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://palmbeachwarehouses.com/what-is-my-space-worth/">
+    <meta property="og:title" content="What Is My Warehouse Worth? | Free Valuation">
+    <meta property="og:description" content="Get a free warehouse valuation estimate in Palm Beach County. See your property's estimated lease rate and market value. No obligation.">
+    <meta property="og:image" content="https://palmbeachwarehouses.com/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Palm Beach Warehouses - Warehouse Valuation Tool">
+    <meta property="og:site_name" content="Palm Beach Warehouses">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="What Is My Warehouse Worth? | Free Valuation">
+    <meta name="twitter:description" content="Free warehouse valuation for your property. Enter details and get instant lease rate estimates. No obligation. Try it now.">
+    <meta name="twitter:image" content="https://palmbeachwarehouses.com/assets/og-image.png">
+    <meta name="twitter:creator" content="@palmbeachwarehouses">
+
+    <!-- hreflang for international SEO -->
+    <link rel="alternate" hreflang="en-US" href="https://palmbeachwarehouses.com/what-is-my-space-worth/">
+    <link rel="alternate" hreflang="x-default" href="https://palmbeachwarehouses.com/what-is-my-space-worth/">
+
+    <!-- Author & article metadata -->
+    <meta name="author" content="Zach Vorsteg">
+    <meta property="article:author" content="Zach Vorsteg">
+    <meta property="article:modified_time" content="2026-03-07">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+    <!-- Critical Inline CSS (from homepage) -->
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        :root {
+            --dark-bg: #1a1f33;
+            --darker-bg: #141824;
+            --card-bg: #1e2438;
+            --accent-blue: #3B93FF;
+            --primary-blue: #0057E0;
+            --primary-blue-light: #1a73e8;
+            --action-blue: #1a73e8;
+            --text-light: #e8eaed;
+            --text-gray: #c0c6cc;
+            --text-muted: #9ca3af;
+            --form-bg: #FFFFFF;
+            --form-border: #E5E5E5;
+            --form-text: #202124;
+            --success-green: #34A853;
+            --error-red: #D33B27;
+            --border-color: rgba(232, 234, 237, 0.12);
+            --line-color: rgba(255, 255, 255, 0.08);
+            --font-family: Inter, -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        body { background: var(--dark-bg); color: var(--text-light); font-family: var(--font-family); line-height: 1.6; }
+        a { color: inherit; text-decoration: none; }
+        button { font-family: inherit; }
+
+        /* Skip Link */
+        .skip-link { position: absolute; top: -40px; left: 0; background: var(--accent-blue); color: white; padding: 8px 16px; text-decoration: none; z-index: 100; border-radius: 0 0 6px 0; }
+        .skip-link:focus { top: 0; }
+
+        /* Header / Navigation */
+        header { background: var(--darker-bg); border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 50; }
+        .header-container { max-width: 1400px; margin: 0 auto; padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; }
+        .logo-section { display: flex; align-items: center; gap: 1rem; }
+        .logo-image { width: 40px; height: 40px; }
+        .logo-text { font-weight: 700; font-size: 0.95rem; line-height: 1.2; }
+        .logo-brand { color: var(--text-light); }
+        .logo-tagline { color: var(--text-gray); font-size: 0.75rem; }
+        .nav-desktop { display: flex; gap: 0; align-items: center; }
+        .nav-link { padding: 0.75rem 1.25rem; color: var(--text-light); font-size: 0.95rem; display: flex; align-items: center; gap: 0.5rem; position: relative; transition: color 0.2s; }
+        .nav-link:hover { color: var(--accent-blue); }
+        .nav-link.active { color: var(--accent-blue); }
+        .nav-dropdown { position: relative; }
+        .nav-dropdown > .nav-link::after { content: '▼'; font-size: 0.6rem; margin-left: 0.35rem; }
+        .nav-menu { position: absolute; top: 100%; left: 0; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 6px; min-width: 180px; padding: 0.5rem 0; display: none; z-index: 1000; }
+        .nav-dropdown:hover .nav-menu { display: block; }
+        .nav-menu a { display: block; padding: 0.75rem 1.25rem; color: var(--text-light); font-size: 0.9rem; transition: all 0.2s; }
+        .nav-menu a:hover { background: rgba(59, 147, 255, 0.1); color: var(--accent-blue); }
+        .nav-menu a.active { background: rgba(59, 147, 255, 0.15); color: var(--accent-blue); }
+        .nav-cta { margin-left: auto; display: flex; align-items: center; gap: 1rem; }
+        .phone-cta { color: var(--text-gray); font-size: 0.9rem; transition: color 0.2s; }
+        .phone-cta:hover { color: var(--accent-blue); }
+        .btn-primary { background: var(--accent-blue); color: white; padding: 0.65rem 1.5rem; border-radius: 6px; font-weight: 600; font-size: 0.9rem; border: none; cursor: pointer; transition: all 0.2s; }
+        .btn-primary:hover { background: var(--primary-blue); transform: translateY(-1px); }
+        .mobile-menu-btn { display: none; background: none; border: none; color: var(--text-light); font-size: 1.5rem; cursor: pointer; }
+        @media (max-width: 768px) {
+            .nav-desktop { display: none; }
+            .mobile-menu-btn { display: block; }
+            .nav-cta { margin-left: 0; gap: 0.5rem; }
+        }
+
+        /* Hero Section */
+        .hero { padding: 4rem 2rem; background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 100%); }
+        .hero-container { max-width: 1400px; margin: 0 auto; }
+        .hero-content { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+        .hero-left { }
+        .hero-left h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 1.25rem; line-height: 1.2; color: var(--text-light); }
+        .hero-left h1 .highlight { color: var(--accent-blue); }
+        .hero-subtitle { font-size: 1.1rem; color: var(--text-gray); margin-bottom: 2rem; line-height: 1.6; }
+        .features-compact { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+        .feature-compact { background: rgba(59, 147, 255, 0.05); border-left: 3px solid var(--accent-blue); padding: 1rem 1.25rem; border-radius: 6px; }
+        .feature-compact p { color: var(--text-gray); font-size: 0.95rem; line-height: 1.5; }
+        .hero-right { }
+
+        /* Form Styles */
+        .form-card { background: var(--form-bg); border-radius: 12px; padding: 2.5rem; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); }
+        .form-title { font-size: 1.5rem; font-weight: 700; color: var(--form-text); margin-bottom: 0.5rem; }
+        .form-subtitle { color: #666; font-size: 0.95rem; margin-bottom: 1.75rem; }
+        .form-group { margin-bottom: 1.25rem; }
+        .form-label { display: block; font-weight: 600; color: var(--form-text); font-size: 0.85rem; margin-bottom: 0.5rem; }
+        .form-input, .form-select { width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--form-border); border-radius: 6px; font-family: inherit; font-size: 0.95rem; color: var(--form-text); background: white; transition: border-color 0.2s; }
+        .form-input:focus, .form-select:focus { outline: none; border-color: var(--primary-blue); box-shadow: 0 0 0 3px rgba(0, 87, 224, 0.1); }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .form-divider { border-bottom: 1px solid var(--form-border); margin: 1.5rem 0; }
+        .form-checkbox { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; }
+        .form-checkbox input { width: 18px; height: 18px; cursor: pointer; }
+        .form-checkbox label { cursor: pointer; color: var(--form-text); font-size: 0.95rem; }
+        .checkbox-group { background: rgba(59, 147, 255, 0.05); padding: 1rem; border-radius: 6px; border-left: 3px solid var(--accent-blue); margin-bottom: 1.5rem; }
+        .checkbox-group-title { font-weight: 600; color: var(--form-text); margin-bottom: 1rem; font-size: 0.95rem; }
+        .form-radio { display: flex; gap: 1.5rem; margin-bottom: 1rem; }
+        .radio-option { display: flex; align-items: center; gap: 0.5rem; }
+        .radio-option input { width: 18px; height: 18px; cursor: pointer; }
+        .radio-option label { cursor: pointer; color: var(--form-text); font-size: 0.95rem; }
+        .submit-button { width: 100%; padding: 0.875rem; background: var(--primary-blue); color: white; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.95rem; transition: all 0.2s; }
+        .submit-button:hover { background: #0046b3; transform: translateY(-1px); }
+        .submit-button:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+        .form-note { font-size: 0.8rem; color: #666; text-align: center; margin-top: 1rem; }
+        .agent-preview { background: #f5f5f5; border-radius: 8px; padding: 1.25rem; margin-bottom: 1.75rem; display: flex; gap: 1rem; align-items: flex-start; }
+        .agent-photo { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+        .agent-info { font-size: 0.9rem; }
+        .agent-name { font-weight: 700; color: var(--form-text); margin-bottom: 0.25rem; }
+        .agent-title { color: #666; font-size: 0.85rem; }
+        .hidden { display: none !important; }
+
+        /* Success Screen */
+        .success-screen { background: var(--form-bg); border-radius: 12px; padding: 2.5rem; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); text-align: center; }
+        .success-icon { width: 64px; height: 64px; margin: 0 auto 1.5rem; background: rgba(52, 168, 83, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--success-green); }
+        .success-icon svg { width: 32px; height: 32px; }
+        .success-screen h3 { font-size: 1.5rem; font-weight: 700; color: var(--form-text); margin-bottom: 0.75rem; }
+        .success-screen p { color: #666; margin-bottom: 1.5rem; }
+        .success-agent { background: #f5f5f5; border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; }
+        .success-headshot { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; margin-bottom: 0.75rem; }
+        .success-agent-name { font-weight: 700; color: var(--form-text); font-size: 0.95rem; }
+        .success-agent-title { font-size: 0.85rem; color: #666; margin-bottom: 0.75rem; }
+        .success-agent-phone { display: inline-block; color: var(--primary-blue); font-weight: 600; font-size: 0.9rem; }
+        .success-buttons { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1.5rem; }
+        .success-btn-primary { background: var(--primary-blue); color: white; padding: 0.875rem; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; text-align: center; transition: all 0.2s; }
+        .success-btn-primary:hover { background: #0046b3; }
+
+        /* Results Display */
+        .valuation-results { background: var(--form-bg); border-radius: 12px; padding: 2.5rem; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); margin-bottom: 2rem; }
+        .results-title { font-size: 1.5rem; font-weight: 700; color: var(--form-text); margin-bottom: 2rem; text-align: center; }
+        .result-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-bottom: 2rem; }
+        .result-item { border: 1px solid var(--form-border); border-radius: 8px; padding: 1.5rem; text-align: center; }
+        .result-label { font-size: 0.85rem; color: #666; font-weight: 600; margin-bottom: 0.5rem; }
+        .result-value { font-size: 1.75rem; font-weight: 700; color: var(--primary-blue); }
+        .result-subtext { font-size: 0.8rem; color: #999; margin-top: 0.5rem; }
+        .market-position { grid-column: 1 / -1; background: rgba(59, 147, 255, 0.05); border: 1px solid rgba(59, 147, 255, 0.2); border-radius: 8px; padding: 1.5rem; }
+        .market-position-label { color: #666; font-size: 0.9rem; margin-bottom: 0.75rem; }
+        .market-position-text { color: var(--form-text); font-size: 1.1rem; font-weight: 600; }
+
+        /* Wizard Navigation */
+        .wizard-nav { display: flex; gap: 1rem; justify-content: space-between; margin-top: 2rem; }
+        .btn-back { background: transparent; color: var(--primary-blue); border: 1px solid var(--primary-blue); padding: 0.75rem 1.5rem; border-radius: 6px; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+        .btn-back:hover { background: rgba(0, 87, 224, 0.1); }
+        .btn-next { background: var(--primary-blue); color: white; padding: 0.75rem 1.5rem; border-radius: 6px; font-weight: 600; border: none; cursor: pointer; transition: all 0.2s; flex: 1; }
+        .btn-next:hover { background: #0046b3; transform: translateY(-1px); }
+
+        /* Form message */
+        .form-message { padding: 1rem; border-radius: 6px; margin-bottom: 1rem; font-size: 0.9rem; }
+        .form-message.error { background: #fee2e2; color: #c53030; border: 1px solid #f5a5a5; }
+
+        /* Wizard step tracking */
+        .wizard-steps { display: flex; gap: 1rem; margin-bottom: 2rem; align-items: center; }
+        .step-indicator { width: 40px; height: 40px; background: rgba(59, 147, 255, 0.1); border: 2px solid var(--accent-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent-blue); font-weight: 700; font-size: 0.95rem; }
+        .step-indicator.active { background: var(--accent-blue); color: white; }
+        .step-indicator.completed { background: var(--success-green); border-color: var(--success-green); color: white; }
+        .step-connector { height: 2px; background: rgba(59, 147, 255, 0.2); flex: 1; }
+        .step-label { font-size: 0.85rem; color: var(--text-gray); }
+        .step-label.active { color: var(--accent-blue); font-weight: 600; }
+
+        /* FAQ Section */
+        .faq-section { max-width: 1000px; margin: 0 auto; padding: 4rem 2rem; }
+        .faq-title { font-size: 2rem; font-weight: 700; color: var(--text-light); margin-bottom: 0.75rem; text-align: center; }
+        .faq-subtitle { color: var(--text-gray); font-size: 1.05rem; margin-bottom: 2.5rem; text-align: center; }
+        .faq-list { }
+        .faq-item { border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding: 1.5rem 0; }
+        .faq-item:last-child { border-bottom: none; }
+        .faq-q { font-weight: 600; color: var(--text-light); font-size: 1.05rem; margin-bottom: 0.5rem; cursor: pointer; }
+        .faq-a { color: var(--text-gray); font-size: 0.95rem; line-height: 1.6; }
+
+        /* Footer */
+        .footer { background: var(--darker-bg); border-top: 1px solid var(--border-color); }
+        .footer-content { max-width: 1400px; margin: 0 auto; padding: 3rem 2rem; }
+        .footer-main { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2rem; margin-bottom: 3rem; }
+        .footer-brand { }
+        .footer-logo { font-weight: 700; font-size: 0.95rem; margin-bottom: 0.25rem; }
+        .footer-tagline { color: var(--text-gray); font-size: 0.8rem; margin-bottom: 1rem; }
+        .footer-desc { color: var(--text-gray); font-size: 0.85rem; line-height: 1.5; }
+        .footer-contact h4, .footer-areas h4, .footer-guides h4, .footer-cta-box h4 { font-size: 0.95rem; margin-bottom: 1rem; color: var(--text-light); font-weight: 600; }
+        .footer-contact a { display: block; color: var(--text-gray); font-size: 0.9rem; margin-bottom: 0.5rem; transition: color 0.2s; }
+        .footer-contact a:hover { color: var(--accent-blue); }
+        .footer-phone { font-weight: 600; }
+        .footer-hours { font-size: 0.8rem; color: var(--text-gray); line-height: 1.4; margin-top: 0.75rem; }
+        .footer-areas ul, .footer-guides ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+        .footer-areas a, .footer-guides a { color: var(--text-gray); font-size: 0.9rem; transition: color 0.2s; }
+        .footer-areas a:hover, .footer-guides a:hover { color: var(--accent-blue); }
+        .footer-cta-sub { color: var(--text-gray); font-size: 0.85rem; margin-bottom: 1rem; }
+        .footer-cta-btn { width: 100%; background: var(--accent-blue); color: white; padding: 0.75rem; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.9rem; margin-bottom: 0.75rem; }
+        .footer-cta-btn:hover { background: var(--primary-blue); }
+        .footer-phone-link { display: block; color: var(--text-gray); font-size: 0.85rem; text-align: center; }
+        .footer-legal { padding: 1.5rem 0; border-top: 1px solid var(--border-color); text-align: center; }
+        .footer-legal a, .footer-legal button { color: var(--text-gray); font-size: 0.8rem; transition: color 0.2s; }
+        .footer-legal a:hover, .footer-legal button:hover { color: var(--accent-blue); }
+        .footer-bottom { text-align: center; color: var(--text-gray); font-size: 0.75rem; padding-top: 1.5rem; }
+        .footer-eho { font-size: 0.75rem; margin-top: 0.5rem; }
+        .footer-copyright { margin-top: 0.5rem; }
+
+        @media (max-width: 768px) {
+            .footer-main { grid-template-columns: 1fr; }
+            .result-grid { grid-template-columns: 1fr; }
+            .hero-content { grid-template-columns: 1fr; gap: 2rem; }
+            .hero-left h1 { font-size: 1.75rem; }
+            .form-row { grid-template-columns: 1fr; gap: 1rem; }
+            .features-compact { grid-template-columns: 1fr; }
+            .form-card { padding: 1.5rem; }
+            .wizard-nav { flex-direction: column; }
+            .wizard-nav .btn-back, .wizard-nav .btn-next { width: 100%; }
+        }
+
+        @media (max-width: 480px) {
+            .hero { padding: 2rem 1rem; }
+            .hero-left h1 { font-size: 1.35rem; }
+            .form-title { font-size: 1.25rem; }
+            .faq-title { font-size: 1.5rem; }
+            .form-card { padding: 1rem; }
+            .form-input, .form-select { font-size: 16px; }
+            .hero-subtitle { font-size: 0.95rem; }
+        }
+    </style>
+
+    <!-- Link to main stylesheet -->
+    <link rel="stylesheet" href="/styles.css">
+
+    <!-- Tracking (FB Pixel + Google Ads) -->
+    <script>window.addEventListener('load',function(){var s=document.createElement('script');s.src='/tracking-init.js';document.head.appendChild(s)})</script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1245057844149331&ev=PageView&noscript=1"/></noscript>
+
+    <!-- UTM Capture Script -->
+    <script defer src="/utm-capture.js?v=91"></script>
+</head>
+<body>
+    <!-- Skip to main content link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header / Navigation -->
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <picture>
+                    <source srcset="/assets/logo.webp" type="image/webp">
+                    <img src="/assets/logo.png" alt="Palm Beach Warehouses Logo" class="logo-image" width="40" height="40" loading="lazy" decoding="async">
+                </picture>
+                <div>
+                    <div class="logo-brand">INDUSTRIAL SPACE</div>
+                    <div class="logo-tagline">Palm Beach County</div>
+                </div>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <nav class="nav-desktop">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/#about" class="nav-link">About</a>
+                <a href="/list-your-space/" class="nav-link">List Your Space</a>
+                <a href="/sell-your-property/" class="nav-link">Sell Your Property</a>
+
+                <!-- Locations Dropdown -->
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-link">Locations</a>
+                    <div class="nav-menu">
+                        <a href="/locations/west-palm-beach/">West Palm Beach</a>
+                        <a href="/locations/boca-raton/">Boca Raton</a>
+                        <a href="/locations/delray-beach/">Delray Beach</a>
+                        <a href="/locations/lake-worth/">Lake Worth</a>
+                        <a href="/locations/boynton-beach/">Boynton Beach</a>
+                        <a href="/locations/jupiter/">Jupiter</a>
+                        <a href="/locations/riviera-beach/">Riviera Beach</a>
+                        <a href="/locations/royal-palm-beach/">Royal Palm Beach</a>
+                        <a href="/locations/lantana/">Lantana</a>
+                    </div>
+                </div>
+
+                <!-- Guides Dropdown -->
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-link">Guides</a>
+                    <div class="nav-menu">
+                        <a href="/guides/palm-beach-industrial-market/">Market Report 2026</a>
+                        <a href="/guides/how-to-lease-warehouse/">How to Lease</a>
+                        <a href="/guides/warehouse-sizing/">Warehouse Sizing</a>
+                        <a href="/guides/warehouse-vs-flex-space/">Warehouse vs Flex</a>
+                        <a href="/guides/nnn-leases/">NNN Leases</a>
+                        <a href="/guides/tenant-improvements/">Tenant Improvements</a>
+                        <a href="/guides/loading-dock-guide/">Loading Docks</a>
+                        <a href="/guides/cold-storage/">Cold Storage</a>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- CTA / Phone -->
+            <div class="nav-cta">
+                <a href="tel:+15617071879" class="phone-cta">(561) 707-1879</a>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="hero-left">
+                        <h1>What Is My <span class="highlight">Warehouse Worth</span>?</h1>
+                        <p class="hero-subtitle">Get a free, instant estimate of your property's lease rate and market value. See what comparable warehouses in Palm Beach County are leasing for — no obligation, no phone calls required.</p>
+                        <div class="features-compact">
+                            <div class="feature-compact">
+                                <p><strong>Instant Results</strong><br>See estimated lease rates in seconds</p>
+                            </div>
+                            <div class="feature-compact">
+                                <p><strong>Market Comps</strong><br>Based on current Palm Beach County data</p>
+                            </div>
+                            <div class="feature-compact">
+                                <p><strong>No Obligation</strong><br>Free valuation estimate. Zero commitment.</p>
+                            </div>
+                            <div class="feature-compact">
+                                <p><strong>Custom Analysis</strong><br>Get a detailed report from Zach</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-right">
+                        <div class="form-card">
+                            <div class="form-title">Valuation Tool</div>
+                            <div class="form-subtitle">3 quick steps. 2 minutes. Instant results.</div>
+
+                            <!-- Wizard Step Indicators -->
+                            <div class="wizard-steps">
+                                <div class="step-indicator active" id="step-1-indicator">1</div>
+                                <div class="step-connector"></div>
+                                <div class="step-indicator" id="step-2-indicator">2</div>
+                                <div class="step-connector"></div>
+                                <div class="step-indicator" id="step-3-indicator">3</div>
+                            </div>
+
+                            <!-- Step 1: Property Basics -->
+                            <div id="step-1-content">
+                                <div class="form-group">
+                                    <label class="form-label">Property Address</label>
+                                    <input type="text" class="form-input" id="address" placeholder="123 Main Street" required>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label">City</label>
+                                        <select class="form-select" id="city" required>
+                                            <option value="">Select a city</option>
+                                            <option value="West Palm Beach">West Palm Beach</option>
+                                            <option value="Boca Raton">Boca Raton</option>
+                                            <option value="Delray Beach">Delray Beach</option>
+                                            <option value="Jupiter">Jupiter</option>
+                                            <option value="Lake Worth">Lake Worth</option>
+                                            <option value="Boynton Beach">Boynton Beach</option>
+                                            <option value="Riviera Beach">Riviera Beach</option>
+                                            <option value="Royal Palm Beach">Royal Palm Beach</option>
+                                            <option value="Lantana">Lantana</option>
+                                            <option value="Other PBC">Other PBC</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">ZIP Code</label>
+                                        <input type="text" class="form-input" id="zip" placeholder="33401" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label">Total Square Footage</label>
+                                        <input type="number" class="form-input" id="sqft" name="square_footage" placeholder="5000" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Year Built</label>
+                                        <input type="number" class="form-input" id="year_built" name="year_built" placeholder="1995" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Property Type</label>
+                                    <select class="form-select" id="property_type" name="property_type" required>
+                                        <option value="">Select a type</option>
+                                        <option value="Warehouse">Warehouse</option>
+                                        <option value="Flex/Office-Warehouse">Flex/Office-Warehouse</option>
+                                        <option value="Light Manufacturing">Light Manufacturing</option>
+                                        <option value="Distribution">Distribution</option>
+                                        <option value="Cold Storage">Cold Storage</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+
+                                <div class="wizard-nav">
+                                    <div></div>
+                                    <button type="button" class="btn-next" onclick="goToStep(2)">Next: Property Features →</button>
+                                </div>
+                            </div>
+
+                            <!-- Step 2: Features & Condition -->
+                            <div id="step-2-content" style="display: none;">
+                                <div class="checkbox-group">
+                                    <div class="checkbox-group-title">Loading Docks</div>
+                                    <div class="form-radio">
+                                        <div class="radio-option">
+                                            <input type="radio" name="loading_type" id="docks_none" value="none" checked>
+                                            <label for="docks_none">None</label>
+                                        </div>
+                                        <div class="radio-option">
+                                            <input type="radio" name="loading_type" id="docks_1" value="1">
+                                            <label for="docks_1">1</label>
+                                        </div>
+                                        <div class="radio-option">
+                                            <input type="radio" name="loading_type" id="docks_2-3" value="2-3">
+                                            <label for="docks_2-3">2-3</label>
+                                        </div>
+                                        <div class="radio-option">
+                                            <input type="radio" name="loading_type" id="docks_4+" value="4+">
+                                            <label for="docks_4+">4+</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-checkbox">
+                                    <input type="checkbox" id="drive_in_doors" name="drive_in_doors">
+                                    <label for="drive_in_doors">Drive-in doors / Grade-level access</label>
+                                </div>
+
+                                <div class="checkbox-group">
+                                    <div class="checkbox-group-title">Clear Height</div>
+                                    <select class="form-select" id="clear_height" name="clear_height">
+                                        <option value="">Select clear height</option>
+                                        <option value="under_16">Under 16'</option>
+                                        <option value="16-20">16-20'</option>
+                                        <option value="20-24">20-24'</option>
+                                        <option value="24+">24'+</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-checkbox">
+                                    <input type="checkbox" id="three_phase_power" name="three_phase_power">
+                                    <label for="three_phase_power">3-phase power</label>
+                                </div>
+
+                                <div class="form-checkbox">
+                                    <input type="checkbox" id="climate_controlled" name="climate_controlled">
+                                    <label for="climate_controlled">Climate controlled / AC</label>
+                                </div>
+
+                                <div class="checkbox-group">
+                                    <div class="checkbox-group-title">Office Buildout</div>
+                                    <select class="form-select" id="office_buildout">
+                                        <option value="none">None</option>
+                                        <option value="under_20">&lt;20%</option>
+                                        <option value="20-40">20-40%</option>
+                                        <option value="40+">40%+</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-checkbox">
+                                    <input type="checkbox" id="fenced_yard" name="fenced_yard">
+                                    <label for="fenced_yard">Fenced/secured yard</label>
+                                </div>
+
+                                <div class="form-checkbox">
+                                    <input type="checkbox" id="sprinkler_system" name="sprinkler_system">
+                                    <label for="sprinkler_system">Sprinkler system</label>
+                                </div>
+
+                                <div class="form-checkbox">
+                                    <input type="checkbox" id="recent_renovations" name="recent_renovations">
+                                    <label for="recent_renovations">Recent renovations (last 5 years)</label>
+                                </div>
+
+                                <div class="checkbox-group">
+                                    <div class="checkbox-group-title">Property Condition</div>
+                                    <div class="form-radio">
+                                        <div class="radio-option">
+                                            <input type="radio" name="condition" id="cond_excellent" value="excellent" checked>
+                                            <label for="cond_excellent">Excellent</label>
+                                        </div>
+                                        <div class="radio-option">
+                                            <input type="radio" name="condition" id="cond_good" value="good">
+                                            <label for="cond_good">Good</label>
+                                        </div>
+                                        <div class="radio-option">
+                                            <input type="radio" name="condition" id="cond_fair" value="fair">
+                                            <label for="cond_fair">Fair</label>
+                                        </div>
+                                        <div class="radio-option">
+                                            <input type="radio" name="condition" id="cond_needs_work" value="needs_work">
+                                            <label for="cond_needs_work">Needs Work</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="checkbox-group">
+                                    <div class="checkbox-group-title">Current Status</div>
+                                    <div class="form-radio">
+                                        <div class="radio-option">
+                                            <input type="radio" name="status" id="status_vacant" value="vacant" checked>
+                                            <label for="status_vacant">Vacant</label>
+                                        </div>
+                                        <div class="radio-option">
+                                            <input type="radio" name="status" id="status_occupied" value="occupied">
+                                            <label for="status_occupied">Occupied</label>
+                                        </div>
+                                        <div class="radio-option">
+                                            <input type="radio" name="status" id="status_owner_occupied" value="owner_occupied">
+                                            <label for="status_owner_occupied">Owner-occupied</label>
+                                        </div>
+                                        <div class="radio-option">
+                                            <input type="radio" name="status" id="status_partially" value="partially_occupied">
+                                            <label for="status_partially">Partially occupied</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Estimated Property Value</label>
+                                    <input type="text" class="form-input" id="estimated_value" name="estimated_value" placeholder="e.g., $2,500,000" required>
+                                </div>
+
+                                <div class="wizard-nav">
+                                    <button type="button" class="btn-back" onclick="goToStep(1)">← Back</button>
+                                    <button type="button" class="btn-next" onclick="calculateValuation()">See My Valuation →</button>
+                                </div>
+                            </div>
+
+                            <!-- Step 3: Results + Lead Capture -->
+                            <div id="step-3-content" style="display: none;">
+                                <!-- Valuation Results -->
+                                <div class="valuation-results">
+                                    <div class="results-title">Your Estimated Valuation</div>
+                                    <div class="result-grid">
+                                        <div class="result-item">
+                                            <div class="result-label">Est. Lease Rate (NNN)</div>
+                                            <div class="result-value" id="lease_rate_display">$15.50</div>
+                                            <div class="result-subtext">/SF/year</div>
+                                        </div>
+                                        <div class="result-item">
+                                            <div class="result-label">Est. Monthly Revenue</div>
+                                            <div class="result-value" id="monthly_revenue_display">$6,458</div>
+                                            <div class="result-subtext">at occupancy</div>
+                                        </div>
+                                        <div class="result-item">
+                                            <div class="result-label">Est. Annual Revenue</div>
+                                            <div class="result-value" id="annual_revenue_display">$77,500</div>
+                                            <div class="result-subtext">at occupancy</div>
+                                        </div>
+                                        <div class="result-item">
+                                            <div class="result-label">Market Comparable Range</div>
+                                            <div class="result-value" id="market_range_display">$14.50-$16.50</div>
+                                            <div class="result-subtext">/SF/year</div>
+                                        </div>
+                                        <div class="market-position">
+                                            <div class="market-position-label">Market Position</div>
+                                            <div class="market-position-text" id="market_position_display">At Market</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Lead Capture Form -->
+                                <div class="form-card" id="lead-form-container">
+                                    <div class="form-title">Want a Custom Analysis?</div>
+                                    <div class="form-subtitle">Get an exact valuation from Zach Vorsteg</div>
+                                    <form id="valuation-lead-form">
+                                        <div class="form-group">
+                                            <label class="form-label">Your Name *</label>
+                                            <input type="text" name="name" class="form-input" placeholder="John Smith" required>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="form-label">Email Address *</label>
+                                            <input type="email" name="email" class="form-input" placeholder="john@company.com" required>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="form-label">Phone Number *</label>
+                                            <input type="tel" name="phone" class="form-input" placeholder="(561) 555-0000" required>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="form-label">Best Time to Call</label>
+                                            <select name="best_time_to_call" class="form-select">
+                                                <option value="">Select a time</option>
+                                                <option value="Morning">Morning (8am-12pm)</option>
+                                                <option value="Afternoon">Afternoon (12pm-5pm)</option>
+                                                <option value="Evening">Evening (5pm-6pm)</option>
+                                            </select>
+                                        </div>
+
+                                        <!-- Hidden fields for property data -->
+                                        <input type="hidden" name="lead_source" value="valuation_tool">
+                                        <input type="hidden" name="property_address" id="hidden_address">
+                                        <input type="hidden" name="property_city" id="hidden_city">
+                                        <input type="hidden" name="property_zip" id="hidden_zip">
+                                        <input type="hidden" name="property_sqft" id="hidden_sqft">
+                                        <input type="hidden" name="property_year_built" id="hidden_year_built">
+                                        <input type="hidden" name="property_type_val" id="hidden_property_type">
+                                        <input type="hidden" name="estimated_lease_rate" id="hidden_lease_rate">
+                                        <input type="hidden" name="estimated_annual_revenue" id="hidden_annual_revenue">
+
+                                        <div id="form-message" class="form-message hidden"></div>
+
+                                        <button type="submit" class="submit-button" id="submit-btn">Get My Custom Valuation</button>
+                                        <p class="form-note">We'll contact you within 24 hours with a detailed analysis.</p>
+                                    </form>
+                                </div>
+
+                                <!-- Success Message -->
+                                <div id="success-message" class="success-screen hidden">
+                                    <div class="success-icon">
+                                        <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                                    </div>
+                                    <h3>Valuation Request Received!</h3>
+                                    <p>Zach will contact you within 24 hours with a detailed custom analysis of your property's value.</p>
+                                    <div class="success-agent">
+                                        <div class="agent-photo" style="width: 80px; height: 80px; margin: 0 auto 1rem;">
+                                            <img src="/assets/headshot.jpg" alt="Zach Vorsteg" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+                                        </div>
+                                        <div class="success-agent-name">Zach Vorsteg</div>
+                                        <div class="success-agent-title">Commercial Real Estate Specialist</div>
+                                        <div><a href="tel:+15617071879" class="success-agent-phone">(561) 707-1879</a></div>
+                                        <div style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;"><a href="mailto:zach@cri-re.com" style="color: inherit;">zach@cri-re.com</a></div>
+                                    </div>
+                                    <button class="success-btn-primary" onclick="location.href='/'">Back to Home</button>
+                                </div>
+
+                                <div class="wizard-nav" style="margin-top: 2rem;">
+                                    <button type="button" class="btn-back" onclick="goToStep(2)">← Back to Features</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <h2 class="faq-title">Valuation Tool FAQ</h2>
+            <p class="faq-subtitle">Got questions about the valuation estimate? We've got answers.</p>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-q">How accurate is this free valuation?</div>
+                    <div class="faq-a">This tool provides an estimate based on current market data and comparable properties in Palm Beach County. For an exact analysis of your property's lease rate and market position, request a custom valuation from Zach. He'll review your specific property details, comparable sales, and market conditions to deliver a precise estimate.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">What factors affect my warehouse's lease rate?</div>
+                    <div class="faq-a">Key factors include location, total square footage, clear height, loading docks, condition, amenities (3-phase power, climate control), office buildout, and current market demand. Properties with premium features like 24'+ clear height, multiple docks, and climate control typically command higher lease rates.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">How long does it take to lease industrial space in Palm Beach County?</div>
+                    <div class="faq-a">In the current market (6.8% industrial vacancy), our average lease-up time is 45 days with active marketing. Small-bay spaces under 10,000 SF often lease much faster due to ultra-tight 2.3% vacancy in that segment. Passive listings without professional marketing can take 120+ days.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">Is there any cost for a custom valuation?</div>
+                    <div class="faq-a">No. Custom valuations are completely free with zero obligation to list your property. We provide detailed market analysis to landlords who are exploring their options or considering listing in the near future.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">What's the difference between NNN and gross lease rates?</div>
+                    <div class="faq-a">NNN (triple net) rates are base rent only—the tenant pays property taxes, insurance, and CAM (common area maintenance) separately. Gross leases include these costs built into a single rate. Our valuation tool uses NNN rates, which are standard for warehouse and industrial properties in Palm Beach County.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">I'm not ready to list yet. Should I still get a custom valuation?</div>
+                    <div class="faq-a">Absolutely. A custom valuation helps you understand your property's market value and when the timing is right to list. Many landlords request a valuation first to get comfortable with the numbers before moving forward with a listing.</div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <div class="footer-logo">INDUSTRIAL SPACE</div>
+                    <div class="footer-tagline">Palm Beach County</div>
+                    <p class="footer-desc">Helping property owners and businesses find the perfect warehouse, flex, and industrial space in Palm Beach County.</p>
+                </div>
+                <div class="footer-contact">
+                    <h4>Get In Touch</h4>
+                    <a href="tel:+15617071879" class="footer-phone">(561) 707-1879</a>
+                    <a href="mailto:zach@cri-re.com" class="footer-email">zach@cri-re.com</a>
+                    <p class="footer-hours">Available Mon-Fri 8am-6pm<br>Weekends by appointment</p>
+                </div>
+                <div class="footer-areas">
+                    <h4>Service Areas</h4>
+                    <ul>
+                        <li><a href="/locations/west-palm-beach/">West Palm Beach</a></li>
+                        <li><a href="/locations/boca-raton/">Boca Raton</a></li>
+                        <li><a href="/locations/delray-beach/">Delray Beach</a></li>
+                        <li><a href="/locations/lake-worth/">Lake Worth</a></li>
+                        <li><a href="/locations/boynton-beach/">Boynton Beach</a></li>
+                        <li><a href="/locations/jupiter/">Jupiter</a></li>
+                        <li><a href="/locations/riviera-beach/">Riviera Beach</a></li>
+                        <li><a href="/locations/royal-palm-beach/">Royal Palm Beach</a></li>
+                        <li><a href="/locations/lantana/">Lantana</a></li>
+                    </ul>
+                </div>
+                <div class="footer-guides">
+                    <h4>For Owners</h4>
+                    <ul>
+                        <li><a href="/list-your-space/">List Your Space</a></li>
+                        <li><a href="/what-is-my-space-worth/">Get a Valuation</a></li>
+                        <li><a href="/guides/palm-beach-industrial-market/">Market Report 2026</a></li>
+                        <li><a href="/guides/nnn-leases/">NNN Leases</a></li>
+                        <li><a href="/guides/tenant-improvements/">Tenant Improvements</a></li>
+                        <li><a href="/guides/loading-dock-guide/">Loading Docks</a></li>
+                        <li><a href="/guides/cold-storage/">Cold Storage</a></li>
+                        <li><a href="/guides/warehouse-sizing/">Warehouse Sizing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-cta-box">
+                    <h4>Want a Valuation?</h4>
+                    <p class="footer-cta-sub">Get a free custom analysis. Zero obligation.</p>
+                    <button class="footer-cta-btn" onclick="document.getElementById('lead-form-container').scrollIntoView({behavior: 'smooth'})">Get Valuation</button>
+                    <a href="tel:+15617071879" class="footer-phone-link">or call (561) 707-1879</a>
+                </div>
+            </div>
+            <div class="footer-legal">
+                <p><a href="/privacy/">Privacy Policy</a> | <a href="/terms/">Terms of Service</a> | <button type="button" onclick="window.showCookieSettings && window.showCookieSettings()" style="background:none;border:none;color:inherit;font:inherit;cursor:pointer;padding:12px 16px;min-width:48px;min-height:48px;margin:0 8px;text-decoration:underline;display:inline-block;">Cookie Settings</button> | <a href="/privacy/#do-not-sell">Do Not Sell My Personal Information</a></p>
+            </div>
+            <div class="footer-bottom">
+                <p>Zach Vorsteg | Licensed Sales Associate #SL3603483 | Cornerstone Realty | Palm Beach County, FL</p>
+                <p class="footer-eho">Equal Housing Opportunity</p>
+                <p class="footer-copyright">&copy; 2025-2026 Palm Beach Warehouses. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts (deferred) -->
+    <script defer src="/app.js?v=91"></script>
+    <script defer src="/qualification.js?v=91"></script>
+    <script defer src="/cookie-consent.js?v=91"></script>
+    <script defer src="/crm-integration.js?v=91"></script>
+    <script defer src="/nav-script.js?v=91"></script>
+
+    <!-- Valuation Tool Script -->
+    <script>
+        // Base lease rates by city
+        const cityRates = {
+            'West Palm Beach': 15.25,
+            'Boca Raton': 17.25,
+            'Delray Beach': 16.00,
+            'Jupiter': 14.75,
+            'Lake Worth': 14.25,
+            'Boynton Beach': 15.00,
+            'Riviera Beach': 13.75,
+            'Royal Palm Beach': 13.25,
+            'Lantana': 14.25,
+            'Other PBC': 14.50
+        };
+
+        // State to track wizard position
+        let currentStep = 1;
+
+        // Go to step
+        function goToStep(stepNum) {
+            // Hide all steps
+            document.getElementById('step-1-content').style.display = 'none';
+            document.getElementById('step-2-content').style.display = 'none';
+            document.getElementById('step-3-content').style.display = 'none';
+
+            // Update indicators
+            document.getElementById('step-1-indicator').className = 'step-indicator';
+            document.getElementById('step-2-indicator').className = 'step-indicator';
+            document.getElementById('step-3-indicator').className = 'step-indicator';
+
+            if (currentStep > stepNum) {
+                document.getElementById('step-' + stepNum + '-indicator').classList.add('completed');
+            } else {
+                document.getElementById('step-' + stepNum + '-indicator').classList.add('active');
+            }
+
+            // Show requested step
+            document.getElementById('step-' + stepNum + '-content').style.display = 'block';
+            currentStep = stepNum;
+
+            // Scroll to form
+            document.querySelector('.form-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // Calculate valuation
+        function calculateValuation() {
+            // Validate step 2
+            const address = document.getElementById('address').value;
+            const city = document.getElementById('city').value;
+            const zip = document.getElementById('zip').value;
+            const sqft = parseFloat(document.getElementById('sqft').value);
+            const propertyType = document.getElementById('property_type').value;
+
+            if (!address || !city || !zip || !sqft || !propertyType) {
+                alert('Please fill in all property basic information.');
+                goToStep(1);
+                return;
+            }
+
+            // Get base rate
+            let rate = cityRates[city] || 14.50;
+
+            // Apply adjustments
+            const clearHeight = document.getElementById('clear_height').value;
+            if (clearHeight === '20-24') rate *= 1.05;
+            if (clearHeight === '24+') rate *= 1.10;
+
+            const loadingDocks = document.querySelector('input[name="loading_type"]:checked').value;
+            if (loadingDocks === '2-3') rate *= 1.03;
+            if (loadingDocks === '4+') rate *= 1.07;
+
+            if (document.getElementById('drive_in_doors').checked) rate *= 1.02;
+            if (document.getElementById('three_phase_power').checked) rate *= 1.03;
+            if (document.getElementById('climate_controlled').checked) rate *= 1.15;
+            if (document.getElementById('fenced_yard').checked) rate *= 1.03;
+            if (document.getElementById('sprinkler_system').checked) rate *= 1.02;
+            if (document.getElementById('recent_renovations').checked) rate *= 1.05;
+
+            const officeBuilt = document.getElementById('office_buildout').value;
+            if (officeBuilt === '20-40') rate *= 1.05;
+            if (officeBuilt === '40+') rate *= 1.08;
+
+            const condition = document.querySelector('input[name="condition"]:checked').value;
+            if (condition === 'excellent') rate *= 1.05;
+            if (condition === 'fair') rate *= 0.95;
+            if (condition === 'needs_work') rate *= 0.85;
+
+            const yearBuilt = parseInt(document.getElementById('year_built').value);
+            if (yearBuilt > 2010) rate *= 1.05;
+            if (yearBuilt < 1980) rate *= 0.95;
+
+            if (sqft < 5000) rate *= 1.10;
+            if (sqft > 25000) rate *= 0.97;
+
+            // Calculate revenues
+            const monthlyRevenue = (sqft * (rate / 12)) / 1000;
+            const annualRevenue = sqft * rate / 1000;
+
+            // Market range
+            const minRate = rate * 0.94;
+            const maxRate = rate * 1.06;
+
+            // Market position
+            let position = 'At Market';
+            if (rate < cityRates[city]) position = 'Below Market';
+            if (rate > cityRates[city] * 1.05) position = 'Above Market';
+
+            // Display results
+            document.getElementById('lease_rate_display').textContent = '$' + rate.toFixed(2);
+            document.getElementById('monthly_revenue_display').textContent = '$' + Math.round(monthlyRevenue).toLocaleString();
+            document.getElementById('annual_revenue_display').textContent = '$' + Math.round(annualRevenue).toLocaleString();
+            document.getElementById('market_range_display').textContent = '$' + minRate.toFixed(2) + '-$' + maxRate.toFixed(2);
+            document.getElementById('market_position_display').textContent = position;
+
+            // Store in hidden form fields
+            document.getElementById('hidden_address').value = address;
+            document.getElementById('hidden_city').value = city;
+            document.getElementById('hidden_zip').value = zip;
+            document.getElementById('hidden_sqft').value = sqft;
+            document.getElementById('hidden_year_built').value = yearBuilt;
+            document.getElementById('hidden_property_type').value = propertyType;
+            document.getElementById('hidden_lease_rate').value = rate.toFixed(2);
+            document.getElementById('hidden_annual_revenue').value = Math.round(annualRevenue);
+
+            goToStep(3);
+        }
+
+        // Handle form submission
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('valuation-lead-form');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // The CRM integration script will handle this
+                });
+            }
+        });
+    </script>
+
+    <!-- Structured Data / Schema Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": "https://palmbeachwarehouses.com/what-is-my-space-worth/",
+        "name": "What Is My Warehouse Worth? | Free Valuation Tool",
+        "description": "Get a free warehouse valuation estimate in Palm Beach County. See your property's estimated lease rate and market value instantly.",
+        "url": "https://palmbeachwarehouses.com/what-is-my-space-worth/",
+        "publisher": {
+            "@type": "Organization",
+            "@id": "https://palmbeachwarehouses.com/#organization",
+            "name": "Palm Beach Warehouses"
+        },
+        "author": {
+            "@type": "Person",
+            "name": "Zach Vorsteg"
+        },
+        "speakable": {
+            "@type": "SpeakableSpecification",
+            "cssSelector": [".hero-left h1", ".faq-q"]
+        }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How accurate is this free valuation?",
+                "acceptedAnswer": {"@type": "Answer", "text": "This tool provides an estimate based on current market data and comparable properties in Palm Beach County. For an exact analysis of your property's lease rate and market position, request a custom valuation from Zach."}
+            },
+            {
+                "@type": "Question",
+                "name": "What factors affect my warehouse's lease rate?",
+                "acceptedAnswer": {"@type": "Answer", "text": "Key factors include location, total square footage, clear height, loading docks, condition, amenities (3-phase power, climate control), office buildout, and current market demand."}
+            },
+            {
+                "@type": "Question",
+                "name": "How long does it take to lease industrial space in Palm Beach County?",
+                "acceptedAnswer": {"@type": "Answer", "text": "In the current market (6.8% industrial vacancy), our average lease-up time is 45 days with active marketing. Small-bay spaces under 10,000 SF often lease much faster."}
+            },
+            {
+                "@type": "Question",
+                "name": "Is there any cost for a custom valuation?",
+                "acceptedAnswer": {"@type": "Answer", "text": "No. Custom valuations are completely free with zero obligation to list your property."}
+            },
+            {
+                "@type": "Question",
+                "name": "What's the difference between NNN and gross lease rates?",
+                "acceptedAnswer": {"@type": "Answer", "text": "NNN (triple net) rates are base rent only—the tenant pays property taxes, insurance, and CAM separately. Gross leases include these costs built into a single rate."}
+            }
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://palmbeachwarehouses.com/"},
+            {"@type": "ListItem", "position": 2, "name": "Get Valuation", "item": "https://palmbeachwarehouses.com/what-is-my-space-worth/"}
+        ]
+    }
+    </script>
+</body>
+</html>

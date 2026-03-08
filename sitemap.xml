@@ -97,6 +97,30 @@
         <priority>0.8</priority>
     </url>
 
+    <!-- Space Valuation Tool -->
+    <url>
+        <loc>https://palmbeachwarehouses.com/what-is-my-space-worth/</loc>
+        <lastmod>2026-03-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Investment Sales -->
+    <url>
+        <loc>https://palmbeachwarehouses.com/sell-your-property/</loc>
+        <lastmod>2026-03-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Landlord Resources Hub -->
+    <url>
+        <loc>https://palmbeachwarehouses.com/guides/landlord-resources/</loc>
+        <lastmod>2026-03-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
     <!-- Guide Pages -->
     <url>
         <loc>https://palmbeachwarehouses.com/guides/palm-beach-industrial-market/</loc>

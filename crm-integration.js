@@ -8,7 +8,7 @@
 
   let tenantId = null;
   let isSubmitting = false;
-  let activeFormType = null; // 'tenant' | 'landlord' | 'report'
+  let activeFormType = null; // 'tenant' | 'landlord' | 'report' | 'valuation' | 'sales'
 
   // Initialize on page load
   document.addEventListener('DOMContentLoaded', function() {
@@ -18,6 +18,8 @@
     const tenantForm = document.getElementById('lead-form');
     const landlordForm = document.getElementById('landlord-lead-form');
     const reportForm = document.getElementById('report-lead-form');
+    const valuationForm = document.getElementById('valuation-lead-form');
+    const salesForm = document.getElementById('sales-lead-form');
 
     if (tenantForm) {
       activeFormType = 'tenant';
@@ -31,6 +33,14 @@
       activeFormType = 'report';
       reportForm.addEventListener('submit', handleFormSubmit);
       console.log('✅ Report form handler attached');
+    } else if (valuationForm) {
+      activeFormType = 'valuation';
+      valuationForm.addEventListener('submit', handleFormSubmit);
+      console.log('✅ Valuation form handler attached');
+    } else if (salesForm) {
+      activeFormType = 'sales';
+      salesForm.addEventListener('submit', handleFormSubmit);
+      console.log('✅ Sales form handler attached');
     } else {
       console.warn('⚠️  No known form found on page');
     }
@@ -117,6 +127,10 @@
         leadData = extractLandlordFormData(form);
       } else if (activeFormType === 'report') {
         leadData = extractReportFormData(form);
+      } else if (activeFormType === 'valuation') {
+        leadData = extractValuationFormData(form);
+      } else if (activeFormType === 'sales') {
+        leadData = extractSalesFormData(form);
       } else {
         leadData = extractTenantFormData(form);
       }
@@ -267,6 +281,85 @@
     };
   }
 
+  // ─── VALUATION form data extraction ───
+  function extractValuationFormData(form) {
+    const formData = new FormData(form);
+
+    const notes = [
+      'Source: palmbeachwarehouses.com/what-is-my-space-worth',
+      'Lead Type: SPACE VALUATION',
+      `Property Address: ${formData.get('property_address') || 'N/A'}`,
+      `City: ${formData.get('property_city') || 'N/A'}`,
+      `Property Type: ${formData.get('property_type') || 'N/A'}`,
+      `Square Footage: ${formData.get('square_footage') || 'N/A'}`,
+      `Year Built: ${formData.get('year_built') || 'N/A'}`,
+      `Clear Height: ${formData.get('clear_height') || 'N/A'}`,
+      `Loading: ${formData.get('loading_type') || 'N/A'}`,
+      `Condition: ${formData.get('condition') || 'N/A'}`,
+      `Estimated Value: ${formData.get('estimated_value') || 'N/A'}`
+    ].join('\n');
+
+    let sizeMin = null;
+    const sf = formData.get('square_footage');
+    if (sf) {
+      const match = sf.match(/(\d[\d,]*)/);
+      if (match) sizeMin = parseInt(match[1].replace(/,/g, ''), 10);
+    }
+
+    return {
+      tenant_id: tenantId,
+      name: formData.get('name'),
+      email: formData.get('email') || null,
+      phone: formData.get('phone') || null,
+      sizeMin: sizeMin,
+      propertyType: formData.get('property_type') || 'Warehouse',
+      preferredArea: formData.get('property_city') || 'Palm Beach County, FL',
+      notes: notes,
+      ...getUtmData()
+    };
+  }
+
+  // ─── SALES form data extraction ───
+  function extractSalesFormData(form) {
+    const formData = new FormData(form);
+
+    const notes = [
+      'Source: palmbeachwarehouses.com/sell-your-property',
+      'Lead Type: INVESTMENT SALES',
+      `Property Address: ${formData.get('property_address') || 'N/A'}`,
+      `City: ${formData.get('property_city') || 'N/A'}`,
+      `Property Type: ${formData.get('property_type') || 'N/A'}`,
+      `Square Footage: ${formData.get('property_size') || 'N/A'}`,
+      `Lot Size: ${formData.get('lot_size') || 'N/A'}`,
+      `Year Built: ${formData.get('year_built') || 'N/A'}`,
+      `Occupancy: ${formData.get('occupancy') || 'N/A'}`,
+      `Current Rent: ${formData.get('current_rent') || 'N/A'}`,
+      `Reason for Selling: ${formData.get('reason_selling') || 'N/A'}`,
+      `Timeline: ${formData.get('timeline') || 'N/A'}`,
+      `Price Expectation: ${formData.get('price_expectation') || 'N/A'}`
+    ].join('\n');
+
+    let sizeMin = null;
+    const propertySize = formData.get('property_size');
+    if (propertySize) {
+      const match = propertySize.match(/(\d[\d,]*)/);
+      if (match) sizeMin = parseInt(match[1].replace(/,/g, ''), 10);
+    }
+
+    return {
+      tenant_id: tenantId,
+      name: formData.get('name'),
+      email: formData.get('email') || null,
+      phone: formData.get('phone') || null,
+      company: formData.get('company') || null,
+      sizeMin: sizeMin,
+      propertyType: formData.get('property_type') || 'Industrial',
+      preferredArea: formData.get('property_city') || 'Palm Beach County, FL',
+      notes: notes,
+      ...getUtmData()
+    };
+  }
+
   // Shared UTM data extraction
   function getUtmData() {
     return {
@@ -348,6 +441,10 @@
       fireLandlordPixels(leadData);
     } else if (activeFormType === 'report') {
       fireReportPixels(leadData);
+    } else if (activeFormType === 'valuation') {
+      fireValuationPixels(leadData);
+    } else if (activeFormType === 'sales') {
+      fireSalesPixels(leadData);
     }
   }
 
@@ -457,6 +554,74 @@
     }
   }
 
+  // Valuation tracking (mid-funnel landlord lead)
+  function fireValuationPixels(leadData) {
+    const pixelValue = 75; // Mid-funnel — interested in value, likely to list
+
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'conversion', {
+        send_to: 'AW-17147516072/f_LJCMeD4tMaEKipyfA_',
+        value: pixelValue,
+        currency: 'USD',
+        conversion_label: 'SPACE_VALUATION',
+        transaction_id: Date.now().toString(),
+      });
+      console.log(`✅ Google Ads conversion fired (Space Valuation: $${pixelValue})`);
+    }
+
+    if (typeof fbq !== 'undefined') {
+      fbq('track', 'Lead', {
+        content_name: 'Space Valuation',
+        content_category: 'VALUATION',
+        content_type: 'valuation',
+        value: pixelValue,
+        currency: 'USD',
+        status: 'valuation_lead',
+        utm_source: window.__utm?.source || null,
+        utm_campaign: window.__utm?.campaign || null,
+        utm_content: window.__utm?.content || null,
+        utm_medium: window.__utm?.medium || null,
+        ad_set_id: window.__utm?.adSetId || null,
+        location: leadData.preferredArea,
+      });
+      console.log('✅ Facebook Lead conversion fired (Space Valuation)');
+    }
+  }
+
+  // Sales tracking (highest-value — investment sales lead)
+  function fireSalesPixels(leadData) {
+    const pixelValue = 250; // Highest value — investment sales commissions are largest
+
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'conversion', {
+        send_to: 'AW-17147516072/f_LJCMeD4tMaEKipyfA_',
+        value: pixelValue,
+        currency: 'USD',
+        conversion_label: 'INVESTMENT_SALES',
+        transaction_id: Date.now().toString(),
+      });
+      console.log(`✅ Google Ads conversion fired (Investment Sales: $${pixelValue})`);
+    }
+
+    if (typeof fbq !== 'undefined') {
+      fbq('track', 'Lead', {
+        content_name: 'Investment Sales Inquiry',
+        content_category: 'SALES',
+        content_type: 'investment_sale',
+        value: pixelValue,
+        currency: 'USD',
+        status: 'sales_lead',
+        utm_source: window.__utm?.source || null,
+        utm_campaign: window.__utm?.campaign || null,
+        utm_content: window.__utm?.content || null,
+        utm_medium: window.__utm?.medium || null,
+        ad_set_id: window.__utm?.adSetId || null,
+        location: leadData.preferredArea,
+      });
+      console.log('✅ Facebook Lead conversion fired (Investment Sales)');
+    }
+  }
+
   // Show success message (form-type aware)
   function showSuccessMessage(form, leadData) {
     const successMessage = document.getElementById('success-message');
@@ -489,9 +654,19 @@
       landlordForm.classList.add('hidden');
       successMessage.classList.remove('hidden');
     } else if (activeFormType === 'report') {
-      // Report: hide form, show success via display style
+      // Report: hide form, show success with download link
       form.style.display = 'none';
       successMessage.style.display = 'block';
+    } else if (activeFormType === 'valuation') {
+      // Valuation: hide form, show success
+      const valuationForm = document.getElementById('valuation-lead-form');
+      valuationForm.classList.add('hidden');
+      successMessage.classList.remove('hidden');
+    } else if (activeFormType === 'sales') {
+      // Sales: hide form, show success
+      const salesForm = document.getElementById('sales-lead-form');
+      salesForm.classList.add('hidden');
+      successMessage.classList.remove('hidden');
     }
   }
 
@@ -508,6 +683,8 @@
   window.resetForm = function() {
     const formId = activeFormType === 'landlord' ? 'landlord-lead-form'
                  : activeFormType === 'report' ? 'report-lead-form'
+                 : activeFormType === 'valuation' ? 'valuation-lead-form'
+                 : activeFormType === 'sales' ? 'sales-lead-form'
                  : 'lead-form';
 
     const form = document.getElementById(formId);
@@ -551,12 +728,16 @@
   window.scrollToForm = function() {
     const formSection = document.getElementById('lead-form-section')
                      || document.getElementById('landlord-lead-form')
-                     || document.getElementById('report-lead-form');
+                     || document.getElementById('report-lead-form')
+                     || document.getElementById('valuation-lead-form')
+                     || document.getElementById('sales-lead-form');
     if (formSection) {
       formSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
       setTimeout(function() {
         const formId = activeFormType === 'landlord' ? 'landlord-lead-form'
                      : activeFormType === 'report' ? 'report-lead-form'
+                     : activeFormType === 'valuation' ? 'valuation-lead-form'
+                     : activeFormType === 'sales' ? 'sales-lead-form'
                      : 'lead-form';
         const form = document.getElementById(formId);
         if (form) {
