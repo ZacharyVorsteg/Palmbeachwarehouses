@@ -134,7 +134,7 @@
 
   /* Form fields: better spacing, no cramped feel */
   .lead-form{gap:.75rem}
-  .form-group label{font-size:.85rem;margin-bottom:.3rem}
+  .form-group label{font-size:.85rem;margin-bottom:.5rem}
   .form-group input,.form-group select,.form-group textarea{padding:.7rem .75rem;font-size:16px;border-radius:8px}
   .form-row{gap:.75rem}
 
@@ -142,11 +142,11 @@
   .submit-button{padding:.9rem;font-size:1rem;border-radius:10px;font-weight:700;margin-top:.25rem}
 
   /* Form divider */
-  .form-divider{margin:.25rem 0}
+  .form-divider{margin:.75rem 0}
 
   /* Alt contact: full-width stacked */
-  .alt-contact{margin-top:12px;padding-top:12px;gap:8px}
-  .alt-contact-buttons{flex-direction:column;gap:8px}
+  .alt-contact{margin-top:12px;padding-top:12px;gap:12px}
+  .alt-contact-buttons{flex-direction:column;gap:12px}
   .alt-contact-link{padding:12px;font-size:.88rem;border-radius:10px;justify-content:center}
   .alt-contact-label{font-size:.7rem}
 
