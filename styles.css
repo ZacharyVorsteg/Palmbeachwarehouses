@@ -106,31 +106,31 @@
 /* --- Small Phone (≤480px) — iPhone-class --- */
 @media(max-width:480px){
   /* Hero: punch up the title, tighten spacing */
-  .hero{padding:1rem 1rem 2rem;margin-top:48px}
-  .hero-content{gap:.75rem}
+  .hero{padding:1rem 1rem 1.75rem;margin-top:48px}
+  .hero-content{gap:.6rem}
   .hero-title{font-size:1.45rem;line-height:1.15;letter-spacing:-.02em}
-  .hero-subtitle{font-size:.88rem;line-height:1.45;margin-bottom:.5rem}
+  .hero-subtitle{font-size:.88rem;line-height:1.45;margin-bottom:.25rem}
 
-  /* Features: slightly larger, better readability */
-  .features-compact{gap:.5rem;margin-top:.75rem}
-  .feature-compact{font-size:.82rem;gap:.5rem}
-  .feature-icon-small{width:20px;height:20px;font-size:.65rem}
+  /* Features: SINGLE COLUMN so text doesn't cramp */
+  .features-compact{grid-template-columns:1fr;gap:.35rem;margin-top:.5rem}
+  .feature-compact{font-size:.82rem;gap:.5rem;justify-content:flex-start;text-align:left}
+  .feature-icon-small{width:18px;height:18px;font-size:.6rem}
 
   /* Form card: USE FULL WIDTH — stop constraining to 360px */
   .form-card{max-width:none;width:100%;padding:1.25rem 1.125rem;border-radius:14px;box-shadow:0 6px 24px rgba(0,0,0,.1)}
-  .form-title{font-size:1.1rem;margin-bottom:.25rem}
-  .form-subtitle{font-size:.82rem;margin-bottom:1rem;line-height:1.4}
+  .form-title{font-size:1.1rem;margin-bottom:.2rem}
+  .form-subtitle{font-size:.82rem;margin-bottom:.85rem;line-height:1.4}
 
   /* Agent preview: center-aligned for mobile, feels intentional */
-  .agent-preview{flex-direction:column;align-items:center;text-align:center;padding:14px 12px;gap:10px;border-radius:12px;margin-bottom:14px}
+  .agent-preview{flex-direction:column;align-items:center;text-align:center;padding:12px;gap:6px;border-radius:12px;margin-bottom:12px}
   .agent-preview-photo{width:56px;height:56px}
   .agent-preview-name{font-size:.92rem}
-  .agent-preview-role{font-size:.78rem}
-  .agent-preview-meta{justify-content:center;gap:6px;flex-wrap:nowrap}
-  .agent-preview-credentials{font-size:.7rem}
+  .agent-preview-role{font-size:.76rem}
+  .agent-preview-meta{flex-direction:column;align-items:center;gap:3px}
+  .agent-preview-credentials{font-size:.7rem;justify-content:center}
   .agent-preview-divider{display:none}
   .save-contact-link{font-size:.7rem}
-  .agent-status-dot{width:12px;height:12px;border-width:2px}
+  .agent-status-dot{width:12px;height:12px;border-width:2px;bottom:1px;right:1px}
 
   /* Form fields: better spacing, no cramped feel */
   .lead-form{gap:.75rem}
