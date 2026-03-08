@@ -46,6 +46,13 @@
   [headers.values]
     Cache-Control = "public, max-age=3600, must-revalidate"
 
+[[headers]]
+  for = "*.vcf"
+  [headers.values]
+    Content-Type = "text/vcard; charset=utf-8"
+    Content-Disposition = "attachment; filename=\"Zach_Vorsteg_Contact.vcf\""
+    Cache-Control = "public, max-age=86400"
+
 [[redirects]]
   # Redirect www to non-www (optional)
   from = "https://www.palmbeachwarehouses.com/*"
