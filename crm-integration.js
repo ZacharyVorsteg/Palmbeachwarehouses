@@ -54,7 +54,57 @@
 
     // Fetch tenant ID
     fetchTenantId();
+
+    // Mobile form auto-scroll: smoothly guide users to each field as they fill out the form
+    setupFormAutoScroll();
   });
+
+  // Auto-scroll form fields on mobile for seamless fill-out experience
+  function setupFormAutoScroll() {
+    const isMobile = () => window.innerWidth <= 768;
+
+    // Get all forms on the page
+    const forms = document.querySelectorAll('#lead-form, #landlord-lead-form, #report-lead-form, #valuation-lead-form, #sales-lead-form');
+    forms.forEach(form => {
+      const fields = form.querySelectorAll('input:not([type="hidden"]):not([type="checkbox"]), select, textarea');
+
+      // On focus: scroll field to center so user always sees what they're filling
+      fields.forEach(field => {
+        field.addEventListener('focus', function() {
+          if (!isMobile()) return;
+          // Small delay lets keyboard open first on mobile
+          setTimeout(() => {
+            this.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }, 300);
+        });
+      });
+
+      // On select change: auto-advance to next field
+      fields.forEach((field, i) => {
+        if (field.tagName === 'SELECT') {
+          field.addEventListener('change', function() {
+            if (!isMobile() || !this.value) return;
+            const next = findNextField(fields, i);
+            if (next) {
+              setTimeout(() => next.focus(), 150);
+            }
+          });
+        }
+      });
+    });
+  }
+
+  // Find the next visible, enabled field in the form
+  function findNextField(fields, currentIndex) {
+    for (let i = currentIndex + 1; i < fields.length; i++) {
+      const f = fields[i];
+      // Skip hidden fields (in collapsed advanced section or display:none)
+      if (f.offsetParent === null) continue;
+      if (f.disabled) continue;
+      return f;
+    }
+    return null;
+  }
 
   // Fetch tenant ID from Trusenda
   async function fetchTenantId() {
@@ -669,9 +719,11 @@
       successMessage.classList.remove('hidden');
     }
 
-    // Scroll success message into view so users don't have to scroll up
+    // Scroll success message into view — double rAF ensures layout is complete after unhiding
     requestAnimationFrame(() => {
-      successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      requestAnimationFrame(() => {
+        successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
     });
   }
 
