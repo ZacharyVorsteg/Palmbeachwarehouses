@@ -668,6 +668,11 @@
       salesForm.classList.add('hidden');
       successMessage.classList.remove('hidden');
     }
+
+    // Scroll success message into view so users don't have to scroll up
+    requestAnimationFrame(() => {
+      successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
   }
 
   // Show error message
