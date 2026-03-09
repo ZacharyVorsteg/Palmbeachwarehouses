@@ -118,11 +118,21 @@
         .guide-content a:hover {
             text-decoration: underline;
         }
+        .table-scroll {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 1.5rem 0 2rem;
+            border-radius: 8px;
+        }
         .guide-content table {
             width: 100%;
+            min-width: 600px;
             border-collapse: collapse;
-            margin: 1.5rem 0 2rem;
+            margin: 0;
             font-size: 0.95rem;
+        }
+        .guide-content > table {
+            margin: 1.5rem 0 2rem;
         }
         .guide-content th {
             background: var(--card-bg);
@@ -252,7 +262,8 @@
             .guide-content h1 { font-size: 1.75rem; }
             .guide-content h2 { font-size: 1.35rem; }
             .guide-content table { font-size: 0.8rem; }
-            .guide-content th, .guide-content td { padding: 0.5rem; }
+            .guide-content th, .guide-content td { padding: 0.5rem 0.6rem; white-space: nowrap; }
+            .table-scroll { margin: 1rem 0 1.5rem; }
         }
     </style>
 

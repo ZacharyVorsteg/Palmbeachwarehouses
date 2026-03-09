@@ -117,7 +117,9 @@ function build() {
   for (const file of files) {
     const raw = fs.readFileSync(path.join(CONTENT_DIR, file), 'utf8');
     const { meta, body } = parseFrontmatter(raw);
-    const html = marked(body);
+    let html = marked(body);
+    // Wrap tables in scrollable container for mobile
+    html = html.replace(/<table>/g, '<div class="table-scroll"><table>').replace(/<\/table>/g, '</table></div>');
     const slug = meta.slug || file.replace('.md', '');
 
     articles.push({
