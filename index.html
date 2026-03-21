@@ -653,7 +653,7 @@
                                 <img src="assets/headshot.jpg?v=1" alt="Zach Vorsteg - Palm Beach County Industrial Real Estate Specialist" class="about-headshot" width="140" height="140" loading="lazy" decoding="async">
                                 <p class="about-intro">I'm <strong>Zach Vorsteg</strong>, a licensed commercial real estate professional specializing exclusively in Palm Beach County industrial properties.</p>
                             </div>
-                            <p>Unlike national brokerages that cover dozens of markets, I focus exclusively on Palm Beach County industrial properties. That means direct relationships with local landlords, real-time knowledge of what's available, and the market intelligence to negotiate the right terms for your business.</p>
+                            <p>With a finance degree from Florida Atlantic University, I bring an analytical edge to every deal — lease vs. buy analysis, cap rates, NNN breakdowns, and ROI projections. Unlike national brokerages that cover dozens of markets, I focus exclusively on Palm Beach County industrial properties. That means direct relationships with local landlords, real-time knowledge of what's available, and the market intelligence to negotiate the right terms for your business.</p>
 
                             <div class="about-benefits">
                                 <div class="benefit-item">
@@ -696,6 +696,10 @@
                                 <div class="credential-item">
                                     <span class="credential-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
                                     <span>Cornerstone Realty - Palm Beach</span>
+                                </div>
+                                <div class="credential-item">
+                                    <span class="credential-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+                                    <span>BBA Finance — Florida Atlantic University</span>
                                 </div>
                                 <div class="credential-item">
                                     <span class="credential-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
@@ -946,15 +950,27 @@
                 "closes": "18:00"
             }
         ],
-        "hasCredential": {
-            "@type": "EducationalOccupationalCredential",
-            "credentialCategory": "Real Estate License",
-            "recognizedBy": {
-                "@type": "Organization",
-                "name": "Florida Department of Business and Professional Regulation"
+        "hasCredential": [
+            {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "Real Estate License",
+                "recognizedBy": {
+                    "@type": "Organization",
+                    "name": "Florida Department of Business and Professional Regulation"
+                },
+                "validIn": {"@type": "State", "name": "Florida"},
+                "credentialId": "SL3603483"
             },
-            "validIn": {"@type": "State", "name": "Florida"},
-            "credentialId": "SL3603483"
+            {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "name": "Bachelor of Business Administration in Finance"
+            }
+        ],
+        "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "Florida Atlantic University",
+            "sameAs": "https://www.fau.edu"
         },
         "memberOf": {
             "@type": "Organization",
@@ -1053,14 +1069,26 @@
             "@type": "RealEstateAgent",
             "@id": "https://palmbeachwarehouses.com/#agent"
         },
-        "hasCredential": {
-            "@type": "EducationalOccupationalCredential",
-            "credentialCategory": "Florida Real Estate License",
-            "credentialId": "SL3603483",
-            "recognizedBy": {
-                "@type": "Organization",
-                "name": "Florida DBPR"
+        "hasCredential": [
+            {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "Florida Real Estate License",
+                "credentialId": "SL3603483",
+                "recognizedBy": {
+                    "@type": "Organization",
+                    "name": "Florida DBPR"
+                }
+            },
+            {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "name": "Bachelor of Business Administration in Finance"
             }
+        ],
+        "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "Florida Atlantic University",
+            "sameAs": "https://www.fau.edu"
         },
         "knowsAbout": [
             "Commercial Real Estate",
