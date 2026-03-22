@@ -54,7 +54,7 @@
             margin-top: 70px;
         }
         .guide-content h1 {
-            font-size: 2.5rem;
+            font-size: clamp(1.75rem, 5.5vw, 2.5rem);
             font-weight: 800;
             color: var(--text-light);
             line-height: 1.2;
@@ -80,18 +80,17 @@
             font-weight: 600;
         }
         .guide-content h2 {
-            font-size: 1.75rem;
+            font-size: clamp(1.35rem, 4vw, 1.75rem);
             font-weight: 700;
             color: var(--text-light);
-            margin-top: 3rem;
-            margin-bottom: 1rem;
+            margin: 48px 0 24px 0;
         }
+        .guide-content h2:first-child { margin-top: 0; }
         .guide-content h3 {
-            font-size: 1.25rem;
+            font-size: clamp(1.1rem, 3vw, 1.25rem);
             font-weight: 600;
             color: var(--accent-blue);
-            margin-top: 2rem;
-            margin-bottom: 0.75rem;
+            margin: 32px 0 16px 0;
         }
         .guide-content p {
             color: var(--text-gray);
@@ -105,8 +104,8 @@
             padding-left: 1.5rem;
         }
         .guide-content li {
-            margin-bottom: 0.5rem;
-            line-height: 1.6;
+            margin-bottom: 0.75rem;
+            line-height: 1.8;
         }
         .guide-content strong {
             color: var(--text-light);
@@ -259,10 +258,8 @@
         }
         @media (max-width: 768px) {
             .guide-content { padding: 1rem; }
-            .guide-content h1 { font-size: 1.75rem; }
-            .guide-content h2 { font-size: 1.35rem; }
             .guide-content table { font-size: 0.8rem; }
-            .guide-content th, .guide-content td { padding: 0.5rem 0.6rem; white-space: nowrap; }
+            .guide-content th, .guide-content td { padding: 0.5rem 0.6rem; }
             .table-scroll { margin: 1rem 0 1.5rem; }
         }
     </style>
