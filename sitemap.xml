@@ -254,4 +254,20 @@
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
+
+    <!-- Owner Acquisition Landing Page (5K-7.5K SF) -->
+    <url>
+        <loc>https://palmbeachwarehouses.com/warehouse-owners-5000-sf/</loc>
+        <lastmod>2026-03-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Featured Tenant Requirement Page -->
+    <url>
+        <loc>https://palmbeachwarehouses.com/featured-tenant/</loc>
+        <lastmod>2026-03-27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
 </urlset>

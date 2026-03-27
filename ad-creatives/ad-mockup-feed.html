@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ad Mockup — Facebook/Instagram Feed (1200x628)</title>
+<style>
+    body { margin: 0; padding: 40px; background: #333; display: flex; flex-direction: column; gap: 40px; align-items: center; font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif; }
+    h2 { color: #fff; font-size: 14px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+    p.note { color: #999; font-size: 12px; margin-bottom: 16px; }
+
+    /* Feed Ad 1200x628 */
+    .ad-feed {
+        width: 1200px; height: 628px;
+        background: linear-gradient(135deg, #0f1320 0%, #1a1f33 50%, #141824 100%);
+        position: relative; overflow: hidden;
+        border-radius: 4px;
+    }
+    .ad-feed .bg-pattern {
+        position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+        background:
+            repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(59,147,255,0.03) 80px, rgba(59,147,255,0.03) 81px),
+            repeating-linear-gradient(0deg, transparent, transparent 80px, rgba(59,147,255,0.03) 80px, rgba(59,147,255,0.03) 81px);
+    }
+    .ad-feed .content { position: relative; z-index: 1; padding: 48px 56px; height: 100%; display: flex; flex-direction: column; justify-content: space-between; }
+    .ad-feed .top-badge { display: inline-block; background: #D33B27; color: white; font-size: 13px; font-weight: 700; padding: 6px 16px; border-radius: 4px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 20px; }
+    .ad-feed .headline { color: white; font-size: 52px; font-weight: 800; line-height: 1.15; max-width: 700px; }
+    .ad-feed .headline .blue { color: #3B93FF; }
+    .ad-feed .headline .amber { color: #F59E0B; }
+    .ad-feed .specs { display: flex; gap: 12px; margin-top: 20px; }
+    .ad-feed .spec-tag { background: rgba(59,147,255,0.12); border: 1px solid rgba(59,147,255,0.25); color: #3B93FF; font-size: 15px; font-weight: 600; padding: 8px 18px; border-radius: 6px; }
+    .ad-feed .bottom { display: flex; justify-content: space-between; align-items: flex-end; }
+    .ad-feed .stats-row { display: flex; gap: 32px; }
+    .ad-feed .stat { text-align: center; }
+    .ad-feed .stat-val { font-size: 36px; font-weight: 800; color: #F59E0B; line-height: 1; }
+    .ad-feed .stat-val.blue { color: #3B93FF; }
+    .ad-feed .stat-val.green { color: #34A853; }
+    .ad-feed .stat-lbl { font-size: 12px; color: #9ca3af; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .ad-feed .brand { text-align: right; }
+    .ad-feed .brand-url { color: white; font-size: 18px; font-weight: 700; }
+    .ad-feed .brand-phone { color: #9ca3af; font-size: 14px; margin-top: 4px; }
+    .ad-feed .cta-btn { display: inline-block; background: #3B93FF; color: white; font-size: 16px; font-weight: 700; padding: 12px 32px; border-radius: 6px; margin-top: 8px; }
+
+    /* Square Ad 1080x1080 */
+    .ad-square {
+        width: 1080px; height: 1080px;
+        background: linear-gradient(135deg, #0f1320 0%, #1a1f33 100%);
+        position: relative; overflow: hidden;
+        border-radius: 4px;
+    }
+    .ad-square .content { position: relative; z-index: 1; padding: 64px; height: 100%; display: flex; flex-direction: column; justify-content: space-between; }
+    .ad-square .top-section { }
+    .ad-square .eyebrow { color: #F59E0B; font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 16px; }
+    .ad-square h1 { color: white; font-size: 48px; font-weight: 800; line-height: 1.2; margin-bottom: 12px; }
+    .ad-square h1 .blue { color: #3B93FF; }
+    .ad-square .sub { color: #9ca3af; font-size: 20px; line-height: 1.5; max-width: 600px; }
+    .ad-square .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 0 auto; max-width: 800px; }
+    .ad-square .stat-box { background: #1e2438; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 32px; text-align: center; }
+    .ad-square .stat-num { font-size: 56px; font-weight: 800; line-height: 1; margin-bottom: 8px; }
+    .ad-square .stat-num.amber { color: #F59E0B; }
+    .ad-square .stat-num.blue { color: #3B93FF; }
+    .ad-square .stat-num.green { color: #34A853; }
+    .ad-square .stat-text { color: #9ca3af; font-size: 16px; }
+    .ad-square .bottom-section { text-align: center; }
+    .ad-square .cta { display: inline-block; background: #3B93FF; color: white; font-size: 20px; font-weight: 700; padding: 16px 48px; border-radius: 8px; margin-bottom: 12px; }
+    .ad-square .footer-text { color: #6b7280; font-size: 14px; }
+
+    /* Story Ad 1080x1920 */
+    .ad-story {
+        width: 1080px; height: 1920px;
+        background: linear-gradient(180deg, #0f1320 0%, #1a1f33 40%, #141824 100%);
+        position: relative; overflow: hidden;
+        border-radius: 4px;
+        transform: scale(0.5);
+        transform-origin: top center;
+    }
+    .ad-story .content { position: relative; z-index: 1; padding: 80px 64px; height: 100%; display: flex; flex-direction: column; justify-content: space-between; align-items: center; text-align: center; }
+    .ad-story .wanted { font-size: 96px; font-weight: 900; color: #F59E0B; letter-spacing: 8px; text-transform: uppercase; margin-bottom: 16px; text-shadow: 0 0 60px rgba(245,158,11,0.3); }
+    .ad-story .main-text { color: white; font-size: 56px; font-weight: 800; line-height: 1.2; margin-bottom: 8px; }
+    .ad-story .main-text .blue { color: #3B93FF; }
+    .ad-story .sub-text { color: #9ca3af; font-size: 24px; margin-top: 16px; max-width: 700px; }
+    .ad-story .mid-stats { display: flex; gap: 24px; }
+    .ad-story .mid-stat { background: #1e2438; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 28px 36px; text-align: center; }
+    .ad-story .mid-stat .val { font-size: 40px; font-weight: 800; color: #3B93FF; line-height: 1; }
+    .ad-story .mid-stat .val.amber { color: #F59E0B; }
+    .ad-story .mid-stat .lbl { font-size: 14px; color: #9ca3af; margin-top: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .ad-story .bottom-cta { }
+    .ad-story .own-text { color: white; font-size: 32px; font-weight: 600; margin-bottom: 24px; }
+    .ad-story .cta-pill { background: #3B93FF; color: white; font-size: 28px; font-weight: 700; padding: 20px 64px; border-radius: 50px; margin-bottom: 20px; display: inline-block; }
+    .ad-story .brand-info { color: #6b7280; font-size: 18px; }
+</style>
+</head>
+<body>
+
+<!-- AD 1: Facebook/Instagram Feed (1200x628) -->
+<h2>Ad 1: Feed Image (1200x628) &mdash; Screenshot this</h2>
+<p class="note">Right-click > Inspect > Select element > Screenshot node, or use browser screenshot at exact dimensions</p>
+<div class="ad-feed">
+    <div class="bg-pattern"></div>
+    <div class="content">
+        <div>
+            <div class="top-badge">Urgent &mdash; Active Tenants Waiting</div>
+            <div class="headline">
+                <span class="amber">WANTED:</span> 5,000-7,500 SF Warehouse <span class="blue">Near PBI</span>
+            </div>
+            <div class="specs">
+                <div class="spec-tag">5,000-7,500 SF</div>
+                <div class="spec-tag">3-Phase Electric</div>
+                <div class="spec-tag">PBI Airport Corridor</div>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="stats-row">
+                <div class="stat">
+                    <div class="stat-val">&lt;2%</div>
+                    <div class="stat-lbl">Vacancy</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-val blue">3+</div>
+                    <div class="stat-lbl">Active Tenants</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-val blue">30</div>
+                    <div class="stat-lbl">Days to Lease</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-val green">$0</div>
+                    <div class="stat-lbl">Upfront Cost</div>
+                </div>
+            </div>
+            <div class="brand">
+                <div class="brand-url">palmbeachwarehouses.com</div>
+                <div class="brand-phone">561-718-6725</div>
+                <div class="cta-btn">Get Free Market Analysis</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- AD 2: Instagram Square (1080x1080) -->
+<h2>Ad 2: Square Image (1080x1080) &mdash; Screenshot this</h2>
+<div class="ad-square">
+    <div class="content">
+        <div class="top-section">
+            <div class="eyebrow">Your Warehouse Is In</div>
+            <h1><span class="blue">High Demand</span></h1>
+            <p class="sub">We have qualified tenants actively searching for 5,000-7,500 SF warehouse space with 3-phase electric near PBI airport.</p>
+        </div>
+        <div class="stats-grid">
+            <div class="stat-box">
+                <div class="stat-num amber">&lt;2%</div>
+                <div class="stat-text">Vacancy Rate</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-num blue">3+</div>
+                <div class="stat-text">Active Tenants</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-num blue">30 Days</div>
+                <div class="stat-text">Avg. Time to Lease</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-num green">$0</div>
+                <div class="stat-text">Upfront Cost to You</div>
+            </div>
+        </div>
+        <div class="bottom-section">
+            <div class="cta">Get Free Market Analysis</div>
+            <div class="footer-text">palmbeachwarehouses.com &nbsp;|&nbsp; 561-718-6725</div>
+        </div>
+    </div>
+</div>
+
+<!-- AD 3: Story Format (1080x1920, scaled 50%) -->
+<h2>Ad 3: Story/Reel (1080x1920, shown at 50% scale) &mdash; Screenshot at full size</h2>
+<div class="ad-story">
+    <div class="content">
+        <div>
+            <div class="wanted">WANTED</div>
+            <div class="main-text">5,000-7,500 SF Warehouse</div>
+            <div class="main-text"><span class="blue">Near PBI Airport</span></div>
+            <div class="sub-text">3-Phase Electric Required</div>
+        </div>
+        <div class="mid-stats">
+            <div class="mid-stat">
+                <div class="val amber">&lt;2%</div>
+                <div class="lbl">Vacancy</div>
+            </div>
+            <div class="mid-stat">
+                <div class="val">3+</div>
+                <div class="lbl">Tenants</div>
+            </div>
+            <div class="mid-stat">
+                <div class="val">30 Days</div>
+                <div class="lbl">Avg Lease</div>
+            </div>
+        </div>
+        <div class="bottom-cta">
+            <div class="own-text">Own this space?</div>
+            <div class="cta-pill">Get Free Analysis</div>
+            <div class="brand-info">palmbeachwarehouses.com &nbsp;|&nbsp; 561-718-6725</div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,755 @@
+<!--
+  OWNER ACQUISITION LANDING PAGE: Hyper-targeted for 5,000-7,500 SF warehouse owners near PBI
+  Purpose: Convert property owners + brokers with mid-size warehouse inventory
+  Form ID: owner-5000sf-lead (separate from landlord-lead-form for campaign tracking)
+  Campaign: Meta ads targeting PBC property owners + CRE brokers
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Own a 5,000-7,500 SF warehouse near PBI airport? We have qualified tenants actively searching for your exact space. Free market analysis. No upfront costs.">
+    <meta name="keywords" content="list 5000 sf warehouse Palm Beach, warehouse owner PBI airport, lease warehouse space West Palm Beach, industrial property landlord Palm Beach County, 3 phase warehouse for lease">
+    <title>5,000-7,500 SF Warehouse Owners Near PBI | Tenants Are Waiting | PBW</title>
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://palmbeachwarehouses.com/warehouse-owners-5000-sf/">
+
+    <!-- Geo Tags for Local SEO -->
+    <meta name="geo.region" content="US-FL">
+    <meta name="geo.placename" content="Palm Beach County">
+    <meta name="geo.position" content="26.6832;-80.0956">
+    <meta name="ICBM" content="26.6832, -80.0956">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://palmbeachwarehouses.com/warehouse-owners-5000-sf/">
+    <meta property="og:title" content="Own a 5,000-7,500 SF Warehouse Near PBI? Tenants Are Waiting.">
+    <meta property="og:description" content="We have qualified tenants actively searching for 5,000-7,500 SF warehouse space with 3-phase electric near PBI airport. Zero available inventory. Your space could lease in 30 days.">
+    <meta property="og:image" content="https://palmbeachwarehouses.com/assets/og-owner-5000sf.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Palm Beach Warehouses">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Own a 5,000-7,500 SF Warehouse Near PBI? Tenants Are Waiting.">
+    <meta name="twitter:description" content="Qualified tenants actively searching for your exact space. Free market analysis. No upfront costs.">
+    <meta name="twitter:image" content="https://palmbeachwarehouses.com/assets/og-owner-5000sf.png">
+
+    <!-- Robots -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="author" content="Zach Vorsteg">
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "5,000-7,500 SF Warehouse Owners Near PBI Airport",
+        "description": "Landing page for warehouse property owners with 5,000-7,500 SF space near Palm Beach International Airport. Connect with active tenants.",
+        "url": "https://palmbeachwarehouses.com/warehouse-owners-5000-sf/",
+        "publisher": {
+            "@type": "RealEstateAgent",
+            "name": "Zach Vorsteg",
+            "telephone": "+1-561-718-6725",
+            "license": "SL3603483",
+            "worksFor": {
+                "@type": "RealEstateAgent",
+                "name": "Cornerstone Realty"
+            },
+            "areaServed": {
+                "@type": "Place",
+                "name": "Palm Beach County, Florida"
+            }
+        },
+        "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://palmbeachwarehouses.com/" },
+                { "@type": "ListItem", "position": 2, "name": "List Your Space", "item": "https://palmbeachwarehouses.com/list-your-space/" },
+                { "@type": "ListItem", "position": 3, "name": "5,000-7,500 SF Warehouse Owners" }
+            ]
+        }
+    }
+    </script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        :root {
+            --dark-bg: #1a1f33;
+            --darker-bg: #141824;
+            --card-bg: #1e2438;
+            --accent-blue: #3B93FF;
+            --primary-blue: #0057E0;
+            --primary-blue-light: #1a73e8;
+            --action-blue: #1a73e8;
+            --text-light: #e8eaed;
+            --text-gray: #c0c6cc;
+            --text-muted: #9ca3af;
+            --form-bg: #FFFFFF;
+            --form-border: #E5E5E5;
+            --form-text: #202124;
+            --success-green: #34A853;
+            --error-red: #D33B27;
+            --warning-amber: #F59E0B;
+            --border-color: rgba(232, 234, 237, 0.12);
+            --font-family: Inter, -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+        }
+        body { background: var(--dark-bg); color: var(--text-light); font-family: var(--font-family); line-height: 1.6; }
+        a { color: inherit; text-decoration: none; }
+        button { font-family: inherit; }
+        .skip-link { position: absolute; top: -40px; left: 0; background: var(--accent-blue); color: white; padding: 8px 16px; z-index: 100; border-radius: 0 0 6px 0; }
+        .skip-link:focus { top: 0; }
+
+        /* Header */
+        header { background: var(--darker-bg); border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 50; }
+        .header-container { max-width: 1400px; margin: 0 auto; padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; }
+        .logo-section { display: flex; align-items: center; gap: 1rem; }
+        .logo-image { width: 40px; height: 40px; }
+        .logo-brand { color: var(--text-light); font-weight: 700; font-size: 0.95rem; line-height: 1.2; }
+        .logo-tagline { color: var(--text-gray); font-size: 0.75rem; }
+        .nav-desktop { display: flex; gap: 0; align-items: center; }
+        .nav-link { padding: 0.75rem 1.25rem; color: var(--text-light); font-size: 0.95rem; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s; }
+        .nav-link:hover { color: var(--accent-blue); }
+        .nav-link.active { color: var(--accent-blue); }
+        .nav-cta { display: flex; align-items: center; gap: 1rem; }
+        .phone-cta { color: var(--text-gray); font-size: 0.9rem; transition: color 0.2s; }
+        .phone-cta:hover { color: var(--accent-blue); }
+        .btn-primary { background: var(--accent-blue); color: white; padding: 0.65rem 1.5rem; border-radius: 6px; font-weight: 600; font-size: 0.9rem; border: none; cursor: pointer; transition: all 0.2s; }
+        .btn-primary:hover { background: var(--primary-blue); transform: translateY(-1px); }
+        .mobile-menu-btn { display: none; background: none; border: none; color: var(--text-light); font-size: 1.5rem; cursor: pointer; }
+
+        /* Urgency Banner */
+        .urgency-banner { background: linear-gradient(90deg, #D33B27 0%, #B91C1C 100%); padding: 0.75rem 2rem; text-align: center; }
+        .urgency-text { color: white; font-weight: 600; font-size: 0.95rem; letter-spacing: 0.02em; }
+        .urgency-text span { font-weight: 800; text-transform: uppercase; }
+
+        /* Hero */
+        .hero { padding: 4rem 2rem 3rem; background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 100%); }
+        .hero-container { max-width: 1400px; margin: 0 auto; }
+        .hero-content { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+        .hero-left h1 { font-size: 2.75rem; font-weight: 800; margin-bottom: 1.25rem; line-height: 1.15; }
+        .highlight { color: var(--accent-blue); }
+        .highlight-amber { color: var(--warning-amber); }
+        .hero-subtitle { font-size: 1.15rem; color: var(--text-gray); margin-bottom: 2rem; line-height: 1.7; }
+
+        /* Demand Cards */
+        .demand-proof { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+        .demand-card { background: rgba(59, 147, 255, 0.08); border: 1px solid rgba(59, 147, 255, 0.2); border-radius: 10px; padding: 1.25rem; }
+        .demand-number { font-size: 2rem; font-weight: 800; color: var(--accent-blue); line-height: 1; margin-bottom: 0.25rem; }
+        .demand-label { font-size: 0.85rem; color: var(--text-gray); line-height: 1.4; }
+        .demand-card.urgent { border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.08); }
+        .demand-card.urgent .demand-number { color: var(--warning-amber); }
+
+        /* Form Card */
+        .form-card { background: var(--form-bg); border-radius: 12px; padding: 2.5rem; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); position: sticky; top: 90px; }
+        .form-badge { display: inline-block; background: var(--success-green); color: white; font-size: 0.75rem; font-weight: 700; padding: 0.35rem 0.75rem; border-radius: 50px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; }
+        .form-title { font-size: 1.5rem; font-weight: 700; color: var(--form-text); margin-bottom: 0.5rem; }
+        .form-subtitle { color: #666; font-size: 0.95rem; margin-bottom: 1.5rem; line-height: 1.5; }
+        .form-group { margin-bottom: 1.15rem; }
+        .form-label { display: block; font-weight: 600; color: var(--form-text); font-size: 0.85rem; margin-bottom: 0.4rem; }
+        .form-input, .form-select { width: 100%; padding: 0.75rem 1rem; border: 1.5px solid var(--form-border); border-radius: 8px; font-family: inherit; font-size: 0.95rem; color: var(--form-text); background: white; transition: border-color 0.2s; }
+        .form-input:focus, .form-select:focus { outline: none; border-color: var(--primary-blue); box-shadow: 0 0 0 3px rgba(0, 87, 224, 0.1); }
+        .form-input::placeholder { color: #9CA3AF; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .form-divider { border-bottom: 1px solid var(--form-border); margin: 1.25rem 0; }
+        .submit-button { width: 100%; padding: 1rem; background: var(--primary-blue); color: white; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 1.05rem; transition: all 0.2s; letter-spacing: 0.01em; }
+        .submit-button:hover { background: #0046b3; transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0, 87, 224, 0.3); }
+        .submit-button:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+        .form-trust { display: flex; align-items: center; gap: 0.5rem; margin-top: 0.75rem; justify-content: center; }
+        .form-trust span { font-size: 0.8rem; color: #888; }
+        .form-trust svg { flex-shrink: 0; }
+        .or-call { text-align: center; margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--form-border); }
+        .or-call span { font-size: 0.85rem; color: #888; display: block; margin-bottom: 0.5rem; }
+        .or-call a { font-size: 1.25rem; font-weight: 700; color: var(--primary-blue); display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
+        .or-call a:hover { color: var(--accent-blue); }
+        .form-message { padding: 1rem; border-radius: 6px; margin-bottom: 1rem; font-size: 0.9rem; }
+        .form-message.error { background: #fee2e2; color: #c53030; border: 1px solid #f5a5a5; }
+        .form-message.success { background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; }
+        .hidden { display: none !important; }
+
+        /* Success Screen */
+        .success-screen { background: var(--form-bg); border-radius: 12px; padding: 2.5rem; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); text-align: center; }
+        .success-icon { width: 64px; height: 64px; margin: 0 auto 1.5rem; background: rgba(52, 168, 83, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--success-green); }
+        .success-icon svg { width: 32px; height: 32px; }
+        .success-screen h3 { font-size: 1.5rem; font-weight: 700; color: var(--form-text); margin-bottom: 0.75rem; }
+        .success-screen p { color: #666; margin-bottom: 1.5rem; }
+        .success-agent { background: #f5f5f5; border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; }
+        .success-headshot { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; margin-bottom: 0.75rem; }
+        .success-agent-name { font-weight: 700; color: var(--form-text); font-size: 0.95rem; }
+        .success-agent-title { font-size: 0.85rem; color: #666; margin-bottom: 0.75rem; }
+        .success-agent-phone { display: inline-block; color: var(--primary-blue); font-weight: 600; font-size: 0.9rem; }
+
+        /* Market Stats Section */
+        .market-section { padding: 4rem 2rem; background: var(--darker-bg); }
+        .market-container { max-width: 1200px; margin: 0 auto; }
+        .section-title { text-align: center; font-size: 2rem; font-weight: 700; margin-bottom: 0.75rem; }
+        .section-sub { text-align: center; color: var(--text-gray); font-size: 1.05rem; margin-bottom: 3rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+        .stat-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 2rem; text-align: center; }
+        .stat-value { font-size: 2.5rem; font-weight: 800; color: var(--accent-blue); margin-bottom: 0.25rem; line-height: 1; }
+        .stat-value.amber { color: var(--warning-amber); }
+        .stat-label { font-size: 0.9rem; color: var(--text-gray); line-height: 1.4; }
+
+        /* What You Get */
+        .benefits-section { padding: 4rem 2rem; }
+        .benefits-container { max-width: 1200px; margin: 0 auto; }
+        .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .benefit-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 2rem; }
+        .benefit-icon { width: 48px; height: 48px; background: rgba(59, 147, 255, 0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; color: var(--accent-blue); }
+        .benefit-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .benefit-card p { color: var(--text-gray); font-size: 0.9rem; line-height: 1.6; }
+
+        /* Process Steps */
+        .process-section { padding: 4rem 2rem; background: var(--darker-bg); }
+        .process-container { max-width: 1000px; margin: 0 auto; }
+        .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+        .process-step { background: var(--card-bg); border-radius: 12px; padding: 1.5rem; border-top: 3px solid var(--accent-blue); text-align: center; }
+        .step-number { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: var(--accent-blue); color: white; border-radius: 50%; font-weight: 700; font-size: 1rem; margin-bottom: 1rem; }
+        .process-step h3 { color: var(--text-light); font-size: 1rem; margin-bottom: 0.5rem; }
+        .process-step p { color: var(--text-gray); font-size: 0.85rem; line-height: 1.5; }
+
+        /* Broker Section */
+        .broker-section { padding: 4rem 2rem; border-top: 1px solid var(--border-color); }
+        .broker-container { max-width: 900px; margin: 0 auto; text-align: center; }
+        .broker-badge { display: inline-block; background: rgba(59, 147, 255, 0.15); color: var(--accent-blue); font-size: 0.8rem; font-weight: 700; padding: 0.4rem 1rem; border-radius: 50px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; }
+        .broker-section h2 { font-size: 1.75rem; font-weight: 700; margin-bottom: 0.75rem; }
+        .broker-section p { color: var(--text-gray); font-size: 1.05rem; margin-bottom: 2rem; max-width: 650px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+        .broker-features { display: flex; gap: 2rem; justify-content: center; margin-bottom: 2rem; flex-wrap: wrap; }
+        .broker-feature { display: flex; align-items: center; gap: 0.5rem; color: var(--text-light); font-weight: 500; }
+        .broker-feature svg { color: var(--success-green); flex-shrink: 0; }
+
+        /* Trust Bar */
+        .trust-section { padding: 2rem; background: rgba(0, 87, 224, 0.06); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
+        .trust-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 2rem; }
+        .trust-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; color: var(--text-gray); }
+        .trust-icon { color: var(--accent-blue); display: flex; align-items: center; }
+        .trust-divider { width: 1px; height: 24px; background: var(--border-color); }
+
+        /* Bottom CTA */
+        .bottom-cta { background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 100%); padding: 4rem 2rem; text-align: center; }
+        .bottom-cta h2 { font-size: 2rem; font-weight: 700; margin-bottom: 0.75rem; }
+        .bottom-cta p { color: var(--text-gray); font-size: 1.1rem; margin-bottom: 1.5rem; }
+        .bottom-cta-buttons { display: flex; gap: 1rem; justify-content: center; align-items: center; flex-wrap: wrap; }
+        .btn-large { padding: 1rem 2.5rem; font-size: 1.05rem; border-radius: 8px; font-weight: 700; cursor: pointer; transition: all 0.2s; border: none; }
+        .btn-large.primary { background: var(--accent-blue); color: white; }
+        .btn-large.primary:hover { background: var(--primary-blue); transform: translateY(-2px); }
+        .btn-large.secondary { background: transparent; color: var(--text-light); border: 2px solid var(--text-gray); }
+        .btn-large.secondary:hover { border-color: var(--accent-blue); color: var(--accent-blue); }
+
+        /* Footer */
+        .footer { background: var(--darker-bg); border-top: 1px solid var(--border-color); }
+        .footer-content { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        .footer-bottom { text-align: center; color: var(--text-gray); font-size: 0.8rem; }
+        .footer-bottom a { color: var(--text-gray); transition: color 0.2s; }
+        .footer-bottom a:hover { color: var(--accent-blue); }
+        .footer-links { display: flex; gap: 1.5rem; justify-content: center; margin-bottom: 1rem; }
+        .footer-eho { font-size: 0.75rem; margin-top: 0.75rem; color: var(--text-muted); }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .nav-desktop { display: none; }
+            .mobile-menu-btn { display: block; }
+            .hero { padding: 2rem 1rem; }
+            .hero-content { grid-template-columns: 1fr; gap: 2rem; }
+            .hero-left h1 { font-size: 1.85rem; }
+            .hero-subtitle { font-size: 1rem; }
+            .demand-proof { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+            .demand-card { padding: 1rem; }
+            .demand-number { font-size: 1.5rem; }
+            .form-card { padding: 1.5rem; position: static; }
+            .form-row { grid-template-columns: 1fr; gap: 1rem; }
+            .stats-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+            .stat-card { padding: 1.25rem; }
+            .stat-value { font-size: 2rem; }
+            .benefits-grid { grid-template-columns: 1fr; }
+            .process-steps { grid-template-columns: 1fr 1fr; gap: 1rem; }
+            .broker-features { flex-direction: column; align-items: center; gap: 1rem; }
+            .bottom-cta h2 { font-size: 1.5rem; }
+            .bottom-cta-buttons { flex-direction: column; }
+            .btn-large { width: 100%; text-align: center; }
+            .urgency-text { font-size: 0.85rem; }
+            .trust-divider { display: none; }
+            .trust-container { gap: 1rem; }
+            .header-container { padding: 0.75rem 1rem; }
+        }
+        @media (max-width: 480px) {
+            .demand-proof { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .process-steps { grid-template-columns: 1fr; }
+        }
+    </style>
+
+    <link rel="stylesheet" href="/styles.css?v=94">
+    <script defer src="/utm-capture.js?v=91"></script>
+    <script>window.addEventListener('load',function(){var s=document.createElement('script');s.src='/tracking-init.js';document.head.appendChild(s)})</script>
+</head>
+<body>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1245057844149331&ev=PageView&noscript=1" alt="" /></noscript>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Urgency Banner -->
+    <div class="urgency-banner">
+        <p class="urgency-text"><span>Urgent:</span> Active tenants searching for 5,000-7,500 SF warehouse near PBI. Zero available inventory.</p>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="/" class="logo-section">
+                <picture>
+                    <source srcset="/assets/logo.webp" type="image/webp">
+                    <img src="/assets/logo.png" alt="Palm Beach Warehouses Logo" class="logo-image" width="40" height="40" loading="lazy" decoding="async">
+                </picture>
+                <div>
+                    <div class="logo-brand">INDUSTRIAL SPACE</div>
+                    <div class="logo-tagline">Palm Beach County</div>
+                </div>
+            </a>
+
+            <nav class="nav-desktop">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/about/" class="nav-link">About</a>
+                <a href="/list-your-space/" class="nav-link">List Your Space</a>
+                <a href="/guides/palm-beach-industrial-market/" class="nav-link">Market Report</a>
+                <a href="/blog/" class="nav-link">Blog</a>
+            </nav>
+
+            <div class="nav-cta">
+                <a href="tel:561-718-6725" class="phone-cta">561-718-6725</a>
+                <button class="btn-primary" onclick="document.getElementById('owner-form').scrollIntoView({behavior: 'smooth'})">Get Free Analysis</button>
+                <button class="mobile-menu-btn" aria-label="Toggle menu" onclick="this.classList.toggle('open')">&#9776;</button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="hero-left">
+                        <h1>Own a 5,000-7,500 SF Warehouse Near PBI? <span class="highlight">Tenants Are Waiting.</span></h1>
+                        <p class="hero-subtitle">We're actively working with qualified tenants who need <strong>5,000-7,500 SF of warehouse space</strong> with 3-phase electric in the PBI airport corridor. There is <strong>virtually zero inventory</strong> in this size range right now. If you own space that fits, it could be leased within 30 days.</p>
+
+                        <div class="demand-proof">
+                            <div class="demand-card">
+                                <div class="demand-number">3+</div>
+                                <div class="demand-label">Active tenants searching for this exact size</div>
+                            </div>
+                            <div class="demand-card urgent">
+                                <div class="demand-number">&lt;2%</div>
+                                <div class="demand-label">Vacancy rate for 5K-7.5K SF near PBI</div>
+                            </div>
+                            <div class="demand-card">
+                                <div class="demand-number">30</div>
+                                <div class="demand-label">Avg. days to lease in this size range</div>
+                            </div>
+                            <div class="demand-card">
+                                <div class="demand-number">$0</div>
+                                <div class="demand-label">Upfront cost to you &mdash; we earn on lease</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hero-right" id="owner-form">
+                        <!-- Form -->
+                        <div class="form-card" id="form-container">
+                            <div class="form-badge">High Demand Alert</div>
+                            <h2 class="form-title">Tell Us About Your Space</h2>
+                            <p class="form-subtitle">Get a free market analysis and connect with tenants searching right now.</p>
+
+                            <div id="form-message" class="form-message hidden"></div>
+
+                            <form id="owner-5000sf-lead" method="POST" action="/api/leads">
+                                <input type="hidden" name="form-name" value="owner-5000sf-lead">
+                                <input type="hidden" name="lead_source" value="owner-5000sf-campaign">
+                                <input type="hidden" name="lead_type" value="landlord">
+
+                                <div class="form-group">
+                                    <label for="property_address" class="form-label">Property Address</label>
+                                    <input type="text" id="property_address" name="property_address" class="form-input" placeholder="1234 Main Street, West Palm Beach" required>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="property_size" class="form-label">Total Warehouse SF</label>
+                                        <select id="property_size" name="property_size" class="form-select" required>
+                                            <option value="">Select size</option>
+                                            <option value="Under 5,000 SF">Under 5,000 SF</option>
+                                            <option value="5,000-6,000 SF" selected>5,000-6,000 SF</option>
+                                            <option value="6,000-7,500 SF">6,000-7,500 SF</option>
+                                            <option value="7,500-10,000 SF">7,500-10,000 SF</option>
+                                            <option value="10,000+ SF">10,000+ SF</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="three_phase" class="form-label">3-Phase Electric?</label>
+                                        <select id="three_phase" name="three_phase" class="form-select" required>
+                                            <option value="">Select</option>
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
+                                            <option value="Not Sure">Not Sure</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-divider"></div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="name" class="form-label">Your Name</label>
+                                        <input type="text" id="name" name="name" class="form-input" placeholder="John Smith" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="contact_type" class="form-label">I Am a...</label>
+                                        <select id="contact_type" name="contact_type" class="form-select" required>
+                                            <option value="">Select</option>
+                                            <option value="Property Owner">Property Owner</option>
+                                            <option value="Property Manager">Property Manager</option>
+                                            <option value="Broker / Agent">Broker / Agent</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="phone" class="form-label">Phone</label>
+                                        <input type="tel" id="phone" name="phone" class="form-input" placeholder="(561) 123-4567" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="email" id="email" name="email" class="form-input" placeholder="you@company.com" required>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="submit-button" id="submit-btn">Get My Free Market Analysis</button>
+
+                                <div class="form-trust">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+                                    <span>Your info is confidential. No spam, ever.</span>
+                                </div>
+                            </form>
+
+                            <div class="or-call">
+                                <span>Rather talk? Call directly:</span>
+                                <a href="tel:561-718-6725">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                                    561-718-6725
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Success Screen (hidden by default) -->
+                        <div class="success-screen hidden" id="success-screen">
+                            <div class="success-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                            </div>
+                            <h3>Got It &mdash; I'll Be in Touch Today</h3>
+                            <p>I'm reviewing your property details now and will reach out within a few hours with a market analysis and next steps.</p>
+                            <div class="success-agent">
+                                <img src="/assets/headshot.jpg?v=1" alt="Zach Vorsteg" class="success-headshot" width="60" height="60" loading="lazy">
+                                <div class="success-agent-name">Zach Vorsteg</div>
+                                <div class="success-agent-title">Licensed Sales Associate, Cornerstone Realty</div>
+                                <a href="tel:561-718-6725" class="success-agent-phone">561-718-6725</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trust Bar -->
+        <section class="trust-section">
+            <div class="trust-container">
+                <div class="trust-item">
+                    <span class="trust-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+                    FL License #SL3603483
+                </div>
+                <div class="trust-divider"></div>
+                <div class="trust-item">
+                    <span class="trust-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></span>
+                    Cornerstone Realty
+                </div>
+                <div class="trust-divider"></div>
+                <div class="trust-item">
+                    <span class="trust-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></span>
+                    150+ Active Tenant Database
+                </div>
+                <div class="trust-divider"></div>
+                <div class="trust-item">
+                    <span class="trust-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></span>
+                    #1 Google: "Palm Beach Warehouses"
+                </div>
+            </div>
+        </section>
+
+        <!-- Market Stats -->
+        <section class="market-section">
+            <div class="market-container">
+                <h2 class="section-title">The PBI Airport Corridor Is <span class="highlight-amber">Severely Undersupplied</span></h2>
+                <p class="section-sub">Mid-size warehouse space (5,000-7,500 SF) near Palm Beach International Airport is the hardest product to find in the county. Here's what the market looks like right now:</p>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value amber">&lt;2%</div>
+                        <div class="stat-label">Vacancy rate for 5K-7.5K SF warehouses near PBI</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">$18-26</div>
+                        <div class="stat-label">NNN asking rate per SF in the airport corridor</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">30</div>
+                        <div class="stat-label">Average days to lease in this size range</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">3+</div>
+                        <div class="stat-label">Qualified tenants we're working with right now</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What You Get -->
+        <section class="benefits-section">
+            <div class="benefits-container">
+                <h2 class="section-title">What You Get When You List With Us</h2>
+                <p class="section-sub">No upfront costs. No long-term commitment. We earn when your space leases.</p>
+
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+                        </div>
+                        <h3>Instant Tenant Matching</h3>
+                        <p>Your space is immediately matched against our active database of 150+ tenants. If we have a fit, you'll know within 48 hours.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                        </div>
+                        <h3>Free Market Analysis</h3>
+                        <p>Comp-backed rental rate recommendation, absorption data, and positioning strategy for your specific property.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+                        </div>
+                        <h3>Multi-Platform Exposure</h3>
+                        <p>Your listing goes live on palmbeachwarehouses.com (#1 on Google), LoopNet, CoStar, and our targeted advertising campaigns.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                        </div>
+                        <h3>Professional Photography</h3>
+                        <p>High-quality photos and virtual tour at no cost. First impressions matter &mdash; we make your space look its best.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <h3>Tenant Screening</h3>
+                        <p>We vet every prospect &mdash; financials, business type, intended use &mdash; before they ever tour your space.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        </div>
+                        <h3>Full-Service Leasing</h3>
+                        <p>From marketing through lease execution. We handle showings, negotiations, and paperwork so you don't have to.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <section class="process-section">
+            <div class="process-container">
+                <h2 class="section-title">How It Works</h2>
+                <p class="section-sub">From first call to signed lease &mdash; here's the process.</p>
+
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h3>Tell Us About Your Space</h3>
+                        <p>Fill out the form or call us. Takes 2 minutes.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h3>Free Market Analysis</h3>
+                        <p>We deliver comp data and a recommended asking rate within 48 hours.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h3>We Market &amp; Match</h3>
+                        <p>Your space goes live across all platforms and our tenant pipeline.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h3>Lease Signed</h3>
+                        <p>We handle everything through lease execution. Average: 30 days.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Broker Co-Op Section -->
+        <section class="broker-section">
+            <div class="broker-container">
+                <div class="broker-badge">For Brokers &amp; Agents</div>
+                <h2>Have a 5K-7.5K SF Listing Near PBI? <span class="highlight">Let's Co-Op.</span></h2>
+                <p>We have active tenant requirements that match your listings. Full co-brokerage honored. Submit your property details and we'll match against our pipeline immediately.</p>
+
+                <div class="broker-features">
+                    <div class="broker-feature">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                        Full co-op commission
+                    </div>
+                    <div class="broker-feature">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                        48-hour tenant matching
+                    </div>
+                    <div class="broker-feature">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                        Confidential &mdash; your client stays yours
+                    </div>
+                </div>
+
+                <button class="btn-large primary" onclick="document.getElementById('owner-form').scrollIntoView({behavior: 'smooth'})">Submit a Listing</button>
+            </div>
+        </section>
+
+        <!-- Bottom CTA -->
+        <section class="bottom-cta">
+            <h2>Your Space Is in Demand. <span class="highlight">Let's Talk.</span></h2>
+            <p>Tenants are actively searching. Don't leave money on the table.</p>
+            <div class="bottom-cta-buttons">
+                <button class="btn-large primary" onclick="document.getElementById('owner-form').scrollIntoView({behavior: 'smooth'})">Get Free Market Analysis</button>
+                <a href="tel:561-718-6725" class="btn-large secondary">Call 561-718-6725</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="/">Home</a>
+                <a href="/about/">About</a>
+                <a href="/list-your-space/">List Your Space</a>
+                <a href="/privacy/">Privacy</a>
+                <a href="/terms/">Terms</a>
+            </div>
+            <div class="footer-bottom">
+                <p>Zach Vorsteg | Cornerstone Realty | FL License #SL3603483</p>
+                <p class="footer-eho">Equal Housing Opportunity. Licensed Real Estate Sales Associate in the State of Florida.</p>
+                <p style="margin-top: 0.5rem;">&copy; 2026 Palm Beach Warehouses. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Form Submission Script -->
+    <script>
+    (function() {
+        const form = document.getElementById('owner-5000sf-lead');
+        const submitBtn = document.getElementById('submit-btn');
+        const formContainer = document.getElementById('form-container');
+        const successScreen = document.getElementById('success-screen');
+        const formMessage = document.getElementById('form-message');
+
+        if (!form) return;
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+            formMessage.classList.add('hidden');
+
+            const formData = new FormData(form);
+            const data = {};
+            formData.forEach(function(value, key) { data[key] = value; });
+
+            // Add UTM params if available
+            try {
+                var utmData = JSON.parse(localStorage.getItem('pbw_utm') || '{}');
+                Object.keys(utmData).forEach(function(k) { data[k] = utmData[k]; });
+            } catch(e) {}
+
+            try {
+                var response = await fetch('/api/leads', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok) {
+                    // Fire conversion events
+                    if (typeof fbq !== 'undefined') {
+                        fbq('track', 'Lead', {
+                            content_name: 'owner-5000sf-lead',
+                            content_category: 'landlord'
+                        });
+                    }
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'conversion', {
+                            send_to: 'AW-17147516072/owner-5000sf'
+                        });
+                    }
+
+                    formContainer.classList.add('hidden');
+                    successScreen.classList.remove('hidden');
+                } else {
+                    throw new Error('Server error');
+                }
+            } catch (err) {
+                // Fallback: try Netlify form submission
+                try {
+                    var netlifyData = new URLSearchParams(data);
+                    netlifyData.append('form-name', 'owner-5000sf-lead');
+                    await fetch('/', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: netlifyData.toString()
+                    });
+                    formContainer.classList.add('hidden');
+                    successScreen.classList.remove('hidden');
+                } catch (fallbackErr) {
+                    formMessage.textContent = 'Something went wrong. Please call us at 561-718-6725 instead.';
+                    formMessage.className = 'form-message error';
+                    formMessage.classList.remove('hidden');
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Get My Free Market Analysis';
+                }
+            }
+        });
+    })();
+    </script>
+
+    <!-- Netlify form detection (hidden copy for Netlify to detect at deploy) -->
+    <form name="owner-5000sf-lead" netlify netlify-honeypot="bot-field" hidden>
+        <input name="form-name" type="hidden">
+        <input name="lead_source" type="hidden">
+        <input name="lead_type" type="hidden">
+        <input name="property_address">
+        <input name="property_size">
+        <input name="three_phase">
+        <input name="name">
+        <input name="contact_type">
+        <input name="phone">
+        <input name="email">
+        <input name="bot-field">
+    </form>
+</body>
+</html>
