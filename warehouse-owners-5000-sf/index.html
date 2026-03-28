@@ -127,10 +127,10 @@
         .btn-primary:hover { background: var(--primary-blue); transform: translateY(-1px); }
         .mobile-menu-btn { display: none; background: none; border: none; color: var(--text-light); font-size: 1.5rem; cursor: pointer; }
 
-        /* Urgency Banner */
-        .urgency-banner { background: linear-gradient(90deg, #D33B27 0%, #B91C1C 100%); padding: 0.75rem 2rem; text-align: center; }
-        .urgency-text { color: white; font-weight: 600; font-size: 0.95rem; letter-spacing: 0.02em; }
-        .urgency-text span { font-weight: 800; text-transform: uppercase; }
+        /* Market Banner */
+        .market-banner { background: var(--darker-bg); border-bottom: 1px solid var(--border-color); padding: 0.6rem 2rem; text-align: center; }
+        .market-banner-text { color: var(--text-gray); font-size: 0.85rem; letter-spacing: 0.01em; }
+        .market-banner-text strong { color: var(--text-light); font-weight: 600; }
 
         /* Hero */
         .hero { padding: 4rem 2rem 3rem; background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 100%); }
@@ -151,7 +151,7 @@
 
         /* Form Card */
         .form-card { background: var(--form-bg); border-radius: 12px; padding: 2.5rem; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); position: sticky; top: 90px; }
-        .form-badge { display: inline-block; background: var(--success-green); color: white; font-size: 0.75rem; font-weight: 700; padding: 0.35rem 0.75rem; border-radius: 50px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; }
+        .form-badge { display: inline-block; background: rgba(59, 147, 255, 0.1); color: var(--accent-blue); font-size: 0.75rem; font-weight: 600; padding: 0.35rem 0.75rem; border-radius: 50px; letter-spacing: 0.02em; margin-bottom: 1rem; border: 1px solid rgba(59, 147, 255, 0.2); }
         .form-title { font-size: 1.5rem; font-weight: 700; color: var(--form-text); margin-bottom: 0.5rem; }
         .form-subtitle { color: #666; font-size: 0.95rem; margin-bottom: 1.5rem; line-height: 1.5; }
         .form-group { margin-bottom: 1.15rem; }
@@ -254,6 +254,25 @@
         .footer-links { display: flex; gap: 1.5rem; justify-content: center; margin-bottom: 1rem; }
         .footer-eho { font-size: 0.75rem; margin-top: 0.75rem; color: var(--text-muted); }
 
+        /* Agent Preview Card */
+        .agent-preview{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:14px 16px;margin-bottom:16px}
+        .agent-preview-photo-wrap{position:relative;flex-shrink:0}
+        .agent-preview-photo{width:56px;height:56px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,.15);display:block}
+        .agent-status-dot{position:absolute;bottom:2px;right:2px;width:12px;height:12px;background:var(--success-green);border:2px solid var(--dark-bg);border-radius:50%}
+        .agent-preview-info{display:flex;flex-direction:column;gap:3px;flex:1;min-width:0}
+        .agent-preview-name{font-size:1rem;font-weight:700;color:var(--text-light);line-height:1.3}
+        .agent-preview-role{font-size:.82rem;font-weight:500;color:var(--accent-blue);line-height:1.3}
+        .agent-preview-meta{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+        .agent-preview-credentials{display:inline-flex;align-items:center;gap:4px;font-size:.72rem;color:var(--text-gray);line-height:1.3;letter-spacing:.1px}
+        .agent-preview-credentials svg{flex-shrink:0;color:var(--text-gray)}
+        .agent-preview-divider{color:var(--text-gray);font-size:.7rem}
+        .save-contact-link{font-size:.72rem;color:var(--text-gray);text-decoration:underline;text-decoration-color:rgba(255,255,255,.2);text-underline-offset:2px;transition:color .15s}
+        .save-contact-link:hover{color:var(--accent-blue);text-decoration-color:var(--accent-blue)}
+
+        /* Mobile Sticky CTA */
+        .mobile-sticky-cta{display:none;position:fixed;bottom:0;left:0;right:0;background:var(--darker-bg);border-top:1px solid var(--border-color);padding:12px 16px;padding-bottom:max(12px,env(safe-area-inset-bottom));z-index:60;text-align:center}
+        .mobile-sticky-cta .btn-primary{width:100%;padding:14px;font-size:1rem;min-height:48px}
+
         /* Mobile */
         @media (max-width: 768px) {
             .nav-desktop { display: none; }
@@ -267,6 +286,8 @@
             .demand-number { font-size: 1.5rem; }
             .form-card { padding: 1.5rem; position: static; }
             .form-row { grid-template-columns: 1fr; gap: 1rem; }
+            .form-input, .form-select { font-size: 16px; min-height: 48px; }
+            .submit-button { min-height: 48px; font-size: 16px; }
             .stats-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
             .stat-card { padding: 1.25rem; }
             .stat-value { font-size: 2rem; }
@@ -275,11 +296,16 @@
             .broker-features { flex-direction: column; align-items: center; gap: 1rem; }
             .bottom-cta h2 { font-size: 1.5rem; }
             .bottom-cta-buttons { flex-direction: column; }
-            .btn-large { width: 100%; text-align: center; }
-            .urgency-text { font-size: 0.85rem; }
+            .btn-large { width: 100%; text-align: center; min-height: 48px; }
+            .market-banner-text { font-size: 0.8rem; }
             .trust-divider { display: none; }
             .trust-container { gap: 1rem; }
             .header-container { padding: 0.75rem 1rem; }
+            .mobile-sticky-cta { display: block; }
+            .agent-preview { padding: 12px 14px; gap: 12px; }
+            .agent-preview-photo { width: 48px; height: 48px; }
+            .agent-preview-name { font-size: .9rem; }
+            body { padding-bottom: 72px; }
         }
         @media (max-width: 480px) {
             .demand-proof { grid-template-columns: 1fr; }
@@ -296,9 +322,9 @@
     <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1245057844149331&ev=PageView&noscript=1" alt="" /></noscript>
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <!-- Urgency Banner -->
-    <div class="urgency-banner">
-        <p class="urgency-text"><span>Urgent:</span> Active tenants searching for 5,000-7,500 SF warehouse near PBI. Zero available inventory.</p>
+    <!-- Market Banner -->
+    <div class="market-banner">
+        <p class="market-banner-text">Market Update: <strong>&lt;2% vacancy</strong> for 5,000–7,500 SF warehouses near PBI — active tenants searching now</p>
     </div>
 
     <!-- Header -->
@@ -346,27 +372,46 @@
                                 <div class="demand-number">3+</div>
                                 <div class="demand-label">Active tenants searching for this exact size</div>
                             </div>
-                            <div class="demand-card urgent">
+                            <div class="demand-card">
                                 <div class="demand-number">&lt;2%</div>
                                 <div class="demand-label">Vacancy rate for 5K-7.5K SF near PBI</div>
                             </div>
                             <div class="demand-card">
                                 <div class="demand-number">30</div>
-                                <div class="demand-label">Avg. days to lease in this size range</div>
+                                <div class="demand-label">Avg. days from listing to signed lease</div>
                             </div>
                             <div class="demand-card">
-                                <div class="demand-number">30</div>
-                                <div class="demand-label">Day avg. marketing timeline to signed lease</div>
+                                <div class="demand-number">$0</div>
+                                <div class="demand-label">Upfront cost to list your property with us</div>
                             </div>
                         </div>
                     </div>
 
                     <div class="hero-right" id="owner-form">
+                        <!-- Agent Preview -->
+                        <div class="agent-preview">
+                            <div class="agent-preview-photo-wrap">
+                                <img src="/assets/headshot.jpg?v=1" alt="Zach Vorsteg" class="agent-preview-photo" width="56" height="56" loading="lazy" decoding="async">
+                                <span class="agent-status-dot" aria-label="Available"></span>
+                            </div>
+                            <div class="agent-preview-info">
+                                <div class="agent-preview-name">Zach Vorsteg</div>
+                                <div class="agent-preview-role">Industrial specialist · Responds within 24 hrs</div>
+                                <div class="agent-preview-meta">
+                                    <span class="agent-preview-credentials">
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                                        Licensed FL #SL3603483 · Cornerstone Realty
+                                    </span>
+                                    <span class="agent-preview-divider">·</span>
+                                    <a href="/assets/Zach_Vorsteg_Contact.vcf" class="save-contact-link">Save Contact</a>
+                                </div>
+                            </div>
+                        </div>
                         <!-- Form -->
                         <div class="form-card" id="form-container">
-                            <div class="form-badge">High Demand Alert</div>
+                            <div class="form-badge">Free Market Analysis</div>
                             <h2 class="form-title">Tell Us About Your Space</h2>
-                            <p class="form-subtitle">Get a free market analysis and connect with tenants searching right now.</p>
+                            <p class="form-subtitle">Get a complimentary market analysis and connect with qualified tenants.</p>
 
                             <div id="form-message" class="form-message hidden"></div>
 
@@ -374,6 +419,7 @@
                                 <input type="hidden" name="form-name" value="owner-5000sf-lead">
                                 <input type="hidden" name="lead_source" value="owner-5000sf-campaign">
                                 <input type="hidden" name="lead_type" value="landlord">
+                                <div style="display:none"><input name="bot-field" tabindex="-1" autocomplete="off"></div>
 
                                 <div class="form-group">
                                     <label for="property_address" class="form-label">Property Address</label>
@@ -461,6 +507,7 @@
                                 <div class="success-agent-name">Zach Vorsteg</div>
                                 <div class="success-agent-title">Licensed Sales Associate, Cornerstone Realty</div>
                                 <a href="tel:561-718-6725" class="success-agent-phone">561-718-6725</a>
+                                <a href="/assets/Zach_Vorsteg_Contact.vcf" style="display:inline-block;margin-top:0.5rem;font-size:0.8rem;color:var(--primary-blue);text-decoration:underline">Save Contact</a>
                             </div>
                         </div>
                     </div>
@@ -496,12 +543,12 @@
         <!-- Market Stats -->
         <section class="market-section">
             <div class="market-container">
-                <h2 class="section-title">The PBI Airport Corridor Is <span class="highlight-amber">Severely Undersupplied</span></h2>
-                <p class="section-sub">Mid-size warehouse space (5,000-7,500 SF) near Palm Beach International Airport is the hardest product to find in the county. Here's what the market looks like right now:</p>
+                <h2 class="section-title">Current Market Conditions <span class="highlight">Near PBI</span></h2>
+                <p class="section-sub">Mid-size warehouse space (5,000–7,500 SF) near Palm Beach International Airport is in high demand with very limited availability. Here's what the data shows:</p>
 
                 <div class="stats-grid">
                     <div class="stat-card">
-                        <div class="stat-value amber">&lt;2%</div>
+                        <div class="stat-value">&lt;2%</div>
                         <div class="stat-label">Vacancy rate for 5K-7.5K SF warehouses near PBI</div>
                     </div>
                     <div class="stat-card">
@@ -632,8 +679,8 @@
 
         <!-- Bottom CTA -->
         <section class="bottom-cta">
-            <h2>Your Space Is in Demand. <span class="highlight">Let's Talk.</span></h2>
-            <p>Tenants are actively searching. Don't leave money on the table.</p>
+            <h2>Ready to Explore Your Options? <span class="highlight">Let's Talk.</span></h2>
+            <p>Get a complimentary market analysis for your property — no obligation.</p>
             <div class="bottom-cta-buttons">
                 <button class="btn-large primary" onclick="document.getElementById('owner-form').scrollIntoView({behavior: 'smooth'})">Get Free Market Analysis</button>
                 <a href="tel:561-718-6725" class="btn-large secondary">Call 561-718-6725</a>
@@ -736,6 +783,14 @@
         });
     })();
     </script>
+
+    <!-- Mobile Sticky CTA -->
+    <div class="mobile-sticky-cta">
+        <button class="btn-primary" onclick="document.getElementById('owner-form').scrollIntoView({behavior:'smooth'})">Get Free Market Analysis</button>
+    </div>
+
+    <script defer src="/crm-integration.js"></script>
+    <script defer src="/cookie-consent.js"></script>
 
     <!-- Netlify form detection (hidden copy for Netlify to detect at deploy) -->
     <form name="owner-5000sf-lead" netlify netlify-honeypot="bot-field" hidden>
