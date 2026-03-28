@@ -8,7 +8,7 @@
 
   let tenantId = null;
   let isSubmitting = false;
-  let activeFormType = null; // 'tenant' | 'landlord' | 'report' | 'valuation' | 'sales'
+  let activeFormType = null; // 'tenant' | 'landlord' | 'report' | 'valuation' | 'sales' | 'featured-tenant'
 
   // Initialize on page load
   document.addEventListener('DOMContentLoaded', function() {
@@ -20,6 +20,7 @@
     const reportForm = document.getElementById('report-lead-form');
     const valuationForm = document.getElementById('valuation-lead-form');
     const salesForm = document.getElementById('sales-lead-form');
+    const featuredTenantForm = document.getElementById('featured-tenant-form');
 
     if (tenantForm) {
       activeFormType = 'tenant';
@@ -41,6 +42,10 @@
       activeFormType = 'sales';
       salesForm.addEventListener('submit', handleFormSubmit);
       console.log('✅ Sales form handler attached');
+    } else if (featuredTenantForm) {
+      activeFormType = 'featured-tenant';
+      featuredTenantForm.addEventListener('submit', handleFormSubmit);
+      console.log('✅ Featured tenant form handler attached');
     } else {
       console.warn('⚠️  No known form found on page');
     }
@@ -64,7 +69,7 @@
     const isMobile = () => window.innerWidth <= 768;
 
     // Get all forms on the page
-    const forms = document.querySelectorAll('#lead-form, #landlord-lead-form, #report-lead-form, #valuation-lead-form, #sales-lead-form');
+    const forms = document.querySelectorAll('#lead-form, #landlord-lead-form, #report-lead-form, #valuation-lead-form, #sales-lead-form, #featured-tenant-form');
     forms.forEach(form => {
       const fields = form.querySelectorAll('input:not([type="hidden"]):not([type="checkbox"]), select, textarea');
 
@@ -181,6 +186,8 @@
         leadData = extractValuationFormData(form);
       } else if (activeFormType === 'sales') {
         leadData = extractSalesFormData(form);
+      } else if (activeFormType === 'featured-tenant') {
+        leadData = extractFeaturedTenantFormData(form);
       } else {
         leadData = extractTenantFormData(form);
       }
@@ -410,6 +417,38 @@
     };
   }
 
+  // ─── FEATURED TENANT form data extraction ───
+  function extractFeaturedTenantFormData(form) {
+    const formData = new FormData(form);
+    const sf = formData.get('property_sf');
+
+    let sizeMin = null;
+    if (sf) {
+      sizeMin = parseInt(sf, 10) || null;
+    }
+
+    const notes = [
+      'Source: palmbeachwarehouses.com/featured-tenant',
+      'Lead Type: FEATURED TENANT CAMPAIGN — PROPERTY SUBMISSION',
+      `Property Address: ${formData.get('property_address') || 'N/A'}`,
+      `Square Footage: ${sf || 'N/A'}`,
+      `3-Phase Electric: ${formData.get('three_phase') || 'N/A'}`,
+      `Additional Notes: ${formData.get('additional_notes') || 'None'}`
+    ].join('\n');
+
+    return {
+      tenant_id: tenantId,
+      name: formData.get('name'),
+      email: formData.get('email') || null,
+      phone: formData.get('phone') || null,
+      sizeMin: sizeMin,
+      propertyType: 'Warehouse',
+      preferredArea: 'Palm Beach County, FL',
+      notes: notes,
+      ...getUtmData()
+    };
+  }
+
   // Shared UTM data extraction
   function getUtmData() {
     return {
@@ -495,6 +534,8 @@
       fireValuationPixels(leadData);
     } else if (activeFormType === 'sales') {
       fireSalesPixels(leadData);
+    } else if (activeFormType === 'featured-tenant') {
+      fireFeaturedTenantPixels(leadData);
     }
   }
 
@@ -672,6 +713,40 @@
     }
   }
 
+  // Featured tenant tracking (high-value — property matched to active tenant)
+  function fireFeaturedTenantPixels(leadData) {
+    const pixelValue = 200;
+
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'conversion', {
+        send_to: 'AW-17147516072/qPCrCKTAm5IBEI2Xn7so',
+        value: pixelValue,
+        currency: 'USD',
+        conversion_label: 'FEATURED_TENANT_PROPERTY',
+        transaction_id: Date.now().toString(),
+      });
+      console.log(`✅ Google Ads conversion fired (Featured Tenant Property: $${pixelValue})`);
+    }
+
+    if (typeof fbq !== 'undefined') {
+      fbq('track', 'Lead', {
+        content_name: 'Featured Tenant Property Submission',
+        content_category: 'FEATURED_TENANT',
+        content_type: 'property_submission',
+        value: pixelValue,
+        currency: 'USD',
+        status: 'property_matched',
+        utm_source: window.__utm?.source || null,
+        utm_campaign: window.__utm?.campaign || null,
+        utm_content: window.__utm?.content || null,
+        utm_medium: window.__utm?.medium || null,
+        ad_set_id: window.__utm?.adSetId || null,
+        location: leadData.preferredArea,
+      });
+      console.log('✅ Facebook Lead conversion fired (Featured Tenant Property)');
+    }
+  }
+
   // Show success message (form-type aware)
   function showSuccessMessage(form, leadData) {
     const successMessage = document.getElementById('success-message');
@@ -717,6 +792,14 @@
       const salesForm = document.getElementById('sales-lead-form');
       salesForm.classList.add('hidden');
       successMessage.classList.remove('hidden');
+    } else if (activeFormType === 'featured-tenant') {
+      // Featured tenant: hide form wrapper, show success screen
+      const ftForm = document.getElementById('featured-tenant-form');
+      ftForm.parentElement.style.display = 'none';
+      const successScreen = document.getElementById('success-screen');
+      if (successScreen) successScreen.classList.add('show');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
     }
 
     // Scroll success message into view — double rAF ensures layout is complete after unhiding
@@ -742,6 +825,7 @@
                  : activeFormType === 'report' ? 'report-lead-form'
                  : activeFormType === 'valuation' ? 'valuation-lead-form'
                  : activeFormType === 'sales' ? 'sales-lead-form'
+                 : activeFormType === 'featured-tenant' ? 'featured-tenant-form'
                  : 'lead-form';
 
     const form = document.getElementById(formId);
@@ -754,8 +838,15 @@
     form.reset();
     form.classList.remove('hidden');
     form.style.display = '';
-    successMessage.classList.add('hidden');
-    successMessage.style.display = '';
+    if (form.parentElement) form.parentElement.style.display = '';
+
+    if (activeFormType === 'featured-tenant') {
+      const successScreen = document.getElementById('success-screen');
+      if (successScreen) successScreen.classList.remove('show');
+    } else if (successMessage) {
+      successMessage.classList.add('hidden');
+      successMessage.style.display = '';
+    }
     submitBtn.disabled = false;
     if (btnText) {
       btnText.classList.remove('hidden');
@@ -787,7 +878,8 @@
                      || document.getElementById('landlord-lead-form')
                      || document.getElementById('report-lead-form')
                      || document.getElementById('valuation-lead-form')
-                     || document.getElementById('sales-lead-form');
+                     || document.getElementById('sales-lead-form')
+                     || document.getElementById('featured-tenant-form');
     if (formSection) {
       formSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
       setTimeout(function() {
@@ -795,6 +887,7 @@
                      : activeFormType === 'report' ? 'report-lead-form'
                      : activeFormType === 'valuation' ? 'valuation-lead-form'
                      : activeFormType === 'sales' ? 'sales-lead-form'
+                     : activeFormType === 'featured-tenant' ? 'featured-tenant-form'
                      : 'lead-form';
         const form = document.getElementById(formId);
         if (form) {

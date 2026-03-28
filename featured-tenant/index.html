@@ -195,25 +195,137 @@
         .trust-item svg{width:16px;height:16px;color:var(--accent-blue);flex-shrink:0}
         .trust-divider{width:1px;height:20px;background:rgba(255,255,255,.1)}
 
-        @media(max-width:768px){
-            .hero-container{grid-template-columns:1fr;gap:2rem}
-            .hero-left h1{font-size:1.75rem}
-            .hero-status-bar{gap:.75rem}
-            .status-divider{display:none}
-            .profile-grid{grid-template-columns:1fr}
-            .why-grid{grid-template-columns:1fr 1fr}
-            .form-row{grid-template-columns:1fr}
-            .nav-desktop,.header-cta .cta-button{display:none}
-            .mobile-menu-btn{display:block}
-            .trust-inner{gap:1rem 1.5rem}
-            .trust-divider{display:none}
-        }
-        @media(max-width:480px){
-            .why-grid{grid-template-columns:1fr}
-            .hero-status-bar{flex-direction:column;align-items:flex-start;gap:.5rem}
-        }
     </style>
     <link rel="stylesheet" href="/styles.css?v=94">
+    <style>
+        /* Page-specific mobile overrides — MUST come after styles.css to win cascade */
+        @media(max-width:768px){
+            /* Header — use .header-cta selectors to beat global specificity */
+            .header{height:56px;padding:0 1rem}
+            .header-cta{display:flex!important;align-items:center;gap:.75rem}
+            .header-cta .cta-button{display:none!important}
+            .header-cta .phone-btn{background:var(--action-blue)!important;color:#fff!important;border:none!important;font-size:.85rem;padding:.5rem .875rem;border-radius:50px;min-height:40px}
+            .mobile-menu-btn{display:block}
+            .nav-desktop{display:none}
+
+            /* Hero — single column, left-aligned, clear of header */
+            .hero{padding:1.5rem 1rem 2rem;min-height:auto;margin-top:56px!important;overflow:visible}
+            .hero-container{grid-template-columns:1fr;gap:1.5rem}
+            .hero-left{text-align:left!important}
+            .hero-left h1{font-size:1.75rem;text-align:left!important}
+            .hero-subtitle{font-size:.95rem;text-align:left!important}
+            .hero-status-bar{gap:.75rem;justify-content:flex-start}
+            .status-divider{display:none}
+            .hero-features{gap:.75rem}
+            .hero-feature{align-items:flex-start}
+
+            /* Form */
+            .hero-form-card{padding:1.5rem}
+            .hero-form-title{font-size:1.15rem;text-align:center}
+            .hero-form-sub{text-align:center}
+            .form-row{grid-template-columns:1fr}
+            .form-input,.form-select{font-size:16px!important;padding:.75rem .875rem;min-height:48px;-webkit-appearance:none}
+            .submit-btn,#submit-btn{min-height:48px!important;font-size:1rem!important;width:100%}
+            .form-note{text-align:center}
+
+            /* Sections — consistent padding */
+            .section{padding:2.5rem 1rem}
+            .section-title{font-size:1.5rem;text-align:center}
+            .section-subtitle{font-size:.95rem;margin-bottom:2rem;text-align:center}
+            .container{padding:0 1rem}
+
+            /* Profile grid — single column, centered layout */
+            .profile-grid{grid-template-columns:1fr;gap:1rem}
+            .profile-item{padding:1.25rem;flex-direction:column;align-items:center;text-align:center;gap:.75rem}
+            .profile-icon{margin:0 auto}
+            .profile-label{text-align:center}
+            .profile-value{text-align:center}
+
+            /* Why grid — 2x2, equal height cards */
+            .why-grid{grid-template-columns:1fr 1fr;gap:1rem}
+            .why-card{padding:1.25rem 1rem;display:flex;flex-direction:column;align-items:center;text-align:center}
+            .why-title{font-size:.95rem}
+            .why-text{font-size:.85rem}
+
+            /* Vetting timeline — aligned */
+            .vetting-step{gap:1rem}
+            .vetting-num{width:40px;height:40px;font-size:1rem}
+            .vetting-timeline::before{left:19px}
+            .vetting-content h3{font-size:1rem}
+            .vetting-content p{font-size:.88rem}
+
+            /* Match checklist — centered card */
+            .match-card{padding:1.5rem}
+            .match-check{width:32px;height:32px;flex-shrink:0}
+            .match-check svg{width:14px;height:14px}
+            .match-label{font-size:.9rem}
+            .match-cta{text-align:center}
+            .match-cta a{width:100%;display:block;text-align:center;padding:.875rem 1.5rem}
+
+            /* Contact — centered */
+            .contact-section{padding:2rem 1rem;text-align:center}
+            .contact-phone{font-size:1.5rem}
+            .contact-name{font-size:1rem}
+            .contact-cred{font-size:.85rem}
+
+            /* Trust bar — centered, no dividers */
+            .trust-inner{gap:1rem 1.5rem;justify-content:center}
+            .trust-divider{display:none}
+            .trust-item{font-size:.8rem}
+
+            /* Footer — brand + CTA full-width, middle items 3-col for symmetry */
+            .footer-main{grid-template-columns:repeat(3,1fr)!important;gap:1.5rem;text-align:center}
+            .footer-brand{grid-column:1 / -1;text-align:center}
+            .footer-contact{text-align:center}
+            .footer-areas{text-align:center}
+            .footer-guides{text-align:center}
+            .footer-cta-box{grid-column:1 / -1;text-align:center}
+            .footer-bottom{text-align:center}
+            .footer-legal{text-align:center}
+        }
+
+        @media(max-width:480px){
+            /* Header — tighter */
+            .header{height:50px;padding:0 .75rem}
+            .logo-img{height:28px}
+            .brand-name{font-size:.85rem}
+            .header-cta .phone-btn{font-size:.8rem!important;padding:.45rem .75rem!important}
+
+            /* Hero */
+            .hero{padding:1.25rem .75rem 1.75rem;margin-top:50px!important}
+            .hero-left h1{font-size:1.4rem}
+            .hero-subtitle{font-size:.9rem}
+            .hero-status-bar{flex-direction:column;align-items:flex-start;gap:.5rem}
+            .hero-form-card{padding:1.25rem}
+            .hero-features{gap:.6rem}
+            .hero-feature-text{font-size:.88rem}
+
+            /* Why grid — single column on small phones */
+            .why-grid{grid-template-columns:1fr}
+            .why-card{padding:1.25rem}
+
+            /* Sections */
+            .section{padding:2rem .75rem}
+            .section-title{font-size:1.35rem}
+
+            /* Match */
+            .match-card{padding:1.25rem}
+            .match-item{padding:.75rem 0}
+
+            /* Trust bar — stacked vertically, centered */
+            .trust-inner{flex-direction:column;gap:.75rem;align-items:center}
+
+            /* Contact */
+            .contact-name{font-size:.95rem}
+            .contact-cred{font-size:.8rem}
+
+            /* Footer — single column, all centered */
+            .footer-main{grid-template-columns:1fr!important;text-align:center}
+            .footer-brand,.footer-contact,.footer-areas,.footer-guides,.footer-cta-box{grid-column:1 / -1;text-align:center}
+            .footer-bottom{text-align:center}
+            .footer-legal{text-align:center}
+        }
+    </style>
 
     <script defer src="/utm-capture.js?v=91"></script>
     <script>window.addEventListener('load',function(){var s=document.createElement('script');s.src='/tracking-init.js';document.head.appendChild(s)})</script>
@@ -376,7 +488,7 @@
                             <input type="hidden" name="lead_type" value="landlord">
 
                             <button type="submit" class="submit-btn" id="submit-btn">Submit Property</button>
-                            <p class="form-note">No obligation. No cost to property owners.</p>
+                            <p class="form-note">No obligation. Confidential review of your space.</p>
                         </form>
                     </div>
 
@@ -614,7 +726,7 @@
                 <div class="trust-divider"></div>
                 <div class="trust-item">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                    <span>No Cost to Property Owners</span>
+                    <span>Confidential Property Review</span>
                 </div>
             </div>
         </div>
@@ -681,44 +793,7 @@
         </div>
     </footer>
 
-    <script>
-    (function() {
-        var form = document.getElementById('featured-tenant-form');
-        var successScreen = document.getElementById('success-screen');
-        var formMessage = document.getElementById('form-message');
-        var submitBtn = document.getElementById('submit-btn');
-        if (!form) return;
-
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Submitting...';
-            var formData = new FormData(form);
-
-            fetch('/', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: new URLSearchParams(formData)
-            }).then(function(response) {
-                if (response.ok || response.status === 404) {
-                    if (typeof fbq !== 'undefined') fbq('track', 'Lead');
-                    if (typeof gtag !== 'undefined') gtag('event', 'conversion', { 'send_to': 'AW-17147516072/qPCrCKTAm5IBEI2Xn7so' });
-                    form.parentElement.style.display = 'none';
-                    successScreen.classList.add('show');
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                } else {
-                    throw new Error('Submission failed');
-                }
-            }).catch(function() {
-                formMessage.textContent = 'Something went wrong. Please try again or call 561-718-6725.';
-                formMessage.className = 'form-message error';
-                formMessage.classList.remove('hidden');
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Submit Property';
-            });
-        });
-    })();
-    </script>
+    <!-- Form submission handled by crm-integration.js -->
 
     <script>
     (function(){var d=new Date();var m=['January','February','March','April','May','June','July','August','September','October','November','December'];var el=document.getElementById('active-date');if(el)el.textContent=m[d.getMonth()]+' '+d.getDate()+', '+d.getFullYear()})();
