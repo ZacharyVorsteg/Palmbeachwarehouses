@@ -204,6 +204,9 @@
         .header-cta .cta-button{display:none!important}
         .phone-btn{white-space:nowrap!important}
 
+        /* Subtle status line under subtitle */
+        .hero-status-line{color:var(--success-green,#22c55e);font-size:.9rem;font-weight:500;margin-top:.5rem;opacity:.85}
+
         /* Page-specific mobile overrides — MUST come after styles.css to win cascade */
         /* All rules use !important to beat global styles.css specificity */
 
@@ -222,10 +225,6 @@
             .hero-left{text-align:center!important;width:100%!important;max-width:100%!important}
             .hero-left h1{font-size:1.75rem!important;text-align:center!important}
             .hero-subtitle{font-size:.95rem!important;text-align:center!important}
-            .hero-status-bar{gap:.75rem!important;justify-content:center!important;flex-wrap:wrap!important}
-            .status-divider{display:none!important}
-            .hero-features{gap:.75rem!important;display:flex!important;flex-direction:column!important;align-items:flex-start!important;width:100%!important;max-width:400px!important;margin:0 auto!important}
-            .hero-feature{align-items:flex-start!important}
 
             /* === FORM — centered, full width === */
             .hero-form-card{padding:1.5rem!important;width:100%!important;max-width:100%!important;margin:0 auto!important;box-sizing:border-box!important}
@@ -315,10 +314,7 @@
             .hero{padding:1.25rem .75rem 1.75rem!important;margin-top:50px!important}
             .hero-left h1{font-size:1.4rem!important}
             .hero-subtitle{font-size:.9rem!important}
-            .hero-status-bar{flex-direction:column!important;align-items:center!important;gap:.5rem!important}
             .hero-form-card{padding:1.25rem!important}
-            .hero-features{gap:.6rem!important;max-width:100%!important}
-            .hero-feature-text{font-size:.88rem!important}
 
             /* === WHY GRID — single column === */
             .why-grid{grid-template-columns:1fr!important}
@@ -425,37 +421,8 @@
             <div class="hero-content">
                 <div class="hero-left">
                     <h1>Deposit-Ready Tenant <span class="highlight">Seeking 5,000–7,500 SF</span></h1>
-                    <p class="hero-subtitle">15-year established operation relocating within Palm Beach County. Needs warehouse near PBI with 3-phase electric. Ready to tour and sign a 3–5 year lease within 30 days.</p>
-
-                    <div class="hero-status-bar">
-                        <div class="status-badge">
-                            <span class="status-dot"></span>
-                            Active Requirement
-                        </div>
-                        <div class="status-divider"></div>
-                        <div class="status-date">Verified <span id="active-date"></span></div>
-                        <div class="status-divider"></div>
-                        <div class="status-detail"><strong>Ready to tour and sign</strong> within 30 days</div>
-                    </div>
-
-                    <div class="hero-features">
-                        <div class="hero-feature">
-                            <svg class="hero-feature-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                            <div class="hero-feature-text"><strong>15+ years in operation</strong> with an international client base spanning 22 countries</div>
-                        </div>
-                        <div class="hero-feature">
-                            <svg class="hero-feature-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                            <div class="hero-feature-text"><strong>Lease deposit ready</strong> with no financing contingencies</div>
-                        </div>
-                        <div class="hero-feature">
-                            <svg class="hero-feature-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                            <div class="hero-feature-text"><strong>3-5+ year lease commitment</strong> for predictable, stable income</div>
-                        </div>
-                        <div class="hero-feature">
-                            <svg class="hero-feature-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                            <div class="hero-feature-text"><strong>Professional operation</strong> that maintains clean, code-compliant facilities</div>
-                        </div>
-                    </div>
+                    <p class="hero-subtitle">15-year established operation relocating within Palm Beach County. Needs warehouse near PBI with 3-phase electric. Ready to sign a 3–5 year lease within 30 days.</p>
+                    <p class="hero-status-line">Verified active requirement — deposit ready, touring now</p>
                 </div>
 
                 <div class="hero-right" id="form-section">
@@ -791,10 +758,6 @@
     </footer>
 
     <!-- Form submission handled by crm-integration.js -->
-
-    <script>
-    (function(){var d=new Date();var m=['January','February','March','April','May','June','July','August','September','October','November','December'];var el=document.getElementById('active-date');if(el)el.textContent=m[d.getMonth()]+' '+d.getDate()+', '+d.getFullYear()})();
-    </script>
 
     <script>
     document.querySelectorAll('.nav-dropdown-toggle').forEach(function(btn) {
