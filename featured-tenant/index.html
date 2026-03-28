@@ -199,131 +199,144 @@
     <link rel="stylesheet" href="/styles.css?v=94">
     <style>
         /* Page-specific mobile overrides — MUST come after styles.css to win cascade */
+        /* All rules use !important to beat global styles.css specificity */
+
         @media(max-width:768px){
-            /* Header — use .header-cta selectors to beat global specificity */
-            .header{height:56px;padding:0 1rem}
-            .header-cta{display:flex!important;align-items:center;gap:.75rem}
+            /* === HEADER === */
+            .header{height:56px!important;padding:0 1rem!important}
+            .header-cta{display:flex!important;align-items:center!important;gap:.75rem!important}
             .header-cta .cta-button{display:none!important}
-            .header-cta .phone-btn{background:var(--action-blue)!important;color:#fff!important;border:none!important;font-size:.85rem;padding:.5rem .875rem;border-radius:50px;min-height:40px}
-            .mobile-menu-btn{display:block}
-            .nav-desktop{display:none}
+            .header-cta .phone-btn{background:var(--action-blue)!important;color:#fff!important;border:none!important;font-size:.85rem!important;padding:.5rem .875rem!important;border-radius:50px!important;min-height:40px!important;white-space:nowrap!important}
+            .mobile-menu-btn{display:block!important}
+            .nav-desktop{display:none!important}
 
-            /* Hero — single column, left-aligned, clear of header */
-            .hero{padding:1.5rem 1rem 2rem;min-height:auto;margin-top:56px!important;overflow:visible}
-            .hero-container{grid-template-columns:1fr;gap:1.5rem}
-            .hero-left{text-align:left!important}
-            .hero-left h1{font-size:1.75rem;text-align:left!important}
-            .hero-subtitle{font-size:.95rem;text-align:left!important}
-            .hero-status-bar{gap:.75rem;justify-content:flex-start}
-            .status-divider{display:none}
-            .hero-features{gap:.75rem}
-            .hero-feature{align-items:flex-start}
+            /* === HERO — single column, centered content === */
+            .hero{padding:1.5rem 1rem 2rem!important;min-height:auto!important;margin-top:56px!important;overflow:visible!important}
+            .hero-container{grid-template-columns:1fr!important;gap:1.5rem!important;max-width:100%!important;justify-items:center!important}
+            .hero-left{text-align:center!important;width:100%!important;max-width:100%!important}
+            .hero-left h1{font-size:1.75rem!important;text-align:center!important}
+            .hero-subtitle{font-size:.95rem!important;text-align:center!important}
+            .hero-status-bar{gap:.75rem!important;justify-content:center!important;flex-wrap:wrap!important}
+            .status-divider{display:none!important}
+            .hero-features{gap:.75rem!important;display:flex!important;flex-direction:column!important;align-items:flex-start!important;width:100%!important;max-width:400px!important;margin:0 auto!important}
+            .hero-feature{align-items:flex-start!important}
 
-            /* Form */
-            .hero-form-card{padding:1.5rem}
-            .hero-form-title{font-size:1.15rem;text-align:center}
-            .hero-form-sub{text-align:center}
-            .form-row{grid-template-columns:1fr}
-            .form-input,.form-select{font-size:16px!important;padding:.75rem .875rem;min-height:48px;-webkit-appearance:none}
-            .submit-btn,#submit-btn{min-height:48px!important;font-size:1rem!important;width:100%}
-            .form-note{text-align:center}
+            /* === FORM — centered, full width === */
+            .hero-form-card{padding:1.5rem!important;width:100%!important;max-width:100%!important;margin:0 auto!important;box-sizing:border-box!important}
+            .hero-form-title{font-size:1.15rem!important;text-align:center!important}
+            .hero-form-sub{text-align:center!important}
+            .form-row{grid-template-columns:1fr!important}
+            .form-input,.form-select{font-size:16px!important;padding:.75rem .875rem!important;min-height:48px!important;-webkit-appearance:none!important;appearance:none!important;width:100%!important;box-sizing:border-box!important}
+            .submit-btn,#submit-btn{min-height:48px!important;font-size:1rem!important;width:100%!important}
+            .form-note{text-align:center!important}
 
-            /* Sections — consistent padding */
-            .section{padding:2.5rem 1rem}
-            .section-title{font-size:1.5rem;text-align:center}
-            .section-subtitle{font-size:.95rem;margin-bottom:2rem;text-align:center}
-            .container{padding:0 1rem}
+            /* === SECTIONS — centered padding === */
+            .section{padding:2.5rem 1rem!important}
+            .section-title{font-size:1.5rem!important;text-align:center!important}
+            .section-subtitle{font-size:.95rem!important;margin-bottom:2rem!important;text-align:center!important}
+            .container{padding:0 1rem!important;box-sizing:border-box!important}
 
-            /* Profile grid — single column, centered layout */
-            .profile-grid{grid-template-columns:1fr;gap:1rem}
-            .profile-item{padding:1.25rem;flex-direction:column;align-items:center;text-align:center;gap:.75rem}
-            .profile-icon{margin:0 auto}
-            .profile-label{text-align:center}
-            .profile-value{text-align:center}
+            /* === PROFILE GRID — single column, centered items === */
+            .profile-grid{grid-template-columns:1fr!important;gap:1rem!important;justify-items:center!important}
+            .profile-item{padding:1.25rem!important;flex-direction:column!important;align-items:center!important;text-align:center!important;gap:.75rem!important;width:100%!important;box-sizing:border-box!important}
+            .profile-icon{margin:0 auto!important;display:flex!important;justify-content:center!important}
+            .profile-label{text-align:center!important;width:100%!important}
+            .profile-value{text-align:center!important;width:100%!important}
 
-            /* Why grid — 2x2, equal height cards */
-            .why-grid{grid-template-columns:1fr 1fr;gap:1rem}
-            .why-card{padding:1.25rem 1rem;display:flex;flex-direction:column;align-items:center;text-align:center}
-            .why-title{font-size:.95rem}
-            .why-text{font-size:.85rem}
+            /* === WHY GRID — 2x2 centered cards === */
+            .why-grid{grid-template-columns:1fr 1fr!important;gap:1rem!important;justify-items:center!important}
+            .why-card{padding:1.25rem 1rem!important;display:flex!important;flex-direction:column!important;align-items:center!important;text-align:center!important;width:100%!important;box-sizing:border-box!important}
+            .why-icon{margin:0 auto .75rem!important}
+            .why-title{font-size:.95rem!important;text-align:center!important}
+            .why-text{font-size:.85rem!important;text-align:center!important}
 
-            /* Vetting timeline — aligned */
-            .vetting-step{gap:1rem}
-            .vetting-num{width:40px;height:40px;font-size:1rem}
-            .vetting-timeline::before{left:19px}
-            .vetting-content h3{font-size:1rem}
-            .vetting-content p{font-size:.88rem}
+            /* === VETTING TIMELINE — aligned === */
+            .vetting-step{gap:1rem!important}
+            .vetting-num{width:40px!important;height:40px!important;font-size:1rem!important;flex-shrink:0!important}
+            .vetting-timeline::before{left:19px!important}
+            .vetting-content h3{font-size:1rem!important}
+            .vetting-content p{font-size:.88rem!important}
 
-            /* Match checklist — centered card */
-            .match-card{padding:1.5rem}
-            .match-check{width:32px;height:32px;flex-shrink:0}
-            .match-check svg{width:14px;height:14px}
-            .match-label{font-size:.9rem}
-            .match-cta{text-align:center}
-            .match-cta a{width:100%;display:block;text-align:center;padding:.875rem 1.5rem}
+            /* === MATCH CHECKLIST — centered card === */
+            .match-card{padding:1.5rem!important;box-sizing:border-box!important}
+            .match-item{display:flex!important;align-items:flex-start!important;gap:.75rem!important}
+            .match-check{width:32px!important;height:32px!important;flex-shrink:0!important}
+            .match-check svg{width:14px!important;height:14px!important}
+            .match-label{font-size:.9rem!important}
+            .match-cta{text-align:center!important}
+            .match-cta a{width:100%!important;display:block!important;text-align:center!important;padding:.875rem 1.5rem!important;box-sizing:border-box!important}
 
-            /* Contact — centered */
-            .contact-section{padding:2rem 1rem;text-align:center}
-            .contact-phone{font-size:1.5rem}
-            .contact-name{font-size:1rem}
-            .contact-cred{font-size:.85rem}
+            /* === CONTACT — centered === */
+            .contact-section{padding:2rem 1rem!important;text-align:center!important}
+            .contact-phone{font-size:1.5rem!important;text-align:center!important}
+            .contact-name{font-size:1rem!important;text-align:center!important}
+            .contact-cred{font-size:.85rem!important;text-align:center!important}
 
-            /* Trust bar — centered, no dividers */
-            .trust-inner{gap:1rem 1.5rem;justify-content:center}
-            .trust-divider{display:none}
-            .trust-item{font-size:.8rem}
+            /* === TRUST BAR — centered, no dividers === */
+            .trust-inner{gap:1rem 1.5rem!important;justify-content:center!important;flex-wrap:wrap!important}
+            .trust-divider{display:none!important}
+            .trust-item{font-size:.8rem!important}
 
-            /* Footer — brand + CTA full-width, middle items 3-col for symmetry */
-            .footer-main{grid-template-columns:repeat(3,1fr)!important;gap:1.5rem;text-align:center}
-            .footer-brand{grid-column:1 / -1;text-align:center}
-            .footer-contact{text-align:center}
-            .footer-areas{text-align:center}
-            .footer-guides{text-align:center}
-            .footer-cta-box{grid-column:1 / -1;text-align:center}
-            .footer-bottom{text-align:center}
-            .footer-legal{text-align:center}
+            /* === FOOTER — single column, all centered === */
+            .footer-main{grid-template-columns:1fr!important;gap:1.5rem!important;text-align:center!important}
+            .footer-brand{grid-column:1 / -1!important;text-align:center!important}
+            .footer-contact{grid-column:1 / -1!important;text-align:center!important}
+            .footer-areas{grid-column:1 / -1!important;text-align:center!important}
+            .footer-guides{grid-column:1 / -1!important;text-align:center!important}
+            .footer-cta-box{grid-column:1 / -1!important;text-align:center!important}
+            .footer-bottom{text-align:center!important}
+            .footer-legal{text-align:center!important}
+
+            /* === SAFARI / iOS FIXES === */
+            button,a,.match-check,.submit-btn{-webkit-user-select:none;user-select:none}
+            input:-webkit-autofill,input:-webkit-autofill:hover,input:-webkit-autofill:focus{-webkit-box-shadow:0 0 0 1000px var(--card-bg,#1e2438) inset!important;-webkit-text-fill-color:#fff!important}
         }
 
         @media(max-width:480px){
-            /* Header — tighter */
-            .header{height:50px;padding:0 .75rem}
-            .logo-img{height:28px}
-            .brand-name{font-size:.85rem}
+            /* === HEADER — tighter === */
+            .header{height:50px!important;padding:0 .75rem!important}
+            .logo-img{height:28px!important}
+            .brand-name{font-size:.85rem!important}
             .header-cta .phone-btn{font-size:.8rem!important;padding:.45rem .75rem!important}
 
-            /* Hero */
-            .hero{padding:1.25rem .75rem 1.75rem;margin-top:50px!important}
-            .hero-left h1{font-size:1.4rem}
-            .hero-subtitle{font-size:.9rem}
-            .hero-status-bar{flex-direction:column;align-items:flex-start;gap:.5rem}
-            .hero-form-card{padding:1.25rem}
-            .hero-features{gap:.6rem}
-            .hero-feature-text{font-size:.88rem}
+            /* === HERO — tighter spacing === */
+            .hero{padding:1.25rem .75rem 1.75rem!important;margin-top:50px!important}
+            .hero-left h1{font-size:1.4rem!important}
+            .hero-subtitle{font-size:.9rem!important}
+            .hero-status-bar{flex-direction:column!important;align-items:center!important;gap:.5rem!important}
+            .hero-form-card{padding:1.25rem!important}
+            .hero-features{gap:.6rem!important;max-width:100%!important}
+            .hero-feature-text{font-size:.88rem!important}
 
-            /* Why grid — single column on small phones */
-            .why-grid{grid-template-columns:1fr}
-            .why-card{padding:1.25rem}
+            /* === WHY GRID — single column === */
+            .why-grid{grid-template-columns:1fr!important}
+            .why-card{padding:1.25rem!important}
 
-            /* Sections */
-            .section{padding:2rem .75rem}
-            .section-title{font-size:1.35rem}
+            /* === SECTIONS — tighter === */
+            .section{padding:2rem .75rem!important}
+            .section-title{font-size:1.35rem!important}
+            .container{padding:0 .75rem!important}
 
-            /* Match */
-            .match-card{padding:1.25rem}
-            .match-item{padding:.75rem 0}
+            /* === MATCH === */
+            .match-card{padding:1.25rem!important}
+            .match-item{padding:.75rem 0!important}
 
-            /* Trust bar — stacked vertically, centered */
-            .trust-inner{flex-direction:column;gap:.75rem;align-items:center}
+            /* === TRUST BAR — stacked vertically === */
+            .trust-inner{flex-direction:column!important;gap:.75rem!important;align-items:center!important}
+            .trust-item{font-size:.75rem!important}
 
-            /* Contact */
-            .contact-name{font-size:.95rem}
-            .contact-cred{font-size:.8rem}
+            /* === CONTACT === */
+            .contact-name{font-size:.95rem!important}
+            .contact-cred{font-size:.8rem!important}
 
-            /* Footer — single column, all centered */
-            .footer-main{grid-template-columns:1fr!important;text-align:center}
-            .footer-brand,.footer-contact,.footer-areas,.footer-guides,.footer-cta-box{grid-column:1 / -1;text-align:center}
-            .footer-bottom{text-align:center}
-            .footer-legal{text-align:center}
+            /* === FOOTER === */
+            .footer-main{grid-template-columns:1fr!important;text-align:center!important}
+            .footer-brand,.footer-contact,.footer-areas,.footer-guides,.footer-cta-box{grid-column:1 / -1!important;text-align:center!important}
+            .footer-bottom{text-align:center!important}
+            .footer-legal{text-align:center!important}
+
+            /* === SAFE AREA — notched iPhones === */
+            .footer-bottom{padding-bottom:max(1rem,env(safe-area-inset-bottom))!important}
         }
     </style>
 
