@@ -226,6 +226,9 @@
         /* All rules use !important to beat global styles.css specificity */
 
         @media(max-width:768px){
+            /* === BASE — elderly-friendly font size === */
+            body{font-size:1.125rem!important}
+
             /* === HEADER === */
             .header{height:56px!important;padding:0 1rem!important}
             .header-cta{display:flex!important;align-items:center!important;gap:.75rem!important}
@@ -234,25 +237,30 @@
             .mobile-menu-btn{display:block!important}
             .nav-desktop{display:none!important}
 
-            /* === HERO — single column, centered content === */
+            /* === HERO — single column, LEFT-aligned (easier to read for elderly) === */
             .hero{padding:1.5rem 1rem 2rem!important;min-height:auto!important;margin-top:56px!important;overflow:visible!important}
-            .hero-content{grid-template-columns:1fr!important;gap:1.5rem!important;max-width:100%!important;justify-items:center!important}
-            .hero-left{text-align:center!important;width:100%!important;max-width:100%!important}
-            .hero-left h1{font-size:1.75rem!important;text-align:center!important}
-            .hero-subtitle{font-size:.95rem!important;text-align:center!important}
+            .hero-content{grid-template-columns:1fr!important;gap:1.5rem!important;max-width:100%!important}
+            .hero-left{text-align:left!important;width:100%!important;max-width:100%!important}
+            .hero-left h1{font-size:1.75rem!important;text-align:left!important;line-height:1.2!important}
+            .hero-subtitle{font-size:1.05rem!important;text-align:left!important;line-height:1.6!important}
+            .hero-status-line{text-align:left!important}
 
-            /* === AGENT PREVIEW — centered on mobile === */
-            .agent-preview{flex-direction:column!important;align-items:center!important;text-align:center!important;padding:12px!important;gap:6px!important}
-            .agent-preview-meta{flex-direction:column!important;align-items:center!important;gap:3px!important}
-            .agent-preview-divider{display:none!important}
+            /* === AGENT PREVIEW — ALWAYS horizontal (never stack vertically) === */
+            .agent-preview{flex-direction:row!important;align-items:center!important;text-align:left!important;padding:12px 14px!important;gap:12px!important}
+            .agent-preview-photo{width:48px!important;height:48px!important}
+            .agent-preview-name{font-size:.95rem!important}
+            .agent-preview-role{font-size:.82rem!important}
+            .agent-preview-meta{flex-direction:row!important;flex-wrap:wrap!important;align-items:center!important;gap:6px!important}
+            .agent-preview-divider{display:inline!important}
+            .agent-preview-credentials{font-size:.72rem!important}
 
-            /* === FORM — centered, full width === */
+            /* === FORM — full width === */
             .hero-form-card{padding:1.5rem!important;width:100%!important;max-width:100%!important;margin:0 auto!important;box-sizing:border-box!important}
-            .hero-form-title{font-size:1.15rem!important;text-align:center!important}
+            .hero-form-title{font-size:1.2rem!important;text-align:center!important}
             .hero-form-sub{text-align:center!important}
             .form-row{grid-template-columns:1fr!important}
             .form-input,.form-select{font-size:16px!important;padding:.75rem .875rem!important;min-height:48px!important;-webkit-appearance:none!important;appearance:none!important;width:100%!important;box-sizing:border-box!important}
-            .submit-btn,#submit-btn{min-height:48px!important;font-size:1rem!important;width:100%!important}
+            .submit-btn,#submit-btn{min-height:52px!important;font-size:1.05rem!important;width:100%!important}
             .form-note{text-align:center!important}
 
             /* === SECTIONS — centered padding === */

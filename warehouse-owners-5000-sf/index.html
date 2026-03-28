@@ -273,44 +273,77 @@
         .mobile-sticky-cta{display:none;position:fixed;bottom:0;left:0;right:0;background:var(--darker-bg);border-top:1px solid var(--border-color);padding:12px 16px;padding-bottom:max(12px,env(safe-area-inset-bottom));z-index:60;text-align:center}
         .mobile-sticky-cta .btn-primary{width:100%;padding:14px;font-size:1rem;min-height:48px}
 
-        /* Mobile */
+        /* Mobile — optimized for elderly ICP (larger text, left-aligned, reduced scroll) */
         @media (max-width: 768px) {
+            body { font-size: 1.125rem; padding-bottom: 72px; }
+
+            /* Header — slim: logo + phone + hamburger only */
             .nav-desktop { display: none; }
             .mobile-menu-btn { display: block; }
-            .hero { padding: 2rem 1rem; }
-            .hero-content { grid-template-columns: 1fr; gap: 2rem; }
-            .hero-left h1 { font-size: 1.85rem; }
-            .hero-subtitle { font-size: 1rem; }
-            .demand-proof { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-            .demand-card { padding: 1rem; }
-            .demand-number { font-size: 1.5rem; }
+            .btn-primary { display: none; }
+            .header-container { padding: 0.75rem 1rem; }
+            .market-banner-text { font-size: 0.85rem; }
+
+            /* Hero — single column, LEFT-aligned (easier to read) */
+            .hero { padding: 1.5rem 1rem 2rem; }
+            .hero-content { grid-template-columns: 1fr; gap: 1.5rem; }
+            .hero-left h1 { font-size: 1.75rem; line-height: 1.2; text-align: left; }
+            .hero-subtitle { font-size: 1.05rem; line-height: 1.6; text-align: left; }
+
+            /* Demand cards — 2x2 always, compact to reduce scroll */
+            .demand-proof { grid-template-columns: 1fr 1fr; gap: 0.625rem; }
+            .demand-card { padding: 0.75rem; }
+            .demand-number { font-size: 1.35rem; }
+            .demand-label { font-size: 0.78rem; line-height: 1.3; }
+
+            /* Agent preview — ALWAYS horizontal (never stack vertically) */
+            .agent-preview { padding: 12px 14px; gap: 12px; flex-direction: row !important; align-items: center !important; text-align: left !important; }
+            .agent-preview-photo { width: 48px; height: 48px; }
+            .agent-preview-name { font-size: 0.95rem; }
+            .agent-preview-role { font-size: 0.82rem; }
+            .agent-preview-meta { flex-direction: row !important; flex-wrap: wrap; align-items: center !important; }
+            .agent-preview-divider { display: inline !important; }
+            .agent-preview-credentials { font-size: 0.72rem; }
+
+            /* Form */
             .form-card { padding: 1.5rem; position: static; }
-            .form-row { grid-template-columns: 1fr; gap: 1rem; }
+            .form-title { font-size: 1.3rem; }
+            .form-row { grid-template-columns: 1fr; gap: 0.875rem; }
             .form-input, .form-select { font-size: 16px; min-height: 48px; }
-            .submit-button { min-height: 48px; font-size: 16px; }
-            .stats-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+            .form-label { font-size: 0.9rem; }
+            .submit-button { min-height: 52px; font-size: 1.05rem; }
+
+            /* Below-fold sections */
+            .section-title { font-size: 1.5rem; }
+            .section-sub { font-size: 0.95rem; }
+            .stats-grid { grid-template-columns: 1fr 1fr; gap: 0.875rem; }
             .stat-card { padding: 1.25rem; }
-            .stat-value { font-size: 2rem; }
+            .stat-value { font-size: 1.75rem; }
+            .stat-label { font-size: 0.85rem; }
             .benefits-grid { grid-template-columns: 1fr; }
+            .benefit-card h3 { font-size: 1.05rem; }
             .process-steps { grid-template-columns: 1fr 1fr; gap: 1rem; }
             .broker-features { flex-direction: column; align-items: center; gap: 1rem; }
             .bottom-cta h2 { font-size: 1.5rem; }
             .bottom-cta-buttons { flex-direction: column; }
             .btn-large { width: 100%; text-align: center; min-height: 48px; }
-            .market-banner-text { font-size: 0.8rem; }
             .trust-divider { display: none; }
             .trust-container { gap: 1rem; }
-            .header-container { padding: 0.75rem 1rem; }
             .mobile-sticky-cta { display: block; }
-            .agent-preview { padding: 12px 14px; gap: 12px; }
-            .agent-preview-photo { width: 48px; height: 48px; }
-            .agent-preview-name { font-size: .9rem; }
-            body { padding-bottom: 72px; }
         }
         @media (max-width: 480px) {
-            .demand-proof { grid-template-columns: 1fr; }
-            .stats-grid { grid-template-columns: 1fr; }
+            .hero-left h1 { font-size: 1.5rem; }
+            .hero-subtitle { font-size: 1rem; }
+            /* Keep demand cards 2x2 — never 1-column (too much scroll) */
+            .demand-proof { grid-template-columns: 1fr 1fr; }
+            .demand-number { font-size: 1.2rem; }
+            .demand-label { font-size: 0.72rem; }
+            .demand-card { padding: 0.625rem; }
+            /* Keep stats 2-col for compactness */
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+            .stat-value { font-size: 1.5rem; }
             .process-steps { grid-template-columns: 1fr; }
+            .section-title { font-size: 1.35rem; }
         }
     </style>
 
