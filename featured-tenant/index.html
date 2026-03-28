@@ -200,12 +200,9 @@
     </style>
     <link rel="stylesheet" href="/styles.css?v=94">
     <style>
-        /* Desktop header fix — tighten nav spacing so phone # fits on one line */
-        .nav-desktop{gap:1.25rem!important}
-        .nav-desktop a,.nav-dropdown-toggle{font-size:.875rem!important}
+        /* Desktop header fix — hide CTA button (form is in hero), keep phone */
+        .header-cta .cta-button{display:none!important}
         .phone-btn{white-space:nowrap!important}
-        .header-cta{gap:.75rem!important}
-        .header-cta .cta-button{font-size:.85rem!important;padding:.6rem 1rem!important}
 
         /* Page-specific mobile overrides — MUST come after styles.css to win cascade */
         /* All rules use !important to beat global styles.css specificity */
