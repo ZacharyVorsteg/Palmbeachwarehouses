@@ -448,7 +448,7 @@
 
                             <div id="form-message" class="form-message hidden"></div>
 
-                            <form id="owner-5000sf-lead" method="POST" action="/api/leads">
+                            <form id="warehouse-owner-form" method="POST" action="/api/leads">
                                 <input type="hidden" name="form-name" value="owner-5000sf-lead">
                                 <input type="hidden" name="lead_source" value="owner-5000sf-campaign">
                                 <input type="hidden" name="lead_type" value="landlord">
@@ -739,83 +739,6 @@
             </div>
         </div>
     </footer>
-
-    <!-- Form Submission Script -->
-    <script>
-    (function() {
-        const form = document.getElementById('owner-5000sf-lead');
-        const submitBtn = document.getElementById('submit-btn');
-        const formContainer = document.getElementById('form-container');
-        const successScreen = document.getElementById('success-screen');
-        const formMessage = document.getElementById('form-message');
-
-        if (!form) return;
-
-        form.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Submitting...';
-            formMessage.classList.add('hidden');
-
-            const formData = new FormData(form);
-            const data = {};
-            formData.forEach(function(value, key) { data[key] = value; });
-
-            // Add UTM params if available
-            try {
-                var utmData = JSON.parse(localStorage.getItem('pbw_utm') || '{}');
-                Object.keys(utmData).forEach(function(k) { data[k] = utmData[k]; });
-            } catch(e) {}
-
-            try {
-                var response = await fetch('/api/leads', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
-                });
-
-                if (response.ok) {
-                    // Fire conversion events
-                    if (typeof fbq !== 'undefined') {
-                        fbq('track', 'Lead', {
-                            content_name: 'owner-5000sf-lead',
-                            content_category: 'landlord'
-                        });
-                    }
-                    if (typeof gtag !== 'undefined') {
-                        gtag('event', 'conversion', {
-                            send_to: 'AW-17147516072/owner-5000sf'
-                        });
-                    }
-
-                    formContainer.classList.add('hidden');
-                    successScreen.classList.remove('hidden');
-                } else {
-                    throw new Error('Server error');
-                }
-            } catch (err) {
-                // Fallback: try Netlify form submission
-                try {
-                    var netlifyData = new URLSearchParams(data);
-                    netlifyData.append('form-name', 'owner-5000sf-lead');
-                    await fetch('/', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                        body: netlifyData.toString()
-                    });
-                    formContainer.classList.add('hidden');
-                    successScreen.classList.remove('hidden');
-                } catch (fallbackErr) {
-                    formMessage.textContent = 'Something went wrong. Please call us at 561-718-6725 instead.';
-                    formMessage.className = 'form-message error';
-                    formMessage.classList.remove('hidden');
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = 'Get My Free Market Analysis';
-                }
-            }
-        });
-    })();
-    </script>
 
     <!-- Mobile Sticky CTA -->
     <div class="mobile-sticky-cta">

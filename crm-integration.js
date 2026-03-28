@@ -8,7 +8,7 @@
 
   let tenantId = null;
   let isSubmitting = false;
-  let activeFormType = null; // 'tenant' | 'landlord' | 'report' | 'valuation' | 'sales' | 'featured-tenant'
+  let activeFormType = null; // 'tenant' | 'landlord' | 'report' | 'valuation' | 'sales' | 'featured-tenant' | 'warehouse-owner'
 
   // Initialize on page load
   document.addEventListener('DOMContentLoaded', function() {
@@ -46,7 +46,16 @@
       activeFormType = 'featured-tenant';
       featuredTenantForm.addEventListener('submit', handleFormSubmit);
       console.log('✅ Featured tenant form handler attached');
-    } else {
+    }
+
+    const warehouseOwnerForm = document.getElementById('warehouse-owner-form');
+    if (!activeFormType && warehouseOwnerForm) {
+      activeFormType = 'warehouse-owner';
+      warehouseOwnerForm.addEventListener('submit', handleFormSubmit);
+      console.log('✅ Warehouse owner form handler attached');
+    }
+
+    if (!activeFormType) {
       console.warn('⚠️  No known form found on page');
     }
 
@@ -69,7 +78,7 @@
     const isMobile = () => window.innerWidth <= 768;
 
     // Get all forms on the page
-    const forms = document.querySelectorAll('#lead-form, #landlord-lead-form, #report-lead-form, #valuation-lead-form, #sales-lead-form, #featured-tenant-form');
+    const forms = document.querySelectorAll('#lead-form, #landlord-lead-form, #report-lead-form, #valuation-lead-form, #sales-lead-form, #featured-tenant-form, #warehouse-owner-form');
     forms.forEach(form => {
       const fields = form.querySelectorAll('input:not([type="hidden"]):not([type="checkbox"]), select, textarea');
 
@@ -188,6 +197,8 @@
         leadData = extractSalesFormData(form);
       } else if (activeFormType === 'featured-tenant') {
         leadData = extractFeaturedTenantFormData(form);
+      } else if (activeFormType === 'warehouse-owner') {
+        leadData = extractWarehouseOwnerFormData(form);
       } else {
         leadData = extractTenantFormData(form);
       }
@@ -449,6 +460,41 @@
     };
   }
 
+  // ─── WAREHOUSE OWNER form data extraction ───
+  function extractWarehouseOwnerFormData(form) {
+    const formData = new FormData(form);
+    const propertySize = formData.get('property_size');
+
+    let sizeMin = null;
+    if (propertySize) {
+      const match = propertySize.match(/(\d[\d,]*)/);
+      if (match) {
+        sizeMin = parseInt(match[1].replace(/,/g, ''), 10);
+      }
+    }
+
+    const notes = [
+      'Source: palmbeachwarehouses.com/warehouse-owners-5000-sf',
+      'Lead Type: WAREHOUSE OWNER — 5,000-7,500 SF CAMPAIGN',
+      `Property Address: ${formData.get('property_address') || 'N/A'}`,
+      `Property Size: ${propertySize || 'N/A'}`,
+      `3-Phase Electric: ${formData.get('three_phase') || 'N/A'}`,
+      `Contact Type: ${formData.get('contact_type') || 'N/A'}`
+    ].join('\n');
+
+    return {
+      tenant_id: tenantId,
+      name: formData.get('name'),
+      email: formData.get('email') || null,
+      phone: formData.get('phone') || null,
+      sizeMin: sizeMin,
+      propertyType: 'Warehouse',
+      preferredArea: 'Palm Beach County, FL',
+      notes: notes,
+      ...getUtmData()
+    };
+  }
+
   // Shared UTM data extraction
   function getUtmData() {
     return {
@@ -536,6 +582,8 @@
       fireSalesPixels(leadData);
     } else if (activeFormType === 'featured-tenant') {
       fireFeaturedTenantPixels(leadData);
+    } else if (activeFormType === 'warehouse-owner') {
+      fireWarehouseOwnerPixels(leadData);
     }
   }
 
@@ -747,6 +795,40 @@
     }
   }
 
+  // Warehouse owner tracking (high-value — property matched to active tenant campaign)
+  function fireWarehouseOwnerPixels(leadData) {
+    const pixelValue = 200;
+
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'conversion', {
+        send_to: 'AW-17147516072/qPCrCKTAm5IBEI2Xn7so',
+        value: pixelValue,
+        currency: 'USD',
+        conversion_label: 'WAREHOUSE_OWNER_5000SF',
+        transaction_id: Date.now().toString(),
+      });
+      console.log(`✅ Google Ads conversion fired (Warehouse Owner: $${pixelValue})`);
+    }
+
+    if (typeof fbq !== 'undefined') {
+      fbq('track', 'Lead', {
+        content_name: 'Warehouse Owner 5000SF Campaign',
+        content_category: 'WAREHOUSE_OWNER',
+        content_type: 'property_submission',
+        value: pixelValue,
+        currency: 'USD',
+        status: 'owner_lead',
+        utm_source: window.__utm?.source || null,
+        utm_campaign: window.__utm?.campaign || null,
+        utm_content: window.__utm?.content || null,
+        utm_medium: window.__utm?.medium || null,
+        ad_set_id: window.__utm?.adSetId || null,
+        location: leadData.preferredArea,
+      });
+      console.log('✅ Facebook Lead conversion fired (Warehouse Owner)');
+    }
+  }
+
   // Show success message (form-type aware)
   function showSuccessMessage(form, leadData) {
     const successMessage = document.getElementById('success-message');
@@ -800,6 +882,14 @@
       if (successScreen) successScreen.classList.add('show');
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
+    } else if (activeFormType === 'warehouse-owner') {
+      // Warehouse owner: hide form container, show success screen
+      const formContainer = document.getElementById('form-container');
+      if (formContainer) formContainer.classList.add('hidden');
+      const successScreen = document.getElementById('success-screen');
+      if (successScreen) successScreen.classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
     }
 
     // Scroll success message into view — double rAF ensures layout is complete after unhiding
@@ -826,6 +916,7 @@
                  : activeFormType === 'valuation' ? 'valuation-lead-form'
                  : activeFormType === 'sales' ? 'sales-lead-form'
                  : activeFormType === 'featured-tenant' ? 'featured-tenant-form'
+                 : activeFormType === 'warehouse-owner' ? 'warehouse-owner-form'
                  : 'lead-form';
 
     const form = document.getElementById(formId);
@@ -843,6 +934,11 @@
     if (activeFormType === 'featured-tenant') {
       const successScreen = document.getElementById('success-screen');
       if (successScreen) successScreen.classList.remove('show');
+    } else if (activeFormType === 'warehouse-owner') {
+      const formContainer = document.getElementById('form-container');
+      if (formContainer) formContainer.classList.remove('hidden');
+      const successScreen = document.getElementById('success-screen');
+      if (successScreen) successScreen.classList.add('hidden');
     } else if (successMessage) {
       successMessage.classList.add('hidden');
       successMessage.style.display = '';
@@ -879,7 +975,8 @@
                      || document.getElementById('report-lead-form')
                      || document.getElementById('valuation-lead-form')
                      || document.getElementById('sales-lead-form')
-                     || document.getElementById('featured-tenant-form');
+                     || document.getElementById('featured-tenant-form')
+                     || document.getElementById('warehouse-owner-form');
     if (formSection) {
       formSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
       setTimeout(function() {
@@ -888,6 +985,7 @@
                      : activeFormType === 'valuation' ? 'valuation-lead-form'
                      : activeFormType === 'sales' ? 'sales-lead-form'
                      : activeFormType === 'featured-tenant' ? 'featured-tenant-form'
+                     : activeFormType === 'warehouse-owner' ? 'warehouse-owner-form'
                      : 'lead-form';
         const form = document.getElementById(formId);
         if (form) {
