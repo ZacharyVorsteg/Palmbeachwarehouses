@@ -386,7 +386,7 @@
 
     <header class="header">
         <div class="header-container">
-            <div class="logo">
+            <a href="/" class="logo" style="text-decoration:none;color:inherit;">
                 <picture>
                     <source srcset="/assets/logo.webp" type="image/webp">
                     <img src="/assets/logo.png" alt="Palm Beach Warehouses" class="logo-img" width="180" height="50" decoding="async">
@@ -395,44 +395,9 @@
                     <div class="brand-name">INDUSTRIAL SPACE</div>
                     <div class="tagline">Palm Beach County</div>
                 </div>
-            </div>
-            <nav class="nav-desktop">
-                <a href="/">Home</a>
-                <a href="/about/">About</a>
-                <a href="/list-your-space/">List Your Space</a>
-                <a href="/sell-your-property/">Sell Your Property</a>
-                <div class="nav-dropdown">
-                    <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">Locations <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg></button>
-                    <div class="nav-dropdown-menu" role="menu">
-                        <a href="/locations/boca-raton/" role="menuitem">Boca Raton</a>
-                        <a href="/locations/west-palm-beach/" role="menuitem">West Palm Beach</a>
-                        <a href="/locations/delray-beach/" role="menuitem">Delray Beach</a>
-                        <a href="/locations/lake-worth/" role="menuitem">Lake Worth</a>
-                        <a href="/locations/boynton-beach/" role="menuitem">Boynton Beach</a>
-                        <a href="/locations/jupiter/" role="menuitem">Jupiter</a>
-                        <a href="/locations/riviera-beach/" role="menuitem">Riviera Beach</a>
-                        <a href="/locations/royal-palm-beach/" role="menuitem">Royal Palm Beach</a>
-                        <a href="/locations/lantana/" role="menuitem">Lantana</a>
-                    </div>
-                </div>
-                <div class="nav-dropdown">
-                    <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">Guides <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg></button>
-                    <div class="nav-dropdown-menu" role="menu">
-                        <a href="/guides/palm-beach-industrial-market/" role="menuitem">Market Report 2026</a>
-                        <a href="/guides/how-to-lease-warehouse/" role="menuitem">How to Lease</a>
-                        <a href="/guides/warehouse-sizing/" role="menuitem">Warehouse Sizing</a>
-                        <a href="/guides/warehouse-vs-flex-space/" role="menuitem">Warehouse vs Flex</a>
-                        <a href="/guides/nnn-leases/" role="menuitem">NNN Leases</a>
-                        <a href="/guides/tenant-improvements/" role="menuitem">Tenant Improvements</a>
-                        <a href="/guides/loading-dock-guide/" role="menuitem">Loading Docks</a>
-                        <a href="/guides/cold-storage/" role="menuitem">Cold Storage</a>
-                    </div>
-                </div>
-                <a href="/blog/">Blog</a>
-            </nav>
-            <button type="button" class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false" onclick="this.classList.toggle('open')">
-                <span></span><span></span><span></span>
-            </button>
+            </a>
+            <nav class="nav-desktop" style="display:none;"></nav>
+            <!-- mobile menu removed for closed-loop landing page -->
             <div class="header-cta">
                 <a href="tel:561-718-6725" class="phone-btn">
                     <svg class="phone-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
@@ -757,34 +722,7 @@
                     <a href="mailto:zach@cri-re.com" class="footer-email">zach@cri-re.com</a>
                     <p class="footer-hours">Available Mon-Fri 8am-6pm<br>Weekends by appointment</p>
                 </div>
-                <div class="footer-areas">
-                    <h4>Service Areas</h4>
-                    <ul>
-                        <li><a href="/locations/west-palm-beach/">West Palm Beach</a></li>
-                        <li><a href="/locations/boca-raton/">Boca Raton</a></li>
-                        <li><a href="/locations/delray-beach/">Delray Beach</a></li>
-                        <li><a href="/locations/lake-worth/">Lake Worth</a></li>
-                        <li><a href="/locations/boynton-beach/">Boynton Beach</a></li>
-                        <li><a href="/locations/jupiter/">Jupiter</a></li>
-                        <li><a href="/locations/riviera-beach/">Riviera Beach</a></li>
-                        <li><a href="/locations/royal-palm-beach/">Royal Palm Beach</a></li>
-                        <li><a href="/locations/lantana/">Lantana</a></li>
-                    </ul>
-                </div>
-                <div class="footer-guides">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="/blog/">Blog</a></li>
-                        <li><a href="/guides/palm-beach-industrial-market/">Market Report 2026</a></li>
-                        <li><a href="/guides/how-to-lease-warehouse/">How to Lease</a></li>
-                        <li><a href="/guides/warehouse-sizing/">Warehouse Sizing</a></li>
-                        <li><a href="/guides/warehouse-vs-flex-space/">Warehouse vs Flex</a></li>
-                        <li><a href="/guides/nnn-leases/">NNN Leases</a></li>
-                        <li><a href="/guides/tenant-improvements/">Tenant Improvements</a></li>
-                        <li><a href="/guides/loading-dock-guide/">Loading Docks</a></li>
-                        <li><a href="/guides/cold-storage/">Cold Storage</a></li>
-                    </ul>
-                </div>
+                <!-- service areas and resources links removed for closed-loop landing page -->
                 <div class="footer-cta-box">
                     <h4>Have Matching Space?</h4>
                     <p class="footer-cta-sub">Connect your property with this tenant. We respond within 24 hours.</p>
@@ -792,9 +730,7 @@
                     <a href="tel:561-718-6725" class="footer-phone-link">or call 561-718-6725</a>
                 </div>
             </div>
-            <div class="footer-legal">
-                <p><a href="/privacy/">Privacy Policy</a> | <a href="/terms/">Terms of Service</a></p>
-            </div>
+            <!-- legal links removed for closed-loop landing page -->
             <div class="footer-bottom">
                 <p>Zach Vorsteg | Licensed Sales Associate #SL3603483 | Cornerstone Realty | Palm Beach County, FL</p>
                 <p class="footer-eho">Equal Housing Opportunity</p>
@@ -805,21 +741,7 @@
 
     <!-- Form submission handled by crm-integration.js -->
 
-    <script>
-    document.querySelectorAll('.nav-dropdown-toggle').forEach(function(btn) {
-        btn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            var dropdown = this.parentElement;
-            var isOpen = dropdown.classList.contains('open');
-            document.querySelectorAll('.nav-dropdown').forEach(function(d) { d.classList.remove('open'); });
-            if (!isOpen) dropdown.classList.add('open');
-            this.setAttribute('aria-expanded', !isOpen);
-        });
-    });
-    document.addEventListener('click', function() {
-        document.querySelectorAll('.nav-dropdown').forEach(function(d) { d.classList.remove('open'); });
-    });
-    </script>
+    <!-- dropdown toggle script removed for closed-loop landing page -->
 
     <script defer src="/app.js?v=91"></script>
     <script defer src="/qualification.js?v=91"></script>
