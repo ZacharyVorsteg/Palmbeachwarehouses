@@ -738,3 +738,62 @@
 .lead-form select:required:invalid {
   color: var(--form-placeholder);
 }
+
+/* Optional field label */
+.optional-label {
+  font-weight: 400;
+  font-size: .8em;
+  color: var(--form-placeholder);
+}
+
+/* Hero stats bar */
+.hero-stats {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+  padding: 1rem 0;
+  border-top: 1px solid rgba(255, 255, 255, .1);
+}
+.hero-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hero-stat-number {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--accent-blue);
+  line-height: 1;
+}
+.hero-stat-label {
+  font-size: .75rem;
+  color: var(--text-gray);
+  margin-top: .25rem;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  font-weight: 500;
+}
+.hero-stat-divider {
+  width: 1px;
+  height: 32px;
+  background: rgba(255, 255, 255, .15);
+}
+
+/* Exit-intent multi-field layout */
+.exit-intent-form .exit-intent-input {
+  margin-bottom: .5rem;
+}
+
+@media (max-width: 768px) {
+  .hero-stats {
+    gap: .75rem;
+    justify-content: center;
+  }
+  .hero-stat-number {
+    font-size: 1.25rem;
+  }
+  .hero-stat-label {
+    font-size: .65rem;
+  }
+}
