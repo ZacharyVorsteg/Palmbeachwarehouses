@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Square Share Card</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{background:#0A0F1E}
+.card{width:1200px;height:1200px;position:relative;overflow:hidden;padding:80px;font-family:'Inter',sans-serif;color:#fff;display:flex;flex-direction:column;justify-content:space-between;
+  background:
+    radial-gradient(900px 600px at 20% 0%,rgba(59,147,255,.22),transparent 60%),
+    radial-gradient(700px 500px at 100% 100%,rgba(0,87,224,.25),transparent 60%),
+    linear-gradient(180deg,#0E1322 0%,#141A2C 100%);
+}
+.top{display:flex;justify-content:space-between;align-items:flex-start}
+.brand{display:flex;align-items:center;gap:16px}
+.mark{width:64px;height:64px}
+.brand-name{font-size:22px;font-weight:800;letter-spacing:-.005em}
+.brand-sub{font-size:13px;font-weight:600;color:#6FB1FF;letter-spacing:.14em;text-transform:uppercase;margin-top:3px;white-space:nowrap}
+.live{display:flex;align-items:center;gap:10px;padding:10px 18px;border-radius:999px;background:rgba(34,160,72,.14);border:1px solid rgba(34,160,72,.35);font-size:14px;font-weight:600;color:#6EE08C;white-space:nowrap}
+.live-dot{width:9px;height:9px;border-radius:50%;background:#22C55E;box-shadow:0 0 0 5px rgba(34,197,94,.25)}
+
+.mid{max-width:1000px}
+.kicker{font-size:15px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#6FB1FF;margin-bottom:28px}
+.h1{font-size:96px;font-weight:800;line-height:.98;letter-spacing:-.03em;margin-bottom:40px}
+.h1 em{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#6FB1FF;letter-spacing:-.01em}
+.sub{font-size:30px;line-height:1.4;color:#CBD3E0;max-width:900px}
+.sub b{color:#fff;font-weight:700}
+
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;padding-top:44px;border-top:1px solid rgba(255,255,255,.1)}
+.stat-v{font-size:68px;font-weight:800;letter-spacing:-.03em;line-height:.95;color:#fff}
+.stat-v small{font-size:36px;font-weight:600;color:#6FB1FF;margin-left:2px}
+.stat-l{font-size:15px;color:#8B94A3;margin-top:8px;font-weight:500;letter-spacing:.02em}
+.stat-l b{color:#fff;font-weight:700}
+
+.foot{display:flex;justify-content:space-between;align-items:center;padding-top:28px;border-top:1px solid rgba(255,255,255,.1)}
+.zv{display:flex;align-items:center;gap:16px}
+.zv-av{width:68px;height:68px;border-radius:50%;background:linear-gradient(135deg,#2463C9,#0057E0);display:grid;place-items:center;font-weight:800;font-size:26px;letter-spacing:-.02em;position:relative;box-shadow:0 10px 24px rgba(0,87,224,.4)}
+.zv-av::after{content:"";position:absolute;bottom:2px;right:2px;width:16px;height:16px;border-radius:50%;background:#22C55E;border:3.5px solid #141A2C}
+.zv-name{font-size:18px;font-weight:700}
+.zv-role{font-size:13.5px;color:#8B94A3;margin-top:2px}
+.domain{font-size:15px;font-weight:600;color:#CBD3E0;letter-spacing:.04em}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="top">
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 64 64" fill="none">
+        <path d="M6 52 Q 20 48 32 52 T 58 52" stroke="#6FB1FF" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M10 56 Q 22 53 32 56 T 54 56" stroke="#3B93FF" stroke-width="2" fill="none" stroke-linecap="round" opacity=".7"/>
+        <path d="M14 48 L 14 28 L 32 18 L 50 28 L 50 48 Z" fill="#3B93FF"/>
+        <path d="M14 28 L 32 18 L 50 28 L 32 24 Z" fill="#2463C9"/>
+        <rect x="26" y="36" width="10" height="12" fill="#0E2E5C"/>
+        <path d="M44 48 Q 45 38 46 24" stroke="#8A6B45" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <g fill="#3FA54B"><path d="M46 22 Q 54 12 60 16 Q 52 18 46 22 Z"/><path d="M46 22 Q 38 12 32 16 Q 40 18 46 22 Z"/><path d="M46 22 Q 56 22 60 30 Q 52 26 46 22 Z"/><path d="M46 22 Q 36 22 32 30 Q 40 26 46 22 Z"/><path d="M46 22 Q 50 14 52 6 Q 48 14 46 22 Z"/></g>
+      </svg>
+      <div><div class="brand-name">Palm Beach Warehouses</div><div class="brand-sub">Commercial · Industrial · Flex</div></div>
+    </div>
+    <div class="live"><span class="live-dot"></span>Zach is online</div>
+  </div>
+
+  <div class="mid">
+    <div class="kicker">Palm Beach County · Tenant Rep</div>
+    <h1 class="h1">Don't sign alone.<br><em>Negotiate like a landlord.</em></h1>
+    <p class="sub">Free tenant representation for warehouse & flex space. <b>Landlords already have a broker. You should too.</b></p>
+  </div>
+
+  <div class="stats">
+    <div><div class="stat-v">47<small>+</small></div><div class="stat-l"><b>Leases closed</b> since 2020</div></div>
+    <div><div class="stat-v">10–15<small>%</small></div><div class="stat-l">Avg <b>rent reduction</b></div></div>
+    <div><div class="stat-v">$0</div><div class="stat-l">To the tenant — <b>always</b></div></div>
+  </div>
+
+  <div class="foot">
+    <div class="zv">
+      <div class="zv-av">ZV</div>
+      <div><div class="zv-name">Zach Vorsteg</div><div class="zv-role">Licensed FL Broker · SL3603483</div></div>
+    </div>
+    <div class="domain">palmbeachwarehouses.com</div>
+  </div>
+</div>
+<script>document.fonts.ready.then(()=>{document.body.setAttribute('data-fonts','ready')});</script></body>
+</html>

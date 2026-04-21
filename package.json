@@ -8,6 +8,7 @@
     "new-post": "node new-post.js"
   },
   "dependencies": {
-    "marked": "^15.0.0"
+    "marked": "^15.0.0",
+    "playwright": "^1.59.1"
   }
 }

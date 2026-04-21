@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>OG Card — Bold</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{background:#0A0F1E}
+.card{width:1200px;height:630px;position:relative;overflow:hidden;display:grid;grid-template-columns:1.35fr 1fr;font-family:'Inter',sans-serif}
+.left{background:linear-gradient(160deg,#0E1322 0%,#1A2038 100%);padding:60px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.left::before{content:"";position:absolute;inset:0;background:radial-gradient(700px 400px at 0% 0%,rgba(59,147,255,.18),transparent 55%);pointer-events:none}
+.brandrow{display:flex;align-items:center;gap:12px;position:relative}
+.mark{width:44px;height:44px}
+.brand-name{font-size:15px;font-weight:800;color:#fff;letter-spacing:-.005em}
+.brand-sub{font-size:10.5px;font-weight:600;color:#6FB1FF;letter-spacing:.14em;text-transform:uppercase;margin-top:2px}
+.headline{position:relative}
+.kicker{display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border-radius:999px;background:rgba(59,147,255,.12);border:1px solid rgba(59,147,255,.3);font-size:11.5px;font-weight:700;color:#6FB1FF;letter-spacing:.14em;text-transform:uppercase;margin-bottom:20px;white-space:nowrap}
+.kicker::before{content:"";width:6px;height:6px;border-radius:50%;background:#22C55E;box-shadow:0 0 0 3px rgba(34,197,94,.25)}
+.h1{font-size:68px;font-weight:800;line-height:.98;color:#fff;letter-spacing:-.028em;margin-bottom:18px}
+.h1 em{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#6FB1FF;letter-spacing:-.01em}
+.sub{font-size:18px;line-height:1.5;color:#CBD3E0;max-width:500px}
+.sub b{color:#fff;font-weight:700}
+.btm{display:flex;align-items:center;gap:16px;position:relative}
+.btn{padding:13px 22px;background:#0057E0;color:#fff;border-radius:10px;font-size:14px;font-weight:700;box-shadow:0 8px 20px rgba(0,87,224,.4);display:inline-flex;align-items:center;gap:8px}
+.btn svg{width:13px;height:13px}
+.btn-note{font-size:12.5px;color:#8B94A3}
+.btn-note b{color:#fff;font-weight:600}
+
+.right{background:linear-gradient(160deg,#1F4F9F 0%,#0057E0 100%);padding:52px 48px;display:flex;flex-direction:column;justify-content:center;gap:28px;position:relative;overflow:hidden}
+.right::before{content:"";position:absolute;top:-100px;right:-100px;width:400px;height:400px;border-radius:50%;background:radial-gradient(closest-side,rgba(255,255,255,.15),transparent);pointer-events:none}
+.stat{position:relative}
+.stat-v{font-size:62px;font-weight:800;letter-spacing:-.03em;color:#fff;line-height:.95;display:flex;align-items:baseline;gap:4px}
+.stat-v small{font-size:28px;font-weight:600;color:#BFDBFF}
+.stat-l{font-size:13.5px;font-weight:500;color:#BFDBFF;margin-top:6px;line-height:1.35;max-width:260px}
+.stat-l b{color:#fff;font-weight:700}
+.divider{height:1px;background:rgba(255,255,255,.15)}
+.foot{position:relative;padding-top:12px}
+.foot-row{display:flex;align-items:center;gap:8px;color:#BFDBFF;font-size:11.5px;font-weight:500;letter-spacing:.04em}
+.foot-row svg{width:13px;height:13px;color:#fff}
+.foot-row b{color:#fff;font-weight:700}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="left">
+    <div class="brandrow">
+      <svg class="mark" viewBox="0 0 64 64" fill="none">
+        <path d="M6 52 Q 20 48 32 52 T 58 52" stroke="#6FB1FF" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M10 56 Q 22 53 32 56 T 54 56" stroke="#3B93FF" stroke-width="2" fill="none" stroke-linecap="round" opacity=".7"/>
+        <path d="M14 48 L 14 28 L 32 18 L 50 28 L 50 48 Z" fill="#3B93FF"/>
+        <path d="M14 28 L 32 18 L 50 28 L 32 24 Z" fill="#2463C9"/>
+        <rect x="26" y="36" width="10" height="12" fill="#0E2E5C"/>
+        <path d="M44 48 Q 45 38 46 24" stroke="#8A6B45" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <g fill="#3FA54B"><path d="M46 22 Q 54 12 60 16 Q 52 18 46 22 Z"/><path d="M46 22 Q 38 12 32 16 Q 40 18 46 22 Z"/><path d="M46 22 Q 56 22 60 30 Q 52 26 46 22 Z"/><path d="M46 22 Q 36 22 32 30 Q 40 26 46 22 Z"/><path d="M46 22 Q 50 14 52 6 Q 48 14 46 22 Z"/></g>
+      </svg>
+      <div><div class="brand-name">Palm Beach Warehouses</div><div class="brand-sub">Cornerstone Realty</div></div>
+    </div>
+    <div class="headline">
+      <div class="kicker">Tenant Rep · Online Now</div>
+      <h1 class="h1">Warehouse space, <em>negotiated in your favor.</em></h1>
+      <p class="sub">Palm Beach County's only broker representing <b>tenants only</b>. On-market + off-market — free to you.</p>
+    </div>
+    <div class="btm">
+      <span class="btn">Get Matched Free <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+      <span class="btn-note"><b>24 hr</b> response · No obligation</span>
+    </div>
+  </div>
+  <div class="right">
+    <div class="stat"><div class="stat-v">47<small>+</small></div><div class="stat-l">Warehouse leases <b>closed since 2020</b></div></div>
+    <div class="divider"></div>
+    <div class="stat"><div class="stat-v">10–15<small>%</small></div><div class="stat-l">Avg base-rent <b>reduction negotiated</b></div></div>
+    <div class="divider"></div>
+    <div class="stat"><div class="stat-v">$0</div><div class="stat-l">To the tenant — <b>landlords pay all commissions</b></div></div>
+    <div class="foot">
+      <div class="foot-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Licensed FL Broker · <b>SL3603483</b></div>
+    </div>
+  </div>
+</div>
+<script>document.fonts.ready.then(()=>{document.body.setAttribute('data-fonts','ready')});</script></body>
+</html>

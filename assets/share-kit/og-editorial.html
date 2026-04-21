@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>OG Card — Editorial</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{background:#0A0F1E}
+.card{
+  width:1200px;height:630px;overflow:hidden;position:relative;
+  background:
+    radial-gradient(900px 500px at 20% 10%,rgba(59,147,255,.22),transparent 60%),
+    radial-gradient(700px 500px at 100% 100%,rgba(0,87,224,.25),transparent 60%),
+    linear-gradient(180deg,#0E1322 0%,#141A2C 100%);
+  font-family:'Inter',sans-serif;color:#fff;
+  border:1px solid rgba(255,255,255,.06);
+}
+/* top-left logo */
+.top{position:absolute;top:48px;left:60px;display:flex;align-items:center;gap:14px}
+.mark{width:52px;height:52px}
+.brand-text{line-height:1.15}
+.brand-name{font-size:18px;font-weight:800;letter-spacing:-.01em;color:#fff}
+.brand-sub{font-size:11.5px;font-weight:500;letter-spacing:.14em;color:#6FB1FF;text-transform:uppercase;margin-top:3px}
+
+/* top-right live badge */
+.live{position:absolute;top:56px;right:60px;display:flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:rgba(34,160,72,.14);border:1px solid rgba(34,160,72,.35);font-size:12.5px;font-weight:600;color:#6EE08C;letter-spacing:.02em;white-space:nowrap}
+.live-dot{width:7px;height:7px;border-radius:50%;background:#22C55E;box-shadow:0 0 0 4px rgba(34,197,94,.25);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.6}}
+
+/* main headline */
+.main{position:absolute;left:60px;top:180px;max-width:760px}
+.kicker{font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#6FB1FF;margin-bottom:24px}
+.h1{font-size:74px;font-weight:800;letter-spacing:-.03em;line-height:.98;color:#fff;margin-bottom:22px}
+.h1 em{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#6FB1FF;letter-spacing:-.015em}
+.sub{font-size:21px;line-height:1.45;color:#CBD3E0;font-weight:400;max-width:640px}
+.sub b{color:#fff;font-weight:600}
+
+/* bottom trust row */
+.trust{position:absolute;left:60px;right:60px;bottom:52px;display:flex;align-items:center;gap:28px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1)}
+.trust-item{display:flex;align-items:center;gap:10px;font-size:13.5px;color:#CBD3E0;font-weight:500}
+.trust-item svg{width:15px;height:15px;color:#22C55E;flex-shrink:0}
+.trust-item b{color:#fff;font-weight:700}
+.trust-sep{width:1px;height:16px;background:rgba(255,255,255,.14)}
+
+/* right avatar panel */
+.zv{position:absolute;right:60px;bottom:140px;display:flex;align-items:center;gap:14px}
+.zv-av{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#2463C9,#0057E0);display:grid;place-items:center;font-weight:800;font-size:22px;color:#fff;letter-spacing:-.02em;position:relative;box-shadow:0 8px 20px rgba(0,87,224,.4)}
+.zv-av::after{content:"";position:absolute;bottom:2px;right:2px;width:14px;height:14px;border-radius:50%;background:#22C55E;border:3px solid #0E1322}
+.zv-info{text-align:left}
+.zv-name{font-size:15px;font-weight:700;color:#fff}
+.zv-role{font-size:12px;color:#8B94A3;letter-spacing:.02em;margin-top:2px}
+
+/* license footer-right */
+.lic{position:absolute;right:60px;bottom:52px;font-size:11px;font-weight:500;letter-spacing:.08em;color:#6B7588;text-transform:uppercase}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="top">
+    <svg class="mark" viewBox="0 0 64 64" fill="none">
+      <path d="M6 52 Q 20 48 32 52 T 58 52" stroke="#6FB1FF" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <path d="M10 56 Q 22 53 32 56 T 54 56" stroke="#3B93FF" stroke-width="2" fill="none" stroke-linecap="round" opacity=".7"/>
+      <path d="M14 48 L 14 28 L 32 18 L 50 28 L 50 48 Z" fill="#3B93FF"/>
+      <path d="M14 28 L 32 18 L 50 28 L 32 24 Z" fill="#2463C9"/>
+      <rect x="26" y="36" width="10" height="12" fill="#0E2E5C"/>
+      <path d="M44 48 Q 45 38 46 24" stroke="#8A6B45" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <g fill="#3FA54B"><path d="M46 22 Q 54 12 60 16 Q 52 18 46 22 Z"/><path d="M46 22 Q 38 12 32 16 Q 40 18 46 22 Z"/><path d="M46 22 Q 56 22 60 30 Q 52 26 46 22 Z"/><path d="M46 22 Q 36 22 32 30 Q 40 26 46 22 Z"/><path d="M46 22 Q 50 14 52 6 Q 48 14 46 22 Z"/></g>
+    </svg>
+    <div class="brand-text">
+      <div class="brand-name">Palm Beach Warehouses</div>
+      <div class="brand-sub">Commercial · Industrial · Flex</div>
+    </div>
+  </div>
+
+  <div class="live"><span class="live-dot"></span>Online now · Responds &lt; 1 hr</div>
+
+  <div class="main">
+    <div class="kicker">Palm Beach County · Tenant Representation</div>
+    <h1 class="h1">Don't sign a warehouse lease <em>alone.</em></h1>
+    <p class="sub">Landlords already have a broker. You should too — <b>free to tenants</b>, landlords pay all commissions.</p>
+  </div>
+
+  <div class="zv">
+    <div class="zv-av">ZV</div>
+    <div class="zv-info">
+      <div class="zv-name">Zach Vorsteg</div>
+      <div class="zv-role">Licensed FL Broker · SL3603483</div>
+    </div>
+  </div>
+
+  <div class="trust">
+    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><b>47+</b> leases since 2020</div>
+    <div class="trust-sep"></div>
+    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><b>10–15%</b> avg rent reduction</div>
+    <div class="trust-sep"></div>
+    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>On & <b>off-market</b> inventory</div>
+  </div>
+
+  <div class="lic">palmbeachwarehouses.com</div>
+</div>
+<script>document.fonts.ready.then(()=>{document.body.setAttribute('data-fonts','ready')});</script></body>
+</html>
