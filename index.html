@@ -326,6 +326,8 @@ input,select,textarea,button{font-family:inherit}
   background:#fff;
   transition:border-color .15s, box-shadow .15s;
   -webkit-appearance:none;appearance:none;
+  /* Breathing room when browser scrolls focused field into view (sticky header offset) */
+  scroll-margin-top:96px;scroll-margin-bottom:24px;
 }
 .select{
   background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'><path d='M2 4l4 4 4-4' stroke='%236B7280' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");

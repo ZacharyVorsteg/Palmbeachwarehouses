@@ -82,25 +82,19 @@
     forms.forEach(form => {
       const fields = form.querySelectorAll('input:not([type="hidden"]):not([type="checkbox"]), select, textarea');
 
-      // On focus: scroll field to center so user always sees what they're filling
-      fields.forEach(field => {
-        field.addEventListener('focus', function() {
-          if (!isMobile()) return;
-          // Small delay lets keyboard open first on mobile
-          setTimeout(() => {
-            this.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          }, 300);
-        });
-      });
-
-      // On select change: auto-advance to next field
+      // On select change: auto-advance to next field.
+      // Use preventScroll so the auto-advance focus doesn't trigger a second
+      // scroll on top of iOS's native keyboard-open scroll (causes jumpiness).
       fields.forEach((field, i) => {
         if (field.tagName === 'SELECT') {
           field.addEventListener('change', function() {
             if (!isMobile() || !this.value) return;
             const next = findNextField(fields, i);
             if (next) {
-              setTimeout(() => next.focus(), 150);
+              setTimeout(() => {
+                try { next.focus({ preventScroll: true }); }
+                catch (e) { next.focus(); }
+              }, 150);
             }
           });
         }

@@ -169,6 +169,8 @@
 
 /* Mobile touch UX — buttery smooth on iOS Safari */
 .lead-form input,.lead-form select,.lead-form textarea,.lead-form button,.lead-form label,.lead-form .form-group,.form-card,.advanced-toggle,.checkbox-label,.location-suggestion-item,.success-btn-primary,.success-btn-secondary,.listing-cta,.view-toggle-btn{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+/* Breathing room above focused field when native scroll-into-view fires (clears sticky header) */
+form input,form select,form textarea,.input,.select,.textarea{scroll-margin-top:96px;scroll-margin-bottom:24px}
 .sr-only{pointer-events:none}
 /* Neutralize hover effects on touch devices — prevents iOS first-tap-triggers-hover */
 @media(hover:none){.submit-button:hover:not(:disabled){transform:none;box-shadow:none}.back-btn:hover{background:transparent}.advanced-toggle:hover{background:none;border-color:inherit}.checkbox-label:hover{background:transparent}.location-suggestion-item:hover{background:transparent}.listing-cta:hover{transform:none}.location-form-card .submit-button:hover{transform:none}}
