@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content">
 <title>Warehouse Space for Lease — Palm Beach County | Palm Beach Warehouses</title>
 <meta name="description" content="Find warehouse, flex, and industrial space in Palm Beach County. Matched by a local tenant rep with direct landlord relationships. Free to tenants.">
 <link rel="canonical" href="https://palmbeachwarehouses.com/">
@@ -76,7 +76,7 @@
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html{-webkit-text-size-adjust:100%}
 body{
   font-family:var(--font-sans);
   background:var(--navy-900);
@@ -2213,11 +2213,24 @@ input,select,textarea,button{font-family:inherit}
     if(!bar) return;
     var dismissed = sessionStorage.getItem('pbw_sticky_dismissed') === '1';
     if(dismissed) return;
+    function formFocused(){
+      var a = document.activeElement;
+      return !!(a && (a.tagName === 'INPUT' || a.tagName === 'SELECT' || a.tagName === 'TEXTAREA'));
+    }
     function onScroll(){
+      if(formFocused()){ bar.classList.remove('visible'); return; }
       if(window.scrollY > 400) bar.classList.add('visible');
       else bar.classList.remove('visible');
     }
     window.addEventListener('scroll',onScroll,{passive:true});
+    document.addEventListener('focusin',function(e){
+      if(e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT' || e.target.tagName === 'TEXTAREA')){
+        bar.classList.remove('visible');
+      }
+    });
+    document.addEventListener('focusout',function(){
+      setTimeout(onScroll, 50);
+    });
     close && close.addEventListener('click',function(){
       bar.classList.remove('visible');
       sessionStorage.setItem('pbw_sticky_dismissed','1');

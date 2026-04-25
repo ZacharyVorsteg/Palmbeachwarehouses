@@ -90,7 +90,9 @@
           field.addEventListener('change', function() {
             if (!isMobile() || !this.value) return;
             const next = findNextField(fields, i);
-            if (next) {
+            // Don't chain into another <select> — iOS native picker dismiss/reopen
+            // causes a visible flicker. Let user tap the next select themselves.
+            if (next && next.tagName !== 'SELECT') {
               setTimeout(() => {
                 try { next.focus({ preventScroll: true }); }
                 catch (e) { next.focus(); }
