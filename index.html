@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Warehouse Space for Lease — Palm Beach County | Palm Beach Warehouses</title>
 <meta name="description" content="Find warehouse, flex, and industrial space in Palm Beach County. Matched by a local tenant rep with direct landlord relationships. Free to tenants.">
 <link rel="canonical" href="https://palmbeachwarehouses.com/">
@@ -322,12 +322,10 @@ input,select,textarea,button{font-family:inherit}
   width:100%;padding:11px 12px;
   border:1.5px solid var(--ink-100);
   border-radius:var(--r-md);
-  font-size:14.5px;color:var(--ink-900);
+  font-size:16px;color:var(--ink-900);
   background:#fff;
   transition:border-color .15s, box-shadow .15s;
   -webkit-appearance:none;appearance:none;
-  /* Breathing room when browser scrolls focused field into view (sticky header offset) */
-  scroll-margin-top:96px;scroll-margin-bottom:24px;
 }
 .select{
   background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'><path d='M2 4l4 4 4-4' stroke='%236B7280' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
@@ -437,7 +435,7 @@ input,select,textarea,button{font-family:inherit}
 .dropdown-row.two-col{grid-template-columns:repeat(2,1fr)}
 .dropdown-item{display:flex;flex-direction:column;gap:4px}
 .dropdown-label{font-size:11.5px;font-weight:500;color:var(--ink-500)}
-.select.compact{padding:8px 28px 8px 10px;font-size:13px}
+.select.compact{padding:8px 28px 8px 10px;font-size:16px}
 
 .checkbox-row{display:grid;gap:6px 12px}
 .checkbox-row.two-col{grid-template-columns:1fr 1fr}
@@ -1015,6 +1013,8 @@ input,select,textarea,button{font-family:inherit}
 @media (max-width:768px){
   .sticky-mobile{display:flex}
   body{padding-bottom:64px}
+  /* iOS keyboard re-anchors sticky header during focus scroll → looks jumpy. Pin it to top instead. */
+  .header{position:relative}
 }
 
 @media (prefers-reduced-motion:reduce){
