@@ -309,7 +309,8 @@ input,select,textarea,button{font-family:inherit}
   font-size:11.5px;color:var(--green-600);font-weight:600;
   display:flex;align-items:center;gap:5px;margin-top:4px;flex-wrap:wrap;
 }
-.agent-status-dot{width:6px;height:6px;border-radius:50%;background:var(--green-500);animation:pulse 2.2s infinite}
+.agent-status-dot{width:6px;height:6px;border-radius:50%;background:#9ca3af;transition:background .2s}
+.agent-status-dot.is-online{background:var(--green-500);animation:pulse 2.2s infinite}
 
 .field{margin-bottom:12px}
 .field-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
@@ -1280,7 +1281,7 @@ input,select,textarea,button{font-family:inherit}
           <div class="agent-info">
             <div class="agent-name">Zach Vorsteg</div>
             <div class="agent-role">Your tenant rep · Licensed FL #SL3603483 · Cornerstone Realty</div>
-            <div class="agent-status"><span class="agent-status-dot"></span> Online now · Typical reply &lt; 1 hour · <a href="/assets/Zach_Vorsteg_Contact.vcf" class="save-contact-link">Save Contact</a></div>
+            <div class="agent-status"><span class="agent-status-dot" aria-label="Checking availability"></span> <span data-agent-status data-agent-prefix="">Mon–Fri 8am–6pm ET</span> · <a href="/assets/Zach_Vorsteg_Contact.vcf" class="save-contact-link">Save Contact</a></div>
           </div>
         </div>
 
@@ -2266,6 +2267,7 @@ input,select,textarea,button{font-family:inherit}
 <script defer src="/utm-capture.js"></script>
 <script defer src="/qualification.js"></script>
 <script defer src="/crm-integration.js"></script>
+<script defer src="/agent-status.js?v=2"></script>
 <script>window.addEventListener('load',function(){var s=document.createElement('script');s.src='/tracking-init.js';document.head.appendChild(s)})</script>
 
 </body>

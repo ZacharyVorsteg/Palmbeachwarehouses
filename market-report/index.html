@@ -153,11 +153,11 @@
                             <div class="agent-preview">
                                 <div class="agent-preview-photo-wrap">
                                     <img src="/assets/headshot.jpg?v=1" alt="Zach Vorsteg" class="agent-preview-photo" width="64" height="64" loading="lazy" decoding="async">
-                                    <span class="agent-status-dot" aria-label="Available"></span>
+                                    <span class="agent-status-dot" aria-label="Checking availability"></span>
                                 </div>
                                 <div class="agent-preview-info">
                                     <div class="agent-preview-name">Zach Vorsteg</div>
-                                    <div class="agent-preview-role">Your tenant rep · Responds within 24 hrs</div>
+                                    <div class="agent-preview-role" data-agent-status data-agent-prefix="Your tenant rep">Your tenant rep · Mon–Fri 8am–6pm ET</div>
                                     <div class="agent-preview-meta">
                                         <span class="agent-preview-credentials">
                                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -562,10 +562,12 @@
             right: 0;
             width: 14px;
             height: 14px;
-            background: #22c55e;
+            background: #9ca3af;
             border: 2px solid #fff;
             border-radius: 50%;
+            transition: background .2s;
         }
+        .agent-status-dot.is-online { background: #22c55e; }
         .agent-preview-info {
             flex: 1;
             display: flex;
@@ -740,5 +742,7 @@
         }
     }
     </script>
+
+    <script src="/agent-status.js?v=2" defer></script>
 </body>
 </html>
