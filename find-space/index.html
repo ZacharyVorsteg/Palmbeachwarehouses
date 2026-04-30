@@ -151,6 +151,13 @@
         .submit-button { width: 100%; padding: 1rem; background: var(--primary-blue); color: white; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 1.05rem; transition: all 0.2s; letter-spacing: 0.01em; }
         .submit-button:hover { background: #0046b3; transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0, 87, 224, 0.3); }
         .submit-button:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+        .optional-hint { color: #9CA3AF; font-weight: 500; font-size: 0.75rem; margin-left: 0.25rem; }
+        .form-extras { margin-bottom: 1rem; border-top: 1px solid var(--form-border); padding-top: 1rem; }
+        .form-extras > summary { cursor: pointer; color: var(--primary-blue); font-size: 0.85rem; font-weight: 600; padding: 0.25rem 0; user-select: none; list-style: none; display: flex; align-items: center; gap: 0.4rem; }
+        .form-extras > summary::-webkit-details-marker { display: none; }
+        .form-extras > summary::before { content: '+'; display: inline-block; width: 14px; font-weight: 700; color: var(--primary-blue); transition: transform 0.15s; }
+        .form-extras[open] > summary::before { content: '−'; }
+        .form-extras > summary:hover { color: var(--accent-blue); }
         .form-trust { display: flex; align-items: center; gap: 0.5rem; margin-top: 0.75rem; justify-content: center; }
         .form-trust span { font-size: 0.8rem; color: #888; }
         .form-trust svg { flex-shrink: 0; }
@@ -246,6 +253,8 @@
             .market-banner-text { font-size: 0.85rem; }
             .hero { padding: 1.5rem 1rem 2rem; }
             .hero-content { grid-template-columns: 1fr; gap: 1.5rem; }
+            .hero-left { order: 2; }
+            .hero-right { order: 1; }
             .hero-left h1 { font-size: 1.75rem; line-height: 1.2; text-align: left; }
             .hero-subtitle { font-size: 1.05rem; line-height: 1.6; text-align: left; }
             .demand-proof { grid-template-columns: 1fr 1fr; gap: 0.625rem; }
@@ -437,7 +446,7 @@
 
                                 <div class="form-row">
                                     <div class="form-group">
-                                        <label for="lease_end" class="form-label">Current Lease Ends</label>
+                                        <label for="lease_end" class="form-label">Current Lease Ends <span class="optional-hint">(optional)</span></label>
                                         <select id="lease_end" name="lease_end" class="form-select">
                                             <option value="">Select timing</option>
                                             <option value="No current lease">No current lease</option>
@@ -449,7 +458,7 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="move_timing" class="form-label">Ideal Move-In</label>
+                                        <label for="move_timing" class="form-label">Ideal Move-In <span class="optional-hint">(optional)</span></label>
                                         <select id="move_timing" name="move_timing" class="form-select">
                                             <option value="">Select timing</option>
                                             <option value="ASAP">ASAP</option>
@@ -462,22 +471,25 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="industry" class="form-label">Industry / Use (optional)</label>
-                                    <input type="text" id="industry" name="industry" class="form-input" placeholder="e.g. Distribution, contractor storage, manufacturing">
-                                </div>
+                                <details class="form-extras">
+                                    <summary>Add more details (optional)</summary>
+                                    <div class="form-group" style="margin-top:1rem">
+                                        <label for="industry" class="form-label">Industry / Use</label>
+                                        <input type="text" id="industry" name="industry" class="form-input" placeholder="e.g. Distribution, contractor storage, manufacturing">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="current_location" class="form-label">Currently Located At (optional)</label>
-                                    <input type="text" id="current_location" name="current_location" class="form-input" placeholder="e.g. 1234 Industrial Blvd, West Palm Beach">
-                                </div>
+                                    <div class="form-group">
+                                        <label for="current_location" class="form-label">Currently Located At</label>
+                                        <input type="text" id="current_location" name="current_location" class="form-input" placeholder="e.g. 1234 Industrial Blvd, West Palm Beach">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="notes" class="form-label">Anything else I should know? (optional)</label>
-                                    <textarea id="notes" name="notes" class="form-textarea" placeholder="Loading dock, ceiling height, 3-phase, office buildout, etc."></textarea>
-                                </div>
+                                    <div class="form-group">
+                                        <label for="notes" class="form-label">Anything else I should know?</label>
+                                        <textarea id="notes" name="notes" class="form-textarea" placeholder="Loading dock, ceiling height, 3-phase, office buildout, etc."></textarea>
+                                    </div>
+                                </details>
 
-                                <button type="submit" class="submit-button" id="submit-btn">Send My Search Requirements</button>
+                                <button type="submit" class="submit-button" id="submit-btn">Send My Search →</button>
 
                                 <div class="form-trust">
                                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
