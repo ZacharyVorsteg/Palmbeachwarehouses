@@ -657,24 +657,27 @@
 
       var variants = {
         'lease-review': {
-          h1: 'Your lease is up. <span class="highlight">Let\'s review your options before you renew.</span>',
-          sub: 'Renewal isn\'t your only option. I\'ll pull comparable properties on the market right now and walk through your current lease alongside them — at no cost to you.',
-          formTitle: 'Get a Free Lease Review',
-          formSub: 'Send your current lease details and I\'ll respond same business day with comparable options.',
+          h1: 'The two or three lease terms that <span class="highlight">move the real money.</span>',
+          sub: 'Base rent gets the headline. Escalators, renewal rights, and the operating-expense pass-through often move the 5-year cost more than the rate itself. Let\'s pressure-test those terms before you sign.',
+          formTitle: 'Free 20-min LOI / lease walkthrough',
+          formSub: 'Send your details below — I\'ll text you a time within one business day. Under 5k sf, shopping a sublease, or 18+ months from renewal? Probably not the right call yet.',
+          submit: 'Book a 20-min call →',
           source: 'lease-review'
         },
         'tenant-rep': {
-          h1: 'Tenant rep — <span class="highlight">at no cost to you.</span>',
-          sub: 'In commercial real estate, the landlord pays the commission. That means you get someone in your corner — for negotiations, lease review, and finding off-market space — without paying anything out of pocket.',
-          formTitle: 'Start a Tenant Rep Engagement',
-          formSub: 'Tell me what you\'re looking for. I\'ll respond same business day with next steps.',
+          h1: 'Every lease negotiation has two seats. <span class="highlight">Make sure one of them is yours.</span>',
+          sub: 'Listing brokers represent the landlord — that\'s their job. Tenant rep is the other half of the table: someone whose only client in the room is the tenant. If you already have a tenant rep you trust, stay with them.',
+          formTitle: 'Free 20-min tenant-rep intro call',
+          formSub: 'Tenant-rep commission is paid out of the listing brokerage\'s fee at closing per standard CRE structure — in most deals, no out-of-pocket cost to the tenant.',
+          submit: 'Book a 20-min call →',
           source: 'tenant-rep'
         },
         'start-search': {
-          h1: 'Looking for warehouse space? <span class="highlight">Start with a 10-minute call.</span>',
-          sub: 'Quick conversation to understand what you need — size, area, timing, budget. Then I\'ll send a curated list of matching properties within 24 hours. No cost.',
-          formTitle: 'Start Your Search',
-          formSub: 'Fill this out in 60 seconds. I\'ll respond same business day with matching properties.',
+          h1: 'Warehouse tenants only. 5–25k sf only. <span class="highlight">Palm Beach County focused.</span>',
+          sub: 'Not landlords. Not office. Not retail. Small-bay industrial, flex, and distribution from Boca to Jupiter. Under 5k sf, or 18+ months from renewal? Probably not the right call yet.',
+          formTitle: 'Start a search',
+          formSub: 'Tell me what you need below. I\'ll respond same business day with matching properties — including off-market options.',
+          submit: 'Start a search →',
           source: 'start-search'
         }
       };
@@ -693,6 +696,8 @@
       if (formTitle) formTitle.textContent = v.formTitle;
       if (formSub) formSub.textContent = v.formSub;
       if (form) form.dataset.lpSource = v.source;
+      var btn = document.getElementById('submit-btn');
+      if (btn && v.submit) btn.textContent = v.submit;
     })();
     </script>
 
