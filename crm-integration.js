@@ -507,6 +507,8 @@
     const formData = new FormData(form);
     const lpSource = activeLpSource || 'active-tenant-generic';
     const spaceSize = formData.get('space_size');
+    const situation = formData.get('situation');
+    const currentSf = formData.get('current_sf');
     const leaseEnd = formData.get('lease_end');
     const currentLocation = formData.get('current_location');
     const moveTiming = formData.get('move_timing');
@@ -530,12 +532,16 @@
     const sourceLabel = {
       'lease-review': 'LEASE REVIEW (renewing tenant)',
       'tenant-rep': 'TENANT REP INQUIRY',
-      'start-search': 'START SEARCH (founder positioning)'
+      'start-search': 'START SEARCH (founder positioning)',
+      'off-market': 'OFF-MARKET ALERTS',
+      'find-space': 'FIND SPACE (wide funnel)'
     }[lpSource] || 'ACTIVE TENANT INQUIRY';
 
     const notes = [
       `Source: palmbeachwarehouses.com/${lpSource}`,
       `Lead Type: ${sourceLabel}`,
+      `Situation: ${situation || 'N/A'}`,
+      `Current SF: ${currentSf || 'N/A'}`,
       `Current Location: ${currentLocation || 'N/A'}`,
       `Lease End: ${leaseEnd || 'N/A'}`,
       `Move Timing: ${moveTiming || 'N/A'}`,

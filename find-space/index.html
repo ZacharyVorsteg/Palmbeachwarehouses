@@ -416,6 +416,18 @@
 
                                 <div class="form-divider"></div>
 
+                                <div class="form-group">
+                                    <label for="situation" class="form-label">What's Driving the Search?</label>
+                                    <select id="situation" name="situation" class="form-select" required>
+                                        <option value="">Select one</option>
+                                        <option value="Renewing current lease">Renewing my current lease</option>
+                                        <option value="Relocating">Relocating to a different space</option>
+                                        <option value="Expanding">Expanding (need more SF)</option>
+                                        <option value="First-time CRE tenant">First time leasing warehouse space</option>
+                                        <option value="Exploring market">Just exploring the market</option>
+                                    </select>
+                                </div>
+
                                 <div class="form-row">
                                     <div class="form-group">
                                         <label for="space_size" class="form-label">Space Needed</label>
@@ -476,6 +488,20 @@
                                     <div class="form-group" style="margin-top:1rem">
                                         <label for="industry" class="form-label">Industry / Use</label>
                                         <input type="text" id="industry" name="industry" class="form-input" placeholder="e.g. Distribution, contractor storage, manufacturing">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="current_sf" class="form-label">Current Space (if any)</label>
+                                        <select id="current_sf" name="current_sf" class="form-select">
+                                            <option value="">Select current size</option>
+                                            <option value="None">None — first space</option>
+                                            <option value="Under 1,500 SF">Under 1,500 SF</option>
+                                            <option value="1,500-3,000 SF">1,500–3,000 SF</option>
+                                            <option value="3,000-5,000 SF">3,000–5,000 SF</option>
+                                            <option value="5,000-10,000 SF">5,000–10,000 SF</option>
+                                            <option value="10,000-20,000 SF">10,000–20,000 SF</option>
+                                            <option value="20,000+ SF">20,000+ SF</option>
+                                        </select>
                                     </div>
 
                                     <div class="form-group">
@@ -699,6 +725,14 @@
           formSub: 'Tell me your size and target submarket below. I\'ll text you when a quiet listing or sublease matches — usually within the week.',
           submit: 'Get off-market alerts →',
           source: 'off-market'
+        },
+        'find-space': {
+          h1: 'Looking for warehouse space in <span class="highlight">Palm Beach County?</span>',
+          sub: 'Renewing, relocating, expanding, or leasing your first space — tell me what you need. Tenant rep at no cost to you (commission paid by the listing brokerage). 2K–25K SF, on- and off-market.',
+          formTitle: 'Tell me what you\'re looking for',
+          formSub: 'I\'ll respond same business day with matching options — including off-market subleases and pre-listing intel from broker calls.',
+          submit: 'Send my search →',
+          source: 'find-space'
         }
       };
 
@@ -733,11 +767,13 @@
         <input name="company">
         <input name="phone">
         <input name="email">
+        <input name="situation">
         <input name="space_size">
         <input name="preferred_area">
         <input name="lease_end">
         <input name="move_timing">
         <input name="industry">
+        <input name="current_sf">
         <input name="current_location">
         <input name="notes">
         <input name="bot-field">
