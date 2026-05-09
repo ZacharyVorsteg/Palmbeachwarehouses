@@ -560,7 +560,7 @@
     };
   }
 
-  // Shared UTM data extraction
+  // Shared UTM + click ID + Meta cookie extraction
   function getUtmData() {
     return {
       utm_source: window.__utm?.source || null,
@@ -569,9 +569,69 @@
       utm_content: window.__utm?.content || null,
       utm_term: window.__utm?.term || null,
       ad_set_id: window.__utm?.adSetId || null,
+      // Click IDs — needed for Trusenda → ad-platform attribution
+      fbclid: window.__clickIds?.fbclid || null,
+      gclid: window.__clickIds?.gclid || null,
+      // Meta cookies — needed for server-side CAPI dedup
+      fbp: window.__fbCookies?.fbp || null,
+      fbc: window.__fbCookies?.fbc || null,
       referrer_url: window.__pageContext?.referrer || document.referrer,
       landing_page_url: window.__pageContext?.landingUrl || window.location.href,
     };
+  }
+
+  // Generate a UUID-ish event ID for CAPI deduplication.
+  // Browser pixel and CAPI server event must share this ID so Meta dedupes them.
+  function generateEventId() {
+    if (window.crypto?.randomUUID) return window.crypto.randomUUID();
+    return 'evt_' + Date.now() + '_' + Math.random().toString(36).slice(2, 11);
+  }
+
+  // SHA-256 hash for PII (email/phone) sent to CAPI per Meta requirements
+  async function sha256(value) {
+    if (!value) return null;
+    const normalized = String(value).trim().toLowerCase();
+    const buf = new TextEncoder().encode(normalized);
+    const hash = await crypto.subtle.digest('SHA-256', buf);
+    return Array.from(new Uint8Array(hash))
+      .map(b => b.toString(16).padStart(2, '0')).join('');
+  }
+
+  // Fire server-side Conversions API event (bypasses iOS pixel blocks).
+  // Best-effort — never blocks UI, never throws.
+  async function fireCAPI({ eventId, eventName, value, leadData }) {
+    try {
+      const [emailHash, phoneHash] = await Promise.all([
+        sha256(leadData.email),
+        sha256(leadData.phone ? leadData.phone.replace(/\D/g, '') : null),
+      ]);
+      await fetch('/.netlify/functions/fb-capi', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          event_id: eventId,
+          event_name: eventName,
+          event_source_url: window.location.href,
+          value: value,
+          currency: 'USD',
+          user_data: {
+            em: emailHash,
+            ph: phoneHash,
+            fbp: window.__fbCookies?.fbp || null,
+            fbc: window.__fbCookies?.fbc || null,
+            client_user_agent: navigator.userAgent,
+          },
+          custom_data: {
+            content_category: leadData._tier || activeFormType,
+            location: leadData.preferredArea || null,
+          },
+        }),
+        keepalive: true,
+      });
+      console.log('✅ CAPI event sent:', eventName, eventId);
+    } catch (err) {
+      console.warn('⚠️  CAPI send failed (non-fatal):', err.message);
+    }
   }
 
   // Get preferred area with fallback (tenant form)
@@ -633,29 +693,32 @@
     return notes.join('\n');
   }
 
-  // Fire tracking ONLY after CRM success
+  // Fire tracking ONLY after CRM success.
+  // Each call generates a single eventId shared between browser fbq() and server CAPI
+  // so Meta deduplicates them into one conversion.
   function fireTrackingPixels(leadData) {
+    const eventId = generateEventId();
     if (activeFormType === 'tenant') {
-      fireTenantPixels(leadData);
+      fireTenantPixels(leadData, eventId);
     } else if (activeFormType === 'landlord') {
-      fireLandlordPixels(leadData);
+      fireLandlordPixels(leadData, eventId);
     } else if (activeFormType === 'report') {
-      fireReportPixels(leadData);
+      fireReportPixels(leadData, eventId);
     } else if (activeFormType === 'valuation') {
-      fireValuationPixels(leadData);
+      fireValuationPixels(leadData, eventId);
     } else if (activeFormType === 'sales') {
-      fireSalesPixels(leadData);
+      fireSalesPixels(leadData, eventId);
     } else if (activeFormType === 'featured-tenant') {
-      fireFeaturedTenantPixels(leadData);
+      fireFeaturedTenantPixels(leadData, eventId);
     } else if (activeFormType === 'warehouse-owner') {
-      fireWarehouseOwnerPixels(leadData);
+      fireWarehouseOwnerPixels(leadData, eventId);
     } else if (activeFormType === 'active-tenant') {
-      fireActiveTenantPixels(leadData);
+      fireActiveTenantPixels(leadData, eventId);
     }
   }
 
   // Tenant tracking (original - with qualification scoring)
-  function fireTenantPixels(leadData) {
+  function fireTenantPixels(leadData, eventId) {
     const qualification = QUALIFICATION.scoreQualification(leadData);
     console.log(`📊 Lead Qualification: ${qualification.tier} (Score: ${qualification.score})`);
 
@@ -667,7 +730,7 @@
         value: pixelValue,
         currency: 'USD',
         conversion_label: qualification.tier,
-        transaction_id: Date.now().toString(),
+        transaction_id: eventId,
       });
       console.log(`✅ Google Ads conversion fired (Value: $${pixelValue}, Tier: ${qualification.tier})`);
     }
@@ -687,13 +750,15 @@
         ad_set_id: window.__utm?.adSetId || null,
         location: leadData.preferredArea,
         estimated_revenue: qualification.annualRevenueEstimate,
-      });
+      }, { eventID: eventId });
       console.log(`✅ Facebook Lead conversion fired (Tier: ${qualification.tier})`);
     }
+
+    fireCAPI({ eventId, eventName: 'Lead', value: pixelValue, leadData: { ...leadData, _tier: qualification.tier } });
   }
 
   // Landlord tracking (high-value listing lead)
-  function fireLandlordPixels(leadData) {
+  function fireLandlordPixels(leadData, eventId) {
     const pixelValue = 150; // Listing agreements are high-value
 
     if (typeof gtag !== 'undefined') {
@@ -702,7 +767,7 @@
         value: pixelValue,
         currency: 'USD',
         conversion_label: 'LANDLORD_LISTING',
-        transaction_id: Date.now().toString(),
+        transaction_id: eventId,
       });
       console.log(`✅ Google Ads conversion fired (Landlord Listing: $${pixelValue})`);
     }
@@ -721,13 +786,15 @@
         utm_medium: window.__utm?.medium || null,
         ad_set_id: window.__utm?.adSetId || null,
         location: leadData.preferredArea,
-      });
+      }, { eventID: eventId });
       console.log('✅ Facebook Lead conversion fired (Landlord Listing)');
     }
+
+    fireCAPI({ eventId, eventName: 'Lead', value: pixelValue, leadData: { ...leadData, _tier: 'LANDLORD' } });
   }
 
   // Report tracking (top-of-funnel lead magnet)
-  function fireReportPixels(leadData) {
+  function fireReportPixels(leadData, eventId) {
     const pixelValue = 25; // Lower value - top-of-funnel
 
     if (typeof gtag !== 'undefined') {
@@ -736,7 +803,7 @@
         value: pixelValue,
         currency: 'USD',
         conversion_label: 'MARKET_REPORT',
-        transaction_id: Date.now().toString(),
+        transaction_id: eventId,
       });
       console.log(`✅ Google Ads conversion fired (Market Report: $${pixelValue})`);
     }
@@ -755,13 +822,15 @@
         utm_medium: window.__utm?.medium || null,
         ad_set_id: window.__utm?.adSetId || null,
         location: leadData.preferredArea,
-      });
+      }, { eventID: eventId });
       console.log('✅ Facebook Lead conversion fired (Market Report)');
     }
+
+    fireCAPI({ eventId, eventName: 'Lead', value: pixelValue, leadData: { ...leadData, _tier: 'REPORT' } });
   }
 
   // Valuation tracking (mid-funnel landlord lead)
-  function fireValuationPixels(leadData) {
+  function fireValuationPixels(leadData, eventId) {
     const pixelValue = 75; // Mid-funnel — interested in value, likely to list
 
     if (typeof gtag !== 'undefined') {
@@ -770,7 +839,7 @@
         value: pixelValue,
         currency: 'USD',
         conversion_label: 'SPACE_VALUATION',
-        transaction_id: Date.now().toString(),
+        transaction_id: eventId,
       });
       console.log(`✅ Google Ads conversion fired (Space Valuation: $${pixelValue})`);
     }
@@ -789,13 +858,15 @@
         utm_medium: window.__utm?.medium || null,
         ad_set_id: window.__utm?.adSetId || null,
         location: leadData.preferredArea,
-      });
+      }, { eventID: eventId });
       console.log('✅ Facebook Lead conversion fired (Space Valuation)');
     }
+
+    fireCAPI({ eventId, eventName: 'Lead', value: pixelValue, leadData: { ...leadData, _tier: 'VALUATION' } });
   }
 
   // Sales tracking (highest-value — investment sales lead)
-  function fireSalesPixels(leadData) {
+  function fireSalesPixels(leadData, eventId) {
     const pixelValue = 250; // Highest value — investment sales commissions are largest
 
     if (typeof gtag !== 'undefined') {
@@ -804,7 +875,7 @@
         value: pixelValue,
         currency: 'USD',
         conversion_label: 'INVESTMENT_SALES',
-        transaction_id: Date.now().toString(),
+        transaction_id: eventId,
       });
       console.log(`✅ Google Ads conversion fired (Investment Sales: $${pixelValue})`);
     }
@@ -823,13 +894,15 @@
         utm_medium: window.__utm?.medium || null,
         ad_set_id: window.__utm?.adSetId || null,
         location: leadData.preferredArea,
-      });
+      }, { eventID: eventId });
       console.log('✅ Facebook Lead conversion fired (Investment Sales)');
     }
+
+    fireCAPI({ eventId, eventName: 'Lead', value: pixelValue, leadData: { ...leadData, _tier: 'SALES' } });
   }
 
   // Featured tenant tracking (high-value — property matched to active tenant)
-  function fireFeaturedTenantPixels(leadData) {
+  function fireFeaturedTenantPixels(leadData, eventId) {
     const pixelValue = 200;
 
     if (typeof gtag !== 'undefined') {
@@ -838,7 +911,7 @@
         value: pixelValue,
         currency: 'USD',
         conversion_label: 'FEATURED_TENANT_PROPERTY',
-        transaction_id: Date.now().toString(),
+        transaction_id: eventId,
       });
       console.log(`✅ Google Ads conversion fired (Featured Tenant Property: $${pixelValue})`);
     }
@@ -857,13 +930,15 @@
         utm_medium: window.__utm?.medium || null,
         ad_set_id: window.__utm?.adSetId || null,
         location: leadData.preferredArea,
-      });
+      }, { eventID: eventId });
       console.log('✅ Facebook Lead conversion fired (Featured Tenant Property)');
     }
+
+    fireCAPI({ eventId, eventName: 'Lead', value: pixelValue, leadData: { ...leadData, _tier: 'FEATURED_TENANT' } });
   }
 
   // Warehouse owner tracking (high-value — property matched to active tenant campaign)
-  function fireWarehouseOwnerPixels(leadData) {
+  function fireWarehouseOwnerPixels(leadData, eventId) {
     const pixelValue = 200;
 
     if (typeof gtag !== 'undefined') {
@@ -872,7 +947,7 @@
         value: pixelValue,
         currency: 'USD',
         conversion_label: 'WAREHOUSE_OWNER_5000SF',
-        transaction_id: Date.now().toString(),
+        transaction_id: eventId,
       });
       console.log(`✅ Google Ads conversion fired (Warehouse Owner: $${pixelValue})`);
     }
@@ -891,13 +966,15 @@
         utm_medium: window.__utm?.medium || null,
         ad_set_id: window.__utm?.adSetId || null,
         location: leadData.preferredArea,
-      });
+      }, { eventID: eventId });
       console.log('✅ Facebook Lead conversion fired (Warehouse Owner)');
     }
+
+    fireCAPI({ eventId, eventName: 'Lead', value: pixelValue, leadData: { ...leadData, _tier: 'WAREHOUSE_OWNER' } });
   }
 
   // Active tenant tracking (high-intent — Meta-driven LP leads)
-  function fireActiveTenantPixels(leadData) {
+  function fireActiveTenantPixels(leadData, eventId) {
     const pixelValue = 200;
     const lpSource = activeLpSource || 'active-tenant-generic';
     const conversionLabel = 'ACTIVE_TENANT_' + lpSource.toUpperCase().replace(/-/g, '_');
@@ -908,7 +985,7 @@
         value: pixelValue,
         currency: 'USD',
         conversion_label: conversionLabel,
-        transaction_id: Date.now().toString(),
+        transaction_id: eventId,
       });
       console.log(`✅ Google Ads conversion fired (Active Tenant ${lpSource}: $${pixelValue})`);
     }
@@ -928,9 +1005,11 @@
         utm_medium: window.__utm?.medium || null,
         ad_set_id: window.__utm?.adSetId || null,
         location: leadData.preferredArea,
-      });
+      }, { eventID: eventId });
       console.log(`✅ Facebook Lead conversion fired (Active Tenant ${lpSource})`);
     }
+
+    fireCAPI({ eventId, eventName: 'Lead', value: pixelValue, leadData: { ...leadData, _tier: 'ACTIVE_TENANT_' + lpSource.toUpperCase().replace(/-/g, '_') } });
   }
 
   // Show success message (form-type aware)
