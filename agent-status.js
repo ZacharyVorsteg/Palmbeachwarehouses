@@ -5,29 +5,17 @@
     var dots = document.querySelectorAll('.agent-status-dot');
     var roles = document.querySelectorAll('[data-agent-status]');
     if (!dots.length && !roles.length) return;
-    var DAYS = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
     var et = new Date(new Date().toLocaleString('en-US', {timeZone: 'America/New_York'}));
     var day = et.getDay(), hr = et.getHours();
     var isWeekday = day >= 1 && day <= 5;
     var online = isWeekday && hr >= 8 && hr < 18;
     var ariaLabel, statusText;
     if (online) {
-        ariaLabel = 'Online — replying now';
-        statusText = 'Online · Replies within hours';
+        ariaLabel = 'Online now — replies within hours';
+        statusText = 'Online now · Replies within hours';
     } else {
-        var nextDay;
-        if (isWeekday && hr < 8) {
-            nextDay = 'today';
-        } else {
-            var addDays = 1;
-            while (addDays < 8) {
-                var d = (day + addDays) % 7;
-                if (d >= 1 && d <= 5) { nextDay = (addDays === 1 ? 'tomorrow' : DAYS[d]); break; }
-                addDays++;
-            }
-        }
-        ariaLabel = 'Away — back ' + nextDay + ' at 8 AM ET';
-        statusText = 'Away · Back ' + nextDay + ' at 8 AM ET';
+        ariaLabel = 'Replies within 2 hours on weekdays';
+        statusText = 'Replies within 2 hours · Mon–Fri';
     }
     dots.forEach(function(d){
         d.classList.toggle('is-online', online);
