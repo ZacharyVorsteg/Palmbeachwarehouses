@@ -1,0 +1,1531 @@
+<!--
+  LISTINGS SYNC: Property listings are duplicated across multiple files.
+  When modifying, check ALL: /index.html, /locations/*/index.html
+  See /CLAUDE.md for full checklist.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="6 warehouse, industrial, and flex spaces for lease in Palm Beach County & South Florida. 1,300-11,563 SF. Expert guidance, fast responses.">
+    <meta name="keywords" content="warehouse for lease Palm Beach County, industrial space for rent FL, flex space Palm Beach, commercial warehouse Florida, warehouse Palm Beach">
+    <title>Warehouse Space for Lease | Palm Beach County | PBW</title>
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://palmbeachwarehouses.com/">
+
+    <!-- Geo Tags for Local SEO -->
+    <meta name="geo.region" content="US-FL">
+    <meta name="geo.placename" content="Palm Beach County">
+    <meta name="geo.position" content="26.7153;-80.0534">
+    <meta name="ICBM" content="26.7153, -80.0534">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <!-- Open Graph (Facebook, LinkedIn, iMessage, etc.) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://palmbeachwarehouses.com/">
+    <meta property="og:title" content="Industrial Space for Lease or Sale in Palm Beach County">
+    <meta property="og:description" content="6 warehouse, industrial, and flex spaces for lease in Palm Beach County & South Florida. 1,300-11,563 SF. Expert guidance, fast responses.">
+    <meta property="og:image" content="https://palmbeachwarehouses.com/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Palm Beach Warehouses - Industrial space for lease in Palm Beach County, Florida">
+    <meta property="og:site_name" content="Palm Beach Warehouses">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Industrial Space for Lease or Sale in Palm Beach County">
+    <meta name="twitter:description" content="6 warehouse, industrial, and flex spaces for lease in Palm Beach County & South Florida. 1,300-11,563 SF. Expert guidance, fast responses.">
+    <meta name="twitter:image" content="https://palmbeachwarehouses.com/assets/og-image.png">
+
+    <!-- GEO/AI Optimization -->
+    <link rel="alternate" hreflang="en-US" href="https://palmbeachwarehouses.com/">
+    <link rel="alternate" hreflang="x-default" href="https://palmbeachwarehouses.com/">
+    <meta name="author" content="Zach Vorsteg">
+    <meta property="article:author" content="Zach Vorsteg">
+    <meta property="article:modified_time" content="2026-02-27">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+
+    <style>:root{--primary-blue: #0057E0;--primary-blue-light: #4EA8FF;--primary-blue-dark: #0056B3;--dark-bg: #1a1f33;--darker-bg: #141824;--card-bg: #1e2438;--accent-blue: #3B93FF;--text-light: #e8eaed;--text-gray: #c0c6cc;--action-blue: #1a73e8;--action-blue-dark: #1557b0;--action-blue-light: #4285f4;--error-red: #dc3545;--success-green: #22c55e;--form-bg: #FFFFFF;--form-border: #E5E5E5;--form-border-focus: #007AFF;--form-text: #212529;--form-label: #212529;--form-placeholder: #6B7280;--form-shadow-focus: rgba(0, 122, 255, .1);--spacing-xs: 4px;--spacing-sm: 8px;--spacing-md: 12px;--spacing-lg: 16px;--spacing-xl: 24px;--radius-sm: 6px;--radius-md: 8px;--radius-lg: 12px;--radius-xl: 16px}*{margin:0;padding:0;box-sizing:border-box}body{font-family:Inter,-apple-system,BlinkMacSystemFont,SF Pro Display,Segoe UI,Roboto,sans-serif;line-height:1.6;color:var(--text-light);background:var(--dark-bg);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}html,body{overflow-x:hidden;width:100%}main{position:relative}#submit-btn:disabled,.submit-btn:disabled{opacity:.6;cursor:not-allowed;transform:none!important}*:focus-visible{outline:2px solid var(--accent-blue);outline-offset:2px}*:focus:not(:focus-visible){outline:none}.skip-link:focus{top:0}.brand-name{font-size:1.25rem;font-weight:700;letter-spacing:.5px;color:var(--accent-blue)}.cta-button{background:var(--primary-blue);color:#fff;border:none;padding:.75rem 1.5rem;border-radius:6px;font-weight:600;font-size:.95rem;cursor:pointer;transition:all .2s}.cta-button:hover{background:var(--primary-blue-dark);transform:translateY(-2px);box-shadow:0 4px 12px #1a73e84d}.feature-compact{display:flex;align-items:center;gap:.75rem;color:var(--text-light);font-size:.95rem;font-weight:500}.feature-icon-small{background:var(--action-blue);color:#fff;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:700;font-size:.75rem}.features-compact{display:grid;grid-template-columns:repeat(2,1fr);gap:.75rem;margin-top:1rem}.form-card{background:linear-gradient(145deg,var(--form-bg) 0%,#FAFBFC 100%);color:#333;border-radius:var(--radius-xl);padding:1.5rem;box-shadow:0 4px 16px #0000001f;border:1px solid rgba(255,255,255,.8);overflow:visible}.header{background:var(--dark-bg);padding:.75rem 2rem;box-shadow:0 2px 10px #0000001a;position:fixed;top:0;left:0;right:0;z-index:9999;height:70px}.header-container{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:2rem}.header-cta{display:flex;align-items:center;gap:1rem}.hero{background:linear-gradient(135deg,var(--darker-bg) 0%,var(--dark-bg) 100%);padding:1.25rem 2rem 3.5rem;min-height:calc(100vh - 70px);display:flex;align-items:center;position:relative;margin-top:70px;overflow:visible}.hero-content{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:center;width:100%;height:100%}.hero-emphasis{color:#ffc107}.hero-left{color:#fff}.hero-right{position:relative;display:flex;flex-direction:column;height:100%;justify-content:center}.hero-subtitle{font-size:1.05rem;color:var(--text-gray);margin-bottom:1.25rem;line-height:1.5}.hero-title{font-size:3rem;font-weight:800;line-height:1.1;margin-bottom:1rem;color:var(--text-light)}.highlight{color:var(--accent-blue)}.logo{display:flex;align-items:center;gap:.75rem}.logo-img{height:50px;width:auto;border-radius:12px}.logo-text{color:#fff}.mobile-menu-btn{display:none;background:none;border:none;color:var(--text-light);cursor:pointer;padding:.5rem;z-index:1001}.mobile-menu-btn span{display:block;width:22px;height:2px;background:currentColor;margin:5px 0;transition:all .3s}.mobile-menu-btn.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}.mobile-menu-btn.open span:nth-child(2){opacity:0}.mobile-menu-btn.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}.nav{display:flex;gap:2rem}.nav a{color:var(--text-light);text-decoration:none;font-weight:500;transition:color .2s}.nav a:hover{color:var(--accent-blue)}.nav-desktop{display:flex;gap:.25rem;align-items:center}.nav-desktop>a{color:var(--text-light);text-decoration:none;font-weight:500;font-size:.9rem;transition:color .2s;padding:.5rem .75rem}.nav-desktop>a:hover,.nav-desktop>a.active{color:var(--accent-blue)}.nav-dropdown{position:relative}.nav-dropdown-menu{display:none;position:absolute;top:100%;left:0;background:var(--dark-bg);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:.5rem 0;min-width:220px;box-shadow:0 8px 24px #0000004d;z-index:1000}.nav-dropdown-menu a{display:block;color:var(--text-gray);text-decoration:none;padding:.5rem 1.25rem;font-size:.85rem;transition:all .15s}.nav-dropdown-menu a.active{color:var(--accent-blue)}.nav-dropdown-menu a:hover{color:var(--accent-blue);background:#ffffff0d}.nav-dropdown-toggle{color:var(--text-light);text-decoration:none;font-weight:500;font-size:.9rem;padding:.5rem .75rem;cursor:pointer;background:none;border:none;display:flex;align-items:center;gap:.3rem;transition:color .2s}.nav-dropdown-toggle svg{width:12px;height:12px;transition:transform .2s}.nav-dropdown-toggle:hover,.nav-dropdown.open .nav-dropdown-toggle{color:var(--accent-blue)}.nav-dropdown.open .nav-dropdown-menu{display:block}.nav-dropdown.open .nav-dropdown-toggle svg{transform:rotate(180deg)}.phone-btn{display:flex;align-items:center;gap:.5rem;background:var(--action-blue);color:#fff;padding:.75rem 1.25rem;border-radius:50px;text-decoration:none;font-weight:600;transition:all .2s}.phone-btn .phone-icon{flex-shrink:0}.phone-btn:hover{background:var(--action-blue-dark);transform:scale(1.05)}.tagline{font-size:.75rem;color:var(--text-gray)}@media(min-width:769px){html,body{overflow:visible;height:auto}main{height:auto;overflow:visible}}</style>
+    <link rel="stylesheet" href="styles.css?v=94">
+    <!-- CRITICAL: Load UTM capture BEFORE all tracking -->
+    <script defer src="/utm-capture.js?v=91"></script>
+    <!-- Then load tracking initialization -->
+    <script>window.addEventListener('load',function(){var s=document.createElement('script');s.src='/tracking-init.js';document.head.appendChild(s)})</script>
+</head>
+<body>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1245057844149331&ev=PageView&noscript=1" alt="" /></noscript>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <picture><source srcset="assets/logo.webp" type="image/webp"><img src="assets/logo.png" alt="Palm Beach Warehouses - Industrial Real Estate in Palm Beach County" class="logo-img" width="180" height="50" decoding="async"></picture>
+                <div class="logo-text">
+                    <div class="brand-name">INDUSTRIAL SPACE</div>
+                    <div class="tagline">Palm Beach County</div>
+                </div>
+            </div>
+            <nav class="nav-desktop">
+                <a href="/" class="active">Home</a>
+                <a href="/about/">About</a>
+                <a href="/list-your-space/">List Your Space</a>
+                <a href="/sell-your-property/">Sell Your Property</a>
+                <div class="nav-dropdown">
+                    <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">Locations <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg></button>
+                    <div class="nav-dropdown-menu" role="menu">
+                        <a href="/locations/boca-raton/" role="menuitem">Boca Raton</a>
+                        <a href="/locations/west-palm-beach/" role="menuitem">West Palm Beach</a>
+                        <a href="/locations/delray-beach/" role="menuitem">Delray Beach</a>
+                        <a href="/locations/lake-worth/" role="menuitem">Lake Worth</a>
+                        <a href="/locations/boynton-beach/" role="menuitem">Boynton Beach</a>
+                        <a href="/locations/jupiter/" role="menuitem">Jupiter</a>
+                        <a href="/locations/riviera-beach/" role="menuitem">Riviera Beach</a>
+                        <a href="/locations/royal-palm-beach/" role="menuitem">Royal Palm Beach</a>
+                        <a href="/locations/lantana/" role="menuitem">Lantana</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">Guides <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg></button>
+                    <div class="nav-dropdown-menu" role="menu">
+                        <a href="/guides/palm-beach-industrial-market/" role="menuitem">Market Report 2026</a>
+                        <a href="/guides/how-to-lease-warehouse/" role="menuitem">How to Lease</a>
+                        <a href="/guides/warehouse-sizing/" role="menuitem">Warehouse Sizing</a>
+                        <a href="/guides/warehouse-vs-flex-space/" role="menuitem">Warehouse vs Flex</a>
+                        <a href="/guides/nnn-leases/" role="menuitem">NNN Leases</a>
+                        <a href="/guides/tenant-improvements/" role="menuitem">Tenant Improvements</a>
+                        <a href="/guides/loading-dock-guide/" role="menuitem">Loading Docks</a>
+                        <a href="/guides/cold-storage/" role="menuitem">Cold Storage</a>
+                    </div>
+                </div>
+                <a href="/blog/">Blog</a>
+            </nav>
+            <button type="button" class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false" onclick="toggleMobileMenu()">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="header-cta">
+                <a href="tel:561-718-6725" class="phone-btn">
+                    <svg class="phone-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    <!-- PHONE_PRIMARY -->561-718-6725<!-- /PHONE_PRIMARY -->
+                </a>
+                <button type="button" class="cta-button" onclick="scrollToForm()">Get Matched Now</button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-left">
+                    <h1 class="hero-title">
+                        Find Warehouse & Industrial Space in <span class="highlight">Palm Beach County</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Matched by a local specialist with direct landlord relationships and deep market intelligence.
+                        <strong class="hero-emphasis">Free expert representation — from your first search to signed lease.</strong>
+                    </p>
+
+                    <div class="features-compact">
+                        <div class="feature-compact">
+                            <span class="feature-icon-small"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+                            <span>Direct landlord relationships — faster access, better terms</span>
+                        </div>
+                        <div class="feature-compact">
+                            <span class="feature-icon-small"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+                            <span>Hyperlocal pricing data and market insight across Palm Beach County</span>
+                        </div>
+                        <div class="feature-compact">
+                            <span class="feature-icon-small"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+                            <span>Average match in 2 weeks — tours available same week</span>
+                        </div>
+                        <div class="feature-compact">
+                            <span class="feature-icon-small"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+                            <span>100% free — landlords pay the commission</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="hero-right">
+                    <div class="form-card" id="lead-form-section">
+                        <form id="lead-form" class="lead-form" method="POST" action="javascript:void(0);">
+                            <h2 class="form-title">Get Matched with Space</h2>
+                            <p class="form-subtitle">Tell us about your business — we send curated matches within 24 hours.</p>
+
+                            <div class="agent-preview">
+                                <div class="agent-preview-photo-wrap">
+                                    <img src="assets/headshot.jpg?v=1" alt="Zach Vorsteg" class="agent-preview-photo" width="64" height="64" loading="lazy" decoding="async">
+                                    <span class="agent-status-dot" aria-label="Available"></span>
+                                </div>
+                                <div class="agent-preview-info">
+                                    <div class="agent-preview-name">Zach Vorsteg</div>
+                                    <div class="agent-preview-role">Your tenant rep · Responds within 24 hrs</div>
+                                    <div class="agent-preview-meta">
+                                        <span class="agent-preview-credentials">
+                                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                                            Licensed FL #SL3603483 · Cornerstone Realty
+                                        </span>
+                                        <span class="agent-preview-divider">·</span>
+                                        <a href="/assets/Zach_Vorsteg_Contact.vcf" class="save-contact-link">Save Contact</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="property_use">Type of space *</label>
+                                <select id="property_use" name="property_use" required>
+                                    <option value="">Select type...</option>
+                                    <option value="Warehouse">Warehouse</option>
+                                    <option value="Flex Space">Flex Space</option>
+                                    <option value="Office/Warehouse">Office/Warehouse</option>
+                                    <option value="Industrial">Industrial</option>
+                                    <option value="Distribution">Distribution Center</option>
+                                    <option value="Cold Storage">Cold Storage</option>
+                                    <option value="Not sure">Not sure yet</option>
+                                </select>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="space_size">Size *</label>
+                                    <select id="space_size" name="space_size" required>
+                                        <option value="">Select size...</option>
+                                        <option value="0-2500">Under 2,500 SF</option>
+                                        <option value="2500-5000">2,500 - 5,000 SF</option>
+                                        <option value="5000-10000">5,000 - 10,000 SF</option>
+                                        <option value="10000-25000">10,000 - 25,000 SF</option>
+                                        <option value="25000-50000">25,000 - 50,000 SF</option>
+                                        <option value="50000-100000">50,000 - 100,000 SF</option>
+                                        <option value="100000+">100,000+ SF</option>
+                                        <option value="not-sure">Not sure yet</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="move_date">Timeline *</label>
+                                    <select id="move_date" name="move_date" required>
+                                        <option value="">When do you need it?</option>
+                                        <option value="Immediate">Immediate</option>
+                                        <option value="1-3 months">1-3 months</option>
+                                        <option value="3-6 months">3-6 months</option>
+                                        <option value="6+ months">6+ months</option>
+                                        <option value="Just exploring">Just exploring</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-divider"></div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">Your Name *</label>
+                                    <input type="text" id="name" name="name" required placeholder="Full name" autocomplete="name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="company">Company Name *</label>
+                                    <input type="text" id="company" name="company" required placeholder="Your company" autocomplete="organization">
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="phone">Phone *</label>
+                                    <input type="tel" id="phone" name="phone" required placeholder="(555) 123-4567" inputmode="tel" autocomplete="tel">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email *</label>
+                                    <input type="email" id="email" name="email" required placeholder="you@company.com" autocomplete="email">
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="budget">Monthly Budget *</label>
+                                    <select id="budget" name="budget" required>
+                                        <option value="">Select budget range...</option>
+                                        <option value="$1,500-3,000/mo">$1,500 - $3,000/mo</option>
+                                        <option value="$3,000-5,000/mo">$3,000 - $5,000/mo</option>
+                                        <option value="$5,000-10,000/mo">$5,000 - $10,000/mo</option>
+                                        <option value="$10,000-20,000/mo">$10,000 - $20,000/mo</option>
+                                        <option value="$20,000+/mo">$20,000+/mo</option>
+                                        <option value="Flexible">Flexible / Not sure</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="industry">Your Industry *</label>
+                                    <select id="industry" name="industry" required>
+                                        <option value="">Select industry...</option>
+                                        <option value="Automotive & Transportation">Automotive</option>
+                                        <option value="Construction & Contracting">Construction</option>
+                                        <option value="Distribution & Logistics">Distribution</option>
+                                        <option value="E-commerce & Fulfillment">E-commerce</option>
+                                        <option value="Food & Beverage Production">Food & Beverage</option>
+                                        <option value="Light Industrial">Light Industrial</option>
+                                        <option value="Manufacturing">Manufacturing</option>
+                                        <option value="Warehousing & Storage">Warehousing</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Optional details - collapsible -->
+                            <button type="button" class="advanced-toggle" aria-expanded="false" aria-controls="advanced-requirements" onclick="toggleAdvanced()">
+                                <span class="toggle-icon">+</span>
+                                <span class="toggle-text">Refine your search</span>
+                                <span class="toggle-hint">location, building specs</span>
+                            </button>
+
+                            <div class="advanced-requirements" id="advanced-requirements">
+                                <div class="form-group">
+                                    <label for="preferred_location_input">Preferred City or Area</label>
+                                    <div class="location-autocomplete-wrapper">
+                                        <input type="text" id="preferred_location_input" name="preferred_location"
+                                               placeholder="e.g. West Palm Beach, Riviera Beach..."
+                                               autocomplete="off">
+                                        <input type="hidden" id="preferred_location" name="preferred_location_value">
+                                        <div id="location-suggestions" class="location-suggestions hidden"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group radius-group">
+                                    <div class="radius-header">
+                                        <span class="radius-label">How far are you willing to go?</span>
+                                        <span class="radius-value" id="radius-display">25 miles</span>
+                                    </div>
+                                    <input type="range" id="search_radius" name="search_radius"
+                                           min="5" max="50" value="25" step="5" class="radius-slider"
+                                           aria-label="Search radius in miles">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="lease_term">Lease Length</label>
+                                    <select id="lease_term" name="lease_term">
+                                        <option value="">How long do you need it?</option>
+                                        <option value="1-2 years">1-2 years</option>
+                                        <option value="3-5 years">3-5 years</option>
+                                        <option value="5-10 years">5-10 years</option>
+                                        <option value="10+ years">10+ years</option>
+                                        <option value="Flexible">Flexible</option>
+                                    </select>
+                                </div>
+
+                                <div class="req-group">
+                                    <div class="req-group-title">Building Specs</div>
+                                    <div class="dropdown-row four-col">
+                                        <div class="dropdown-item">
+                                            <label class="dropdown-label">Loading docks</label>
+                                            <select name="req_docks" class="form-select compact" aria-label="Loading docks requirement">
+                                                <option value="">Any</option>
+                                                <option value="1-2 dock doors">1-2</option>
+                                                <option value="3-5 dock doors">3-5</option>
+                                                <option value="6+ dock doors">6+</option>
+                                            </select>
+                                        </div>
+                                        <div class="dropdown-item">
+                                            <label class="dropdown-label">Ceiling height</label>
+                                            <select name="req_clearheight" class="form-select compact" aria-label="Ceiling height requirement">
+                                                <option value="">Any</option>
+                                                <option value="18'+ clear height">18'+</option>
+                                                <option value="24'+ clear height">24'+</option>
+                                                <option value="28'+ clear height">28'+</option>
+                                            </select>
+                                        </div>
+                                        <div class="dropdown-item">
+                                            <label class="dropdown-label">Power</label>
+                                            <select name="req_power" class="form-select compact" aria-label="Power requirement">
+                                                <option value="">Standard</option>
+                                                <option value="Heavy equipment power">Heavy equipment</option>
+                                            </select>
+                                        </div>
+                                        <div class="dropdown-item">
+                                            <label class="dropdown-label">Climate</label>
+                                            <select name="req_climate" class="form-select compact" aria-label="Climate control requirement">
+                                                <option value="">Any</option>
+                                                <option value="Air conditioned">Air conditioned</option>
+                                                <option value="Cold storage">Cold storage</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="req-group">
+                                    <div class="req-group-title">Access & Features</div>
+                                    <div class="checkbox-row two-col">
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="req_grade" value="Drive-in doors">
+                                            <span class="checkbox-text">Drive-in doors</span>
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="req_semi" value="Semi-truck access">
+                                            <span class="checkbox-text">Semi-truck access</span>
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="req_yard" value="Yard / outside storage">
+                                            <span class="checkbox-text">Yard / outside storage</span>
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="req_trailer" value="Trailer parking">
+                                            <span class="checkbox-text">Trailer parking</span>
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="req_247" value="24/7 access">
+                                            <span class="checkbox-text">24/7 access</span>
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="req_fenced" value="Fenced / secured">
+                                            <span class="checkbox-text">Fenced / secured</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="req-group">
+                                    <div class="req-group-title">Office Component</div>
+                                    <div class="dropdown-row two-col">
+                                        <div class="dropdown-item">
+                                            <label class="dropdown-label">Office / showroom space</label>
+                                            <select name="req_office" class="form-select compact" aria-label="Office/showroom space requirement">
+                                                <option value="">None needed</option>
+                                                <option value="Minimal office (<500 sf)">Minimal (&lt;500 sf)</option>
+                                                <option value="Moderate office (500-2k sf)">Moderate (500-2k sf)</option>
+                                                <option value="Significant office (2k+ sf)">Significant (2k+ sf)</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="notes">Anything else?</label>
+                                    <textarea id="notes" name="notes" rows="2" placeholder="Special requirements, questions, etc."></textarea>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="submit-button" id="submit-btn">
+                                <span id="btn-text">Get Matched Now</span>
+                                <span id="btn-loading" class="hidden">Submitting...</span>
+                            </button>
+
+                            <p class="form-note">No obligation. No cost. Response within 24 hours.</p>
+                            <p class="form-privacy-note">Your information is confidential and never shared with third parties.</p>
+
+                            <div class="alt-contact">
+                                <span class="alt-contact-label">or reach out directly</span>
+                                <div class="alt-contact-buttons">
+                                    <a href="tel:561-718-6725" class="alt-contact-link alt-contact-call">
+                                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                                        Call Zach
+                                    </a>
+                                    <a href="sms:561-718-6725&body=Hi%20Zach%2C%20I%27m%20looking%20for%20warehouse%20space%20in%20Palm%20Beach%20County." class="alt-contact-link alt-contact-text">
+                                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                                        Text Zach
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div id="form-message" class="form-message hidden" role="status" aria-live="polite"></div>
+                        </form>
+
+                        <div id="success-message" class="success-screen hidden">
+                            <div class="success-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
+                            <h3 id="success-headline">Request Received!</h3>
+                            <p id="success-subtitle">Your requirements are being reviewed. Expect curated property matches within 24 hours.</p>
+
+                            <div class="success-agent">
+                                <img src="assets/headshot.jpg?v=1" alt="Zach Vorsteg, Licensed Commercial Real Estate Broker specializing in Palm Beach County industrial space" class="success-headshot" width="60" height="60" loading="lazy" decoding="async">
+                                <div class="success-agent-name">Zach Vorsteg</div>
+                                <div class="success-agent-title">Licensed Commercial Agent, Cornerstone Realty</div>
+                                <a href="tel:561-718-6725" class="success-agent-phone">561-718-6725</a>
+                            </div>
+
+                            <!-- Callout Text (Dynamic) -->
+                            <div class="success-callout" id="success-callout" style="display:none;"></div>
+
+                            <div class="success-buttons">
+                                <a href="/assets/Zach_Vorsteg_Contact.vcf" class="success-btn-primary">Save My Contact</a>
+                                <button type="button" class="success-btn-secondary" onclick="scrollToListings()">Browse Listings ↓</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trust Bar -->
+        <div class="trust-bar">
+            <div class="trust-bar-inner">
+                <div class="trust-item">
+                    <span class="trust-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+                    <span>Licensed FL #SL3603483</span>
+                </div>
+                <div class="trust-divider"></div>
+                <div class="trust-item">
+                    <span class="trust-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+                    <span>Cornerstone Realty</span>
+                </div>
+                <div class="trust-divider"></div>
+                <div class="trust-item">
+                    <span class="trust-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+                    <span>100% Free Service</span>
+                </div>
+                <div class="trust-divider"></div>
+                <div class="trust-item">
+                    <span class="trust-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+                    <span>24-Hour Response</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- How It Works -->
+        <section class="how-it-works">
+            <h2 class="hiw-title">How It Works</h2>
+            <div class="hiw-steps">
+                <div class="hiw-step">
+                    <div class="hiw-number">1</div>
+                    <h3>Tell Us What You Need</h3>
+                    <p>Fill out the quick form above. Property type, size, location — that's it.</p>
+                </div>
+                <div class="hiw-connector"></div>
+                <div class="hiw-step">
+                    <div class="hiw-number">2</div>
+                    <h3>Get Curated Matches</h3>
+                    <p>Zach reviews your criteria and sends hand-picked options — including off-market spaces.</p>
+                </div>
+                <div class="hiw-connector"></div>
+                <div class="hiw-step">
+                    <div class="hiw-number">3</div>
+                    <h3>Tour & Lease</h3>
+                    <p>Schedule tours same week. Zach negotiates your lease at no cost to you.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Available Listings Section -->
+        <!-- BEGIN_LISTINGS: Homepage | Count: 6 -->
+        <section class="listings-section" id="listings">
+            <div class="listings-container">
+                <h2 class="listings-title">Available Industrial Spaces</h2>
+                <p class="listings-subtitle">6 properties currently available across Palm Beach County and South Florida. Updated regularly from verified listings.</p>
+
+                <!-- View Toggle -->
+                <div class="view-toggle-container">
+                    <button class="view-toggle-btn active" data-view="list" onclick="switchView('list')">List View</button>
+                    <button class="view-toggle-btn" data-view="map" onclick="switchView('map')">Map View</button>
+                </div>
+
+                <!-- Listings Grid -->
+                <div class="listings-grid" id="listings-grid">
+
+                    <!-- 1. 1225 Omar Rd — FEATURED -->
+                    <div class="listing-card featured">
+                        <div class="listing-header">
+                            <span class="listing-badge featured">Featured</span>
+                            <span class="listing-type">Industrial</span>
+                        </div>
+                        <h3 class="listing-address">1225 Omar Rd</h3>
+                        <p class="listing-location">West Palm Beach, FL 33405</p>
+                        <p class="listing-size">11,563 SF</p>
+                        <p class="listing-price">$18.50/SF/YR <span class="listing-lease">NNN</span></p>
+                        <ul class="listing-details">
+                            <li>11,563 SF Total (1st Floor 8,563 SF + 2nd Floor 3,000 SF)</li>
+                            <li>3-5yr Terms</li>
+                            <li>Class C, Built 1964, 16 Parking</li>
+                            <li>5 Drive-Ins, 4 Overhead Doors</li>
+                        </ul>
+                        <a href="#lead-form-section" class="listing-cta">Request Info</a>
+                    </div>
+
+                    <!-- 2. 3028-3040 E Commercial Blvd -->
+                    <div class="listing-card">
+                        <div class="listing-header">
+                            <span class="listing-type">Office/Retail</span>
+                        </div>
+                        <h3 class="listing-address">3028-3040 E Commercial Blvd, Ste 3040</h3>
+                        <p class="listing-location">Fort Lauderdale, FL 33308</p>
+                        <p class="listing-size">2,450 SF</p>
+                        <p class="listing-price">$27.00/SF/YR <span class="listing-lease">Modified Gross</span></p>
+                        <ul class="listing-details">
+                            <li>Full Build-Out</li>
+                            <li>3yr Term</li>
+                            <li>GLA 7,659 SF Building, Built 1968</li>
+                            <li>Parking 4.7/1,000 SF</li>
+                        </ul>
+                        <a href="#lead-form-section" class="listing-cta">Request Info</a>
+                    </div>
+
+                    <!-- 3. 3551 23rd Ave S -->
+                    <div class="listing-card">
+                        <div class="listing-header">
+                            <span class="listing-type">Industrial</span>
+                        </div>
+                        <h3 class="listing-address">3551 23rd Ave S</h3>
+                        <p class="listing-location">Marlin Industrial Park, Lake Worth, FL 33461</p>
+                        <p class="listing-size">1,440 SF</p>
+                        <p class="listing-price">$18.00/SF/YR <span class="listing-lease">NNN</span></p>
+                        <ul class="listing-details">
+                            <li>Glass Storefront, 500 SF Office, Restroom</li>
+                            <li>14' Clear, 2 Overhead Doors (10'x10')</li>
+                            <li>2 Drive-In Bays, 18 Parking</li>
+                            <li>Available May 2026, 1-3yr Terms</li>
+                        </ul>
+                        <a href="#lead-form-section" class="listing-cta">Request Info</a>
+                    </div>
+
+
+                    <!-- 4. 801-823 NW 57th St -->
+                    <div class="listing-card">
+                        <div class="listing-header">
+                            <span class="listing-type">Industrial</span>
+                        </div>
+                        <h3 class="listing-address">801-823 NW 57th St</h3>
+                        <p class="listing-location">Fort Lauderdale, FL 33309</p>
+                        <p class="listing-size">1,825-3,650 SF (2 Spaces)</p>
+                        <p class="listing-price">$18.50/SF/YR <span class="listing-lease">Gross</span></p>
+                        <ul class="listing-details">
+                            <li>~600 SF A/C Office + 1,225 SF Warehouse Per Unit</li>
+                            <li>TRUE GROSS — No CAM (Electric + Trash Only)</li>
+                            <li>17' Clear, 12'x12' Overhead Door</li>
+                            <li>21,600 SF Building, Built 1979, Zoned IL</li>
+                        </ul>
+                        <a href="#lead-form-section" class="listing-cta">Request Info</a>
+                    </div>
+
+                    <!-- 5. 7233 Southern Blvd (A Bldg) -->
+                    <div class="listing-card">
+                        <div class="listing-header">
+                            <span class="listing-type">Industrial</span>
+                        </div>
+                        <h3 class="listing-address">7233 Southern Blvd (A Bldg)</h3>
+                        <p class="listing-location">West Palm Beach, FL 33413</p>
+                        <p class="listing-size">1,800-5,400 SF (2 Spaces)</p>
+                        <p class="listing-price">$23.50/SF/YR <span class="listing-lease">NNN</span></p>
+                        <ul class="listing-details">
+                            <li>Unit A3: 1,800 SF, 200 SF Office, 1-2yr Term</li>
+                            <li>Units B4&B5: 3,600 SF, Full Build-Out, 1-3yr Term</li>
+                            <li>14' Clear, 10x12 Roll-Up Doors, 36 Parking</li>
+                        </ul>
+                        <a href="#lead-form-section" class="listing-cta">Request Info</a>
+                    </div>
+
+                    <!-- 6. 7231 W Southern Blvd (C Bldg) — FOR SALE / Under Contract -->
+                    <div class="listing-card">
+                        <div class="listing-header">
+                            <span class="listing-badge" style="background: #f59e0b; color: #000;">Under Contract</span>
+                            <span class="listing-type">Industrial Condo — FOR SALE</span>
+                        </div>
+                        <h3 class="listing-address">7231 W Southern Blvd (C Bldg)</h3>
+                        <p class="listing-location">West Palm Beach, FL 33413</p>
+                        <p class="listing-size">1,300-1,340 SF (2 Units)</p>
+                        <p class="listing-price">$410K-$422K</p>
+                        <ul class="listing-details">
+                            <li>C-5: 1,300 SF, $410,000 (Under Contract)</li>
+                            <li>C-6: 1,340 SF, $422,000 (Under Contract)</li>
+                            <li>18,750 SF Building, Built 1981, Class B</li>
+                            <li>Zoned LI, 10x12 Roll-Up Doors, 18' Clear</li>
+                        </ul>
+                        <a href="#lead-form-section" class="listing-cta">Request Info</a>
+                    </div>
+
+                </div>
+
+                <!-- Map View -->
+                <div class="map-view-container" id="map-view" style="display:none;">
+                    <div id="properties-map" class="properties-map"></div>
+                </div>
+
+                <div class="listings-note">
+                    <p>Don't see what you need? I search the entire Palm Beach County market — not just these listings.</p>
+                    <a href="#lead-form-section" class="listings-note-cta">Tell Me Your Requirements</a>
+                </div>
+            </div>
+        </section>
+        <!-- END_LISTINGS: Homepage | Count: 6 -->
+
+        <!-- Why Work With Me Section -->
+        <section class="about-section" id="about">
+            <div class="about-container">
+                <div class="about-content">
+                    <h2 class="section-title">Why Work With Me</h2>
+                    <div class="about-grid">
+                        <div class="about-text">
+                            <div class="about-intro-wrapper">
+                                <img src="assets/headshot.jpg?v=1" alt="Zach Vorsteg - Palm Beach County Industrial Real Estate Specialist" class="about-headshot" width="140" height="140" loading="lazy" decoding="async">
+                                <p class="about-intro">I'm <strong>Zach Vorsteg</strong>, a licensed commercial real estate professional specializing exclusively in Palm Beach County industrial properties.</p>
+                            </div>
+                            <p>Unlike national brokerages that cover dozens of markets, I focus exclusively on Palm Beach County industrial properties. That means direct relationships with local landlords, real-time knowledge of what's available, and the market intelligence to negotiate the right terms for your business.</p>
+
+                            <div class="about-benefits">
+                                <div class="benefit-item">
+                                    <span class="benefit-icon-check">$0</span>
+                                    <div>
+                                        <strong>Zero Cost to You</strong>
+                                        <p>Landlords pay my commission. You pay nothing for my expertise.</p>
+                                    </div>
+                                </div>
+                                <div class="benefit-item">
+                                    <span class="benefit-icon-check">24h</span>
+                                    <div>
+                                        <strong>Fast Response</strong>
+                                        <p>I typically respond within 24 hours and can schedule tours same-week.</p>
+                                    </div>
+                                </div>
+                                <div class="benefit-item">
+                                    <span class="benefit-icon-check">+</span>
+                                    <div>
+                                        <strong>Off-Market Access</strong>
+                                        <p>Many spaces never hit the public listings. I hear about them first.</p>
+                                    </div>
+                                </div>
+                                <div class="benefit-item">
+                                    <span class="benefit-icon-check">%</span>
+                                    <div>
+                                        <strong>Lease Negotiation</strong>
+                                        <p>I negotiate terms, TI allowances, and rent abatements on your behalf.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="about-credentials">
+                            <div class="credential-card">
+                                <div class="credential-badge">Licensed & Verified</div>
+                                <div class="credential-item">
+                                    <span class="credential-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+                                    <span>Florida Real Estate License #SL3603483</span>
+                                </div>
+                                <div class="credential-item">
+                                    <span class="credential-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+                                    <span>Cornerstone Realty - Palm Beach</span>
+                                </div>
+                                <div class="credential-item">
+                                    <span class="credential-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+                                    <span>Industrial & Warehouse Specialist</span>
+                                </div>
+                                <div class="credential-item">
+                                    <span class="credential-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+                                    <span>Local Palm Beach County Resident</span>
+                                </div>
+                            </div>
+                            <div class="credential-card broker-card">
+                                <div class="credential-badge">Brokers & Investors</div>
+                                <p class="broker-text">Looking to partner on deal flow, co-broker opportunities, or investment-grade industrial properties in PBC?</p>
+                                <a href="tel:561-718-6725" class="broker-cta">Let's Talk — 561-718-6725</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Work With a Tenant Rep Section -->
+        <section class="why-tenant-rep-section" id="why-tenant-rep">
+            <div class="why-tenant-rep-container">
+                <h2 class="section-title">Why Work With a Tenant Rep?</h2>
+                <p class="why-tenant-rep-subtitle">Most businesses don't realize they can have expert representation at zero cost</p>
+                <div class="why-tenant-rep-grid">
+                    <div class="why-card">
+                        <div class="why-icon" style="color: var(--primary-blue-light);">$0</div>
+                        <h3>You Pay Nothing</h3>
+                        <p>Landlords pay the broker commission. You get professional representation — site selection, tours, lease negotiation — completely free.</p>
+                    </div>
+                    <div class="why-card">
+                        <div class="why-icon" style="color: var(--primary-blue-light);">24h</div>
+                        <h3>Faster Than DIY</h3>
+                        <p>Instead of calling listing agents individually, you get one point of contact with direct landlord relationships who searches the entire market on your behalf.</p>
+                    </div>
+                    <div class="why-card">
+                        <div class="why-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+                        <h3>Off-Market Access</h3>
+                        <p>Many warehouse spaces never hit LoopNet or CoStar. Through broker networks and landlord relationships, you see inventory others miss.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section" id="faq">
+            <div class="faq-container">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3 class="faq-question">Is your service really free?</h3>
+                        <p class="faq-answer">Yes, 100% free. Landlords pay my commission when you sign a warehouse lease. You get professional representation at no cost. Read about <a href="/guides/nnn-leases/" style="color: var(--primary-blue-light);">how NNN leases work</a> to understand lease structures.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 class="faq-question">How quickly can I tour properties?</h3>
+                        <p class="faq-answer">Usually same-week. Once I understand your needs, I can coordinate multiple property tours in a single day to save your time.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 class="faq-question">What if I need a custom build-out?</h3>
+                        <p class="faq-answer">I negotiate tenant improvement (TI) allowances with landlords and can connect you with trusted contractors for any build-out work. Learn more in our <a href="/guides/tenant-improvements/" style="color: var(--primary-blue-light);">tenant improvements guide</a>.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 class="faq-question">Do you handle purchases too?</h3>
+                        <p class="faq-answer">Yes. Whether you're looking to lease or buy industrial property in Palm Beach County, I can help with both.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 class="faq-question">What areas do you cover?</h3>
+                        <p class="faq-answer">All of Palm Beach County including West Palm Beach, Lake Worth, Boynton Beach, Delray Beach, Boca Raton, and surrounding areas.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 class="faq-question">What size spaces do you handle?</h3>
+                        <p class="faq-answer">From small 1,000 SF flex units to large 50,000+ SF distribution centers. I work with businesses of all sizes. See our <a href="/guides/warehouse-sizing/" style="color: var(--primary-blue-light);">warehouse sizing guide</a> for help choosing.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 class="faq-question">Do you handle lease negotiation and renewals?</h3>
+                        <p class="faq-answer">Yes. I negotiate lease terms, renewal options, expansion rights, TI allowances, and rent abatements on your behalf. My goal is a lease structure that protects your business as it grows — not just the lowest starting rate.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 class="faq-question">Do you work with brokers and investors?</h3>
+                        <p class="faq-answer">Absolutely. I partner with brokers on co-brokerage deals and work with investors seeking industrial property opportunities in Palm Beach County. If you're in the industry, call me directly at <a href="tel:561-718-6725" style="color: var(--primary-blue-light);">561-718-6725</a>.</p>
+                    </div>
+                </div>
+                <div class="faq-cta">
+                    <p>Have more questions?</p>
+                    <a href="tel:561-718-6725" class="phone-btn">Call 561-718-6725</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer enhanced-footer">
+        <div class="footer-content">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <div class="footer-logo">INDUSTRIAL SPACE</div>
+                    <div class="footer-tagline">Palm Beach County</div>
+                    <p class="footer-desc">Helping businesses find the perfect warehouse, flex, and industrial space in Palm Beach County.</p>
+                </div>
+                <div class="footer-contact">
+                    <h4>Get In Touch</h4>
+                    <a href="tel:561-718-6725" class="footer-phone">561-718-6725</a>
+                    <a href="mailto:zach@cri-re.com" class="footer-email">zach@cri-re.com</a>
+                    <p class="footer-hours">Available Mon-Fri 8am-6pm<br>Weekends by appointment</p>
+                </div>
+                <div class="footer-areas">
+                    <h4>Service Areas</h4>
+                    <ul>
+                        <li><a href="/locations/west-palm-beach/">West Palm Beach</a></li>
+                        <li><a href="/locations/boca-raton/">Boca Raton</a></li>
+                        <li><a href="/locations/delray-beach/">Delray Beach</a></li>
+                        <li><a href="/locations/lake-worth/">Lake Worth</a></li>
+                        <li><a href="/locations/boynton-beach/">Boynton Beach</a></li>
+                        <li><a href="/locations/jupiter/">Jupiter</a></li>
+                        <li><a href="/locations/riviera-beach/">Riviera Beach</a></li>
+                        <li><a href="/locations/royal-palm-beach/">Royal Palm Beach</a></li>
+                        <li><a href="/locations/lantana/">Lantana</a></li>
+                    </ul>
+                </div>
+                <div class="footer-guides">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="/blog/">Blog</a></li>
+                        <li><a href="/guides/palm-beach-industrial-market/">Market Report 2026</a></li>
+                        <li><a href="/guides/how-to-lease-warehouse/">How to Lease</a></li>
+                        <li><a href="/guides/warehouse-sizing/">Warehouse Sizing</a></li>
+                        <li><a href="/guides/warehouse-vs-flex-space/">Warehouse vs Flex</a></li>
+                        <li><a href="/guides/nnn-leases/">NNN Leases</a></li>
+                        <li><a href="/guides/tenant-improvements/">Tenant Improvements</a></li>
+                        <li><a href="/guides/loading-dock-guide/">Loading Docks</a></li>
+                        <li><a href="/guides/cold-storage/">Cold Storage</a></li>
+                    </ul>
+                </div>
+                <div class="footer-cta-box">
+                    <h4>Ready to Get Matched?</h4>
+                    <p class="footer-cta-sub">Licensed broker. Direct landlord access. Zero cost to you.</p>
+                    <button onclick="scrollToForm()" class="footer-cta-btn">Get Matched Now</button>
+                    <a href="tel:561-718-6725" class="footer-phone-link">or call 561-718-6725</a>
+                </div>
+            </div>
+            <div class="footer-legal">
+                <p><a href="/privacy/">Privacy Policy</a> | <a href="/terms/">Terms of Service</a> | <button type="button" onclick="window.showCookieSettings && window.showCookieSettings()" style="background:none;border:none;color:inherit;font:inherit;cursor:pointer;padding:12px 16px;min-width:48px;min-height:48px;margin:0 8px;text-decoration:underline;display:inline-block;">Cookie Settings</button> | <a href="/privacy/#do-not-sell">Do Not Sell My Personal Information</a></p>
+            </div>
+            <div class="footer-bottom">
+                <p>Zach Vorsteg | Licensed Sales Associate #SL3603483 | Cornerstone Realty | Palm Beach County, FL</p>
+                <p class="footer-eho">Equal Housing Opportunity</p>
+                <p class="footer-copyright">&copy; 2025-2026 Palm Beach Warehouses. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main Application JS (multi-step form, navigation, utilities) -->
+    <script defer src="/app.js?v=91"></script>
+
+    <!-- Lead Qualification Scoring -->
+    <script defer src="/qualification.js?v=91"></script>
+
+    <!-- Cookie Consent (GDPR/CCPA) -->
+    <script defer src="/cookie-consent.js?v=91"></script>
+
+    <!-- Trusenda CRM Integration -->
+    <script defer src="/crm-integration.js?v=91"></script>
+
+    <!-- Navigation JS -->
+    <script defer src="/nav-script.js?v=91"></script>
+
+    <!-- Structured Data / Schema Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "RealEstateAgent",
+        "@id": "https://palmbeachwarehouses.com/#agent",
+        "name": "Zach Vorsteg - Palm Beach Warehouses",
+        "alternateName": "Palm Beach Warehouses",
+        "description": "Commercial real estate specialist for warehouse, flex, and industrial space leasing in Palm Beach County, Florida. Expert tenant representation at no cost.",
+        "url": "https://palmbeachwarehouses.com",
+        "telephone": "+1-561-718-6725",
+        "email": "zach@cri-re.com",
+        "image": "https://palmbeachwarehouses.com/assets/headshot.jpg",
+        "logo": "https://palmbeachwarehouses.com/assets/logo.png",
+        "priceRange": "$$$$",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "West Palm Beach",
+            "addressRegion": "FL",
+            "postalCode": "33401",
+            "addressCountry": "US"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 26.7153,
+            "longitude": -80.0534
+        },
+        "areaServed": [
+            {
+                "@type": "City",
+                "name": "West Palm Beach",
+                "containedInPlace": {"@type": "State", "name": "Florida"}
+            },
+            {
+                "@type": "City",
+                "name": "Boca Raton",
+                "containedInPlace": {"@type": "State", "name": "Florida"}
+            },
+            {
+                "@type": "City",
+                "name": "Delray Beach",
+                "containedInPlace": {"@type": "State", "name": "Florida"}
+            },
+            {
+                "@type": "City",
+                "name": "Boynton Beach",
+                "containedInPlace": {"@type": "State", "name": "Florida"}
+            },
+            {
+                "@type": "City",
+                "name": "Lake Worth",
+                "containedInPlace": {"@type": "State", "name": "Florida"}
+            },
+            {
+                "@type": "City",
+                "name": "Jupiter",
+                "containedInPlace": {"@type": "State", "name": "Florida"}
+            },
+            {
+                "@type": "City",
+                "name": "Lantana",
+                "containedInPlace": {"@type": "State", "name": "Florida"}
+            },
+            {
+                "@type": "City",
+                "name": "Royal Palm Beach",
+                "containedInPlace": {"@type": "State", "name": "Florida"}
+            },
+            {
+                "@type": "City",
+                "name": "Riviera Beach",
+                "containedInPlace": {"@type": "State", "name": "Florida"}
+            }
+        ],
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "08:00",
+                "closes": "18:00"
+            }
+        ],
+        "hasCredential": {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "Real Estate License",
+            "recognizedBy": {
+                "@type": "Organization",
+                "name": "Florida Department of Business and Professional Regulation"
+            },
+            "validIn": {"@type": "State", "name": "Florida"},
+            "credentialId": "SL3603483"
+        },
+        "memberOf": {
+            "@type": "Organization",
+            "name": "Cornerstone Realty"
+        },
+        "knowsAbout": [
+            "Warehouse Leasing",
+            "Industrial Real Estate",
+            "Flex Space",
+            "Commercial Property",
+            "Tenant Representation",
+            "Distribution Centers",
+            "NNN Leases",
+            "Palm Beach County Commercial Real Estate"
+        ],
+        "foundingDate": "2021",
+        "numberOfEmployees": 1,
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+1-561-718-6725",
+            "contactType": "sales",
+            "email": "zach@cri-re.com",
+            "availableLanguage": "English",
+            "areaServed": "Palm Beach County, FL"
+        },
+        "sameAs": [
+            "https://www.instagram.com/palmbeachwarehouses/"
+        ],
+        "slogan": "Free tenant representation for warehouse and industrial space in Palm Beach County",
+        "makesOffer": {
+            "@type": "Offer",
+            "itemOffered": {
+                "@type": "Service",
+                "name": "Tenant Representation",
+                "description": "Free warehouse and industrial space search service. Landlords pay the commission - tenants pay nothing."
+            },
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+
+    <!-- Organization Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "@id": "https://palmbeachwarehouses.com/#organization",
+        "name": "Palm Beach Warehouses",
+        "legalName": "Palm Beach Warehouses",
+        "url": "https://palmbeachwarehouses.com",
+        "logo": "https://palmbeachwarehouses.com/assets/logo.png",
+        "image": "https://palmbeachwarehouses.com/assets/og-image.png",
+        "description": "Tenant representation brokerage for warehouse and industrial space in Palm Beach County, FL. Free service — landlords pay the commission.",
+        "telephone": "+1-561-718-6725",
+        "email": "zach@cri-re.com",
+        "founder": {
+            "@type": "Person",
+            "@id": "https://palmbeachwarehouses.com/#zachary-vorsteg"
+        },
+        "areaServed": {
+            "@type": "AdministrativeArea",
+            "name": "Palm Beach County, Florida"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "West Palm Beach",
+            "addressRegion": "FL",
+            "postalCode": "33401",
+            "addressCountry": "US"
+        },
+        "parentOrganization": {
+            "@type": "RealEstateAgent",
+            "name": "Cornerstone Realty"
+        }
+    }
+    </script>
+
+    <!-- Person Schema for Agent E-E-A-T -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "@id": "https://palmbeachwarehouses.com/#zachary-vorsteg",
+        "name": "Zach Vorsteg",
+        "jobTitle": "Commercial Real Estate Specialist",
+        "description": "Licensed Florida real estate professional specializing in warehouse and industrial space leasing in Palm Beach County.",
+        "image": "https://palmbeachwarehouses.com/assets/headshot.jpg",
+        "telephone": "+1-561-718-6725",
+        "email": "zach@cri-re.com",
+        "affiliation": {
+            "@type": "Organization",
+            "name": "Cornerstone Realty"
+        },
+        "worksFor": {
+            "@type": "RealEstateAgent",
+            "@id": "https://palmbeachwarehouses.com/#agent"
+        },
+        "hasCredential": {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "Florida Real Estate License",
+            "credentialId": "SL3603483",
+            "recognizedBy": {
+                "@type": "Organization",
+                "name": "Florida DBPR"
+            }
+        },
+        "knowsAbout": [
+            "Commercial Real Estate",
+            "Industrial Property Leasing",
+            "Warehouse Space",
+            "Tenant Representation",
+            "Palm Beach County Market"
+        ],
+        "areaServed": {
+            "@type": "AdministrativeArea",
+            "name": "Palm Beach County, Florida"
+        }
+    }
+    </script>
+
+    <!-- Service Schema for AI Understanding -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "@id": "https://palmbeachwarehouses.com/#tenant-rep-service",
+        "name": "Free Warehouse & Industrial Space Search",
+        "serviceType": "Tenant Representation",
+        "description": "Professional warehouse and industrial space search service in Palm Beach County. We find, tour, and negotiate the best spaces for your business. Landlords pay our commission - you pay nothing.",
+        "provider": {
+            "@type": "RealEstateAgent",
+            "@id": "https://palmbeachwarehouses.com/#agent"
+        },
+        "areaServed": [
+            {"@type": "City", "name": "West Palm Beach", "addressRegion": "FL"},
+            {"@type": "City", "name": "Boca Raton", "addressRegion": "FL"},
+            {"@type": "City", "name": "Delray Beach", "addressRegion": "FL"},
+            {"@type": "City", "name": "Lake Worth", "addressRegion": "FL"},
+            {"@type": "City", "name": "Boynton Beach", "addressRegion": "FL"},
+            {"@type": "City", "name": "Jupiter", "addressRegion": "FL"},
+            {"@type": "City", "name": "Lantana", "addressRegion": "FL"},
+            {"@type": "City", "name": "Royal Palm Beach", "addressRegion": "FL"},
+            {"@type": "City", "name": "Riviera Beach", "addressRegion": "FL"}
+        ],
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "description": "100% free to tenants - landlords pay commission",
+            "eligibleRegion": {"@type": "State", "name": "Florida"}
+        },
+        "termsOfService": "https://palmbeachwarehouses.com/",
+        "availableChannel": {
+            "@type": "ServiceChannel",
+            "servicePhone": "+1-561-718-6725",
+            "serviceUrl": "https://palmbeachwarehouses.com/"
+        }
+    }
+    </script>
+
+    <!-- Speakable Schema for Voice/AI Assistants -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Warehouse & Industrial Space for Lease in Palm Beach County",
+        "speakable": {
+            "@type": "SpeakableSpecification",
+            "cssSelector": [".hero-subtitle", ".hero-emphasis", ".faq-answer"]
+        },
+        "mainEntity": {
+            "@id": "https://palmbeachwarehouses.com/#agent"
+        }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Is your service really free?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, 100% free. Landlords pay my commission when you sign a warehouse lease. You get professional representation at no cost. Read about how NNN leases work to understand lease structures."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How quickly can I tour properties?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Usually same-week. Once I understand your needs, I can coordinate multiple property tours in a single day to save your time."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What if I need a custom build-out?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "I negotiate tenant improvement (TI) allowances with landlords and can connect you with trusted contractors for any build-out work. Learn more in our tenant improvements guide."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do you handle purchases too?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Whether you're looking to lease or buy industrial property in Palm Beach County, I can help with both."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What areas do you cover?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "All of Palm Beach County including West Palm Beach, Lake Worth, Boynton Beach, Delray Beach, Boca Raton, and surrounding areas."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What size spaces do you handle?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "From small 1,000 SF flex units to large 50,000+ SF distribution centers. I work with businesses of all sizes. See our warehouse sizing guide for help choosing."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://palmbeachwarehouses.com/"
+            }
+        ]
+    }
+    </script>
+
+    <!-- ItemList Schema for Property Listings -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Warehouse & Industrial Spaces for Lease in Palm Beach County",
+        "description": "Available warehouse, industrial, and flex spaces across Palm Beach County, Florida",
+        "numberOfItems": 6,
+        "url": "https://palmbeachwarehouses.com/",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "1225 Omar Rd, West Palm Beach",
+                "item": "https://palmbeachwarehouses.com/#property-omar-rd",
+                "offers": {
+                    "@type": "Offer",
+                    "availability": "https://schema.org/InStock",
+                    "priceCurrency": "USD"
+                }
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "3028-3040 E Commercial Blvd, Fort Lauderdale",
+                "item": "https://palmbeachwarehouses.com/#property-commercial-blvd",
+                "offers": {
+                    "@type": "Offer",
+                    "availability": "https://schema.org/InStock",
+                    "priceCurrency": "USD"
+                }
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "3551 23rd Ave S, Lake Worth",
+                "item": "https://palmbeachwarehouses.com/#property-23rd-ave",
+                "offers": {
+                    "@type": "Offer",
+                    "availability": "https://schema.org/InStock",
+                    "priceCurrency": "USD"
+                }
+            },
+            {
+                "@type": "ListItem",
+                "position": 4,
+                "name": "801-823 NW 57th St, Fort Lauderdale",
+                "item": "https://palmbeachwarehouses.com/#property-nw-57th",
+                "offers": {
+                    "@type": "Offer",
+                    "availability": "https://schema.org/InStock",
+                    "priceCurrency": "USD"
+                }
+            },
+            {
+                "@type": "ListItem",
+                "position": 5,
+                "name": "7233 Southern Blvd (A Bldg), West Palm Beach",
+                "item": "https://palmbeachwarehouses.com/#property-southern-blvd-a",
+                "offers": {
+                    "@type": "Offer",
+                    "availability": "https://schema.org/InStock",
+                    "priceCurrency": "USD"
+                }
+            },
+            {
+                "@type": "ListItem",
+                "position": 6,
+                "name": "7231 W Southern Blvd (C Bldg), West Palm Beach",
+                "item": "https://palmbeachwarehouses.com/#property-southern-blvd-c",
+                "offers": {
+                    "@type": "Offer",
+                    "availability": "https://schema.org/InStock",
+                    "priceCurrency": "USD"
+                }
+            }
+        ]
+    }
+    </script>
+
+    <!-- AggregateOffer Schema for Property Pricing -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "AggregateOffer",
+        "name": "Warehouse & Industrial Space Availability",
+        "description": "Available warehouse and industrial spaces across Palm Beach County",
+        "itemCondition": "https://schema.org/NewCondition",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "offerCount": 6,
+        "url": "https://palmbeachwarehouses.com/",
+        "seller": {
+            "@type": "RealEstateAgent",
+            "@id": "https://palmbeachwarehouses.com/#agent"
+        }
+    }
+    </script>
+
+    <!-- LocalBusiness Schema for Local Search -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "@id": "https://palmbeachwarehouses.com/#localbusiness",
+        "name": "Palm Beach Warehouses",
+        "description": "Warehouse and industrial space leasing brokerage in Palm Beach County, FL. Free tenant representation — landlords pay the commission.",
+        "url": "https://palmbeachwarehouses.com",
+        "telephone": "+1-561-718-6725",
+        "email": "zach@cri-re.com",
+        "image": "https://palmbeachwarehouses.com/assets/og-image.png",
+        "logo": "https://palmbeachwarehouses.com/assets/logo.png",
+        "priceRange": "Free",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "West Palm Beach",
+            "addressRegion": "FL",
+            "postalCode": "33401",
+            "addressCountry": "US"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 26.7153,
+            "longitude": -80.0534
+        },
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "08:00",
+                "closes": "18:00"
+            }
+        ],
+        "areaServed": [
+            {"@type": "City", "name": "West Palm Beach", "addressRegion": "FL"},
+            {"@type": "City", "name": "Boca Raton", "addressRegion": "FL"},
+            {"@type": "City", "name": "Delray Beach", "addressRegion": "FL"},
+            {"@type": "City", "name": "Boynton Beach", "addressRegion": "FL"},
+            {"@type": "City", "name": "Lake Worth", "addressRegion": "FL"},
+            {"@type": "City", "name": "Royal Palm Beach", "addressRegion": "FL"},
+            {"@type": "City", "name": "Jupiter", "addressRegion": "FL"},
+            {"@type": "City", "name": "Lantana", "addressRegion": "FL"},
+            {"@type": "City", "name": "Riviera Beach", "addressRegion": "FL"}
+        ],
+        "sameAs": [
+            "https://www.instagram.com/palmbeachwarehouses/"
+        ]
+    }
+    </script>
+
+    <!-- Location Autocomplete Script -->
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav-overlay" id="mobileNav">
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+        <a href="/blog/">Blog</a>
+        <div class="mobile-nav-section">
+            <h4>Locations</h4>
+            <a href="/locations/boca-raton/">Boca Raton</a>
+            <a href="/locations/west-palm-beach/">West Palm Beach</a>
+            <a href="/locations/delray-beach/">Delray Beach</a>
+            <a href="/locations/lake-worth/">Lake Worth</a>
+            <a href="/locations/boynton-beach/">Boynton Beach</a>
+            <a href="/locations/jupiter/">Jupiter</a>
+            <a href="/locations/riviera-beach/">Riviera Beach</a>
+            <a href="/locations/royal-palm-beach/">Royal Palm Beach</a>
+            <a href="/locations/lantana/">Lantana</a>
+        </div>
+        <div class="mobile-nav-section">
+            <h4>Guides</h4>
+            <a href="/guides/palm-beach-industrial-market/">Market Report 2026</a>
+            <a href="/guides/how-to-lease-warehouse/">How to Lease</a>
+            <a href="/guides/warehouse-sizing/">Warehouse Sizing</a>
+            <a href="/guides/warehouse-vs-flex-space/">Warehouse vs Flex</a>
+            <a href="/guides/nnn-leases/">NNN Leases</a>
+            <a href="/guides/tenant-improvements/">Tenant Improvements</a>
+            <a href="/guides/loading-dock-guide/">Loading Docks</a>
+            <a href="/guides/cold-storage/">Cold Storage</a>
+        </div>
+        <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1);">
+            <a href="tel:561-718-6725" style="color: var(--accent-blue); font-weight: 600;">Call 561-718-6725</a>
+        </div>
+    </div>
+
+    <!-- Mobile Menu JS -->
+    <script>
+    // Mobile menu
+    function toggleMobileMenu() {
+        const btn = document.querySelector('.mobile-menu-btn');
+        const nav = document.getElementById('mobileNav');
+        btn.classList.toggle('open');
+        nav.classList.toggle('open');
+        document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+    }
+    // Availability dot: green Mon-Fri 8am-6pm ET, gray otherwise
+    (function(){
+        var dot = document.querySelector('.agent-status-dot');
+        if (!dot) return;
+        var now = new Date();
+        var et = new Date(now.toLocaleString('en-US', {timeZone: 'America/New_York'}));
+        var day = et.getDay(), hr = et.getHours();
+        var open = day >= 1 && day <= 5 && hr >= 8 && hr < 18;
+        if (!open) {
+            dot.style.background = '#9ca3af';
+            dot.setAttribute('aria-label', 'Away — back Mon-Fri 8am-6pm');
+        }
+    })();
+    </script>
+
+    <!-- Sticky Mobile CTA -->
+    <div class="sticky-mobile-cta" id="stickyMobileCta">
+        <button type="button" onclick="scrollToForm()" class="sticky-cta-btn">Get Matched Now</button>
+        <a href="tel:561-718-6725" class="sticky-cta-phone">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Call
+        </a>
+        <a href="sms:561-718-6725&body=Hi%20Zach%2C%20I%27m%20looking%20for%20warehouse%20space%20in%20Palm%20Beach%20County." class="sticky-cta-text">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Text
+        </a>
+        <button type="button" class="sticky-cta-dismiss" onclick="dismissStickyCta()" aria-label="Dismiss">&times;</button>
+    </div>
+
+    <!-- Exit Intent Modal -->
+    <div class="exit-intent-overlay" id="exitIntentOverlay">
+        <div class="exit-intent-modal">
+            <button type="button" class="exit-intent-close" onclick="dismissExitIntent()" aria-label="Close modal">&times;</button>
+            <h2 class="exit-intent-title">Before you go</h2>
+            <p class="exit-intent-text">Get a free space shortlist in 24 hours</p>
+            <form class="exit-intent-form" id="exitIntentForm">
+                <input type="tel" placeholder="Your phone" required aria-label="Phone number" class="exit-intent-input">
+                <button type="submit" class="exit-intent-submit">Get Matched Now</button>
+            </form>
+            <p class="exit-intent-footnote">No spam, no pressure. We just call if we find your space.</p>
+        </div>
+    </div>
+    <script>
+    // Sticky CTA: delayed, dismissible, session-aware
+    function dismissStickyCta() {
+        var s = document.getElementById('stickyMobileCta');
+        if (s) { s.classList.remove('visible'); s.dataset.dismissed = '1'; }
+        try { sessionStorage.setItem('stickyCTADismissed', '1'); } catch(e) {}
+    }
+    (function() {
+        var sticky = document.getElementById('stickyMobileCta');
+        if (!sticky || window.innerWidth > 768) return;
+        // Don't show if dismissed this session
+        try { if (sessionStorage.getItem('stickyCTADismissed')) return; } catch(e) {}
+        var form = document.getElementById('lead-form-section');
+        if (!form) return;
+        var ready = false;
+        // 4-second delay after page load before CTA can appear
+        setTimeout(function() { ready = true; }, 4000);
+        var observer = new IntersectionObserver(function(entries) {
+            if (sticky.dataset.dismissed === '1') return;
+            var shouldShow = !entries[0].isIntersecting && ready;
+            sticky.classList.toggle('visible', shouldShow);
+        }, { threshold: 0 });
+        observer.observe(form);
+    })();
+
+    // Exit Intent Modal
+    function dismissExitIntent() {
+        var overlay = document.getElementById('exitIntentOverlay');
+        if (overlay) { overlay.classList.remove('visible'); }
+        try { sessionStorage.setItem('exitIntentDismissed', '1'); } catch(e) {}
+    }
+    (function() {
+        var modal = document.getElementById('exitIntentOverlay');
+        if (!modal) return;
+
+        // Don't show if dismissed this session
+        try { if (sessionStorage.getItem('exitIntentDismissed')) return; } catch(e) {}
+
+        var exitIntentShown = false;
+
+        // Desktop: detect mouse leaving viewport top
+        document.addEventListener('mouseout', function(e) {
+            if (exitIntentShown) return;
+            if (e.clientY < 10) {
+                exitIntentShown = true;
+                modal.classList.add('visible');
+                try { sessionStorage.setItem('exitIntentDismissed', '1'); } catch(e) {}
+            }
+        });
+
+        // Mobile: detect back button / beforeunload
+        window.addEventListener('beforeunload', function(e) {
+            if (!exitIntentShown) {
+                exitIntentShown = true;
+                modal.classList.add('visible');
+                try { sessionStorage.setItem('exitIntentDismissed', '1'); } catch(e) {}
+            }
+        });
+    })();
+
+    // Exit Intent Form Submission
+    (function() {
+        var form = document.getElementById('exitIntentForm');
+        if (!form) return;
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            var phone = form.querySelector('input[type="tel"]').value.trim();
+            if (!phone) return;
+
+            // Copy to main form and scroll
+            var mainForm = document.getElementById('lead-form');
+            if (mainForm) {
+                var phoneField = mainForm.querySelector('input[name="phone"]');
+                if (phoneField) phoneField.value = phone;
+                dismissExitIntent();
+                scrollToForm();
+                var firstField = mainForm.querySelector('select, input:not([type="hidden"])');
+                if (firstField) firstField.focus();
+
+                // Track exit-intent engagement (NOT a Lead — user hasn't submitted yet)
+                if (typeof fbq !== 'undefined') fbq('trackCustom', 'ExitIntentCapture', { content_name: 'Exit Intent Phone', value: 0, currency: 'USD' });
+                if (typeof gtag !== 'undefined') gtag('event', 'exit_intent_capture', { event_category: 'engagement' });
+            }
+        });
+    })();
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Available Warehouse Space — Palm Beach Warehouses</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/new-styles.css">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="canonical" href="https://palmbeachwarehouses.com/listings/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://palmbeachwarehouses.com/listings/">
+<meta property="og:title" content="Available Warehouse Space | Palm Beach Warehouses">
+<meta property="og:image" content="https://palmbeachwarehouses.com/assets/og-editorial.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+/* Page-specific */
+.page-header{padding:72px 28px 32px;background:var(--navy-900);border-bottom:1px solid var(--navy-border);position:relative;overflow:hidden}
+.page-header::before{content:"";position:absolute;inset:0;background:radial-gradient(900px 400px at 10% 0%,rgba(59,147,255,.12),transparent 60%);pointer-events:none}
+.page-header-inner{max-width:1360px;margin:0 auto;position:relative}
+.page-crumbs{font-size:12.5px;color:var(--text-mute);letter-spacing:.04em;margin-bottom:16px}
+.page-crumbs a{color:var(--text-gray);text-decoration:none}
+.page-crumbs a:hover{color:#fff}
+.page-crumbs span{margin:0 8px;color:var(--text-mute)}
+.page-title{font-size:clamp(32px,4vw,48px);font-weight:800;letter-spacing:-.025em;color:#fff;line-height:1.05;margin-bottom:12px}
+.page-title em{font-family:var(--font-serif);font-style:italic;font-weight:400;color:var(--blue-300)}
+.page-sub{font-size:16px;color:var(--text-gray);max-width:640px;line-height:1.55}
+
+.filter-bar{background:var(--navy-850);border-bottom:1px solid var(--navy-border);position:sticky;top:70px;z-index:40}
+.filter-inner{max-width:1360px;margin:0 auto;padding:14px 28px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.filter-chip{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:var(--navy-800);border:1px solid var(--navy-border);color:var(--text-light);font-size:13px;font-weight:500;cursor:pointer;transition:all .15s}
+.filter-chip:hover{border-color:var(--blue-400)}
+.filter-chip.active{background:rgba(59,147,255,.14);border-color:var(--blue-400);color:var(--blue-300)}
+.filter-chip svg{width:12px;height:12px}
+.filter-search{margin-left:auto;display:flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:var(--navy-800);border:1px solid var(--navy-border);min-width:260px}
+.filter-search input{background:none;border:0;color:#fff;font-size:13px;width:100%;outline:none}
+.filter-search input::placeholder{color:var(--text-mute)}
+.filter-count{font-size:12.5px;color:var(--text-mute);padding:0 6px;letter-spacing:.04em}
+.filter-count b{color:#fff}
+
+.view-toggle{display:inline-flex;background:var(--navy-800);border:1px solid var(--navy-border);border-radius:999px;padding:3px}
+.view-toggle button{padding:7px 14px;border-radius:999px;font-size:12.5px;font-weight:600;color:var(--text-mute)}
+.view-toggle button.active{background:var(--blue-600);color:#fff}
+
+.listings-section{padding:36px 28px 80px}
+.listings-section-inner{max-width:1360px;margin:0 auto}
+.listings-grid-4{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:1100px){.listings-grid-4{grid-template-columns:repeat(2,1fr)}.filter-search{min-width:0;flex:1}}
+@media(max-width:768px){.listings-grid-4{grid-template-columns:1fr}.filter-bar{position:static}}
+</style>
+</head>
+<body>
+
+<!-- Topbar + header: reuse from deploy/partials/header.html -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-left"><span><span class="topbar-dot" style="display:inline-block;margin-right:6px"></span>Zach is online — responses within the hour</span></div>
+    <div>Licensed FL Commercial Real Estate &nbsp;·&nbsp; <a href="tel:5617186725">561-718-6725</a></div>
+  </div>
+</div>
+<header class="header">
+  <div class="header-inner">
+    <a href="index.html" class="brand">
+      <svg class="brand-mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <path d="M6 52 Q 20 48 32 52 T 58 52" stroke="#3B93FF" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M10 56 Q 22 53 32 56 T 54 56" stroke="#0057E0" stroke-width="2" fill="none" stroke-linecap="round" opacity=".7"/>
+        <path d="M14 48 L 14 28 L 32 18 L 50 28 L 50 48 Z" fill="#2463C9"/>
+        <path d="M14 28 L 32 18 L 50 28 L 32 24 Z" fill="#1F4F9F"/>
+        <rect x="26" y="36" width="10" height="12" fill="#0E2E5C"/>
+        <path d="M44 48 Q 45 38 46 24" stroke="#6B4E2E" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <g fill="#2E8B3B"><path d="M46 22 Q 54 12 60 16 Q 52 18 46 22 Z"/><path d="M46 22 Q 38 12 32 16 Q 40 18 46 22 Z"/><path d="M46 22 Q 56 22 60 30 Q 52 26 46 22 Z"/><path d="M46 22 Q 36 22 32 30 Q 40 26 46 22 Z"/><path d="M46 22 Q 50 14 52 6 Q 48 14 46 22 Z"/></g>
+      </svg>
+      <div class="brand-text"><div class="brand-name">Palm Beach Warehouses</div><div class="brand-sub">Commercial · Industrial · Flex</div></div>
+    </a>
+    <nav class="nav"><a href="listings.html" class="active">Listings</a><a href="index.html#how">How It Works</a><a href="index.html#areas">Locations</a><a href="about.html">About Zach</a><a href="index.html#faq">FAQ</a></nav>
+    <div class="header-cta">
+      <a href="tel:5617186725" class="call-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>561-718-6725</a>
+      <a href="index.html#form" class="cta-btn">Get Matched</a>
+    </div>
+  </div>
+</header>
+
+<section class="page-header">
+  <div class="page-header-inner">
+    <div class="page-crumbs"><a href="index.html">Home</a><span>›</span>Listings</div>
+    <h1 class="page-title">Available <em>industrial</em> space in Palm Beach County.</h1>
+    <p class="page-sub">On-market inventory I'm tracking or actively representing. I also work with off-market spaces never publicly listed — if you have specific needs, <a href="index.html#form" style="color:var(--blue-300)">send me your requirements</a>.</p>
+  </div>
+</section>
+
+<div class="filter-bar">
+  <div class="filter-inner">
+    <button class="filter-chip active">All Types</button>
+    <button class="filter-chip">Warehouse</button>
+    <button class="filter-chip">Flex</button>
+    <button class="filter-chip">Office/Warehouse</button>
+    <button class="filter-chip">For Sale</button>
+    <span class="filter-count"><b>10</b> active listings</span>
+    <div class="filter-search"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8B94A3" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg><input placeholder="Search by city, size, address..."></div>
+    <div class="view-toggle"><button class="active">Grid</button><button>Map</button></div>
+  </div>
+</div>
+
+<section class="listings-section">
+  <div class="listings-section-inner">
+    <div class="listings-grid-4">
+
+      <article class="listing featured">
+        <div class="listing-media"><img class="listing-photo" src="https://images1.loopnet.com/i2/EeScaPpe2AL3kDSMz7LG09DO4emZJiNwdO4nIpgl718/110/1225-Omar-Rd-West-Palm-Beach-FL-Building-Photo-1-Large.jpg" alt="1225 Omar Rd warehouse exterior" loading="lazy"><div class="listing-tags"><span class="tag tag-featured">Featured</span><span class="tag tag-type">Industrial</span></div></div>
+        <div class="listing-body"><div class="listing-address">1225 Omar Rd</div><div class="listing-city">West Palm Beach, FL 33405</div>
+          <div class="listing-specs"><div class="listing-spec"><div class="listing-spec-label">Size</div><div class="listing-spec-value">11,563 SF</div></div><div class="listing-spec"><div class="listing-spec-label">Built</div><div class="listing-spec-value">1964 · Class C</div></div><div class="listing-spec"><div class="listing-spec-label">Parking</div><div class="listing-spec-value">16 spaces</div></div><div class="listing-spec"><div class="listing-spec-label">Access</div><div class="listing-spec-value">5 Drive-In</div></div></div>
+          <div class="listing-bottom"><div class="listing-price"><div class="listing-price-big">$18.50/SF</div><div class="listing-price-small">Annual · NNN · 3–5yr</div></div><a href="property-detail.html" class="listing-cta">View Details →</a></div>
+        </div>
+      </article>
+
+      <article class="listing">
+        <div class="listing-media"><img class="listing-photo" src="https://images1.loopnet.com/i2/MNy5lQe0k3-MFm0Byh8QGaDpwPT3yDBEOdJoRyx6STg/110/3028-3040-E-Commercial-Blvd-Fort-Lauderdale-FL-Building-Photo-1-Large.jpg" alt="3028-3040 E Commercial Blvd building exterior" loading="lazy"><div class="listing-tags"><span></span><span class="tag tag-type">Office / Retail</span></div></div>
+        <div class="listing-body"><div class="listing-address">3028–3040 E Commercial Blvd</div><div class="listing-city">Fort Lauderdale, FL 33308</div>
+          <div class="listing-specs"><div class="listing-spec"><div class="listing-spec-label">Size</div><div class="listing-spec-value">2,450 SF</div></div><div class="listing-spec"><div class="listing-spec-label">Build-Out</div><div class="listing-spec-value">Full</div></div><div class="listing-spec"><div class="listing-spec-label">Term</div><div class="listing-spec-value">3 years</div></div><div class="listing-spec"><div class="listing-spec-label">Built</div><div class="listing-spec-value">1968</div></div></div>
+          <div class="listing-bottom"><div class="listing-price"><div class="listing-price-big">$27.00/SF</div><div class="listing-price-small">Annual · Modified Gross</div></div><a href="#" class="listing-cta">View Details →</a></div>
+        </div>
+      </article>
+
+      <article class="listing">
+        <div class="listing-media"><img class="listing-photo" src="https://images1.loopnet.com/i2/Cxxq2rcs7eR7dGZoktBpMela4x4SldRiqcHIu7ZTHho/110/3551-23rd-Ave-S-Lake-Worth-FL-Primary-Photo-1-Large.jpg" alt="3551 23rd Ave S warehouse exterior" loading="lazy"><div class="listing-tags"><span class="tag tag-new">Available May</span><span class="tag tag-type">Industrial</span></div></div>
+        <div class="listing-body"><div class="listing-address">3551 23rd Ave S</div><div class="listing-city">Marlin Industrial Park · Lake Worth, FL 33461</div>
+          <div class="listing-specs"><div class="listing-spec"><div class="listing-spec-label">Size</div><div class="listing-spec-value">1,440 SF</div></div><div class="listing-spec"><div class="listing-spec-label">Office</div><div class="listing-spec-value">500 SF</div></div><div class="listing-spec"><div class="listing-spec-label">Clear Ht.</div><div class="listing-spec-value">14 ft</div></div><div class="listing-spec"><div class="listing-spec-label">Doors</div><div class="listing-spec-value">2 OH + 2 DI</div></div></div>
+          <div class="listing-bottom"><div class="listing-price"><div class="listing-price-big">$18.00/SF</div><div class="listing-price-small">Annual · NNN</div></div><a href="#" class="listing-cta">View Details →</a></div>
+        </div>
+      </article>
+
+      <article class="listing">
+        <div class="listing-media"><img class="listing-photo" src="https://images1.loopnet.com/i2/PYu96ZgYXCw68Myt2oIxQnhsZcUC5JcZo5-c4WdXXe0/110/801-823-NW-57th-St-Fort-Lauderdale-FL-Building-Photo-1-Large.jpg" alt="801-823 NW 57th St warehouse exterior" loading="lazy"><div class="listing-tags"><span></span><span class="tag tag-type">Industrial · 2 Spaces</span></div></div>
+        <div class="listing-body"><div class="listing-address">801–823 NW 57th St</div><div class="listing-city">Fort Lauderdale, FL 33309</div>
+          <div class="listing-specs"><div class="listing-spec"><div class="listing-spec-label">Size</div><div class="listing-spec-value">1,825–3,650 SF</div></div><div class="listing-spec"><div class="listing-spec-label">Office A/C</div><div class="listing-spec-value">~600 SF</div></div><div class="listing-spec"><div class="listing-spec-label">Clear Ht.</div><div class="listing-spec-value">17 ft</div></div><div class="listing-spec"><div class="listing-spec-label">Zoning</div><div class="listing-spec-value">IL</div></div></div>
+          <div class="listing-bottom"><div class="listing-price"><div class="listing-price-big">$18.50/SF</div><div class="listing-price-small">Annual · True Gross</div></div><a href="#" class="listing-cta">View Details →</a></div>
+        </div>
+      </article>
+
+      <article class="listing">
+        <div class="listing-media"><img class="listing-photo" src="https://images1.loopnet.com/i2/gTzWtWrLORYpJIRNxb4gUBGFoJFo0JH7kz5X0l3Id-w/110/7233-Southern-Blvd-West-Palm-Beach-FL-Building-Photo-1-Large.jpg" alt="7233 Southern Blvd warehouse exterior" loading="lazy"><div class="listing-tags"><span></span><span class="tag tag-type">Industrial · 2 Spaces</span></div></div>
+        <div class="listing-body"><div class="listing-address">7233 Southern Blvd (A Bldg)</div><div class="listing-city">West Palm Beach, FL 33413</div>
+          <div class="listing-specs"><div class="listing-spec"><div class="listing-spec-label">Size</div><div class="listing-spec-value">1,800–5,400 SF</div></div><div class="listing-spec"><div class="listing-spec-label">Office</div><div class="listing-spec-value">200 SF+</div></div><div class="listing-spec"><div class="listing-spec-label">Doors</div><div class="listing-spec-value">10×12 Roll-Up</div></div><div class="listing-spec"><div class="listing-spec-label">Parking</div><div class="listing-spec-value">36 spaces</div></div></div>
+          <div class="listing-bottom"><div class="listing-price"><div class="listing-price-big">$23.50/SF</div><div class="listing-price-small">Annual · NNN</div></div><a href="#" class="listing-cta">View Details →</a></div>
+        </div>
+      </article>
+
+      <article class="listing">
+        <div class="listing-media"><img class="listing-photo" src="https://images1.loopnet.com/i2/gTzWtWrLORYpJIRNxb4gUBGFoJFo0JH7kz5X0l3Id-w/110/7233-Southern-Blvd-West-Palm-Beach-FL-Building-Photo-1-Large.jpg" alt="7231 W Southern Blvd warehouse exterior" loading="lazy"><div class="listing-tags"><span class="tag tag-sale">Under Contract</span><span class="tag tag-type">For Sale · Condo</span></div></div>
+        <div class="listing-body"><div class="listing-address">7231 W Southern Blvd (C Bldg)</div><div class="listing-city">West Palm Beach, FL 33413</div>
+          <div class="listing-specs"><div class="listing-spec"><div class="listing-spec-label">Units</div><div class="listing-spec-value">2 available</div></div><div class="listing-spec"><div class="listing-spec-label">Size</div><div class="listing-spec-value">1,300–1,340 SF</div></div><div class="listing-spec"><div class="listing-spec-label">C-5</div><div class="listing-spec-value">$410,000</div></div><div class="listing-spec"><div class="listing-spec-label">C-6</div><div class="listing-spec-value">$422,000</div></div></div>
+          <div class="listing-bottom"><div class="listing-price"><div class="listing-price-big">$410K–$422K</div><div class="listing-price-small">For Sale</div></div><a href="#" class="listing-cta">View Details →</a></div>
+        </div>
+      </article>
+
+      <article class="listing">
+        <div class="listing-media"><img class="listing-photo" src="https://images1.loopnet.com/i2/C3hraOBSPQrLEy4EHfLrkmyPi6xFi4hiQw5w7H6W3BU/112/image.jpg" alt="8254 Bama Ln warehouse exterior" loading="lazy"><div class="listing-tags"><span></span><span class="tag tag-type">Industrial</span></div></div>
+        <div class="listing-body"><div class="listing-address">8254 Bama Ln (Building 2)</div><div class="listing-city">Ponderosa Industrial Park · West Palm Beach, FL 33411</div>
+          <div class="listing-specs"><div class="listing-spec"><div class="listing-spec-label">Size</div><div class="listing-spec-value">1,850 SF</div></div><div class="listing-spec"><div class="listing-spec-label">Clear Ht.</div><div class="listing-spec-value">17 ft</div></div><div class="listing-spec"><div class="listing-spec-label">Build-Out</div><div class="listing-spec-value">Full</div></div><div class="listing-spec"><div class="listing-spec-label">Zoning</div><div class="listing-spec-value">IL</div></div></div>
+          <div class="listing-bottom"><div class="listing-price"><div class="listing-price-big">$25.00/SF</div><div class="listing-price-small">Annual · NNN · 1–3yr</div></div><a href="#" class="listing-cta">View Details →</a></div>
+        </div>
+      </article>
+
+      <article class="listing">
+        <div class="listing-media"><img class="listing-photo" src="https://images1.loopnet.com/i2/boUYW7Hy7eIXFeCEjyTzMwo9U6g1D5v2siY838H-I6A/112/image.jpg" alt="2351 Vista Pky office/warehouse exterior" loading="lazy"><div class="listing-tags"><span></span><span class="tag tag-type">Industrial</span></div></div>
+        <div class="listing-body"><div class="listing-address">2351 Vista Pky (Building A)</div><div class="listing-city">Vista Commerce Center · West Palm Beach, FL 33411</div>
+          <div class="listing-specs"><div class="listing-spec"><div class="listing-spec-label">Size</div><div class="listing-spec-value">2,350 SF</div></div><div class="listing-spec"><div class="listing-spec-label">Clear Ht.</div><div class="listing-spec-value">20 ft</div></div><div class="listing-spec"><div class="listing-spec-label">Office</div><div class="listing-spec-value">750 SF</div></div><div class="listing-spec"><div class="listing-spec-label">Built</div><div class="listing-spec-value">2007</div></div></div>
+          <div class="listing-bottom"><div class="listing-price"><div class="listing-price-big">$26.50/SF</div><div class="listing-price-small">Annual · NNN · 3yr</div></div><a href="#" class="listing-cta">View Details →</a></div>
+        </div>
+      </article>
+
+      <article class="listing">
+        <div class="listing-media"><img class="listing-photo" src="https://images1.loopnet.com/i2/VWW71AD1SzsFVBcTSPgiPczFHYiy9C8I5Yn_90q0M80/112/image.jpg" alt="440 Tall Pines Rd warehouse exterior" loading="lazy"><div class="listing-tags"><span></span><span class="tag tag-type">Industrial · 2 Units</span></div></div>
+        <div class="listing-body"><div class="listing-address">440 Tall Pines Rd</div><div class="listing-city">Tall Pines Industrial Park · West Palm Beach, FL 33413</div>
+          <div class="listing-specs"><div class="listing-spec"><div class="listing-spec-label">Size</div><div class="listing-spec-value">2,400–4,800 SF</div></div><div class="listing-spec"><div class="listing-spec-label">Clear Ht.</div><div class="listing-spec-value">17.5 ft</div></div><div class="listing-spec"><div class="listing-spec-label">Office</div><div class="listing-spec-value">250 SF</div></div><div class="listing-spec"><div class="listing-spec-label">Parking</div><div class="listing-spec-value">40 spaces</div></div></div>
+          <div class="listing-bottom"><div class="listing-price"><div class="listing-price-big">$20.00/SF</div><div class="listing-price-small">Annual · NNN · 1–3yr</div></div><a href="#" class="listing-cta">View Details →</a></div>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="offmarket" style="margin-top:36px">
+      <div class="offmarket-l">
+        <div class="offmarket-title">Not seeing the right fit?</div>
+        <div class="offmarket-sub">Many deals involve off-market spaces. Tell me your specific requirements and I'll pull from available off-market inventory.</div>
+      </div>
+      <a href="index.html#form">Send Requirements →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-bot" style="border:0;padding-top:0">
+      <div>© 2026 Palm Beach Warehouses · A Cornerstone Realty service</div>
+      <div class="footer-legal"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Equal Housing Opportunity</a></div>
+    </div>
+  </div>
+</footer>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1245057844149331&ev=PageView&noscript=1" alt="" /></noscript>
+<script defer src="/utm-capture.js"></script>
+<script>window.addEventListener('load',function(){var s=document.createElement('script');s.src='/tracking-init.js';document.head.appendChild(s)})</script>
+</body>
+</html>
