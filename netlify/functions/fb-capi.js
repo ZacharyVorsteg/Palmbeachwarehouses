@@ -4,7 +4,7 @@
 // the in-page pixel is blocked by tracking prevention.
 
 const PIXEL_ID = '1245057844149331';
-const GRAPH_VERSION = 'v18.0';
+const GRAPH_VERSION = 'v25.0';
 
 exports.handler = async (event) => {
   if (event.httpMethod !== 'POST') {
@@ -13,8 +13,10 @@ exports.handler = async (event) => {
 
   const accessToken = process.env.FB_ACCESS_TOKEN;
   if (!accessToken) {
-    console.error('FB_ACCESS_TOKEN not set');
-    return { statusCode: 500, body: JSON.stringify({ error: 'CAPI not configured' }) };
+    // Not yet configured: degrade gracefully so the lead flow + browser pixel keep working.
+    // To enable server-side CAPI, set FB_ACCESS_TOKEN in Netlify env (Events Manager → Conversions API token).
+    console.warn('FB_ACCESS_TOKEN not set — skipping server-side CAPI (browser pixel still active)');
+    return { statusCode: 200, body: JSON.stringify({ skipped: true, reason: 'CAPI not configured' }) };
   }
 
   let payload;
