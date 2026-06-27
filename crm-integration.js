@@ -507,6 +507,7 @@
     const formData = new FormData(form);
     const lpSource = activeLpSource || 'active-tenant-generic';
     const spaceSize = formData.get('space_size');
+    const transactionType = formData.get('transaction_type');
     const situation = formData.get('situation');
     const currentSf = formData.get('current_sf');
     const leaseEnd = formData.get('lease_end');
@@ -540,6 +541,7 @@
     const notes = [
       `Source: palmbeachwarehouses.com/${lpSource}`,
       `Lead Type: ${sourceLabel}`,
+      `Transaction: ${transactionType || 'N/A'}`,
       `Situation: ${situation || 'N/A'}`,
       `Current SF: ${currentSf || 'N/A'}`,
       `Current Location: ${currentLocation || 'N/A'}`,
@@ -558,6 +560,7 @@
       sizeMin: sizeMin,
       sizeMax: sizeMax,
       propertyType: 'Warehouse',
+      transactionType: transactionType || null,
       moveTiming: moveTiming || null,
       industry: formData.get('industry') || null,
       preferredArea: formData.get('preferred_area') || 'Palm Beach County, FL',

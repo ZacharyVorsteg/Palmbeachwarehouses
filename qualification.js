@@ -51,6 +51,26 @@ const QUALIFICATION = {
     let timelineEstimate = 'Within 1 week';
     let conversionValue = 5;
 
+    // TRANSACTION-TYPE OVERRIDE (additive — only fires when a page sends transactionType).
+    // Building purchases and land/development deals are the highest-commission opportunities;
+    // signal max conversion value so Google Ads value-based bidding chases them hardest.
+    // tier stays 'ENTERPRISE' so existing success-message UI keeps working.
+    const txn = (lead.transactionType || '').toLowerCase();
+    if (txn.includes('land') || txn.includes('develop')) {
+      return {
+        score, tier: 'ENTERPRISE', timelineEstimate: 'Within 1 hour',
+        conversionValue: 200, annualRevenueEstimate: Math.round(avgAnnualRevenue),
+        metadata: { dealType: 'land-development', sizeScore, minSize, maxSize }
+      };
+    }
+    if (txn.includes('buy') || txn.includes('purchase')) {
+      return {
+        score, tier: 'ENTERPRISE', timelineEstimate: 'Within 1 hour',
+        conversionValue: 150, annualRevenueEstimate: Math.round(avgAnnualRevenue),
+        metadata: { dealType: 'purchase', sizeScore, minSize, maxSize }
+      };
+    }
+
     if (avgAnnualRevenue >= 240000) {
       // ENTERPRISE: $240K+/year revenue potential
       tier = 'ENTERPRISE';

@@ -1,26 +1,29 @@
 <!--
-  ACTIVE TENANT LANDING PAGE: /find-space/
-  Purpose: Convert active warehouse tenants searching for space in Palm Beach County
-  Form ID: active-tenant-form
-  Pixel value: $200 (high intent)
-  Concentrates Meta pixel learning for ads A, C, D ($25/day budget)
+  BIG-BOX TENANT LANDING PAGE: /find-10k-sf/
+  Purpose: Convert 10,000+ SF warehouse/distribution/3PL tenants (5-10yr terms) in Palm Beach County
+  Audience: "the whales" — large-footprint, long-term, high-commission deals
+  Form ID: active-tenant-form  (same funnel → Netlify form "active-tenant-lead" → Trusenda ingest-lead)
+  ROAS: every size bucket is >=10,000 SF → qualification.js scores ENTERPRISE → $100 Google Ads
+        conversion value, training Smart Bidding to chase whale leads.
+  Google Ads campaign: PBW-10K-Tenant-Rep-Search ($25/day, separate from existing campaign)
 
-  Dynamic copy via ?utm_content URL param:
-    - lease-review     → Ad C (renewal-conscious tenant)
-    - tenant-rep       → Ad A (educated buyer who knows what tenant rep is)
-    - start-search     → Ad D (early-stage searcher)
-    - (no param)       → default copy (organic / direct)
+  Dynamic copy via ?utm_content URL param (one per ad group):
+    - size-10k       → AG1 size-specific ("10,000 sq ft warehouse")
+    - submarket      → AG2 submarket + intent
+    - 3pl-logistics  → AG3 use-case (3PL / distribution / fulfillment / cold storage)
+    - tenant-rep     → AG4 service model
+    - (no param)     → default whale copy (organic / direct)
 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Looking for warehouse space in Palm Beach County? Tell me what you need — size, area, timing — and I'll send a curated list of properties that match. Tenant representation at no cost to you.">
-    <meta name="keywords" content="warehouse space Palm Beach County, tenant rep warehouse, lease warehouse West Palm Beach, industrial space for lease Boca Raton, warehouse for lease Delray Beach">
-    <title>Find Warehouse Space in Palm Beach County | Tenant Rep at No Cost | PBW</title>
+    <meta name="description" content="Need 10,000+ SF of warehouse, distribution, or 3PL space in Palm Beach County? I represent large-footprint tenants on 5–10 year leases — on- and off-market — at no cost to you. Landlords pay the commission.">
+    <meta name="keywords" content="10000 sq ft warehouse for lease, large warehouse space Palm Beach County, distribution center for lease, 3PL warehouse space, industrial space for lease West Palm Beach, 20000 sq ft warehouse, big box warehouse lease Florida">
+    <title>10,000+ SF Warehouse &amp; Distribution Space for Lease | Palm Beach County Tenant Rep</title>
 
-    <link rel="canonical" href="https://palmbeachwarehouses.com/find-space/">
+    <link rel="canonical" href="https://palmbeachwarehouses.com/find-10k-sf/">
 
     <meta name="geo.region" content="US-FL">
     <meta name="geo.placename" content="Palm Beach County">
@@ -31,9 +34,9 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://palmbeachwarehouses.com/find-space/">
-    <meta property="og:title" content="Find Warehouse Space in Palm Beach County | Tenant Rep at No Cost">
-    <meta property="og:description" content="Tell me what you need and I'll send a curated list of warehouse properties that match. Tenant representation at no cost to you — landlords pay the commission.">
+    <meta property="og:url" content="https://palmbeachwarehouses.com/find-10k-sf/">
+    <meta property="og:title" content="10,000+ SF Warehouse &amp; Distribution Space for Lease | Palm Beach County">
+    <meta property="og:description" content="Large-footprint tenant representation for 10,000+ SF on 5–10 year terms. 3PL, distribution, manufacturing, cold storage. On- and off-market. No cost to you — landlords pay the commission.">
     <meta property="og:image" content="https://palmbeachwarehouses.com/assets/og-find-space.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -41,8 +44,8 @@
     <meta property="og:locale" content="en_US">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Find Warehouse Space in Palm Beach County | Tenant Rep at No Cost">
-    <meta name="twitter:description" content="Tell me what you need and I'll send a curated list of warehouse properties that match. No cost to you.">
+    <meta name="twitter:title" content="10,000+ SF Warehouse &amp; Distribution Space for Lease | Palm Beach County">
+    <meta name="twitter:description" content="Large-footprint tenant rep for 10,000+ SF on 5–10 year terms. On- and off-market. No cost to you.">
     <meta name="twitter:image" content="https://palmbeachwarehouses.com/assets/og-find-space.png">
 
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
@@ -52,9 +55,9 @@
     {
         "@context": "https://schema.org",
         "@type": "WebPage",
-        "name": "Find Warehouse Space in Palm Beach County",
-        "description": "Tenant representation landing page for active warehouse searchers in Palm Beach County, Florida.",
-        "url": "https://palmbeachwarehouses.com/find-space/",
+        "name": "10,000+ SF Warehouse & Distribution Space for Lease in Palm Beach County",
+        "description": "Large-footprint tenant representation for 10,000+ SF warehouse, distribution, 3PL, and manufacturing space on 5–10 year terms in Palm Beach County, Florida.",
+        "url": "https://palmbeachwarehouses.com/find-10k-sf/",
         "publisher": {
             "@type": "RealEstateAgent",
             "name": "Zach Vorsteg",
@@ -73,7 +76,7 @@
             "@type": "BreadcrumbList",
             "itemListElement": [
                 { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://palmbeachwarehouses.com/" },
-                { "@type": "ListItem", "position": 2, "name": "Find Space" }
+                { "@type": "ListItem", "position": 2, "name": "10,000+ SF Space" }
             ]
         }
     }
@@ -307,7 +310,7 @@
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <div class="market-banner">
-        <p class="market-banner-text">Active in <strong>West Palm Beach · Boca Raton · Delray Beach · Boynton · Lake Worth · Riviera</strong></p>
+        <p class="market-banner-text">Large-format space across <strong>Riviera Beach · Mangonia Park · West Palm Beach · Lake Worth · Boynton · Delray</strong></p>
     </div>
 
     <header>
@@ -336,25 +339,25 @@
             <div class="hero-container">
                 <div class="hero-content">
                     <div class="hero-left">
-                        <h1 id="dynamic-h1">Looking for warehouse space in <span class="highlight">Palm Beach County?</span></h1>
-                        <p class="hero-subtitle" id="dynamic-sub">Tell me what you need — size, area, timing — and I'll send a curated list of properties that match. Tenant representation at no cost to you.</p>
+                        <h1 id="dynamic-h1">Lease, buy, or develop <span class="highlight">10,000+ SF</span> of industrial space in Palm Beach County.</h1>
+                        <p class="hero-subtitle" id="dynamic-sub">Large-deal representation for any operation that needs scale — distribution, manufacturing, logistics, food &amp; cold storage, contractors, e-commerce and more. Big-box leases (5–10 year terms), building purchases, and industrial land &amp; development sites. I source on- and off-market opportunities, then negotiate on your side of the table.</p>
 
                         <div class="demand-proof">
                             <div class="demand-card">
-                                <div class="demand-number">$0</div>
-                                <div class="demand-label">Cost to you for tenant representation</div>
+                                <div class="demand-number">Lease·Buy·Land</div>
+                                <div class="demand-label">Big-box leases, purchases &amp; development sites</div>
                             </div>
                             <div class="demand-card">
-                                <div class="demand-number">24-Hour</div>
-                                <div class="demand-label">Response commitment on every inquiry</div>
+                                <div class="demand-number">Same-Day</div>
+                                <div class="demand-label">Response on every qualified inquiry</div>
                             </div>
                             <div class="demand-card">
-                                <div class="demand-number">1,500–25,000</div>
-                                <div class="demand-label">SF range I actively cover</div>
+                                <div class="demand-number">10K–100K+</div>
+                                <div class="demand-label">SF footprints &amp; acreage for development</div>
                             </div>
                             <div class="demand-card">
-                                <div class="demand-number">PBC</div>
-                                <div class="demand-label">West Palm to Boca, on- and off-market</div>
+                                <div class="demand-number">Off-Market</div>
+                                <div class="demand-label">Deals before they hit LoopNet or Crexi</div>
                             </div>
                         </div>
                     </div>
@@ -367,7 +370,7 @@
                             </div>
                             <div class="agent-preview-info">
                                 <div class="agent-preview-name">Zach Vorsteg</div>
-                                <div class="agent-preview-role" data-agent-status data-agent-prefix="Industrial specialist">Industrial specialist · Mon–Fri 8am–6pm ET</div>
+                                <div class="agent-preview-role" data-agent-status data-agent-prefix="Large-format industrial specialist">Large-format industrial specialist · Mon–Fri 8am–6pm ET</div>
                                 <div class="agent-preview-meta">
                                     <span class="agent-preview-credentials">
                                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -380,15 +383,15 @@
                         </div>
 
                         <div class="form-card" id="form-container">
-                            <div class="form-badge">Free Search Consultation</div>
-                            <h2 class="form-title" id="dynamic-form-title">Tell Me What You're Looking For</h2>
-                            <p class="form-subtitle" id="dynamic-form-sub">Most tenants overpay $2–4/SF by skipping a market check. I'll respond same business day with comparable options.</p>
+                            <div class="form-badge">10,000+ SF · Lease · Buy · Develop</div>
+                            <h2 class="form-title" id="dynamic-form-title">Get Your 10K+ Opportunity Shortlist</h2>
+                            <p class="form-subtitle" id="dynamic-form-sub">Whatever your operation — tell me your size, use, and timeline. I'll respond the same business day with matching large-format buildings, including off-market blocks and pre-listing intel.</p>
 
                             <div id="form-message" class="form-message hidden"></div>
 
-                            <form id="active-tenant-form" data-lp-source="start-search" method="POST" action="/api/leads">
+                            <form id="active-tenant-form" data-lp-source="size-10k" method="POST" action="/api/leads">
                                 <input type="hidden" name="form-name" value="active-tenant-lead">
-                                <input type="hidden" name="lead_source" value="active-tenant-campaign">
+                                <input type="hidden" name="lead_source" value="google-10k-campaign">
                                 <input type="hidden" name="lead_type" value="active-tenant">
                                 <div style="display:none"><input name="bot-field" tabindex="-1" autocomplete="off"></div>
 
@@ -417,14 +420,26 @@
                                 <div class="form-divider"></div>
 
                                 <div class="form-group">
+                                    <label for="transaction_type" class="form-label">I'm Looking To</label>
+                                    <select id="transaction_type" name="transaction_type" class="form-select" required>
+                                        <option value="">Select one</option>
+                                        <option value="Lease space">Lease space</option>
+                                        <option value="Buy a building">Buy a building</option>
+                                        <option value="Buy land / development site">Buy land or a development site</option>
+                                        <option value="Buy or lease — open to both">Open to buying or leasing</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
                                     <label for="situation" class="form-label">What's Driving the Search?</label>
                                     <select id="situation" name="situation" class="form-select" required>
                                         <option value="">Select one</option>
-                                        <option value="Renewing current lease">Renewing my current lease</option>
-                                        <option value="Relocating">Relocating to a different space</option>
-                                        <option value="Expanding">Expanding (need more SF)</option>
-                                        <option value="First-time CRE tenant">First time leasing warehouse space</option>
-                                        <option value="Exploring market">Just exploring the market</option>
+                                        <option value="Lease expiring">Current lease expiring</option>
+                                        <option value="Expanding / consolidating">Expanding or consolidating operations</option>
+                                        <option value="Relocating to Palm Beach County">Relocating to Palm Beach County</option>
+                                        <option value="New distribution / 3PL facility">Opening a new distribution / 3PL facility</option>
+                                        <option value="Outgrew current space">Outgrew current space (need more SF)</option>
+                                        <option value="Exploring market">Exploring the market for next move</option>
                                     </select>
                                 </div>
 
@@ -433,27 +448,41 @@
                                         <label for="space_size" class="form-label">Space Needed</label>
                                         <select id="space_size" name="space_size" class="form-select" required>
                                             <option value="">Select size</option>
-                                            <option value="1,500-3,000 SF">1,500–3,000 SF</option>
-                                            <option value="3,000-5,000 SF">3,000–5,000 SF</option>
-                                            <option value="5,000-10,000 SF">5,000–10,000 SF</option>
                                             <option value="10,000-20,000 SF">10,000–20,000 SF</option>
-                                            <option value="20,000+ SF">20,000+ SF</option>
-                                            <option value="Not sure yet">Not sure yet</option>
+                                            <option value="20,000-50,000 SF">20,000–50,000 SF</option>
+                                            <option value="50,000-100,000 SF">50,000–100,000 SF</option>
+                                            <option value="100,000-250,000 SF">100,000+ SF</option>
+                                            <option value="Land / development site">Land / development site</option>
+                                            <option value="10,000-20,000 SF">Not sure — but large (10,000+ SF)</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="preferred_area" class="form-label">Preferred Area</label>
                                         <select id="preferred_area" name="preferred_area" class="form-select">
                                             <option value="">Select area</option>
+                                            <option value="Riviera Beach / Lake Park">Riviera Beach / Mangonia Park</option>
                                             <option value="West Palm Beach">West Palm Beach</option>
-                                            <option value="Riviera Beach / Lake Park">Riviera Beach / Lake Park</option>
+                                            <option value="Lake Worth">Lake Worth / Lantana</option>
                                             <option value="Boynton Beach">Boynton Beach</option>
-                                            <option value="Lake Worth">Lake Worth</option>
                                             <option value="Delray Beach">Delray Beach</option>
-                                            <option value="Boca Raton">Boca Raton</option>
+                                            <option value="Jupiter / Palm Beach Gardens">Jupiter / Palm Beach Gardens</option>
                                             <option value="Palm Beach County, FL">No preference — open to all PBC</option>
                                         </select>
                                     </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="industry" class="form-label">Primary Use</label>
+                                    <select id="industry" name="industry" class="form-select" required>
+                                        <option value="">Select use</option>
+                                        <option value="3PL / Logistics">3PL / Logistics</option>
+                                        <option value="Distribution / Wholesale">Distribution / Wholesale</option>
+                                        <option value="E-commerce / Fulfillment">E-commerce / Fulfillment</option>
+                                        <option value="Manufacturing / Light Industrial">Manufacturing / Light industrial</option>
+                                        <option value="Cold Storage / Food &amp; Beverage">Cold storage / Food &amp; beverage</option>
+                                        <option value="Contractor / Building Trades">Contractor / Building trades</option>
+                                        <option value="Other">Other</option>
+                                    </select>
                                 </div>
 
                                 <div class="form-row">
@@ -484,23 +513,16 @@
                                 </div>
 
                                 <details class="form-extras">
-                                    <summary>Add more details (optional)</summary>
+                                    <summary>Add building specs (optional — speeds up matching)</summary>
                                     <div class="form-group" style="margin-top:1rem">
-                                        <label for="industry" class="form-label">Industry / Use</label>
-                                        <input type="text" id="industry" name="industry" class="form-input" placeholder="e.g. Distribution, contractor storage, manufacturing">
-                                    </div>
-
-                                    <div class="form-group">
                                         <label for="current_sf" class="form-label">Current Space (if any)</label>
                                         <select id="current_sf" name="current_sf" class="form-select">
                                             <option value="">Select current size</option>
-                                            <option value="None">None — first space</option>
-                                            <option value="Under 1,500 SF">Under 1,500 SF</option>
-                                            <option value="1,500-3,000 SF">1,500–3,000 SF</option>
-                                            <option value="3,000-5,000 SF">3,000–5,000 SF</option>
-                                            <option value="5,000-10,000 SF">5,000–10,000 SF</option>
+                                            <option value="None">None — new facility</option>
+                                            <option value="Under 10,000 SF">Under 10,000 SF</option>
                                             <option value="10,000-20,000 SF">10,000–20,000 SF</option>
-                                            <option value="20,000+ SF">20,000+ SF</option>
+                                            <option value="20,000-50,000 SF">20,000–50,000 SF</option>
+                                            <option value="50,000+ SF">50,000+ SF</option>
                                         </select>
                                     </div>
 
@@ -510,12 +532,12 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="notes" class="form-label">Anything else I should know?</label>
-                                        <textarea id="notes" name="notes" class="form-textarea" placeholder="Loading dock, ceiling height, 3-phase, office buildout, etc."></textarea>
+                                        <label for="notes" class="form-label">Key requirements?</label>
+                                        <textarea id="notes" name="notes" class="form-textarea" placeholder="Clear height, dock-high doors, trailer parking, 3-phase power, rail, freezer/cooler, office buildout, etc."></textarea>
                                     </div>
                                 </details>
 
-                                <button type="submit" class="submit-button" id="submit-btn">Send My Search →</button>
+                                <button type="submit" class="submit-button" id="submit-btn">Get My 10K+ Shortlist →</button>
 
                                 <div class="form-trust">
                                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
@@ -577,28 +599,28 @@
         <section class="how-section">
             <div class="how-container">
                 <h2 class="section-title">How It Works</h2>
-                <p class="section-sub">Simple, transparent process. No high-pressure tactics, no junk listings.</p>
+                <p class="section-sub">A straight process built for large, long-term requirements — no junk listings, no pressure.</p>
 
                 <div class="process-steps">
                     <div class="process-step">
                         <div class="step-number">1</div>
                         <h3>Send Requirements</h3>
-                        <p>Fill out the form or call. Takes 60 seconds.</p>
+                        <p>Size, use, specs, timeline. Form or call — takes 60 seconds.</p>
                     </div>
                     <div class="process-step">
                         <div class="step-number">2</div>
-                        <h3>I Match Properties</h3>
-                        <p>Same business day: a curated shortlist from current listings, on- and off-market.</p>
+                        <h3>I Source the Market</h3>
+                        <p>Same business day: a curated shortlist of 10K+ buildings — on-market, off-market, and pre-listing.</p>
                     </div>
                     <div class="process-step">
                         <div class="step-number">3</div>
                         <h3>Tour &amp; Compare</h3>
-                        <p>I coordinate showings and walk through tradeoffs honestly. No pressure.</p>
+                        <p>I coordinate showings and pressure-test clear height, docks, power, and total occupancy cost.</p>
                     </div>
                     <div class="process-step">
                         <div class="step-number">4</div>
                         <h3>Negotiate &amp; Sign</h3>
-                        <p>I represent your interests through LOI, lease review, and signing.</p>
+                        <p>I represent you through LOI, lease review, and signing — rate, escalators, TI, and CAM.</p>
                     </div>
                 </div>
             </div>
@@ -614,8 +636,8 @@
                         <div class="why-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v6m0 8v6M2 12h6m8 0h6"/><circle cx="12" cy="12" r="10"/></svg>
                         </div>
-                        <h3>No Cost to You</h3>
-                        <p>Tenant rep commission is paid by the landlord per the listing agreement — standard industry practice. You don't pay me. You just get representation.</p>
+                        <h3>Representation, Typically No Cost to You</h3>
+                        <p>On leases, the landlord pays the commission per the listing agreement. On most purchases, the seller pays both sides at closing. Either way, you usually get full representation without writing a check — I'll always confirm the structure up front on your specific deal.</p>
                     </div>
                     <div class="why-card">
                         <div class="why-icon">
@@ -628,8 +650,8 @@
                         <div class="why-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
                         </div>
-                        <h3>Honest Lease Review</h3>
-                        <p>Industrial leases have traps — escalations, CAM caps, holdover penalties, restoration clauses. I flag them in plain English before you sign.</p>
+                        <h3>The Real Money Is in the Terms</h3>
+                        <p>On a 5–10 year, 10K+ SF lease, the escalators, CAM caps, TI allowance, and renewal options move far more money than the headline rate. I model total occupancy cost and negotiate every line in plain English before you sign.</p>
                     </div>
                 </div>
             </div>
@@ -645,13 +667,13 @@
                 </div>
 
                 <div class="faq-item">
-                    <div class="faq-q">What size warehouses do you work with?</div>
-                    <div class="faq-a">My active focus is 1,500–25,000 SF across Palm Beach County. If you're outside that range, I'll be honest about it and refer you to someone better suited.</div>
+                    <div class="faq-q">What size and type of space is this for?</div>
+                    <div class="faq-a">This is for large-format requirements — roughly 10,000 SF and up — across Palm Beach County. Any operation that needs scale: distribution, manufacturing, logistics/3PL, food &amp; cold storage, contractors, e-commerce, marine, building supply, and more. If you need less than 10,000 SF, I cover that too — just start at my <a href="/find-space/" style="color:var(--accent-blue);text-decoration:underline">general search page</a>.</div>
                 </div>
 
                 <div class="faq-item">
-                    <div class="faq-q">What if I'm just exploring and not ready to move?</div>
-                    <div class="faq-a">That's fine. Plenty of tenants reach out 6–12 months ahead of a lease expiration to understand options. No pressure. I'd rather you be prepared than rushed.</div>
+                    <div class="faq-q">What if I'm 6–12 months from my lease expiration?</div>
+                    <div class="faq-a">That's the ideal time to start. Large blocks are scarce and big leases take months to source, tour, and negotiate. Reaching out early means you negotiate from leverage instead of under deadline pressure — no obligation to move until the right building shows up.</div>
                 </div>
 
                 <div class="faq-item">
@@ -698,45 +720,37 @@
       var variant = (params.get('utm_content') || '').toLowerCase().trim();
 
       var variants = {
-        'lease-review': {
-          h1: 'The two or three lease terms that <span class="highlight">move the real money.</span>',
-          sub: 'Base rent gets the headline. Escalators, renewal rights, and the operating-expense pass-through often move the 5-year cost more than the rate itself. Let\'s pressure-test those terms before you sign.',
-          formTitle: 'Free 20-min LOI / lease walkthrough',
-          formSub: 'Send your details below — I\'ll text you a time within one business day. Under 5k sf, shopping a sublease, or 18+ months from renewal? Probably not the right call yet.',
-          submit: 'Book a 20-min call →',
-          source: 'lease-review'
+        'size-10k': {
+          h1: 'Need <span class="highlight">10,000+ SF</span> of warehouse space in Palm Beach County?',
+          sub: 'Large-footprint tenant representation for distribution, 3PL, manufacturing, and cold storage on 5–10 year terms. I source on- and off-market buildings, then negotiate on your side of the table — at no cost to you.',
+          formTitle: 'Get Your 10K+ Availability Shortlist',
+          formSub: 'Tell me your size, use, and timeline. I\'ll respond the same business day with matching large-format buildings — including off-market blocks.',
+          submit: 'Get My 10K+ Shortlist →',
+          source: 'size-10k'
+        },
+        'submarket': {
+          h1: 'Big-box industrial space <span class="highlight">across Palm Beach County.</span>',
+          sub: 'Riviera Beach, Mangonia Park, West Palm, Lake Worth, Boynton, Delray — I know which submarkets have the clear height, docks, and power your operation needs, and where the 10K+ blocks actually are. No cost to you.',
+          formTitle: 'See What\'s Available Now',
+          formSub: 'Tell me your size and target area. Same-day response with on- and off-market large-format options.',
+          submit: 'Get My Shortlist →',
+          source: 'submarket'
+        },
+        '3pl-logistics': {
+          h1: 'Distribution, 3PL &amp; fulfillment space <span class="highlight">that fits your throughput.</span>',
+          sub: 'Dock-high doors, trailer parking, 24–36ft clear, heavy power, cold storage — large-format buildings matched to how you actually move product. 5–10 year terms, on- and off-market, at no cost to you.',
+          formTitle: 'Find Your Distribution Facility',
+          formSub: 'Tell me your size, use, and specs. I\'ll respond the same business day with buildings that match your operation.',
+          submit: 'Get Matched Facilities →',
+          source: '3pl-logistics'
         },
         'tenant-rep': {
-          h1: 'Every lease negotiation has two seats. <span class="highlight">Make sure one of them is yours.</span>',
-          sub: 'Listing brokers represent the landlord — that\'s their job. Tenant rep is the other half of the table: someone whose only client in the room is the tenant. If you already have a tenant rep you trust, stay with them.',
-          formTitle: 'Free 20-min tenant-rep intro call',
-          formSub: 'Tenant-rep commission is paid out of the listing brokerage\'s fee at closing per standard CRE structure — in most deals, no out-of-pocket cost to the tenant.',
-          submit: 'Book a 20-min call →',
+          h1: 'A 10-year, 20,000 SF lease has two seats. <span class="highlight">Make one of them yours.</span>',
+          sub: 'On a large, long-term lease, the dollars in the escalators, CAM caps, and TI allowance dwarf the headline rate. Listing brokers work for the landlord. As your tenant rep, I work only for you — and the landlord pays the commission.',
+          formTitle: 'Free Large-Lease Strategy Call',
+          formSub: 'Tell me about your requirement below. I\'ll respond the same business day to set up a 15-minute call.',
+          submit: 'Book a Strategy Call →',
           source: 'tenant-rep'
-        },
-        'start-search': {
-          h1: 'Warehouse tenants only. 5–25k sf only. <span class="highlight">Palm Beach County focused.</span>',
-          sub: 'Not landlords. Not office. Not retail. Small-bay industrial, flex, and distribution from Boca to Jupiter. Under 5k sf, or 18+ months from renewal? Probably not the right call yet.',
-          formTitle: 'Start a search',
-          formSub: 'Tell me what you need below. I\'ll respond same business day with matching properties — including off-market options.',
-          submit: 'Start a search →',
-          source: 'start-search'
-        },
-        'off-market': {
-          h1: 'The best Palm Beach warehouse deals <span class="highlight">never hit Crexi or LoopNet.</span>',
-          sub: 'Most tenants overpay $2–4/SF by signing the first space they see online. Off-market means direct landlord conversations, sublease tips, and properties that are about to come available — before the listing brokers price them up.',
-          formTitle: 'Get off-market alerts',
-          formSub: 'Tell me your size and target submarket below. I\'ll text you when a quiet listing or sublease matches — usually within the week.',
-          submit: 'Get off-market alerts →',
-          source: 'off-market'
-        },
-        'find-space': {
-          h1: 'Looking for warehouse space in <span class="highlight">Palm Beach County?</span>',
-          sub: 'Renewing, relocating, expanding, or leasing your first space — tell me what you need. Tenant rep at no cost to you (commission paid by the listing brokerage). 2K–25K SF, on- and off-market.',
-          formTitle: 'Tell me what you\'re looking for',
-          formSub: 'I\'ll respond same business day with matching options — including off-market subleases and pre-listing intel from broker calls.',
-          submit: 'Send my search →',
-          source: 'find-space'
         }
       };
 
@@ -772,6 +786,7 @@
         <input name="company">
         <input name="phone">
         <input name="email">
+        <input name="transaction_type">
         <input name="situation">
         <input name="space_size">
         <input name="preferred_area">
