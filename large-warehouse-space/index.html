@@ -670,6 +670,17 @@
         ]
     }
     </script>
+<style id="mobile-layout-fix">
+@media (max-width: 768px){
+  html,body{overflow-x:hidden !important;max-width:100% !important}
+  .hero-content{grid-template-columns:1fr !important;gap:1.25rem !important}
+  .hero-container,.hero-content,.hero-left,.hero-right{width:100% !important;max-width:100% !important;min-width:0 !important;box-sizing:border-box}
+  .hero-right>*,.agent-preview,.form-card,#form-container,.success-screen{width:100% !important;max-width:100% !important;box-sizing:border-box}
+  .agent-preview-info,.agent-preview-meta{min-width:0 !important}
+  .agent-preview-role,.agent-preview-credentials{white-space:normal !important;overflow-wrap:anywhere}
+  .hero-metrics-band,.hero-bullets{max-width:100% !important}
+}
+</style>
 </head>
 <body>
     <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1245057844149331&ev=PageView&noscript=1" alt="" /></noscript>
@@ -1327,6 +1338,19 @@
                     <div class="faq-q">When should I start the search for large-format space?</div>
                     <div class="faq-a">Start 6–12 months before your lease expires, or now if you're exploring. Starting early lets you tour without pressure and negotiate from strength — within 90 days of expiration you lose leverage. I source large blocks continuously, including off-market, so starting today means you see options before the market does.</div>
                 </div>
+            </div>
+        </section>
+
+        <section style="background: var(--card-bg); padding: 2.5rem 2rem; margin: 3rem 0; border-radius: 12px; border-left: 4px solid var(--accent-blue);">
+            <div style="max-width: 900px; margin: 0 auto;">
+                <h3 style="font-size: 1.25rem; margin-bottom: 1rem; font-weight: 700; color: var(--text-light);">Deep Dive: Large Format Warehouse Guide</h3>
+                <p style="color: var(--text-gray); margin-bottom: 1.25rem; line-height: 1.6;">
+                    Thinking through lease vs. buy vs. develop? Want to understand submarkets, total occupancy costs, and off-market access? Our comprehensive guide covers everything you need to know about securing and managing large warehouses (10,000+ SF) in Palm Beach County.
+                </p>
+                <a href="/guides/large-format-industrial-palm-beach/" style="color: var(--accent-blue); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem;">
+                    Read the Large Warehouse Guide
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
             </div>
         </section>
 
