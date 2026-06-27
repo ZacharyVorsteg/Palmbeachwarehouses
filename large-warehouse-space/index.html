@@ -167,10 +167,10 @@
         .highlight { color: var(--accent-blue); }
         .hero-subtitle { font-size: 1.15rem; color: var(--text-gray); margin-bottom: 2rem; line-height: 1.7; }
 
-        .demand-proof { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
-        .demand-card { background: rgba(59, 147, 255, 0.08); border: 1px solid rgba(59, 147, 255, 0.2); border-radius: 10px; padding: 1.25rem; }
-        .demand-number { font-size: 1.6rem; font-weight: 800; color: var(--accent-blue); line-height: 1.1; margin-bottom: 0.25rem; }
-        .demand-label { font-size: 0.85rem; color: var(--text-gray); line-height: 1.4; }
+        .demand-proof { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; margin-bottom: 2rem; }
+        .demand-card { background: rgba(59, 147, 255, 0.08); border: 1px solid rgba(59, 147, 255, 0.2); border-radius: 10px; padding: 1rem; text-align: center; }
+        .demand-number { font-size: 1.35rem; font-weight: 800; color: var(--accent-blue); line-height: 1.1; margin-bottom: 0.25rem; }
+        .demand-label { font-size: 0.8rem; color: var(--text-gray); line-height: 1.35; }
 
         .form-card { background: var(--form-bg); border-radius: 12px; padding: 2.5rem; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); position: sticky; top: 90px; }
         .form-badge { display: inline-block; background: rgba(59, 147, 255, 0.1); color: var(--accent-blue); font-size: 0.75rem; font-weight: 600; padding: 0.35rem 0.75rem; border-radius: 50px; letter-spacing: 0.02em; margin-bottom: 1rem; border: 1px solid rgba(59, 147, 255, 0.2); }
@@ -283,6 +283,9 @@
         .mobile-sticky-cta .btn-primary{padding:14px;font-size:1rem;min-height:48px}
         .mobile-sticky-cta a{transition:all 0.2s}
 
+        @media (max-width: 1024px) {
+            .demand-proof { grid-template-columns: repeat(2, 1fr); }
+        }
         @media (max-width: 768px) {
             body { font-size: 1.125rem; padding-bottom: 72px; }
             .btn-primary { display: none; }
@@ -294,7 +297,7 @@
             .hero-right { order: 1; }
             .hero-left h1 { font-size: 1.75rem; line-height: 1.2; text-align: left; }
             .hero-subtitle { font-size: 1.05rem; line-height: 1.6; text-align: left; }
-            .demand-proof { grid-template-columns: 1fr 1fr; gap: 0.625rem; }
+            .demand-proof { grid-template-columns: repeat(2, 1fr); gap: 0.625rem; }
             .demand-card { padding: 0.75rem; }
             .demand-number { font-size: 1.15rem; }
             .demand-label { font-size: 0.78rem; line-height: 1.3; }
@@ -821,6 +824,102 @@
                         <h3>Only on Your Side</h3>
                         <p>Listing brokers work for the landlord or seller. I represent tenants and buyers only — no listing conflicts. On a 5–10 year lease or a multi-million-dollar purchase, the escalators, CAM caps, TI, and renewal options are where I earn my keep.</p>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section style="padding: 4rem 2rem; background: var(--darker-bg);">
+            <div class="why-container">
+                <h2 class="section-title">Current 10,000+ SF Availabilities</h2>
+                <p class="section-sub">Real inventory across Palm Beach County. These are live opportunities — I'll send your detailed requirements to matching landlords within hours.</p>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2.5rem;">
+                    <div style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem; overflow: hidden;">
+                        <div style="background: linear-gradient(135deg,rgba(59, 147, 255,.12),rgba(0,87,224,.04)); height: 160px; border-radius: 10px; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; color: var(--text-muted);">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 12h18"/><path d="M12 3v18"/></svg>
+                        </div>
+                        <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--text-light); margin-bottom: 0.25rem;">1225 Omar Road</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-gray); margin-bottom: 1rem;">West Palm Beach, FL 33405</p>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1rem; background: rgba(59, 147, 255, 0.06); padding: 0.75rem; border-radius: 8px;">
+                            <div>
+                                <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem;">Size</div>
+                                <div style="font-size: 1rem; font-weight: 600; color: var(--text-light);">11,533 SF</div>
+                            </div>
+                            <div>
+                                <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem;">Lease</div>
+                                <div style="font-size: 1rem; font-weight: 600; color: var(--text-light);">$18.50/SF</div>
+                            </div>
+                        </div>
+                        <ul style="font-size: 0.9rem; color: var(--text-gray); line-height: 1.6; margin-bottom: 1rem; padding-left: 1.25rem;">
+                            <li>8,006 SF Two-Story Office + 3,527 SF Warehouse</li>
+                            <li>Enclosed Secured Yard</li>
+                            <li>4 Overhead Doors, 16 Parking</li>
+                        </ul>
+                        <a href="tel:561-718-6725" style="display: inline-block; background: rgba(59, 147, 255, 0.12); color: var(--accent-blue); border: 1px solid rgba(59, 147, 255, 0.25); padding: 0.75rem 1rem; border-radius: 8px; font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: all 0.2s;">Schedule Tour</a>
+                    </div>
+
+                    <div style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem; overflow: hidden;">
+                        <div style="background: linear-gradient(135deg,rgba(59, 147, 255,.12),rgba(0,87,224,.04)); height: 160px; border-radius: 10px; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; color: var(--text-muted);">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 12h18"/><path d="M12 3v18"/></svg>
+                        </div>
+                        <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--text-light); margin-bottom: 0.25rem;">3551 23rd Avenue South</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-gray); margin-bottom: 1rem;">Marlin Industrial Park, Lake Worth, FL</p>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1rem; background: rgba(59, 147, 255, 0.06); padding: 0.75rem; border-radius: 8px;">
+                            <div>
+                                <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem;">Combinable</div>
+                                <div style="font-size: 1rem; font-weight: 600; color: var(--text-light);">10,080 SF</div>
+                            </div>
+                            <div>
+                                <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem;">Rate</div>
+                                <div style="font-size: 1rem; font-weight: 600; color: var(--text-light);">$18.00/SF</div>
+                            </div>
+                        </div>
+                        <ul style="font-size: 0.9rem; color: var(--text-gray); line-height: 1.6; margin-bottom: 1rem; padding-left: 1.25rem;">
+                            <li>7 Units, Combinable up to 10,080 SF</li>
+                            <li>14' Clear Height</li>
+                            <li>Drive-Through 10'x9' Doors</li>
+                        </ul>
+                        <a href="tel:561-718-6725" style="display: inline-block; background: rgba(59, 147, 255, 0.12); color: var(--accent-blue); border: 1px solid rgba(59, 147, 255, 0.25); padding: 0.75rem 1rem; border-radius: 8px; font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: all 0.2s;">Schedule Tour</a>
+                    </div>
+                </div>
+
+                <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(59, 147, 255, 0.08); border: 1px solid rgba(59, 147, 255, 0.2); border-radius: 12px; text-align: center;">
+                    <p style="color: var(--text-gray); font-size: 0.95rem; margin-bottom: 1rem;"><strong>Looking for something larger or more specific?</strong> I source on- and off-market properties daily. Submit your requirements above or call for immediate access to our off-market pipeline.</p>
+                    <a href="tel:561-718-6725" style="display: inline-block; background: var(--accent-blue); color: white; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600; text-decoration: none; transition: all 0.2s;">Call 561-718-6725 Now</a>
+                </div>
+            </div>
+        </section>
+
+        <section style="padding: 4rem 2rem;">
+            <div class="why-container">
+                <h2 class="section-title">Service Areas in Palm Beach County</h2>
+                <p class="section-sub">I specialize in large-format industrial space across all submarkets. Here's where we're active.</p>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-top: 2rem;">
+                    <a href="tel:561-718-6725" style="display: flex; flex-direction: column; gap: 0.5rem; padding: 1.25rem; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 10px; text-decoration: none; color: inherit; transition: all 0.15s;">
+                        <div style="font-size: 1.05rem; font-weight: 700; color: var(--text-light);">Riviera Beach</div>
+                        <div style="font-size: 0.85rem; color: var(--text-gray);">Mangonia Park</div>
+                    </a>
+                    <a href="tel:561-718-6725" style="display: flex; flex-direction: column; gap: 0.5rem; padding: 1.25rem; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 10px; text-decoration: none; color: inherit; transition: all 0.15s;">
+                        <div style="font-size: 1.05rem; font-weight: 700; color: var(--text-light);">West Palm Beach</div>
+                        <div style="font-size: 0.85rem; color: var(--text-gray);">Largest market</div>
+                    </a>
+                    <a href="tel:561-718-6725" style="display: flex; flex-direction: column; gap: 0.5rem; padding: 1.25rem; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 10px; text-decoration: none; color: inherit; transition: all 0.15s;">
+                        <div style="font-size: 1.05rem; font-weight: 700; color: var(--text-light);">Lake Worth</div>
+                        <div style="font-size: 0.85rem; color: var(--text-gray);">Lantana</div>
+                    </a>
+                    <a href="tel:561-718-6725" style="display: flex; flex-direction: column; gap: 0.5rem; padding: 1.25rem; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 10px; text-decoration: none; color: inherit; transition: all 0.15s;">
+                        <div style="font-size: 1.05rem; font-weight: 700; color: var(--text-light);">Boynton Beach</div>
+                        <div style="font-size: 0.85rem; color: var(--text-gray);">South county hub</div>
+                    </a>
+                    <a href="tel:561-718-6725" style="display: flex; flex-direction: column; gap: 0.5rem; padding: 1.25rem; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 10px; text-decoration: none; color: inherit; transition: all 0.15s;">
+                        <div style="font-size: 1.05rem; font-weight: 700; color: var(--text-light);">Delray Beach</div>
+                        <div style="font-size: 0.85rem; color: var(--text-gray);">South end access</div>
+                    </a>
+                    <a href="tel:561-718-6725" style="display: flex; flex-direction: column; gap: 0.5rem; padding: 1.25rem; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 10px; text-decoration: none; color: inherit; transition: all 0.15s;">
+                        <div style="font-size: 1.05rem; font-weight: 700; color: var(--text-light);">All PBC</div>
+                        <div style="font-size: 0.85rem; color: var(--text-gray);">County-wide coverage</div>
+                    </a>
                 </div>
             </div>
         </section>
