@@ -163,9 +163,9 @@
         .hero { padding: 4rem 2rem 3rem; background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 100%); }
         .hero-container { max-width: 1400px; margin: 0 auto; }
         .hero-content { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
-        .hero-left h1 { font-size: 2.75rem; font-weight: 800; margin-bottom: 1.25rem; line-height: 1.15; }
+        .hero-left h1 { font-size: clamp(1.6rem, 5vw, 2.75rem); font-weight: 800; margin-bottom: 1.25rem; line-height: 1.15; }
         .highlight { color: var(--accent-blue); }
-        .hero-subtitle { font-size: 1.15rem; color: var(--text-gray); margin-bottom: 2rem; line-height: 1.7; }
+        .hero-subtitle { font-size: clamp(1rem, 2.5vw, 1.15rem); color: var(--text-gray); margin-bottom: 2rem; line-height: 1.7; }
 
         .demand-proof { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; margin-bottom: 2rem; }
         .demand-card { background: rgba(59, 147, 255, 0.08); border: 1px solid rgba(59, 147, 255, 0.2); border-radius: 10px; padding: 1rem; text-align: center; }
@@ -326,9 +326,12 @@
             .trust-container { gap: 1rem; }
             .mobile-sticky-cta { display: block; }
         }
+        /* Required field asterisks */
+        .req { color: var(--error-red, #D33B27); font-weight: 700; margin-left: 0.2rem; }
+
         @media (max-width: 480px) {
-            .hero-left h1 { font-size: 1.5rem; }
-            .hero-subtitle { font-size: 1rem; }
+            .hero-left h1 { font-size: clamp(1.6rem, 5vw, 2.75rem); }
+            .hero-subtitle { font-size: clamp(1rem, 2.5vw, 1.15rem); }
             .demand-proof { grid-template-columns: 1fr 1fr; }
             .demand-number { font-size: 1.05rem; }
             .demand-label { font-size: 0.72rem; }
@@ -480,7 +483,7 @@
         }
         .listing-media img.listing-photo {
             width: 100%;
-            height: 100%;
+            height: auto;
             object-fit: cover;
             position: absolute;
             inset: 0;
@@ -655,6 +658,14 @@
                     "@type": "Answer",
                     "text": "Off-market space is available before listing on LoopNet, CoStar, or public brokers. Most industrial space is backfilled off-market via direct broker relationships. Advantage: You see 2–3 weeks before competition, enabling better negotiation (fewer competing tenants = more leverage). Off-market access typically saves 2–4 weeks of timeline and $1–3/SF on effective rent."
                 }
+            },
+            {
+                "@type": "Question",
+                "name": "When should I start the search for large-format space?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Start 6–12 months before your lease expires, or now if you're exploring. Starting early lets you tour without pressure and negotiate from strength — within 90 days of expiration you lose leverage. I source large blocks continuously, including off-market, so starting today means you see options before the market does."
+                }
             }
         ]
     }
@@ -801,30 +812,30 @@
 
                                 <div class="form-row">
                                     <div class="form-group">
-                                        <label for="name" class="form-label">Your Name</label>
-                                        <input type="text" id="name" name="name" class="form-input" placeholder="Jane Smith" required>
+                                        <label for="name" class="form-label">Your Name<span class="req">*</span></label>
+                                        <input type="text" id="name" name="name" class="form-input" placeholder="Jane Smith" autocomplete="name" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="company" class="form-label">Company (optional)</label>
-                                        <input type="text" id="company" name="company" class="form-input" placeholder="Your Business">
+                                        <input type="text" id="company" name="company" class="form-input" placeholder="Your Business" autocomplete="organization">
                                     </div>
                                 </div>
 
                                 <div class="form-row">
                                     <div class="form-group">
-                                        <label for="phone" class="form-label">Phone</label>
-                                        <input type="tel" id="phone" name="phone" class="form-input" placeholder="(561) 123-4567" required>
+                                        <label for="phone" class="form-label">Phone<span class="req">*</span></label>
+                                        <input type="tel" id="phone" name="phone" class="form-input" placeholder="(561) 123-4567" autocomplete="tel" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="email" class="form-label">Email</label>
-                                        <input type="email" id="email" name="email" class="form-input" placeholder="you@company.com" required>
+                                        <label for="email" class="form-label">Email<span class="req">*</span></label>
+                                        <input type="email" id="email" name="email" class="form-input" placeholder="you@company.com" autocomplete="email" required>
                                     </div>
                                 </div>
 
                                 <div class="form-divider"></div>
 
                                 <div class="form-group">
-                                    <label for="transaction_type" class="form-label">I'm Looking To</label>
+                                    <label for="transaction_type" class="form-label">I'm Looking To<span class="req">*</span></label>
                                     <select id="transaction_type" name="transaction_type" class="form-select" required>
                                         <option value="">Select one</option>
                                         <option value="Lease space">Lease space</option>
@@ -835,7 +846,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="situation" class="form-label">What's Driving the Search?</label>
+                                    <label for="situation" class="form-label">What's Driving the Search?<span class="req">*</span></label>
                                     <select id="situation" name="situation" class="form-select" required>
                                         <option value="">Select one</option>
                                         <option value="Lease expiring">Current lease expiring</option>
@@ -849,7 +860,7 @@
 
                                 <div class="form-row">
                                     <div class="form-group">
-                                        <label for="space_size" class="form-label">Space Needed</label>
+                                        <label for="space_size" class="form-label">Space Needed<span class="req">*</span></label>
                                         <select id="space_size" name="space_size" class="form-select" required>
                                             <option value="">Select size</option>
                                             <option value="10,000-20,000 SF">10,000–20,000 SF</option>
@@ -876,7 +887,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="industry" class="form-label">Primary Use</label>
+                                    <label for="industry" class="form-label">Primary Use<span class="req">*</span></label>
                                     <select id="industry" name="industry" class="form-select" required>
                                         <option value="">Select use</option>
                                         <option value="3PL / Logistics">3PL / Logistics</option>
@@ -1163,7 +1174,7 @@
                     <!-- 1. 1225 Omar Rd -->
                     <article class="listing featured">
                         <div class="listing-media">
-                            <img class="listing-photo" src="/assets/listings/1225-omar-rd.jpg" alt="1225 Omar Rd office and warehouse building, West Palm Beach FL" loading="lazy">
+                            <img class="listing-photo" src="/assets/listings/1225-omar-rd.jpg" alt="1225 Omar Rd office and warehouse building, West Palm Beach FL" width="800" height="500" loading="lazy">
                             <div class="listing-tags">
                                 <span class="tag tag-featured">Featured</span>
                                 <span class="tag tag-type">Industrial</span>
@@ -1191,7 +1202,7 @@
                     <!-- 2. 3551 23rd Ave S -->
                     <article class="listing">
                         <div class="listing-media">
-                            <img class="listing-photo" src="/assets/listings/3551-23rd-ave.jpg" alt="3551 23rd Ave S warehouse units, Marlin Industrial Park, Lake Worth FL" loading="lazy">
+                            <img class="listing-photo" src="/assets/listings/3551-23rd-ave.jpg" alt="3551 23rd Ave S warehouse units, Marlin Industrial Park, Lake Worth FL" width="800" height="500" loading="lazy">
                             <div class="listing-tags">
                                 <span></span>
                                 <span class="tag tag-type">Industrial · 7 Units</span>
@@ -1310,6 +1321,11 @@
                 <div class="faq-item">
                     <div class="faq-q">How do I know if I should start looking now?</div>
                     <div class="faq-a">Start 6–12 months before current lease expires (or now, if you're exploring options). This timeline allows you to: (1) Survey market conditions and available space without pressure, (2) Negotiate from strength (landlord knows you're not desperate), (3) Execute 2–3 negotiation cycles, (4) Plan a smooth transition. If you start within 90 days of expiration, you lose all leverage and accept mediocre terms.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">When should I start the search for large-format space?</div>
+                    <div class="faq-a">Start 6–12 months before your lease expires, or now if you're exploring. Starting early lets you tour without pressure and negotiate from strength — within 90 days of expiration you lose leverage. I source large blocks continuously, including off-market, so starting today means you see options before the market does.</div>
                 </div>
             </div>
         </section>
