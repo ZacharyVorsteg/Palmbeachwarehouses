@@ -2242,6 +2242,9 @@ input,select,textarea,button{font-family:inherit}
   // --- Scroll reveal ---
   (function(){
     var reduced = matchMedia('(prefers-reduced-motion:reduce)').matches;
+    // Facebook/Instagram/Messenger in-app browsers don't fire IntersectionObserver
+    // reliably, which left reveal-animated content (incl. listings) stuck at opacity:0.
+    var inApp = /FBAN|FBAV|FB_IAB|FBIOS|Instagram|Messenger|Line\//i.test(navigator.userAgent||'');
     var targets = document.querySelectorAll('.section, .hero-left > *, .form-wrap, .trust-item, .listing, .quote, .area, .faq-item, .final-cta-inner > *');
     targets.forEach(function(el,i){
       el.classList.add('reveal');
@@ -2249,8 +2252,9 @@ input,select,textarea,button{font-family:inherit}
       if(i%4===2)el.classList.add('reveal-d2');
       if(i%4===3)el.classList.add('reveal-d3');
     });
-    if(reduced || !('IntersectionObserver' in window)){
-      targets.forEach(function(el){el.classList.add('in')});
+    function revealAll(){targets.forEach(function(el){el.classList.add('in')});}
+    if(reduced || inApp || !('IntersectionObserver' in window)){
+      revealAll();
       return;
     }
     var io = new IntersectionObserver(function(entries){
@@ -2259,6 +2263,11 @@ input,select,textarea,button{font-family:inherit}
       });
     },{threshold:.1,rootMargin:'0px 0px -40px 0px'});
     targets.forEach(function(el){io.observe(el)});
+    // Safety net: if an above-the-fold target hasn't revealed shortly after load,
+    // the observer isn't firing (some webviews) — force everything visible.
+    setTimeout(function(){
+      if(targets[0] && !targets[0].classList.contains('in')) revealAll();
+    },1200);
   })();
 
   // --- Metric count-up ---
