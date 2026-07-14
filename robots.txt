@@ -56,3 +56,6 @@ User-agent: anthropic-ai
 Allow: /
 Allow: /llms.txt
 Allow: /llms-full.txt
+
+User-agent: CCBot
+Allow: /
