@@ -1,5 +1,9 @@
 # Redirect www to non-www
 https://www.palmbeachwarehouses.com/* https://palmbeachwarehouses.com/:splat 301!
 
+# Legacy stale listings page -> homepage listings (single source of truth = index.html)
+/listings.html /#listings 301!
+/listings/ /#listings 301!
+
 # 404 fallback for non-existent routes
 /* /404.html 404
