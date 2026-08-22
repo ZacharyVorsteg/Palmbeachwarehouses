@@ -1,6 +1,10 @@
 # Redirect www to non-www
 https://www.palmbeachwarehouses.com/* https://palmbeachwarehouses.com/:splat 301!
 
+# Email campaign tracking/unsubscribe proxy (brand-domain links for deliverability)
+/api/campaign https://trusenda.com/.netlify/functions/campaign 200
+/api/campaign/* https://trusenda.com/.netlify/functions/campaign 200
+
 # Legacy stale listings page -> homepage listings (single source of truth = index.html)
 /listings.html /#listings 301!
 /listings/ /#listings 301!
