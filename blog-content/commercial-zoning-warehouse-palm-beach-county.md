@@ -184,7 +184,7 @@ You can search by address and see the zoning district color-coded on a map.
 
 Once you know the district (IG, IL, IC, CG), get the actual code text:
 
-- For unincorporated: www.municode.com (search Palm Beach County)
+- For unincorporated: [Palm Beach County Code of Ordinances on Municode](https://library.municode.com/fl/palm_beach_county)
 - For cities: Usually available on the city website under "Zoning Code" or "Municipal Code"
 
 Read the "Permitted Uses" section for your zone. It's dense, but you can search for keywords ("warehouse," "distribution," "storage").
