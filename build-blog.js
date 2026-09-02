@@ -118,6 +118,9 @@ function build() {
     const raw = fs.readFileSync(path.join(CONTENT_DIR, file), 'utf8');
     const { meta, body } = parseFrontmatter(raw);
     let html = marked(body);
+    // Strip a leading H1 from the body — the template already renders {{TITLE}} as the page H1.
+    // Without this the article ships two <h1> elements, which Google flags as a structure error.
+    html = html.replace(/^\s*<h1[^>]*>[\s\S]*?<\/h1>\s*/i, '');
     // Wrap tables in scrollable container for mobile
     html = html.replace(/<table>/g, '<div class="table-scroll"><table>').replace(/<\/table>/g, '</table></div>');
     const slug = meta.slug || file.replace('.md', '');
