@@ -33,72 +33,95 @@ Allow: /llms-full.txt
 
 User-agent: GPTBot
 Allow: /
+Disallow: /test.html
 
 User-agent: OAI-SearchBot
 Allow: /
+Disallow: /test.html
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /test.html
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /test.html
 
 User-agent: Claude-Web
 Allow: /
+Disallow: /test.html
 
 User-agent: anthropic-ai
 Allow: /
+Disallow: /test.html
 
 User-agent: Claude-SearchBot
 Allow: /
+Disallow: /test.html
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /test.html
 
 User-agent: Perplexity-User
 Allow: /
+Disallow: /test.html
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /test.html
 
 User-agent: Googlebot
 Allow: /
+Disallow: /test.html
 
 User-agent: Bingbot
 Allow: /
+Disallow: /test.html
 
 User-agent: Applebot
 Allow: /
+Disallow: /test.html
 
 User-agent: Applebot-Extended
 Allow: /
+Disallow: /test.html
 
 User-agent: Amazonbot
 Allow: /
+Disallow: /test.html
 
 User-agent: Meta-ExternalAgent
 Allow: /
+Disallow: /test.html
 
 User-agent: DuckDuckBot
 Allow: /
+Disallow: /test.html
 
 User-agent: YandexBot
 Allow: /
+Disallow: /test.html
 
 User-agent: Bytespider
 Allow: /
+Disallow: /test.html
 
 User-agent: CCBot
 Allow: /
+Disallow: /test.html
 
 User-agent: cohere-ai
 Allow: /
+Disallow: /test.html
 
 User-agent: MistralAI-User
 Allow: /
+Disallow: /test.html
 
 User-agent: Timpibot
 Allow: /
+Disallow: /test.html
 
 # === END AI + SEARCH CRAWLER ALLOWLIST (managed) ===
 
