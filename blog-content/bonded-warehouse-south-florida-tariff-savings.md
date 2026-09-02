@@ -139,7 +139,7 @@ Want to run your own bonded warehouse instead of leasing from an operator? Reide
 
 ### Step 1: Initial Consultation with CBP (Week 1–2)
 
-Before you file a single form, call the CBP port director at the [Port of Palm Beach](https://www.cbp.gov/contact/ports/riviera-beach). Walk them through your intended operation and the class you're applying for. Five minutes on the phone. That's all it takes. I've seen applications rejected for site-specific issues that one early conversation would have caught.
+Before you file a single form, call the CBP port director at the [Port of Palm Beach](https://www.cbp.gov/contact/ports/west-palm-beach). Walk them through your intended operation and the class you're applying for. Five minutes on the phone. That's all it takes. I've seen applications rejected for site-specific issues that one early conversation would have caught.
 
 ### Step 2: Prepare and Submit Application (Week 2–4)
 
