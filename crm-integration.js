@@ -12,6 +12,9 @@
   let activeLpSource = null; // 'lease-review' | 'tenant-rep' | 'start-search' (set when active-tenant form detected)
 
   // Initialize on page load
+  // See PIXEL/CAPI SAFETY note in handleFormSubmit before changing this.
+  const REPORT_FORM_FIRES_PIXELS = false;
+
   document.addEventListener('DOMContentLoaded', function() {
     console.log('🚀 Initializing Trusenda CRM Integration...');
 
@@ -23,35 +26,25 @@
     const salesForm = document.getElementById('sales-lead-form');
     const featuredTenantForm = document.getElementById('featured-tenant-form');
 
-    if (tenantForm) {
-      activeFormType = 'tenant';
-      tenantForm.addEventListener('submit', handleFormSubmit);
-      console.log('✅ Tenant form handler attached');
-    } else if (landlordForm) {
-      activeFormType = 'landlord';
-      landlordForm.addEventListener('submit', handleFormSubmit);
-      console.log('✅ Landlord form handler attached');
-    } else if (reportForm) {
-      activeFormType = 'report';
-      reportForm.addEventListener('submit', handleFormSubmit);
-      console.log('✅ Report form handler attached');
-    } else if (valuationForm) {
-      activeFormType = 'valuation';
-      valuationForm.addEventListener('submit', handleFormSubmit);
-      console.log('✅ Valuation form handler attached');
-    } else if (salesForm) {
-      activeFormType = 'sales';
-      salesForm.addEventListener('submit', handleFormSubmit);
-      console.log('✅ Sales form handler attached');
-    } else if (featuredTenantForm) {
-      activeFormType = 'featured-tenant';
-      featuredTenantForm.addEventListener('submit', handleFormSubmit);
-      console.log('✅ Featured tenant form handler attached');
-    }
+    // index.html carries BOTH #lead-form and #report-lead-form. This used to be an
+    // if/else-if chain, so only the FIRST present form ever received a handler and the
+    // market-report signup silently dropped every lead. Attach to all of them, and tag
+    // each form with its own type so extraction/pixels can't be misrouted by a global.
+    [[tenantForm,'tenant'], [landlordForm,'landlord'], [reportForm,'report'],
+     [valuationForm,'valuation'], [salesForm,'sales'], [featuredTenantForm,'featured-tenant']]
+      .forEach(function(pair) {
+        var el = pair[0], type = pair[1];
+        if (!el) return;
+        el.dataset.leadFormType = type;
+        if (!activeFormType) activeFormType = type;   // preserves prior default on 1-form pages
+        el.addEventListener('submit', handleFormSubmit);
+        console.log('\u2705 ' + type + ' form handler attached');
+      });
 
     const warehouseOwnerForm = document.getElementById('warehouse-owner-form');
     if (!activeFormType && warehouseOwnerForm) {
       activeFormType = 'warehouse-owner';
+      warehouseOwnerForm.dataset.leadFormType = 'warehouse-owner';
       warehouseOwnerForm.addEventListener('submit', handleFormSubmit);
       console.log('✅ Warehouse owner form handler attached');
     }
@@ -60,6 +53,7 @@
     if (!activeFormType && activeTenantForm) {
       activeFormType = 'active-tenant';
       activeLpSource = activeTenantForm.dataset.lpSource || 'active-tenant-generic';
+      activeTenantForm.dataset.leadFormType = 'active-tenant';
       activeTenantForm.addEventListener('submit', handleFormSubmit);
       console.log('✅ Active tenant form handler attached, source:', activeLpSource);
     }
@@ -163,13 +157,20 @@
     console.log(`📝 ${activeFormType} form submission started...`);
 
     const form = event.target;
-    const submitBtn = document.getElementById('submit-btn');
-    const btnText = document.getElementById('btn-text');
-    const btnLoading = document.getElementById('btn-loading');
-    const formMessage = document.getElementById('form-message');
+
+    // Trust the form that was actually submitted, not a module-level global.
+    if (form.dataset && form.dataset.leadFormType) activeFormType = form.dataset.leadFormType;
+
+    // Scope to the submitted form first; #submit-btn belongs to #lead-form, so an
+    // unscoped lookup let a report submission disable the MAIN form's button.
+    const pick = (sel) => (form.querySelector(sel) || document.querySelector(sel));
+    const submitBtn = form.querySelector('#submit-btn, button[type="submit"]') || document.getElementById('submit-btn');
+    const btnText = pick('#btn-text');
+    const btnLoading = pick('#btn-loading');
+    const formMessage = pick('#form-message');
 
     // Disable button and show loading
-    submitBtn.disabled = true;
+    if (submitBtn) submitBtn.disabled = true;
     if (btnText) btnText.classList.add('hidden');
     if (btnLoading) btnLoading.classList.remove('hidden');
     if (formMessage) formMessage.classList.add('hidden');
@@ -225,7 +226,15 @@
         console.log('✅ Lead submitted successfully:', responseData);
 
         // ONLY AFTER SUCCESS: Fire tracking pixels
-        fireTrackingPixels(leadData);
+        // PIXEL/CAPI SAFETY (2026-09-04): the market-report form never fired pixels,
+        // because its submit handler was never attached. Restoring lead capture must NOT
+        // change live ad-campaign data, so report submissions stay pixel-silent. Set
+        // REPORT_FORM_FIRES_PIXELS = true to begin counting them as conversions.
+        if (activeFormType !== 'report' || REPORT_FORM_FIRES_PIXELS) {
+          fireTrackingPixels(leadData);
+        } else {
+          console.log('\u2139\ufe0f  Report lead saved; pixels intentionally not fired (see REPORT_FORM_FIRES_PIXELS)');
+        }
 
         // Show success UI
         showSuccessMessage(form, leadData);
@@ -240,10 +249,10 @@
     } catch (error) {
       console.error('❌ Form submission error:', error);
       showErrorMessage(error.message);
-      submitBtn.disabled = false;
+      if (submitBtn) submitBtn.disabled = false;
       if (btnText) {
         btnText.classList.remove('hidden');
-      } else if (submitBtn.dataset.originalText) {
+      } else if (submitBtn && submitBtn.dataset.originalText) {
         submitBtn.textContent = submitBtn.dataset.originalText;
       }
       if (btnLoading) btnLoading.classList.add('hidden');
@@ -348,7 +357,7 @@
 
     return {
       tenant_id: tenantId,
-      name: formData.get('name'),
+      name: formData.get('name') || 'Market Report Request',
       email: formData.get('email') || null,
       preferredArea: formData.get('preferred_location') || 'Palm Beach County, FL',
       notes: notes,
