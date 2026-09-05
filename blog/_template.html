@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{TITLE}} | Palm Beach Warehouses</title>
+    <title>{{TITLE}}</title>
     <meta name="description" content="{{DESCRIPTION}}" />
     <meta name="keywords" content="{{KEYWORDS}}">
     <meta name="author" content="Zachary Vorsteg">
@@ -42,6 +42,7 @@
     <link rel="stylesheet" href="/styles.css?v=94">
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="alternate" type="application/rss+xml" href="/blog/feed.xml">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -408,7 +409,7 @@
             <div class="guide-meta">
                 <span class="pillar-badge">{{PILLAR}}</span>
                 <span>By Zachary Vorsteg</span>
-                <span>{{DATE_FORMATTED}}</span>
+                <time datetime="{{DATE}}">{{DATE_FORMATTED}}</time>
                 <span>{{READ_TIME}}</span>
             </div>
 

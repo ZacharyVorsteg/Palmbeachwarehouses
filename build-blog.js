@@ -76,6 +76,14 @@ function readTime(text) {
   return Math.max(1, Math.ceil(words / 225));
 }
 
+// Shorten title to fit within 65 chars (SEO standard for <title> tags)
+function shortenTitle(title, maxLength = 65) {
+  if (title.length <= maxLength) return title;
+  const truncated = title.substring(0, maxLength);
+  const lastSpace = truncated.lastIndexOf(' ');
+  return lastSpace > 0 ? truncated.substring(0, lastSpace) : truncated;
+}
+
 // Generate related articles HTML
 function getRelatedArticles(current, allArticles, count = 3) {
   // Prefer same pillar, then most recent
@@ -148,9 +156,10 @@ function build() {
 
     const relatedHtml = getRelatedArticles(article, articles);
     const minutes = readTime(article.body);
+    const displayTitle = shortenTitle(article.title);
 
     const pageHtml = template
-      .replace(/\{\{TITLE\}\}/g, article.title)
+      .replace(/\{\{TITLE\}\}/g, displayTitle)
       .replace(/\{\{DESCRIPTION\}\}/g, article.description)
       .replace(/\{\{KEYWORDS\}\}/g, article.keywords)
       .replace(/\{\{SLUG\}\}/g, article.slug)
@@ -167,6 +176,9 @@ function build() {
 
   // Generate blog index page
   generateIndex(articles);
+
+  // Generate RSS feed
+  generateRSS(articles);
 
   // Update sitemap
   updateSitemap(articles);
@@ -202,6 +214,37 @@ function generateIndex(articles) {
 
   fs.writeFileSync(path.join(OUTPUT_DIR, 'index.html'), indexHtml);
   console.log('  Built: /blog/ (index)');
+}
+
+// Generate RSS feed
+function generateRSS(articles) {
+  let feed = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Palm Beach Warehouses Blog</title>
+    <link>${SITE_URL}/blog/</link>
+    <description>Expert insights on warehouse leasing, industrial market trends, and commercial real estate in Palm Beach County.</description>
+    <language>en-us</language>
+    <lastBuildDate>${new Date(articles[0]?.date || '2026-03-08').toUTCString()}</lastBuildDate>`;
+
+  for (const article of articles) {
+    feed += `
+    <item>
+      <title>${article.title}</title>
+      <link>${SITE_URL}/blog/${article.slug}/</link>
+      <guid isPermaLink="true">${SITE_URL}/blog/${article.slug}/</guid>
+      <pubDate>${new Date(article.date + 'T12:00:00').toUTCString()}</pubDate>
+      <description>${article.description}</description>
+      <content:encoded><![CDATA[${article.html}]]></content:encoded>
+    </item>`;
+  }
+
+  feed += `
+  </channel>
+</rss>`;
+
+  fs.writeFileSync(path.join(OUTPUT_DIR, 'feed.xml'), feed);
+  console.log('  Generated: /blog/feed.xml');
 }
 
 // Update sitemap.xml with blog entries
