@@ -1,0 +1,15 @@
+const fs = require('node:fs'), path = require('node:path');
+const root = __dirname, output = path.join(root, 'public');
+const excluded = new Set(['public', 'node_modules', 'netlify', 'pipeline', 'blog-content', 'tests', '.git']);
+const omitted = new Set(['package.json','package-lock.json','netlify.toml','build-blog.js','prepare-public.js','new-post.js']);
+const web = /\.(html|css|js|json|png|jpg|jpeg|webp|svg|ico|xml|txt|pdf|vcf|woff|woff2|mp4|webm)$/i;
+function visit(source,destination){
+ if(fs.statSync(source).isDirectory()){
+  fs.mkdirSync(destination,{recursive:true});
+  for(const name of fs.readdirSync(source))if(!excluded.has(name)&&!name.startsWith('.')&&!name.startsWith('_')&&!omitted.has(name))visit(path.join(source,name),path.join(destination,name));
+ } else if(web.test(source))fs.copyFileSync(source,destination);
+}
+fs.rmSync(output,{recursive:true,force:true});
+visit(root,output);
+for(const name of ['_headers','_redirects'])fs.copyFileSync(path.join(root,name),path.join(output,name));
+console.log('Prepared public PBW assets without build/function/pipeline source.');

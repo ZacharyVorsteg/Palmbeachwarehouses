@@ -4,7 +4,7 @@
   "private": true,
   "description": "Palm Beach Warehouses - Industrial Real Estate",
   "scripts": {
-    "build": "node build-blog.js",
+    "build": "node build-blog.js && node prepare-public.js",
     "new-post": "node new-post.js"
   },
   "dependencies": {

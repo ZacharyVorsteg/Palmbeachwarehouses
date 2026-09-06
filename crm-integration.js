@@ -210,7 +210,12 @@
       } else {
         leadData = extractTenantFormData(form);
       }
-      console.log('📦 Submitting lead data:', leadData);
+      // The current CRM stores notes but has no UTM columns in this insert path.
+      // Preserve useful campaign context there; do not copy advertising cookies.
+      const attribution = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content']
+        .filter(key => leadData[key]).map(key => key + ': ' + String(leadData[key]).slice(0, 100));
+      if (attribution.length) leadData.notes = (leadData.notes || '') + '\nAttribution: ' + attribution.join('; ');
+      if (leadData.notes && leadData.notes.length > 2000) throw new Error('Please shorten the additional notes and try again.');
 
       // POST to CRM
       const response = await fetch(`${CONFIG.TRUSENDA_API_URL}/ingest-lead`, {
@@ -222,8 +227,8 @@
       const responseData = await response.json();
 
       // Check for success
-      if (response.status === 201 || response.ok) {
-        console.log('✅ Lead submitted successfully:', responseData);
+      if (response.ok && responseData.success === true && responseData.leadId) {
+        console.log('Lead receipt confirmed');
 
         // ONLY AFTER SUCCESS: Fire tracking pixels
         // PIXEL/CAPI SAFETY (2026-09-04): the market-report form never fired pixels,
@@ -1044,15 +1049,7 @@
       const callout = document.getElementById('success-callout');
       let message = '';
 
-      if (qualification.tier === 'ENTERPRISE') {
-        message = '<strong>Priority request received.</strong> Given your requirements, Zach will personally call you within the hour to discuss available options and schedule tours.';
-      } else if (qualification.tier === 'HOT') {
-        message = '<strong>Great fit — your request is in good hands.</strong> Zach will personally follow up within a few hours with curated matches for your business.';
-      } else if (qualification.tier === 'WARM') {
-        message = '<strong>Request received.</strong> Zach will review available spaces in your area and reach out within 24 hours with options that match your criteria.';
-      } else {
-        message = '<strong>Request received.</strong> Zach will review your requirements and follow up within 24-48 hours with relevant options.';
-      }
+      message = '<strong>Request received.</strong> Zach will review your requirements and contact you about available options. Consultations and property tours are by appointment after confirmation; no walk-ins.';
 
       callout.innerHTML = message;
       callout.style.display = 'block';
@@ -1064,7 +1061,15 @@
     } else if (activeFormType === 'report') {
       // Report: hide form, show success with download link
       form.style.display = 'none';
-      successMessage.style.display = 'block';
+      if (document.getElementById('lead-form')) {
+        const receipt = document.createElement('p');
+        receipt.setAttribute('role', 'status');
+        receipt.textContent = 'Your report request has been received. Zach will follow up using the contact details you provided.';
+        form.insertAdjacentElement('afterend', receipt);
+      } else if (successMessage) {
+        successMessage.classList.remove('hidden');
+        successMessage.style.display = 'block';
+      }
     } else if (activeFormType === 'valuation') {
       // Valuation: hide form, show success
       const valuationForm = document.getElementById('valuation-lead-form');

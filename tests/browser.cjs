@@ -1,0 +1,19 @@
+const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
+const root=path.resolve(__dirname,'..');
+(async()=>{const browser=await chromium.launch({headless:true,channel:'chrome'});const context=await browser.newContext({viewport:{width:390,height:844}});const requests=[];let rejectReceipt=true,pixelCalls=0;
+ await context.route('**/*',async route=>{const req=route.request(),u=new URL(req.url());
+  if(u.hostname==='trusenda.com'&&u.pathname.endsWith('/get-public-form'))return route.fulfill({status:200,contentType:'application/json',body:'{"tenantId":"local-fixture-owner"}'});
+  if(u.hostname==='trusenda.com'&&u.pathname.endsWith('/ingest-lead')){requests.push(req.postDataJSON());return route.fulfill({status:rejectReceipt?200:201,contentType:'application/json',body:JSON.stringify(rejectReceipt?{success:false}:{success:true,leadId:101})});}
+  if(u.pathname.endsWith('/fb-capi')){pixelCalls++;return route.fulfill({status:200,contentType:'application/json',body:'{}'});}
+  if(u.hostname!=='palmbeachwarehouses.com')return route.abort();if(req.method()!=='GET')throw new Error('Unexpected action blocked');
+  let rel=u.pathname.replace(/^\//,'');if(!rel||rel.endsWith('/'))rel+='index.html';const file=path.resolve(root,'public',rel);if(!file.startsWith(path.join(root,'public')+path.sep)||!fs.existsSync(file))return route.fulfill({status:404,body:''});return route.fulfill({status:200,contentType:({'.html':'text/html','.js':'text/javascript','.css':'text/css','.png':'image/png','.jpg':'image/jpeg','.svg':'image/svg+xml'}[path.extname(file)]||'text/plain'),body:fs.readFileSync(file)});
+ });
+ const page=await context.newPage();await page.goto('https://palmbeachwarehouses.com/?utm_source=local-fixture&utm_campaign=warehouse-test#form');
+ const form=page.locator('#lead-form');for(const[name,value]of Object.entries({name:'Local Browser Fixture',email:'fixture@example.test',phone:'(555) 123-4567',company:'Fixture Plumbing'}))await form.locator('[name="'+name+'"]').fill(value);
+ for(const name of ['space_size','move_date','property_use','budget','industry'])await form.locator('[name="'+name+'"]').selectOption({index:1});
+ await form.locator('button[type="submit"]').click();await page.locator('#form-message:not(.hidden)').waitFor();assert.equal(pixelCalls,0,'unconfirmed receipt must not fire CAPI');assert.equal(await form.locator('[name="company"]').inputValue(),'Fixture Plumbing');assert.ok(!(await page.locator('#lead-form').getAttribute('class')||'').includes('hidden'));
+ rejectReceipt=false;await form.locator('button[type="submit"]').click();await page.locator('#success-message:not(.hidden)').waitFor();assert.match(await page.locator('#success-callout').innerText(),/by appointment after confirmation/);assert.equal(requests.length,2);assert.equal(requests[1].company,'Fixture Plumbing');assert.ok(requests[1].sizeMax > 0);assert.ok(requests[1].moveTiming);assert.ok(requests[1].industry);assert.match(requests[1].notes,/utm_source: local-fixture/);assert.match(requests[1].notes,/utm_campaign: warehouse-test/);
+ assert.equal(await page.locator('.agent-status-dot.is-online').count(),0);assert.match(await page.locator('[data-agent-status]').first().innerText(),/By appointment only/);
+ await page.goto('https://palmbeachwarehouses.com/guides/');assert.equal(await page.locator('main li a[href^="/guides/"]').count(),10);await page.screenshot({path:path.join(root,'..','warehouses-guides-mobile.png')});
+ await browser.close();console.log('PASS: mobile actual tenant form preserves values and fires no CAPI for unconfirmed receipt; valid CRM receipt confirms appointment-request copy; attribution survives payload notes;10-guide hub renders; no external traffic. Backend mocked, not a live DB readback.');
+})().catch(e=>{console.error(e);process.exit(1);});

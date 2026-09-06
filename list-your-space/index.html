@@ -735,7 +735,7 @@
                     <h4>Get In Touch</h4>
                     <a href="tel:561-718-6725" class="footer-phone">561-718-6725</a>
                     <a href="mailto:zach@cri-re.com" class="footer-email">zach@cri-re.com</a>
-                    <p class="footer-hours">Available Mon-Fri 8am-6pm<br>Weekends by appointment</p>
+                    <p class="footer-hours">Consultations and tours by appointment only<br>Please contact us to arrange a time; no walk-ins</p>
                 </div>
                 <div class="footer-areas">
                     <h4>Service Areas</h4>
@@ -791,83 +791,169 @@
     <script defer src="/nav-script.js?v=91"></script>
 
     <!-- Structured Data / Schema Markup -->
-    <script type="application/ld+json">
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  "@id": "https://palmbeachwarehouses.com/#agent",
+  "name": "Zach Vorsteg - Palm Beach Warehouses",
+  "alternateName": "Palm Beach Warehouses",
+  "description": "Commercial real estate specialist for warehouse, flex, and industrial space leasing and sales in Palm Beach County, Florida. Expert landlord and tenant representation.",
+  "url": "https://palmbeachwarehouses.com",
+  "telephone": "+1-561-718-6725",
+  "email": "zach@cri-re.com",
+  "image": "https://palmbeachwarehouses.com/assets/headshot.jpg",
+  "logo": "https://palmbeachwarehouses.com/assets/logo.png",
+  "priceRange": "$$$$",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "West Palm Beach",
+    "addressRegion": "FL",
+    "postalCode": "33401",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 26.7153,
+    "longitude": -80.0534
+  },
+  "areaServed": [
     {
-        "@context": "https://schema.org",
-        "@type": "RealEstateAgent",
-        "@id": "https://palmbeachwarehouses.com/#agent",
-        "name": "Zach Vorsteg - Palm Beach Warehouses",
-        "alternateName": "Palm Beach Warehouses",
-        "description": "Commercial real estate specialist for warehouse, flex, and industrial space leasing and sales in Palm Beach County, Florida. Expert landlord and tenant representation.",
-        "url": "https://palmbeachwarehouses.com",
-        "telephone": "+1-561-718-6725",
-        "email": "zach@cri-re.com",
-        "image": "https://palmbeachwarehouses.com/assets/headshot.jpg",
-        "logo": "https://palmbeachwarehouses.com/assets/logo.png",
-        "priceRange": "$$$$",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "West Palm Beach",
-            "addressRegion": "FL",
-            "postalCode": "33401",
-            "addressCountry": "US"
-        },
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 26.7153,
-            "longitude": -80.0534
-        },
-        "areaServed": [
-            {"@type": "City", "name": "West Palm Beach", "containedInPlace": {"@type": "State", "name": "Florida"}},
-            {"@type": "City", "name": "Boca Raton", "containedInPlace": {"@type": "State", "name": "Florida"}},
-            {"@type": "City", "name": "Delray Beach", "containedInPlace": {"@type": "State", "name": "Florida"}},
-            {"@type": "City", "name": "Boynton Beach", "containedInPlace": {"@type": "State", "name": "Florida"}},
-            {"@type": "City", "name": "Lake Worth", "containedInPlace": {"@type": "State", "name": "Florida"}},
-            {"@type": "City", "name": "Jupiter", "containedInPlace": {"@type": "State", "name": "Florida"}},
-            {"@type": "City", "name": "Lantana", "containedInPlace": {"@type": "State", "name": "Florida"}},
-            {"@type": "City", "name": "Royal Palm Beach", "containedInPlace": {"@type": "State", "name": "Florida"}},
-            {"@type": "City", "name": "Riviera Beach", "containedInPlace": {"@type": "State", "name": "Florida"}}
-        ],
-        "openingHoursSpecification": [
-            {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "08:00", "closes": "18:00"}
-        ],
-        "hasCredential": {
-            "@type": "EducationalOccupationalCredential",
-            "credentialCategory": "Real Estate License",
-            "recognizedBy": {"@type": "Organization", "name": "Florida Department of Business and Professional Regulation"},
-            "validIn": {"@type": "State", "name": "Florida"},
-            "credentialId": "SL3603483"
-        },
-        "memberOf": {"@type": "Organization", "name": "Cornerstone Realty"},
-        "knowsAbout": ["Warehouse Leasing", "Industrial Real Estate", "Flex Space", "Commercial Property", "Tenant Representation", "Landlord Representation", "Distribution Centers", "NNN Leases"],
-        "foundingDate": "2021",
-        "numberOfEmployees": 1,
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+1-561-718-6725",
-            "contactType": "sales",
-            "email": "zach@cri-re.com",
-            "availableLanguage": "English",
-            "areaServed": "Palm Beach County, FL"
-        },
-        "sameAs": ["https://www.instagram.com/palmbeachwarehouses/"],
-        "slogan": "Free listing platform for warehouse and industrial property owners in Palm Beach County",
-        "makesOffer": [
-            {
-                "@type": "Offer",
-                "itemOffered": {"@type": "Service", "name": "Landlord Representation & Listing Services", "description": "Professional warehouse and industrial property leasing and marketing. Commission earned at lease signing."},
-                "price": "Commission at Lease",
-                "priceCurrency": "USD"
-            },
-            {
-                "@type": "Offer",
-                "itemOffered": {"@type": "Service", "name": "Market Analysis", "description": "Free market analysis for industrial properties."},
-                "price": "0",
-                "priceCurrency": "USD"
-            }
-        ]
+      "@type": "City",
+      "name": "West Palm Beach",
+      "containedInPlace": {
+        "@type": "State",
+        "name": "Florida"
+      }
+    },
+    {
+      "@type": "City",
+      "name": "Boca Raton",
+      "containedInPlace": {
+        "@type": "State",
+        "name": "Florida"
+      }
+    },
+    {
+      "@type": "City",
+      "name": "Delray Beach",
+      "containedInPlace": {
+        "@type": "State",
+        "name": "Florida"
+      }
+    },
+    {
+      "@type": "City",
+      "name": "Boynton Beach",
+      "containedInPlace": {
+        "@type": "State",
+        "name": "Florida"
+      }
+    },
+    {
+      "@type": "City",
+      "name": "Lake Worth",
+      "containedInPlace": {
+        "@type": "State",
+        "name": "Florida"
+      }
+    },
+    {
+      "@type": "City",
+      "name": "Jupiter",
+      "containedInPlace": {
+        "@type": "State",
+        "name": "Florida"
+      }
+    },
+    {
+      "@type": "City",
+      "name": "Lantana",
+      "containedInPlace": {
+        "@type": "State",
+        "name": "Florida"
+      }
+    },
+    {
+      "@type": "City",
+      "name": "Royal Palm Beach",
+      "containedInPlace": {
+        "@type": "State",
+        "name": "Florida"
+      }
+    },
+    {
+      "@type": "City",
+      "name": "Riviera Beach",
+      "containedInPlace": {
+        "@type": "State",
+        "name": "Florida"
+      }
     }
-    </script>
+  ],
+  "hasCredential": {
+    "@type": "EducationalOccupationalCredential",
+    "credentialCategory": "Real Estate License",
+    "recognizedBy": {
+      "@type": "Organization",
+      "name": "Florida Department of Business and Professional Regulation"
+    },
+    "validIn": {
+      "@type": "State",
+      "name": "Florida"
+    },
+    "credentialId": "SL3603483"
+  },
+  "memberOf": {
+    "@type": "Organization",
+    "name": "Cornerstone Realty"
+  },
+  "knowsAbout": [
+    "Warehouse Leasing",
+    "Industrial Real Estate",
+    "Flex Space",
+    "Commercial Property",
+    "Tenant Representation",
+    "Landlord Representation",
+    "Distribution Centers",
+    "NNN Leases"
+  ],
+  "foundingDate": "2021",
+  "numberOfEmployees": 1,
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-561-718-6725",
+    "contactType": "sales",
+    "email": "zach@cri-re.com",
+    "availableLanguage": "English",
+    "areaServed": "Palm Beach County, FL"
+  },
+  "sameAs": [
+    "https://www.instagram.com/palmbeachwarehouses/"
+  ],
+  "slogan": "Free listing platform for warehouse and industrial property owners in Palm Beach County",
+  "makesOffer": [
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Landlord Representation & Listing Services",
+        "description": "Professional warehouse and industrial property leasing and marketing. Commission earned at lease signing."
+      },
+      "price": "Commission at Lease",
+      "priceCurrency": "USD"
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Market Analysis",
+        "description": "Free market analysis for industrial properties."
+      },
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  ]
+}</script>
 
     <script type="application/ld+json">
     {

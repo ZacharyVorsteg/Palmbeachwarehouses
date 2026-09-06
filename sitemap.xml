@@ -123,6 +123,12 @@
 
     <!-- Guide Pages -->
     <url>
+        <loc>https://palmbeachwarehouses.com/guides/</loc>
+        <lastmod>2026-09-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
         <loc>https://palmbeachwarehouses.com/guides/palm-beach-industrial-market/</loc>
         <lastmod>2026-02-28</lastmod>
         <changefreq>monthly</changefreq>
