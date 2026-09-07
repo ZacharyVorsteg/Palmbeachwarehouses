@@ -511,7 +511,7 @@
                 </div>
                 <a href="/blog/">Blog</a>
             </nav>
-            <button class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false" onclick="toggleMobileMenu()">
+            <button type="button" class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileNav">
                 <span></span><span></span><span></span>
             </button>
             <div class="header-cta">
@@ -1030,22 +1030,41 @@
             faqItem.classList.toggle('active');
         }
 
-        function toggleMobileMenu() {
-            const btn = document.querySelector('.mobile-menu-btn');
-            btn.classList.toggle('open');
-            const nav = document.querySelector('.nav-desktop');
-            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-        }
-
-        // Close mobile menu when a link is clicked
-        document.querySelectorAll('.nav-desktop a').forEach(link => {
-            link.addEventListener('click', () => {
-                const btn = document.querySelector('.mobile-menu-btn');
-                btn.classList.remove('open');
-                const nav = document.querySelector('.nav-desktop');
-                nav.style.display = 'none';
-            });
-        });
     </script>
+    <nav class="mobile-nav-overlay" id="mobileNav" aria-label="Mobile navigation">
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+        <a href="/list-your-space/">List Your Space</a>
+        <a href="/sell-your-property/">Sell Your Property</a>
+        <a href="/blog/">Blog</a>
+        <div class="mobile-nav-section">
+            <h4>Locations</h4>
+            <a href="/locations/boca-raton/">Boca Raton</a>
+            <a href="/locations/west-palm-beach/">West Palm Beach</a>
+            <a href="/locations/delray-beach/">Delray Beach</a>
+            <a href="/locations/lake-worth/">Lake Worth</a>
+            <a href="/locations/boynton-beach/">Boynton Beach</a>
+            <a href="/locations/jupiter/">Jupiter</a>
+            <a href="/locations/riviera-beach/">Riviera Beach</a>
+            <a href="/locations/royal-palm-beach/">Royal Palm Beach</a>
+            <a href="/locations/lantana/">Lantana</a>
+        </div>
+        <div class="mobile-nav-section">
+            <h4>Guides</h4>
+            <a href="/guides/palm-beach-industrial-market/">Market Report 2026</a>
+            <a href="/guides/how-to-lease-warehouse/">How to Lease</a>
+            <a href="/guides/warehouse-sizing/">Warehouse Sizing</a>
+            <a href="/guides/warehouse-vs-flex-space/">Warehouse vs Flex</a>
+            <a href="/guides/nnn-leases/">NNN Leases</a>
+            <a href="/guides/tenant-improvements/">Tenant Improvements</a>
+            <a href="/guides/loading-dock-guide/">Loading Docks</a>
+            <a href="/guides/cold-storage/">Cold Storage</a>
+        </div>
+        <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1);">
+            <a href="tel:+15617071879" style="color: var(--accent-blue); font-weight: 600;">Call (561) 707-1879</a>
+        </div>
+    </nav>
+    <script defer src="/nav-script.js?v=keyboard-escape-20260907"></script>
+    <script defer src="/mobile-navigation.js?v=mobile-20260907"></script>
 </body>
 </html>

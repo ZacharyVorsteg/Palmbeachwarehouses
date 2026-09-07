@@ -223,7 +223,7 @@
                 </div>
                 <a href="/blog/" class="active">Blog</a>
             </nav>
-            <button type="button" class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false" onclick="toggleMobileMenu()">
+            <button type="button" class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileNav">
                 <span></span><span></span><span></span>
             </button>
             <div class="header-cta">
@@ -397,7 +397,7 @@
     </footer>
 
     <!-- Mobile Navigation Overlay -->
-    <div class="mobile-nav-overlay" id="mobileNav">
+    <nav class="mobile-nav-overlay" id="mobileNav" aria-label="Mobile navigation">
         <a href="/">Home</a>
         <a href="/about/">About</a>
         <a href="/blog/" class="active">Blog</a>
@@ -427,7 +427,9 @@
         <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1);">
             <a href="tel:561-718-6725" style="color: var(--accent-blue); font-weight: 600;">Call 561-718-6725</a>
         </div>
-    </div>
+    </nav>
+
+    <script defer src="/mobile-navigation.js?v=mobile-20260907"></script>
 
     <!-- Navigation JS -->
     <script defer src="/nav-script.js?v=keyboard-escape-20260907"></script>

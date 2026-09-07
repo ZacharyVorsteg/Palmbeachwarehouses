@@ -72,3 +72,10 @@ This triggers automatic Netlify deployment via GitHub.
 - Styles: `styles.css`
 - Facebook Pixel: `1245057844149331`
 - Google Ads: `AW-17147516072`
+
+
+## Public navigation release gate
+
+When changing headers, footers, shared navigation, location/report entry pages or blog templates, run `npm run build` followed by `npm run test:public-navigation` before pushing. The test blocks external traffic and production writes. It checks the actual revealed links, keyboard/pointer closure, responsive scroll restoration and the Locations inquiry destination.
+
+Read `docs/PUBLIC-NAVIGATION-2026-09-07.md` for the repaired failure cases. Changing a hamburger icon or `aria-expanded` alone does not prove that navigation works. Update templates and generated consumers together; version changed shared assets and verify the published page after deployment.
