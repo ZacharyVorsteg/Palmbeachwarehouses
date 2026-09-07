@@ -37,11 +37,6 @@
                 if (first) first.focus();
             }
         });
-        item.dropdown.addEventListener('keydown', event => {
-            if (event.key !== 'Escape') return;
-            event.preventDefault(); event.stopPropagation();
-            closeAll(); item.toggle.focus();
-        });
         item.dropdown.addEventListener('focusout', event => {
             if (!item.dropdown.contains(event.relatedTarget)) setOpen(item, false);
         });
@@ -56,6 +51,15 @@
                 if (!item.dropdown.contains(document.activeElement)) setOpen(item, false);
             });
         }
+    });
+    // Safari pointer clicks can leave focus outside the opened dropdown.
+    document.addEventListener('keydown', event => {
+        if (event.key !== 'Escape') return;
+        const openItem = items.find(item => item.dropdown.classList.contains('open'));
+        if (!openItem) return;
+        event.preventDefault();
+        closeAll();
+        openItem.toggle.focus();
     });
     document.addEventListener('click', event => {
         if (!items.some(item => item.dropdown.contains(event.target))) closeAll();
