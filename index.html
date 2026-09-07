@@ -1416,10 +1416,10 @@ input,select,textarea,button{font-family:inherit}
 
             <div class="field radius-group">
               <div class="radius-header">
-                <span class="radius-label label">How far are you willing to go?</span>
+                <label for="search_radius" class="radius-label label">How far are you willing to go?</label>
                 <span class="radius-value" id="radius-display">25 miles</span>
               </div>
-              <input type="range" id="search_radius" name="search_radius" min="5" max="50" value="25" step="5" class="radius-slider" aria-label="Search radius in miles">
+              <input type="range" id="search_radius" name="search_radius" min="5" max="50" value="25" step="5" class="radius-slider" aria-label="Search radius in miles" aria-describedby="radius-display">
             </div>
 
             <div class="field">
@@ -2051,14 +2051,14 @@ input,select,textarea,button{font-family:inherit}
     </div>
 
     <div class="areas-grid">
-      <a href="#form" class="area"><div class="area-city">West Palm Beach</div><div class="area-meta"><span>Industrial</span><b>$14–$22/SF</b></div></a>
-      <a href="#form" class="area"><div class="area-city">Riviera Beach</div><div class="area-meta"><span>Industrial</span><b>$13–$18/SF</b></div></a>
-      <a href="#form" class="area"><div class="area-city">Lake Worth</div><div class="area-meta"><span>Industrial</span><b>$14–$19/SF</b></div></a>
-      <a href="#form" class="area"><div class="area-city">Boynton Beach</div><div class="area-meta"><span>Industrial</span><b>$15–$20/SF</b></div></a>
-      <a href="#form" class="area"><div class="area-city">Delray Beach</div><div class="area-meta"><span>Flex</span><b>$18–$26/SF</b></div></a>
-      <a href="#form" class="area"><div class="area-city">Boca Raton</div><div class="area-meta"><span>Flex/Office</span><b>$20–$32/SF</b></div></a>
-      <a href="#form" class="area"><div class="area-city">Jupiter</div><div class="area-meta"><span>Industrial</span><b>$16–$24/SF</b></div></a>
-      <a href="#form" class="area"><div class="area-city">Royal Palm Beach</div><div class="area-meta"><span>Industrial</span><b>$13–$17/SF</b></div></a>
+      <a href="#form" class="area" data-inquiry-city="West Palm Beach"><div class="area-city">West Palm Beach</div><div class="area-meta"><span>Industrial</span><b>$14–$22/SF</b></div></a>
+      <a href="#form" class="area" data-inquiry-city="Riviera Beach"><div class="area-city">Riviera Beach</div><div class="area-meta"><span>Industrial</span><b>$13–$18/SF</b></div></a>
+      <a href="#form" class="area" data-inquiry-city="Lake Worth"><div class="area-city">Lake Worth</div><div class="area-meta"><span>Industrial</span><b>$14–$19/SF</b></div></a>
+      <a href="#form" class="area" data-inquiry-city="Boynton Beach"><div class="area-city">Boynton Beach</div><div class="area-meta"><span>Industrial</span><b>$15–$20/SF</b></div></a>
+      <a href="#form" class="area" data-inquiry-city="Delray Beach"><div class="area-city">Delray Beach</div><div class="area-meta"><span>Flex</span><b>$18–$26/SF</b></div></a>
+      <a href="#form" class="area" data-inquiry-city="Boca Raton"><div class="area-city">Boca Raton</div><div class="area-meta"><span>Flex/Office</span><b>$20–$32/SF</b></div></a>
+      <a href="#form" class="area" data-inquiry-city="Jupiter"><div class="area-city">Jupiter</div><div class="area-meta"><span>Industrial</span><b>$16–$24/SF</b></div></a>
+      <a href="#form" class="area" data-inquiry-city="Royal Palm Beach"><div class="area-city">Royal Palm Beach</div><div class="area-meta"><span>Industrial</span><b>$13–$17/SF</b></div></a>
     </div>
   </div>
 </section>
@@ -2147,8 +2147,8 @@ input,select,textarea,button{font-family:inherit}
           <li><a href="#form">Tenant Representation</a></li>
           <li><a href="#form">Off-Market Search</a></li>
           <li><a href="#form">Lease Negotiation</a></li>
-          <li><a href="#form">Sales (Owner-User)</a></li>
-          <li><a href="#form">Market Reports</a></li>
+          <li><a href="/large-warehouse-space/?transaction=buy#tenant-form-anchor">Buy (Owner-User, 10K+ SF)</a></li>
+          <li><a href="/market-report/">Market Reports</a></li>
           <li><a href="/blog/">Warehouse Blog</a></li>
         </ul>
       </div>
@@ -2156,12 +2156,12 @@ input,select,textarea,button{font-family:inherit}
       <div class="footer-col">
         <h4>Locations</h4>
         <ul>
-          <li><a href="#areas">West Palm Beach</a></li>
-          <li><a href="#areas">Riviera Beach</a></li>
-          <li><a href="#areas">Lake Worth</a></li>
-          <li><a href="#areas">Delray Beach</a></li>
-          <li><a href="#areas">Boca Raton</a></li>
-          <li><a href="#areas">Jupiter</a></li>
+          <li><a href="#form" data-inquiry-city="West Palm Beach">West Palm Beach</a></li>
+          <li><a href="#form" data-inquiry-city="Riviera Beach">Riviera Beach</a></li>
+          <li><a href="#form" data-inquiry-city="Lake Worth">Lake Worth</a></li>
+          <li><a href="#form" data-inquiry-city="Delray Beach">Delray Beach</a></li>
+          <li><a href="#form" data-inquiry-city="Boca Raton">Boca Raton</a></li>
+          <li><a href="#form" data-inquiry-city="Jupiter">Jupiter</a></li>
         </ul>
       </div>
 
@@ -2181,7 +2181,7 @@ input,select,textarea,button{font-family:inherit}
       <div class="footer-legal">
         <a href="/privacy/">Privacy</a>
         <a href="/terms/">Terms</a>
-        <a href="#">Equal Housing Opportunity</a>
+        <span>Equal Housing Opportunity</span>
       </div>
     </div>
   </div>
@@ -2344,13 +2344,15 @@ input,select,textarea,button{font-family:inherit}
     var bar = document.getElementById('sticky-mobile');
     var close = document.getElementById('sticky-close');
     if(!bar) return;
-    var dismissed = sessionStorage.getItem('pbw_sticky_dismissed') === '1';
+    var dismissed = false;
+    try { dismissed = sessionStorage.getItem('pbw_sticky_dismissed') === '1'; } catch(e) {}
     if(dismissed) return;
     function formFocused(){
       var a = document.activeElement;
       return !!(a && (a.tagName === 'INPUT' || a.tagName === 'SELECT' || a.tagName === 'TEXTAREA'));
     }
     function onScroll(){
+      if(dismissed) return;
       if(formFocused()){ bar.classList.remove('visible'); return; }
       if(window.scrollY > 400) bar.classList.add('visible');
       else bar.classList.remove('visible');
@@ -2366,7 +2368,8 @@ input,select,textarea,button{font-family:inherit}
     });
     close && close.addEventListener('click',function(){
       bar.classList.remove('visible');
-      sessionStorage.setItem('pbw_sticky_dismissed','1');
+      dismissed = true;
+      try { sessionStorage.setItem('pbw_sticky_dismissed','1'); } catch(e) {}
     });
   })();
 
@@ -2375,7 +2378,7 @@ input,select,textarea,button{font-family:inherit}
     var overlay = document.getElementById('exit-overlay');
     var closeBtn = document.getElementById('exit-close');
     if(!overlay) return;
-    if(sessionStorage.getItem('pbw_exit_shown') === '1') return;
+    try { if(sessionStorage.getItem('pbw_exit_shown') === '1') return; } catch(e) {}
     if(matchMedia('(max-width:768px)').matches) return;
     var previousFocus = null;
     var armed = false;
@@ -2385,7 +2388,7 @@ input,select,textarea,button{font-family:inherit}
       previousFocus = document.activeElement;
       overlay.classList.add('visible');
       closeBtn && closeBtn.focus();
-      sessionStorage.setItem('pbw_exit_shown','1');
+      try { sessionStorage.setItem('pbw_exit_shown','1'); } catch(e) {}
       document.removeEventListener('mouseleave',onLeave);
     }
     function onLeave(e){
@@ -2414,7 +2417,7 @@ input,select,textarea,button{font-family:inherit}
 
 <script defer src="/utm-capture.js"></script>
 <script defer src="/qualification.js"></script>
-<script defer src="/crm-integration.js?v=context-20260906"></script>
+<script defer src="/crm-integration.js?v=nav-20260907"></script>
 <script defer src="/agent-status.js?v=appointments-20260906"></script>
 <script defer src="/tracking-init.js"></script>
 

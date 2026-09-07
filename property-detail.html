@@ -114,6 +114,12 @@
 .pd-agent-phone{display:flex;align-items:center;justify-content:center;gap:8px;padding:11px;background:rgba(59,147,255,.08);color:var(--blue-600);border:1px solid rgba(59,147,255,.2);border-radius:var(--r-md);font-weight:700;font-size:14px;text-decoration:none;margin-top:10px}
 .pd-note{background:#FEF7E7;border:1px solid #F5D77C;border-radius:var(--r-md);padding:14px 16px;font-size:13.5px;color:#78561A;line-height:1.55;margin-top:18px}
 .pd-note b{color:#5C3F0A}
+#lead-form.hidden,#success-message.hidden,#lead-form [data-form-message].hidden{display:none}
+#lead-form [data-form-message]{padding:12px;margin-top:12px;font-size:14px;line-height:1.5}
+#lead-form [data-form-message].error{color:#8b1d1d;background:#fff1f1;border:1px solid #d98e8e;border-radius:6px}
+#success-message{padding:16px 0;font-size:14px;line-height:1.6;color:var(--ink-700)}
+#success-message h3{margin-bottom:8px;color:var(--ink-900)}
+#success-message a{color:var(--blue-600)}
 </style>
 
 <meta name="description" content="Review the warehouse details for 1225 Omar Rd in West Palm Beach, including layout, loading access and property specifications. Ask about current availability.">
@@ -237,7 +243,7 @@
         <h2>Market Context</h2>
         <div class="pd-desc">
           <p>Omar Road is one of the few small-industrial micro-markets inside city limits. Comparable space on Wallis Rd and 45th St trades in the $20–24/SF range; this building is priced below the submarket median because of building age and interior condition. There's room for a well-negotiated TI package in exchange for a 5-year term.</p>
-          <p style="color:var(--ink-400);font-size:13.5px;font-style:italic">— Zach Vorsteg, listing broker</p>
+          <p style="color:var(--ink-400);font-size:13.5px;font-style:italic">— Zach Vorsteg, listing agent</p>
         </div>
       </section>
     </div>
@@ -247,7 +253,7 @@
         <div class="pd-agent-ava"><img src="assets/headshot.jpg" alt="Zach Vorsteg" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;"></div>
         <div>
           <div class="pd-agent-name">Zach Vorsteg</div>
-          <div class="pd-agent-role">Licensed Broker · Listing Agent</div>
+          <div class="pd-agent-role">Licensed FL Real Estate Sales Associate · Listing Agent</div>
           <div class="pd-agent-lic">FL SL3603483</div>
         </div>
       </div>
@@ -255,27 +261,35 @@
         <div class="pd-agent-stat"><div class="pd-agent-stat-v">50,000+</div><div class="pd-agent-stat-l">SF Leased</div></div>
         <div class="pd-agent-stat"><div class="pd-agent-stat-v">&lt;1hr</div><div class="pd-agent-stat-l">Response time</div></div>
       </div>
+      <noscript><p class="pd-note">Online showing requests need JavaScript. <a href="tel:5617186725">Call 561-718-6725 to request a showing.</a></p></noscript>
       <form id="lead-form" method="POST" action="javascript:void(0);">
-        <label>Name</label>
-        <input type="text" required placeholder="Your name">
-        <label>Phone or email</label>
-        <input type="text" required placeholder="Best way to reach you">
-        <label>Tell me about your interest</label>
-        <textarea placeholder="Ideal timing, use, any questions on the space..."></textarea>
+        <input type="hidden" name="listing_interest" value="1225 Omar Rd — West Palm Beach, FL">
+        <input type="hidden" name="preferred_location_value" value="West Palm Beach, FL">
+        <label for="showing-name">Name (required)</label>
+        <input id="showing-name" name="name" type="text" required autocomplete="name" placeholder="Your name">
+        <label for="showing-contact">Phone or email (required)</label>
+        <input id="showing-contact" name="contact" type="text" required placeholder="Best way to reach you">
+        <label for="showing-notes">Tell me about your interest</label>
+        <textarea id="showing-notes" name="notes" placeholder="Ideal timing, use, any questions on the space..."></textarea>
         <button type="submit">Request Showing</button>
         <div class="pd-agent-micro"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>No obligation · Confidential</div>
         <a href="tel:5617186725" class="pd-agent-phone"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Call 561-718-6725</a>
       </form>
+      <div id="success-message" class="hidden" role="status" aria-live="polite">
+        <h3>Showing request received</h3>
+        <p id="success-callout">Zach will follow up using the contact details you provided. Property tours require a confirmed appointment.</p>
+        <a href="tel:5617186725">Call 561-718-6725</a>
+      </div>
       <div class="pd-note"><b>Representing yourself?</b> Landlords have a broker. I represent you, not them — at no cost to you.</div>
     </aside>
   </div>
 </main>
 
-<footer class="footer"><div class="footer-inner"><div class="footer-bot" style="border:0;padding-top:0"><div>© 2026 Palm Beach Warehouses · A Cornerstone Realty service</div><div class="footer-legal"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Equal Housing Opportunity</a></div></div></div></footer>
+<footer class="footer"><div class="footer-inner"><div class="footer-bot" style="border:0;padding-top:0"><div>© 2026 Palm Beach Warehouses · A Cornerstone Realty service</div><div class="footer-legal"><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><span>Equal Housing Opportunity</span></div></div></div></footer>
 
 <script defer src="/utm-capture.js"></script>
 <script defer src="/qualification.js"></script>
-<script defer src="/crm-integration.js?v=context-20260906"></script>
+<script defer src="/crm-integration.js?v=nav-20260907"></script>
 <script>window.addEventListener('load',function(){var s=document.createElement('script');s.src='/tracking-init.js';document.head.appendChild(s)})</script>
 </body>
 </html>

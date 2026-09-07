@@ -63,12 +63,14 @@
     }
 
     setupListingContext(tenantForm);
+    setupCityContext(tenantForm);
 
     // Try to load tenant ID from cache
-    const cached = localStorage.getItem('trusenda_tenant_id');
-    if (cached) {
-      tenantId = cached;
-      console.log('✅ Tenant ID loaded from cache:', tenantId);
+    try {
+      const cached = localStorage.getItem('trusenda_tenant_id');
+      if (cached) tenantId = cached;
+    } catch (error) {
+      console.warn('Optional form cache unavailable');
     }
 
     // Fetch tenant ID
@@ -119,6 +121,38 @@
         input.value = context.slice(0, 240);
         summary.textContent = 'Property inquiry: ' + input.value;
         panel.hidden = false;
+      });
+    });
+  }
+
+  // A city choice is an editable requirement, independent of listing interest.
+  function setupCityContext(form) {
+    if (!form) return;
+    const links = document.querySelectorAll('[data-inquiry-city]');
+    const visible = form.querySelector('[name="preferred_location"]');
+    const stored = form.querySelector('[name="preferred_location_value"]');
+    if (!links.length || !visible || !stored) return;
+    // Typing or clearing the visible field must supersede a previously chosen city.
+    visible.addEventListener('input', function() { stored.value = ''; });
+    links.forEach(function(link) {
+      link.addEventListener('click', function(event) {
+        event.preventDefault();
+        if (form.getAttribute('aria-busy') === 'true') return;
+        if (form.classList.contains('hidden') && typeof window.resetForm === 'function') {
+          activeFormType = 'tenant';
+          window.resetForm();
+        }
+        visible.value = link.dataset.inquiryCity;
+        stored.value = visible.value;
+        const toggle = form.querySelector('.advanced-toggle');
+        if (toggle && toggle.getAttribute('aria-expanded') !== 'true') toggle.click();
+        visible.focus({preventScroll: true});
+        // Scroll the page, not the expanding overflow-hidden panel: scrolling
+        // that panel during its transition can clip the city's visible label.
+        const panel = form.querySelector('.advanced-requirements');
+        if (panel) panel.scrollTop = 0;
+        const field = visible.closest('.field') || visible;
+        window.scrollTo({top: window.scrollY + field.getBoundingClientRect().top - window.innerHeight / 2, behavior: 'auto'});
       });
     });
   }
@@ -193,7 +227,8 @@
 
       const data = await response.json();
       tenantId = data.tenantId;
-      localStorage.setItem('trusenda_tenant_id', tenantId);
+      try { localStorage.setItem('trusenda_tenant_id', tenantId); }
+      catch (error) { console.warn('Optional form cache unavailable'); }
       console.log('✅ Tenant ID retrieved successfully:', tenantId);
       return tenantId;
     } catch (error) {
@@ -337,6 +372,15 @@
   function extractTenantFormData(form) {
     const formData = new FormData(form);
     const spaceSize = formData.get('space_size');
+    // The listing-detail form permits one contact method; map it to the CRM's
+    // existing phone/email fields rather than sending an unrecognized field.
+    const contact = String(formData.get('contact') || '').trim();
+    let contactEmail = null, contactPhone = null;
+    if (contact) {
+      if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact)) contactEmail = contact;
+      else if (/^[\d\s()+.\-]+$/.test(contact) && contact.replace(/\D/g, '').length >= 10 && contact.replace(/\D/g, '').length <= 15) contactPhone = contact;
+      else throw new Error('Enter a valid email or a phone number with 10–15 digits. Your details are still in the form.');
+    }
 
     let sizeMin = null;
     let sizeMax = null;
@@ -362,8 +406,8 @@
     return {
       tenant_id: tenantId,
       name: formData.get('name'),
-      email: formData.get('email') || null,
-      phone: formData.get('phone') || null,
+      email: formData.get('email') || contactEmail,
+      phone: formData.get('phone') || contactPhone,
       company: formData.get('company') || null,
       budget: formData.get('budget') || null,
       sizeMin: sizeMin,

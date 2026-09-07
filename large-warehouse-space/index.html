@@ -1439,6 +1439,10 @@
     (function() {
       var params = new URLSearchParams(window.location.search);
       var variant = (params.get('utm_content') || '').toLowerCase().trim();
+      // Preserve explicit owner-user intent while leaving all options editable.
+      if (params.get('transaction') === 'buy') {
+        document.getElementById('transaction_type').value = 'Buy a building';
+      }
 
       var variants = {
         'size-10k': {
@@ -1495,7 +1499,7 @@
     </script>
 
     <script defer src="/qualification.js"></script>
-    <script defer src="/crm-integration.js?v=context-20260906"></script>
+    <script defer src="/crm-integration.js?v=nav-20260907"></script>
     <script defer src="/cookie-consent.js"></script>
 
     <!-- Netlify form detection (hidden copy for Netlify to detect at deploy) -->
