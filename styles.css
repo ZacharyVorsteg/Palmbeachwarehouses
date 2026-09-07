@@ -807,3 +807,9 @@ form input,form select,form textarea,.input,.select,.textarea{scroll-margin-top:
 .listing-card:hover .listing-photo img{transform:scale(1.04)}
 @media(max-width:768px){.listing-photo{height:170px}}
 @media(max-width:480px){.listing-photo{height:150px;margin-bottom:.85rem}}
+
+/* Selected listing handoff, only visible after Request Info. */
+.listing-inquiry-context{padding:12px 14px;margin-bottom:16px;border:1px solid #a8bdd5;border-radius:8px;background:#eff6ff;color:#14243a;font-size:14px;line-height:1.5}
+.listing-inquiry-context[hidden]{display:none}
+.listing-inquiry-context p{margin:0 0 4px}
+.listing-inquiry-context button{min-height:44px;background:none;border:0;color:#0052c9;text-decoration:underline;font:inherit;cursor:pointer;padding:4px 0}

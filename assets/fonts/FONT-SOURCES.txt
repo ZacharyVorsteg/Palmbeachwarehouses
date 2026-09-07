@@ -1,0 +1,8 @@
+Existing brand font files from Google Fonts, retrieved September 7, 2026. Files and declared ranges are unchanged. Individual licenses are included.
+[
+  {
+    "source": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&display=swap",
+    "stylesheet": "brand-cf48a6f4a204.css",
+    "font_files": 11
+  }
+]

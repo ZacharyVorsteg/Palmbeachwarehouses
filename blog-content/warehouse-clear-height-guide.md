@@ -1,4 +1,6 @@
 ---
+seo_title: "Warehouse Clear Height: 16, 24 and 32 Feet Explained"
+seo_description: "Understand warehouse clear height, racking capacity and equipment requirements. Compare what 16-, 24- and 32-foot spaces mean for your operation."
 title: "Warehouse Clear Height Explained: What 16ft, 24ft, and 32ft Ceilings Mean for Your Business"
 description: "Clear height guide: what it is, why it matters, racking implications, cost premiums. 16ft vs 24ft vs 32ft warehouses."
 keywords: "warehouse clear height, ceiling height, warehouse specifications, racking systems"

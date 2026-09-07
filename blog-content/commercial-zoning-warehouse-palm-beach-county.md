@@ -1,4 +1,6 @@
 ---
+seo_title: "Warehouse Zoning in Palm Beach County: A Tenant Guide"
+seo_description: "Review industrial zoning categories, permitted uses and questions to check with the local municipality before leasing a Palm Beach County warehouse."
 title: "Commercial Zoning for Warehouses in Palm Beach County: What You Need to Know"
 description: "Warehouse zoning guide: IG, IL, IC districts. Permitted uses, conditional uses, unincorporated vs. incorporated PBC."
 keywords: "warehouse zoning palm beach county, commercial zoning, industrial zoning, conditional use permit"

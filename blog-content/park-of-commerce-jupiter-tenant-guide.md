@@ -1,4 +1,6 @@
 ---
+seo_title: "Palm Beach Park of Commerce: Jupiter Warehouse Guide"
+seo_description: "Explore Palm Beach Park of Commerce in Jupiter, including location, industrial space characteristics and questions to consider before leasing."
 title: "Palm Beach Park of Commerce in Jupiter: Tenant Guide, Costs & What's Available"
 description: "Guide to Palm Beach Park of Commerce: 6.5M SF, $22-24/SF, Amazon, FedEx. Jupiter's premier industrial park."
 keywords: "palm beach park of commerce jupiter, jupiter industrial park, florida warehouse space"

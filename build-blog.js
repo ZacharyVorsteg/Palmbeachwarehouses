@@ -76,14 +76,6 @@ function readTime(text) {
   return Math.max(1, Math.ceil(words / 225));
 }
 
-// Shorten title to fit within 65 chars (SEO standard for <title> tags)
-function shortenTitle(title, maxLength = 65) {
-  if (title.length <= maxLength) return title;
-  const truncated = title.substring(0, maxLength);
-  const lastSpace = truncated.lastIndexOf(' ');
-  return lastSpace > 0 ? truncated.substring(0, lastSpace) : truncated;
-}
-
 // Generate related articles HTML
 function getRelatedArticles(current, allArticles, count = 3) {
   // Prefer same pillar, then most recent
@@ -135,7 +127,8 @@ function build() {
 
     articles.push({
       title: meta.title || slug,
-      description: meta.description || '',
+      seoTitle: meta.seo_title || meta.title || slug,
+      description: meta.seo_description || meta.description || '',
       keywords: meta.keywords || '',
       date: meta.date || '2026-03-08',
       pillar: meta.pillar || 'Market Intelligence',
@@ -156,9 +149,10 @@ function build() {
 
     const relatedHtml = getRelatedArticles(article, articles);
     const minutes = readTime(article.body);
-    const displayTitle = shortenTitle(article.title);
+    const displayTitle = article.title;
 
     const pageHtml = template
+      .replace(/\{\{SEO_TITLE\}\}/g, article.seoTitle)
       .replace(/\{\{TITLE\}\}/g, displayTitle)
       .replace(/\{\{DESCRIPTION\}\}/g, article.description)
       .replace(/\{\{KEYWORDS\}\}/g, article.keywords)

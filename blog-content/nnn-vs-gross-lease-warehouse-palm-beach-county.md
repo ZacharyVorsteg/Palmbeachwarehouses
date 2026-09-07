@@ -1,4 +1,6 @@
 ---
+seo_title: "NNN vs. Gross Warehouse Leases | Palm Beach County"
+seo_description: "Compare NNN and gross warehouse leases, including base rent, operating expenses and questions to ask when reviewing Palm Beach County lease proposals."
 title: "NNN vs. Gross Lease: A Warehouse Tenant's Guide for Palm Beach County"
 description: "Triple net vs. gross warehouse lease in Palm Beach County: what each costs, what tenants get wrong, and how to compare offers accurately."
 keywords: "NNN lease warehouse Palm Beach County, triple net lease industrial Florida, gross lease warehouse, modified gross lease, warehouse lease structure, CAM charges industrial, warehouse operating expenses Florida"

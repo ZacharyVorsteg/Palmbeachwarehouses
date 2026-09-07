@@ -1,4 +1,6 @@
 ---
+seo_title: "Section 122 Tariffs and Florida Warehouse Planning"
+seo_description: "Explore how tariff changes can affect importers, inventory and warehouse planning, with considerations for Florida industrial tenants."
 title: "Section 122 Tariff Surcharge: Impact on Florida Warehouses"
 description: "How the Section 122 tariff surcharge affects Florida warehouse operators, importers, and industrial tenants. Mitigation strategies for Palm Beach County."
 keywords: "section 122 tariff warehouse florida, tariff surcharge warehouse impact, section 122 trade act 1974, florida warehouse tariff mitigation, palm beach county warehouse tariff"

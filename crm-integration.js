@@ -62,6 +62,8 @@
       console.warn('⚠️  No known form found on page');
     }
 
+    setupListingContext(tenantForm);
+
     // Try to load tenant ID from cache
     const cached = localStorage.getItem('trusenda_tenant_id');
     if (cached) {
@@ -75,6 +77,64 @@
     // Mobile form auto-scroll: smoothly guide users to each field as they fill out the form
     setupFormAutoScroll();
   });
+
+  // Listing facts remain in the existing cards. Carry only the visitor's chosen
+  // property into the existing notes field; never replace their requirements.
+  function setupListingContext(form) {
+    if (!form) return;
+    const links = document.querySelectorAll('.listing-cta');
+    if (!links.length) return;
+    const panel = document.createElement('div');
+    panel.className = 'listing-inquiry-context';
+    panel.hidden = true;
+    const summary = document.createElement('p');
+    summary.setAttribute('role', 'status');
+    const clear = document.createElement('button');
+    clear.type = 'button';
+    clear.textContent = 'Remove property';
+    const input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = 'listing_interest';
+    panel.append(summary, clear, input);
+    form.prepend(panel);
+    function resetContext() { input.value = ''; summary.textContent = ''; panel.hidden = true; }
+    clear.addEventListener('click', function() {
+      resetContext();
+      const first = form.querySelector('input:not([type="hidden"]), select');
+      if (first) first.focus({preventScroll:true});
+    });
+    form.addEventListener('reset', resetContext);
+    links.forEach(function(link) {
+      const card = link.closest('.listing, .listing-card');
+      const address = card && card.querySelector('.listing-address');
+      const city = card && card.querySelector('.listing-city, .listing-location');
+      if (!address) return;
+      const context = [address.textContent.trim(), city && city.textContent.trim()].filter(Boolean).join(' — ');
+      link.setAttribute('aria-label', 'Request information about ' + context);
+      link.addEventListener('click', function() {
+        if (form.classList.contains('hidden') && typeof window.resetForm === 'function') {
+          activeFormType = 'tenant';
+          window.resetForm();
+        }
+        input.value = context.slice(0, 240);
+        summary.textContent = 'Property inquiry: ' + input.value;
+        panel.hidden = false;
+      });
+    });
+  }
+
+  function getFormMessage(form) {
+    let message = form.querySelector('#form-message, [data-form-message]');
+    if (!message) {
+      message = document.createElement('div');
+      message.dataset.formMessage = '';
+      message.className = 'form-message hidden';
+      form.append(message);
+    }
+    message.setAttribute('role', 'status');
+    message.setAttribute('aria-live', 'polite');
+    return message;
+  }
 
   // Auto-scroll form fields on mobile for seamless fill-out experience
   function setupFormAutoScroll() {
@@ -159,15 +219,17 @@
     const form = event.target;
 
     // Trust the form that was actually submitted, not a module-level global.
-    if (form.dataset && form.dataset.leadFormType) activeFormType = form.dataset.leadFormType;
+    const submittedFormType = (form.dataset && form.dataset.leadFormType) || activeFormType;
+    activeFormType = submittedFormType;
 
     // Scope to the submitted form first; #submit-btn belongs to #lead-form, so an
     // unscoped lookup let a report submission disable the MAIN form's button.
-    const pick = (sel) => (form.querySelector(sel) || document.querySelector(sel));
+    const pick = (sel) => form.querySelector(sel);
     const submitBtn = form.querySelector('#submit-btn, button[type="submit"]') || document.getElementById('submit-btn');
     const btnText = pick('#btn-text');
     const btnLoading = pick('#btn-loading');
-    const formMessage = pick('#form-message');
+    const formMessage = getFormMessage(form);
+    form.setAttribute('aria-busy', 'true');
 
     // Disable button and show loading
     if (submitBtn) submitBtn.disabled = true;
@@ -193,19 +255,19 @@
 
       // Build lead data based on form type
       let leadData;
-      if (activeFormType === 'landlord') {
+      if (submittedFormType === 'landlord') {
         leadData = extractLandlordFormData(form);
-      } else if (activeFormType === 'report') {
+      } else if (submittedFormType === 'report') {
         leadData = extractReportFormData(form);
-      } else if (activeFormType === 'valuation') {
+      } else if (submittedFormType === 'valuation') {
         leadData = extractValuationFormData(form);
-      } else if (activeFormType === 'sales') {
+      } else if (submittedFormType === 'sales') {
         leadData = extractSalesFormData(form);
-      } else if (activeFormType === 'featured-tenant') {
+      } else if (submittedFormType === 'featured-tenant') {
         leadData = extractFeaturedTenantFormData(form);
-      } else if (activeFormType === 'warehouse-owner') {
+      } else if (submittedFormType === 'warehouse-owner') {
         leadData = extractWarehouseOwnerFormData(form);
-      } else if (activeFormType === 'active-tenant') {
+      } else if (submittedFormType === 'active-tenant') {
         leadData = extractActiveTenantFormData(form);
       } else {
         leadData = extractTenantFormData(form);
@@ -215,7 +277,7 @@
       const attribution = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content']
         .filter(key => leadData[key]).map(key => key + ': ' + String(leadData[key]).slice(0, 100));
       if (attribution.length) leadData.notes = (leadData.notes || '') + '\nAttribution: ' + attribution.join('; ');
-      if (leadData.notes && leadData.notes.length > 2000) throw new Error('Please shorten the additional notes and try again.');
+      if (leadData.notes && leadData.notes.length > 2000) throw new Error('Please shorten long text entries in your request and try again, or call 561-718-6725 for help.');
 
       // POST to CRM
       const response = await fetch(`${CONFIG.TRUSENDA_API_URL}/ingest-lead`, {
@@ -235,14 +297,18 @@
         // because its submit handler was never attached. Restoring lead capture must NOT
         // change live ad-campaign data, so report submissions stay pixel-silent. Set
         // REPORT_FORM_FIRES_PIXELS = true to begin counting them as conversions.
-        if (activeFormType !== 'report' || REPORT_FORM_FIRES_PIXELS) {
-          fireTrackingPixels(leadData);
+        if (submittedFormType !== 'report' || REPORT_FORM_FIRES_PIXELS) {
+          try {
+            fireTrackingPixels(leadData, submittedFormType);
+          } catch (trackingError) {
+            console.warn('Request saved; optional conversion tracking was unavailable.');
+          }
         } else {
           console.log('\u2139\ufe0f  Report lead saved; pixels intentionally not fired (see REPORT_FORM_FIRES_PIXELS)');
         }
 
         // Show success UI
-        showSuccessMessage(form, leadData);
+        showSuccessMessage(form, leadData, submittedFormType);
       } else {
         // Handle specific errors
         if (response.status === 402) {
@@ -253,7 +319,7 @@
       }
     } catch (error) {
       console.error('❌ Form submission error:', error);
-      showErrorMessage(error.message);
+      showErrorMessage(form, error.message);
       if (submitBtn) submitBtn.disabled = false;
       if (btnText) {
         btnText.classList.remove('hidden');
@@ -262,6 +328,7 @@
       }
       if (btnLoading) btnLoading.classList.add('hidden');
     } finally {
+      form.removeAttribute('aria-busy');
       isSubmitting = false;
     }
   }
@@ -373,23 +440,26 @@
   // ─── VALUATION form data extraction ───
   function extractValuationFormData(form) {
     const formData = new FormData(form);
+    const sf = formData.get('property_sqft') || formData.get('square_footage');
+    const propertyType = formData.get('property_type_val') || formData.get('property_type');
+    const yearBuilt = formData.get('property_year_built') || formData.get('year_built');
 
     const notes = [
       'Source: palmbeachwarehouses.com/what-is-my-space-worth',
       'Lead Type: SPACE VALUATION',
       `Property Address: ${formData.get('property_address') || 'N/A'}`,
       `City: ${formData.get('property_city') || 'N/A'}`,
-      `Property Type: ${formData.get('property_type') || 'N/A'}`,
-      `Square Footage: ${formData.get('square_footage') || 'N/A'}`,
-      `Year Built: ${formData.get('year_built') || 'N/A'}`,
-      `Clear Height: ${formData.get('clear_height') || 'N/A'}`,
-      `Loading: ${formData.get('loading_type') || 'N/A'}`,
-      `Condition: ${formData.get('condition') || 'N/A'}`,
-      `Estimated Value: ${formData.get('estimated_value') || 'N/A'}`
+      `Property Type: ${propertyType || 'N/A'}`,
+      `Square Footage: ${sf || 'N/A'}`,
+      `Year Built: ${yearBuilt || 'N/A'}`,
+      `ZIP: ${formData.get('property_zip') || 'N/A'}`,
+      `Best Time to Call: ${formData.get('best_time_to_call') || 'N/A'}`,
+      `Displayed calculator estimated_lease_rate: ${formData.get('estimated_lease_rate') || 'N/A'}`,
+      `Displayed calculator estimated_annual_revenue: ${formData.get('estimated_annual_revenue') || 'N/A'}`,
+      `Wizard Inputs: ${formData.get('wizard_details') || 'N/A'}`
     ].join('\n');
 
     let sizeMin = null;
-    const sf = formData.get('square_footage');
     if (sf) {
       const match = sf.match(/(\d[\d,]*)/);
       if (match) sizeMin = parseInt(match[1].replace(/,/g, ''), 10);
@@ -401,7 +471,7 @@
       email: formData.get('email') || null,
       phone: formData.get('phone') || null,
       sizeMin: sizeMin,
-      propertyType: formData.get('property_type') || 'Warehouse',
+      propertyType: propertyType || 'Warehouse',
       preferredArea: formData.get('property_city') || 'Palm Beach County, FL',
       notes: notes,
       ...getUtmData()
@@ -425,7 +495,8 @@
       `Current Rent: ${formData.get('current_rent') || 'N/A'}`,
       `Reason for Selling: ${formData.get('reason_selling') || 'N/A'}`,
       `Timeline: ${formData.get('timeline') || 'N/A'}`,
-      `Price Expectation: ${formData.get('price_expectation') || 'N/A'}`
+      `Price Expectation: ${formData.get('price_expectation') || 'N/A'}`,
+      `Additional Notes: ${formData.get('additional_notes') || 'None'}`
     ].join('\n');
 
     let sizeMin = null;
@@ -678,6 +749,8 @@
   function buildTenantNotesField(formData) {
     const notes = [];
     notes.push('Source: palmbeachwarehouses.com');
+    const listingInterest = formData.get('listing_interest');
+    if (listingInterest) notes.push('Property inquiry: ' + String(listingInterest).slice(0, 240));
 
     const requirements = [];
     const docks = formData.get('req_docks');
@@ -719,23 +792,23 @@
   // Fire tracking ONLY after CRM success.
   // Each call generates a single eventId shared between browser fbq() and server CAPI
   // so Meta deduplicates them into one conversion.
-  function fireTrackingPixels(leadData) {
+  function fireTrackingPixels(leadData, formType) {
     const eventId = generateEventId();
-    if (activeFormType === 'tenant') {
+    if (formType === 'tenant') {
       fireTenantPixels(leadData, eventId);
-    } else if (activeFormType === 'landlord') {
+    } else if (formType === 'landlord') {
       fireLandlordPixels(leadData, eventId);
-    } else if (activeFormType === 'report') {
+    } else if (formType === 'report') {
       fireReportPixels(leadData, eventId);
-    } else if (activeFormType === 'valuation') {
+    } else if (formType === 'valuation') {
       fireValuationPixels(leadData, eventId);
-    } else if (activeFormType === 'sales') {
+    } else if (formType === 'sales') {
       fireSalesPixels(leadData, eventId);
-    } else if (activeFormType === 'featured-tenant') {
+    } else if (formType === 'featured-tenant') {
       fireFeaturedTenantPixels(leadData, eventId);
-    } else if (activeFormType === 'warehouse-owner') {
+    } else if (formType === 'warehouse-owner') {
       fireWarehouseOwnerPixels(leadData, eventId);
-    } else if (activeFormType === 'active-tenant') {
+    } else if (formType === 'active-tenant') {
       fireActiveTenantPixels(leadData, eventId);
     }
   }
@@ -1036,51 +1109,57 @@
   }
 
   // Show success message (form-type aware)
-  function showSuccessMessage(form, leadData) {
+  function showSuccessMessage(form, leadData, formType) {
     const successMessage = document.getElementById('success-message');
 
-    if (activeFormType === 'tenant') {
+    if (formType === 'tenant') {
       // Tenant: hide form, show success with qualification callout
       const leadForm = document.getElementById('lead-form');
       leadForm.classList.add('hidden');
       successMessage.classList.remove('hidden');
 
-      const qualification = QUALIFICATION.scoreQualification(leadData);
       const callout = document.getElementById('success-callout');
       let message = '';
 
       message = '<strong>Request received.</strong> Zach will review your requirements and contact you about available options. Consultations and property tours are by appointment after confirmation; no walk-ins.';
 
-      callout.innerHTML = message;
-      callout.style.display = 'block';
-    } else if (activeFormType === 'landlord') {
+      if (callout) {
+        callout.innerHTML = message;
+        callout.style.display = 'block';
+      }
+    } else if (formType === 'landlord') {
       // Landlord: hide form, show success (content is already in HTML)
       const landlordForm = document.getElementById('landlord-lead-form');
       landlordForm.classList.add('hidden');
       successMessage.classList.remove('hidden');
-    } else if (activeFormType === 'report') {
+    } else if (formType === 'report') {
       // Report: hide form, show success with download link
+      // Some report pages nest the receipt inside the form; keep it visible.
+      if (successMessage && form.contains(successMessage)) form.insertAdjacentElement('afterend', successMessage);
       form.style.display = 'none';
       if (document.getElementById('lead-form')) {
         const receipt = document.createElement('p');
         receipt.setAttribute('role', 'status');
         receipt.textContent = 'Your report request has been received. Zach will follow up using the contact details you provided.';
+        receipt.tabIndex = -1;
         form.insertAdjacentElement('afterend', receipt);
+        receipt.focus({preventScroll: true});
+        return;
       } else if (successMessage) {
         successMessage.classList.remove('hidden');
         successMessage.style.display = 'block';
       }
-    } else if (activeFormType === 'valuation') {
+    } else if (formType === 'valuation') {
       // Valuation: hide form, show success
       const valuationForm = document.getElementById('valuation-lead-form');
       valuationForm.classList.add('hidden');
       successMessage.classList.remove('hidden');
-    } else if (activeFormType === 'sales') {
+    } else if (formType === 'sales') {
       // Sales: hide form, show success
       const salesForm = document.getElementById('sales-lead-form');
       salesForm.classList.add('hidden');
       successMessage.classList.remove('hidden');
-    } else if (activeFormType === 'featured-tenant') {
+    } else if (formType === 'featured-tenant') {
       // Featured tenant: hide form wrapper, show success screen
       const ftForm = document.getElementById('featured-tenant-form');
       ftForm.parentElement.style.display = 'none';
@@ -1088,7 +1167,7 @@
       if (successScreen) successScreen.classList.add('show');
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
-    } else if (activeFormType === 'warehouse-owner') {
+    } else if (formType === 'warehouse-owner') {
       // Warehouse owner: hide form container, show success screen
       const formContainer = document.getElementById('form-container');
       if (formContainer) formContainer.classList.add('hidden');
@@ -1096,7 +1175,7 @@
       if (successScreen) successScreen.classList.remove('hidden');
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
-    } else if (activeFormType === 'active-tenant') {
+    } else if (formType === 'active-tenant') {
       // Active tenant: hide form container, show success screen
       const atForm = document.getElementById('active-tenant-form');
       if (atForm) atForm.classList.add('hidden');
@@ -1117,8 +1196,8 @@
   }
 
   // Show error message
-  function showErrorMessage(message) {
-    const formMessage = document.getElementById('form-message');
+  function showErrorMessage(form, message) {
+    const formMessage = getFormMessage(form);
     formMessage.textContent = message;
     formMessage.className = 'form-message error';
     formMessage.classList.remove('hidden');
@@ -1185,7 +1264,13 @@
     const advancedToggle = document.querySelector('.advanced-toggle');
     if (advancedToggle) {
       advancedToggle.classList.remove('expanded');
+      advancedToggle.setAttribute('aria-expanded', 'false');
+      const icon = advancedToggle.querySelector('.toggle-icon');
+      if (icon) icon.textContent = '+';
     }
+
+    const radius = form.querySelector('[name="search_radius"]');
+    if (radius) radius.dispatchEvent(new Event('input', {bubbles: true}));
 
     scrollToForm();
   };

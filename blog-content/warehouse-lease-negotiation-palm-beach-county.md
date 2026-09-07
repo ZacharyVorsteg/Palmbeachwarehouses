@@ -1,4 +1,6 @@
 ---
+seo_title: "Warehouse Lease Negotiation Guide | Palm Beach County"
+seo_description: "Prepare for warehouse lease negotiations in Palm Beach County. Review rent, tenant improvements, escalation clauses and NNN expense questions."
 title: "How to Negotiate a Warehouse Lease in Palm Beach County: A Tenant's Guide"
 description: "Warehouse lease negotiation tactics for Palm Beach County tenants. Free rent, TI allowances, escalation caps, and NNN expense strategies from a local broker."
 keywords: "warehouse lease negotiation tips florida, how to negotiate commercial lease florida, warehouse tenant concessions, free rent negotiation industrial lease"

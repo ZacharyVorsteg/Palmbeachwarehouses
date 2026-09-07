@@ -9,9 +9,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Free warehouse valuation in Palm Beach County. Get estimated lease rates, market value, and comps. No obligation. Instant results.">
+    <meta name="description" content="Estimate your Palm Beach County warehouse value using property details, then request a follow-up to discuss lease rates, sale value and comparable properties.">
     <meta name="keywords" content="warehouse valuation Palm Beach, industrial property value, what is my warehouse worth, commercial property appraisal, lease rate calculator">
-    <title>What Is My Warehouse Worth? | Free Palm Beach County Valuation | PBW</title>
+    <title>Warehouse Value Estimate in Palm Beach County | PBW</title>
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://palmbeachwarehouses.com/what-is-my-space-worth/">
@@ -23,26 +23,23 @@
     <meta name="ICBM" content="26.7153, -80.0534">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/favicon.png">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-
     <!-- Open Graph (Facebook, LinkedIn, iMessage, etc.) -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://palmbeachwarehouses.com/what-is-my-space-worth/">
-    <meta property="og:title" content="What Is My Warehouse Worth? | Free Valuation">
-    <meta property="og:description" content="Get a free warehouse valuation estimate in Palm Beach County. See your property's estimated lease rate and market value. No obligation.">
-    <meta property="og:image" content="https://palmbeachwarehouses.com/assets/og-editorial.png">
+    <meta property="og:title" content="Warehouse Value Estimate in Palm Beach County | PBW">
+    <meta property="og:description" content="Estimate your Palm Beach County warehouse value using property details, then request a follow-up to discuss lease rates, sale value and comparable properties.">
+    <meta property="og:image" content="https://palmbeachwarehouses.com/assets/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Palm Beach Warehouses - Warehouse Valuation Tool">
+    <meta property="og:image:alt" content="Palm Beach Warehouses logo with a warehouse, palm tree and blue waves">
     <meta property="og:site_name" content="Palm Beach Warehouses">
     <meta property="og:locale" content="en_US">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="What Is My Warehouse Worth? | Free Valuation">
-    <meta name="twitter:description" content="Free warehouse valuation for your property. Enter details and get instant lease rate estimates. No obligation. Try it now.">
-    <meta name="twitter:image" content="https://palmbeachwarehouses.com/assets/og-editorial.png">
+    <meta name="twitter:title" content="Warehouse Value Estimate in Palm Beach County | PBW">
+    <meta name="twitter:description" content="Estimate your Palm Beach County warehouse value using property details, then request a follow-up to discuss lease rates, sale value and comparable properties.">
+    <meta name="twitter:image" content="https://palmbeachwarehouses.com/assets/og-image.png">
     <meta name="twitter:creator" content="@palmbeachwarehouses">
 
     <!-- hreflang for international SEO -->
@@ -275,12 +272,20 @@
 
     <!-- Tracking (FB Pixel + Google Ads) -->
     <script defer src="/tracking-init.js"></script>
-    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1245057844149331&ev=PageView&noscript=1"/></noscript>
+
 
     <!-- UTM Capture Script -->
     <script defer src="/utm-capture.js?v=91"></script>
+
+<meta property="og:image:type" content="image/png">
+
+<meta name="twitter:image:alt" content="Palm Beach Warehouses logo with a warehouse, palm tree and blue waves">
+
+<link rel="icon" type="image/png" sizes="512x512" href="/assets/share-kit/favicons/favicon-512.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 </head>
 <body>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1245057844149331&ev=PageView&noscript=1"/></noscript>
     <!-- Skip to main content link -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
@@ -645,6 +650,7 @@
                                         <input type="hidden" name="property_type_val" id="hidden_property_type">
                                         <input type="hidden" name="estimated_lease_rate" id="hidden_lease_rate">
                                         <input type="hidden" name="estimated_annual_revenue" id="hidden_annual_revenue">
+                                        <input type="hidden" name="wizard_details" id="hidden_wizard_details">
 
                                         <div id="form-message" class="form-message hidden"></div>
 
@@ -781,7 +787,7 @@
     <script defer src="/app.js?v=91"></script>
     <script defer src="/qualification.js?v=91"></script>
     <script defer src="/cookie-consent.js?v=91"></script>
-    <script defer src="/crm-integration.js?v=91"></script>
+    <script defer src="/crm-integration.js?v=context-20260906"></script>
     <script defer src="/nav-script.js?v=91"></script>
 
     <!-- Valuation Tool Script -->
@@ -908,6 +914,14 @@
             document.getElementById('hidden_property_type').value = propertyType;
             document.getElementById('hidden_lease_rate').value = rate.toFixed(2);
             document.getElementById('hidden_annual_revenue').value = Math.round(annualRevenue);
+            // Preserve the exact inputs behind this displayed estimate for follow-up.
+            // This snapshot does not alter any calculation or displayed result.
+            document.getElementById('hidden_wizard_details').value = Array.from(
+                document.querySelectorAll('#step-1-content input, #step-1-content select, #step-2-content input, #step-2-content select')
+            ).filter(field => field.type !== 'radio' || field.checked)
+             .map(field => (field.name || field.id) + ': ' + (field.type === 'checkbox' ? (field.checked ? 'Yes' : 'No') : (field.value || 'Not specified')))
+             .join('; ');
+
 
             goToStep(3);
         }

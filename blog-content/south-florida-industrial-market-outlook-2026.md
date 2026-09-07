@@ -1,4 +1,6 @@
 ---
+seo_title: "South Florida Industrial Market Outlook 2026"
+seo_description: "Read the 2026 South Florida industrial market outlook, including warehouse vacancy, rent trends, construction and implications for tenants."
 title: "South Florida Industrial Market Outlook: What's Happening in 2026"
 description: "2026 South Florida industrial market analysis: vacancy rates, rent trends, construction pipeline, and what tenants and investors should expect."
 keywords: "south florida industrial market 2026, palm beach county industrial outlook, warehouse market trends, industrial vacancy rates"

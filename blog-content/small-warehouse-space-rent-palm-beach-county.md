@@ -1,4 +1,6 @@
 ---
+seo_title: "Small Warehouse Space for Rent in Palm Beach County"
+seo_description: "Explore small warehouse and flex space considerations in Palm Beach County, including size, location and requirements for contractors and small businesses."
 title: "Small Warehouse Space for Rent in Palm Beach County"
 description: "Find small warehouse space under 5,000 SF in Palm Beach County. Rates, availability, and submarket comparison for contractors, e-commerce, and small businesses."
 keywords: "small warehouse for rent palm beach county, small bay warehouse, warehouse under 5000 SF, small industrial space"

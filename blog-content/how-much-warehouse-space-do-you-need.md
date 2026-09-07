@@ -1,4 +1,6 @@
 ---
+seo_title: "How Much Warehouse Space Do You Need? | Palm Beach County"
+seo_description: "Plan warehouse square footage around inventory, equipment, employees and growth. Use this Palm Beach County guide to prepare your space requirements."
 title: "How Much Warehouse Space Do You Need? A Sizing Guide for Palm Beach County"
 description: "Calculate your warehouse square footage: inventory, equipment, employees, growth buffer. Palm Beach County sizing guide with local pricing from $16-30/SF."
 keywords: "how much warehouse space do i need, warehouse size calculator, warehouse square footage guide, warehouse space planning palm beach county"

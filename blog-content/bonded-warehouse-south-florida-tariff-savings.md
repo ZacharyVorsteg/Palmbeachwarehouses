@@ -1,4 +1,6 @@
 ---
+seo_title: "Bonded Warehouses in South Florida: A Tenant Guide"
+seo_description: "Understand bonded warehouse considerations for South Florida importers, including tariff deferral, storage requirements, costs and alternatives."
 title: "Bonded Warehouses in South Florida: Tariff Deferral for Importers"
 description: "How bonded warehouses in South Florida help importers defer tariffs up to 5 years. CBP classes, costs, FTZ comparison, and Palm Beach County options."
 keywords: "bonded warehouse south florida, bonded warehouse tariff deferral, CBP bonded warehouse florida, foreign trade zone palm beach county, import warehouse south florida, bonded warehouse cost per square foot"

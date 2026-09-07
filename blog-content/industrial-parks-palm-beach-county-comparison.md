@@ -1,4 +1,6 @@
 ---
+seo_title: "Palm Beach County Industrial Parks: Comparison Guide"
+seo_description: "Compare Palm Beach County industrial parks by location, access and property characteristics, including Jupiter, Boca Raton and Boynton Beach."
 title: "Industrial Parks in Palm Beach County: Complete Comparison Guide (2026)"
 description: "Compare industrial parks in Palm Beach County: Park of Commerce (Jupiter), Arvida (Boca), Quantum (Boynton), rates, access, tenants."
 keywords: "industrial parks palm beach county, industrial real estate, warehouse parks florida"

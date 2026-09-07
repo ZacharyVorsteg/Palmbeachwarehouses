@@ -1,4 +1,6 @@
 ---
+seo_title: "Warehouse Lease Costs in Palm Beach County (2026)"
+seo_description: "Review the components of Palm Beach County warehouse lease costs, including base rent, NNN expenses, building characteristics and location."
 title: "How Much Does Warehouse Space Cost in Palm Beach County? (2026 Rates)"
 description: "2026 warehouse lease rates in Palm Beach County: $18-24/SF NNN. Detailed breakdown by city, building class, and what drives pricing."
 keywords: "warehouse cost palm beach county, industrial lease rates, NNN rates, warehouse pricing"

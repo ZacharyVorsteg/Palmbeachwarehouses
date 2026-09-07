@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="2026 Palm Beach Industrial Market Report — current NNN rent, vacancy by submarket, and what tenants are actually paying. Free for tenants planning a 2026 lease, renewal, or expansion.">
+    <meta name="description" content="Request the 2026 Palm Beach County industrial market report for warehouse leasing context, submarket trends and questions to consider before your next lease.">
     <meta name="keywords" content="Palm Beach industrial market report, warehouse rent per SF, NNN rate, vacancy rates, tenant rep, lease renewal benchmark">
-    <title>Free Industrial Market Report 2026 | Palm Beach Warehouses</title>
+    <title>2026 Palm Beach Industrial Market Report | PBW</title>
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://palmbeachwarehouses.com/market-report/">
@@ -17,26 +17,23 @@
     <meta name="ICBM" content="26.7153, -80.0534">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/favicon.png">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-
     <!-- Open Graph (Facebook, LinkedIn, iMessage, etc.) -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://palmbeachwarehouses.com/market-report/">
-    <meta property="og:title" content="Free Industrial Market Report 2026 | Palm Beach Warehouses">
-    <meta property="og:description" content="2026 Palm Beach Industrial Market Report — current NNN rent, vacancy by submarket, and what tenants are actually paying. Free for tenants planning a 2026 lease, renewal, or expansion.">
-    <meta property="og:image" content="https://palmbeachwarehouses.com/assets/og-editorial.png">
+    <meta property="og:title" content="2026 Palm Beach Industrial Market Report | PBW">
+    <meta property="og:description" content="Request the 2026 Palm Beach County industrial market report for warehouse leasing context, submarket trends and questions to consider before your next lease.">
+    <meta property="og:image" content="https://palmbeachwarehouses.com/assets/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Palm Beach Industrial Market Report 2026">
+    <meta property="og:image:alt" content="Palm Beach Warehouses logo with a warehouse, palm tree and blue waves">
     <meta property="og:site_name" content="Palm Beach Warehouses">
     <meta property="og:locale" content="en_US">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Free Industrial Market Report 2026 | Palm Beach Warehouses">
-    <meta name="twitter:description" content="2026 Palm Beach Industrial Market Report — current NNN rent, vacancy by submarket, and what tenants are actually paying. Free for tenants planning a 2026 lease, renewal, or expansion.">
-    <meta name="twitter:image" content="https://palmbeachwarehouses.com/assets/og-editorial.png">
+    <meta name="twitter:title" content="2026 Palm Beach Industrial Market Report | PBW">
+    <meta name="twitter:description" content="Request the 2026 Palm Beach County industrial market report for warehouse leasing context, submarket trends and questions to consider before your next lease.">
+    <meta name="twitter:image" content="https://palmbeachwarehouses.com/assets/og-image.png">
 
     <!-- GEO/AI Optimization -->
     <link rel="alternate" hreflang="en-US" href="https://palmbeachwarehouses.com/market-report/">
@@ -52,6 +49,13 @@
     <script defer src="/utm-capture.js?v=91"></script>
     <!-- Then load tracking initialization -->
     <script defer src="/tracking-init.js"></script>
+
+<meta property="og:image:type" content="image/png">
+
+<meta name="twitter:image:alt" content="Palm Beach Warehouses logo with a warehouse, palm tree and blue waves">
+
+<link rel="icon" type="image/png" sizes="512x512" href="/assets/share-kit/favicons/favicon-512.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 </head>
 <body>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1245057844149331&ev=PageView&noscript=1" alt="" /></noscript>
@@ -201,7 +205,7 @@
                             <div class="form-message" id="form-message"></div>
                             <div class="success-message" id="success-message" style="display:none;">
                                 <h3>Your Report Is Ready!</h3>
-                                <p>Download your 2026 Palm Beach County Industrial Market Report below. We've also sent a copy to your email.</p>
+                                <p>Your request was received. You can read the 2026 Palm Beach County Industrial Market Report below.</p>
                                 <div style="margin: 1rem 0;">
                                     <a href="/assets/palm-beach-industrial-market-report-2026.html" target="_blank" style="display:inline-block; background:#0057E0; color:white; padding:0.75rem 1.5rem; border-radius:6px; font-weight:600; text-decoration:none; font-size:0.95rem;">Download Report</a>
                                 </div>
@@ -637,7 +641,7 @@
     <script defer src="../app.js?v=91"></script>
     <script defer src="/qualification.js?v=91"></script>
     <script defer src="../cookie-consent.js?v=91"></script>
-    <script defer src="/crm-integration.js?v=91"></script>
+    <script defer src="/crm-integration.js?v=context-20260906"></script>
     <script defer src="../nav-script.js?v=91"></script>
 
     <script>
@@ -656,58 +660,7 @@
             btn.classList.toggle('open');
         }
 
-        document.getElementById('report-lead-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const formData = new FormData(this);
-            const submitBtn = document.getElementById('submit-btn');
-            const formMessage = document.getElementById('form-message');
-            const successMessage = document.getElementById('success-message');
-
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Sending...';
-            formMessage.style.display = 'none';
-
-            fetch('/api/leads', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    name: formData.get('name'),
-                    email: formData.get('email'),
-                    role: formData.get('role'),
-                    preferred_location: formData.get('preferred_location'),
-                    lead_source: 'market_report',
-                    utm_source: sessionStorage.getItem('utm_source') || '',
-                    utm_medium: sessionStorage.getItem('utm_medium') || '',
-                    utm_campaign: sessionStorage.getItem('utm_campaign') || ''
-                })
-            })
-            .then(response => {
-                if (!response.ok) throw new Error('Network error');
-                return response.json();
-            })
-            .then(data => {
-                document.getElementById('report-lead-form').style.display = 'none';
-                successMessage.style.display = 'block';
-
-                if (window.dataLayer) {
-                    window.dataLayer.push({
-                        event: 'lead_generation',
-                        lead_source: 'market_report'
-                    });
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                formMessage.className = 'form-message error';
-                formMessage.textContent = 'Error sending request. Please try again or call 561-718-6725.';
-                formMessage.style.display = 'block';
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Download Free Report';
-            });
-        });
+        // The shared CRM adapter owns submission and saved-receipt confirmation.
     </script>
 
     <!-- JSON-LD Schema -->
