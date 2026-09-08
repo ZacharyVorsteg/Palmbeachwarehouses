@@ -6,7 +6,8 @@
   "scripts": {
     "build": "node build-blog.js && node prepare-public.js",
     "new-post": "node new-post.js",
-    "test:public-navigation": "node tests/public-navigation.cjs"
+    "test:public-navigation": "node tests/public-navigation.cjs",
+    "test:lead-confirmation": "node --test --test-force-exit tests/lead-confirmation.cjs"
   },
   "dependencies": {
     "marked": "^15.0.0",

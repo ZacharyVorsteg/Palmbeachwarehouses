@@ -243,7 +243,7 @@
       event.preventDefault();
     }
 
-    if (isSubmitting) {
+    if (isSubmitting || event.target.dataset.submitted === 'true') {
       console.warn('⚠️  Form submission already in progress');
       return;
     }
@@ -323,8 +323,12 @@
 
       const responseData = await response.json();
 
-      // Check for success
-      if (response.ok && responseData.success === true && responseData.leadId) {
+      // A receipt represents the stored lead, not notification delivery or a booked tour.
+      const receiptId = responseData && responseData.leadId;
+      const validReceiptId = (typeof receiptId === 'number' && Number.isSafeInteger(receiptId) && receiptId > 0)
+        || (typeof receiptId === 'string' && /^[1-9]\d*$/.test(receiptId));
+      if (response.ok && responseData && responseData.success === true && validReceiptId) {
+        form.dataset.submitted = 'true';
         console.log('Lead receipt confirmed');
 
         // ONLY AFTER SUCCESS: Fire tracking pixels
@@ -349,7 +353,7 @@
         if (response.status === 402) {
           throw new Error('Sorry, we\'re at capacity right now. Please call us directly at 561-718-6725.');
         } else {
-          throw new Error(responseData.error || 'Failed to submit form. Please try again.');
+          throw new Error((responseData && responseData.error) || 'Failed to submit form. Please try again.');
         }
       }
     } catch (error) {
@@ -1157,19 +1161,16 @@
     const successMessage = document.getElementById('success-message');
 
     if (formType === 'tenant') {
-      // Tenant: hide form, show success with qualification callout
+      // The authored receipt is the single source of confirmation copy.
       const leadForm = document.getElementById('lead-form');
       leadForm.classList.add('hidden');
       successMessage.classList.remove('hidden');
-
-      const callout = document.getElementById('success-callout');
-      let message = '';
-
-      message = '<strong>Request received.</strong> Zach will review your requirements and contact you about available options. Consultations and property tours are by appointment after confirmation; no walk-ins.';
-
-      if (callout) {
-        callout.innerHTML = message;
-        callout.style.display = 'block';
+      const card = leadForm.closest('.form-card');
+      if (card) card.classList.add('is-complete');
+      // Home-only acquisition chrome listens for both acceptance and an explicit reset.
+      if (successMessage.hasAttribute('aria-labelledby')) {
+        document.body.classList.add('tenant-request-received');
+        document.dispatchEvent(new Event('pbw:tenant-receipt'));
       }
     } else if (formType === 'landlord') {
       // Landlord: hide form, show success (content is already in HTML)
@@ -1234,7 +1235,10 @@
     // Scroll success message into view — double rAF ensures layout is complete after unhiding
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
-        successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        if (!successMessage || successMessage.classList.contains('hidden')) return;
+        successMessage.tabIndex = -1;
+        successMessage.focus({preventScroll: true});
+        successMessage.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion:reduce)').matches ? 'auto' : 'smooth', block: 'center' });
       });
     });
   }
@@ -1267,6 +1271,13 @@
     const formMessage = document.getElementById('form-message');
 
     form.reset();
+    delete form.dataset.submitted;
+    if (formId === 'lead-form') {
+      const card = form.closest('.form-card');
+      if (card) card.classList.remove('is-complete');
+      document.body.classList.remove('tenant-request-received');
+      document.dispatchEvent(new Event('pbw:tenant-receipt'));
+    }
     form.classList.remove('hidden');
     form.style.display = '';
     if (form.parentElement) form.parentElement.style.display = '';

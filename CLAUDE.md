@@ -79,3 +79,7 @@ This triggers automatic Netlify deployment via GitHub.
 When changing headers, footers, shared navigation, location/report entry pages or blog templates, run `npm run build` followed by `npm run test:public-navigation` before pushing. The test blocks external traffic and production writes. It checks the actual revealed links, keyboard/pointer closure, responsive scroll restoration and the Locations inquiry destination.
 
 Read `docs/PUBLIC-NAVIGATION-2026-09-07.md` for the repaired failure cases. Changing a hamburger icon or `aria-expanded` alone does not prove that navigation works. Update templates and generated consumers together; version changed shared assets and verify the published page after deployment.
+
+## Lead confirmation gate
+
+Read `docs/LEAD-CONFIRMATION-2026-09-07.md` before editing completion states. Keep one authored receipt and hide pre-submission chrome after accepted requests. Sticky/exit promotions must remain suppressed until an explicit new inquiry; reset must restore intake without losing prior dismissal preferences. Run `npm run test:lead-confirmation` against the staged build, plus existing form/route/navigation checks. Never show success or fire conversions for an unaccepted receipt, and never count a displayed receipt as proof of notification delivery.
