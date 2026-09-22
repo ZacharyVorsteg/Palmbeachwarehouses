@@ -3,7 +3,7 @@ const root = __dirname, output = path.join(root, 'public');
 const excluded = new Set(['public', 'node_modules', 'netlify', 'pipeline', 'blog-content', 'tests', '.git']);
 const omitted = new Set(['package.json','package-lock.json','netlify.toml','build-blog.js','prepare-public.js','new-post.js']);
 const draftHtml = new Set(['ad-creatives/ad-mockup-feed.html', 'assets/share-kit/og-bold.html', 'assets/share-kit/og-editorial.html', 'assets/share-kit/og-square.html']);
-const web = /\.(html|css|js|json|png|jpg|jpeg|webp|svg|ico|xml|txt|pdf|vcf|woff|woff2|mp4|webm)$/i;
+const web = /\.(html|css|js|json|png|jpg|jpeg|webp|avif|svg|ico|xml|txt|pdf|vcf|woff|woff2|mp4|webm)$/i;
 function visit(source,destination){
  if(draftHtml.has(path.relative(root,source).split(path.sep).join('/')))return;
  if(fs.statSync(source).isDirectory()){
